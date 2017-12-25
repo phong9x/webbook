@@ -1,0 +1,538 @@
+/* --------------------------------------------------------------------- */
+/* COMMON STYLING
+/* --------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Nanum Barun Gothic';
+  font-style: normal;
+  font-weight: lighter;
+  src: url("../fonts/nanum-admin/NanumBarunGothicLight.eot");
+  src: local('Nanum Barun Gothic Light'), local('NanumBarunGothicLight'), url("../fonts/nanum-admin/NanumBarunGothicLight.eot?#iefix") format('embedded-opentype'), url("../fonts/nanum-admin/NanumBarunGothicLight.woff2") format('woff2'), url("../fonts/nanum-admin/NanumBarunGothicLight.woff") format('woff'), url("../fonts/nanum-admin/NanumBarunGothicLight.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Nanum Barun Gothic';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/nanum-admin/NanumBarunGothic.eot");
+  src: local('Nanum Barun Gothic'), local('NanumBarunGothic'), url("../fonts/nanum-admin/NanumBarunGothic.eot?#iefix") format('embedded-opentype'), url("../fonts/nanum-admin/NanumBarunGothic.woff2") format('woff2'), url("../fonts/nanum-admin/NanumBarunGothic.woff") format('woff'), url("../fonts/nanum-admin/NanumBarunGothic.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Nanum Barun Gothic';
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/nanum-admin/NanumBarunGothicBold.eot");
+  src: local('Nanum Barun Gothic Bold'), local('NanumBarunGothicBold'), url("../fonts/nanum-admin/NanumBarunGothicBold.eot?#iefix") format('embedded-opentype'), url("../fonts/nanum-admin/NanumBarunGothicBold.woff2") format('woff2'), url("../fonts/nanum-admin/NanumBarunGothicBold.woff") format('woff'), url("../fonts/nanum-admin/NanumBarunGothicBold.ttf") format('truetype');
+}
+body {
+  font-family: 'Nanum Barun Gothic';
+  font-weight: normal;
+  font-size: 14px;
+}
+.wb-f1 {
+  font-size: 12px;
+}
+.wb-f2 {
+  font-size: 14px;
+}
+.wb-f3 {
+  font-size: 16px;
+}
+.wb-f4 {
+  font-size: 18px;
+}
+.wb-f5 {
+  font-size: 20px;
+}
+.wb-f6 {
+  font-size: 22px;
+}
+.wb-f7 {
+  font-size: 24px;
+}
+.wb-f8 {
+  font-size: 26px;
+}
+.wb-f9 {
+  font-size: 28px;
+}
+.wb-f10 {
+  font-size: 30px;
+}
+.wb-f11 {
+  font-size: 32px;
+}
+.wb-f12 {
+  font-size: 34px;
+}
+.wb-f13 {
+  font-size: 36px;
+}
+.wb-f14 {
+  font-size: 38px;
+}
+.wb-f15 {
+  font-size: 40px;
+}
+.wb-f16 {
+  font-size: 42px;
+}
+.wb-f17 {
+  font-size: 44px;
+}
+.wb-f18 {
+  font-size: 46px;
+}
+.wb-f19 {
+  font-size: 48px;
+}
+.wb-f20 {
+  font-size: 50px;
+}
+.wb-f21 {
+  font-size: 52px;
+}
+.wb-f22 {
+  font-size: 54px;
+}
+.wb-f23 {
+  font-size: 56px;
+}
+.wb-f24 {
+  font-size: 58px;
+}
+.wb-f25 {
+  font-size: 60px;
+}
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+a {
+  color: #26a69a;
+}
+a:hover {
+  color: #1c7d74;
+}
+a:focus {
+  color: #26a69a;
+}
+.wb-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.page-bar .page-breadcrumb > li > a,
+.page-bar .page-breadcrumb > li > span,
+.page-bar .page-breadcrumb > li > i {
+  font-size: 34px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Nanum Barun Gothic';
+  font-weight: normal;
+}
+.primary-font {
+  font-family: 'Nanum Barun Gothic' !important;
+}
+.chart,
+.pie,
+.bars {
+  font-family: 'Nanum Barun Gothic' !important;
+}
+.label {
+  font-family: 'Nanum Barun Gothic';
+}
+.table.table-light > thead > tr > th {
+  font-family: 'Nanum Barun Gothic';
+}
+.wb-pb-50 {
+  padding-bottom: 50px;
+}
+.wb-border-top {
+  border-top: 1px solid #e1e1e1;
+}
+.wb-border-bottom {
+  border-bottom: 1px solid #e1e1e1;
+}
+.wb-overflow-ellipsis {
+  display: block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wb-gap {
+  border: 0 none;
+  padding: 0;
+  margin: 0;
+}
+.wb-bg-white {
+  background-color: #fff;
+}
+.wb-bg-gray {
+  background-color: #f5f5f5;
+}
+.tabbable-custom > .nav-tabs > li > a,
+.tabbable-custom > .nav-tabs > li > a:hover {
+  color: #555;
+}
+.tabbable-custom > .nav-tabs > li.active {
+  border-color: #26a69a;
+}
+.tabbable-custom > .nav-tabs > li.active > a,
+.tabbable-custom > .nav-tabs > li.active > a:hover {
+  color: #26a69a;
+}
+.wb-btn-radio-wrapper .btn.active {
+  color: #fff;
+  border-color: #26a69a;
+  background: #26a69a;
+}
+.wb-btn-checkbox-wrapper .btn.active {
+  color: #fff;
+  background: #26a69a;
+}
+.wb-badge-o {
+  color: #1690d0;
+}
+.wb-badge-x {
+  color: #F3565D;
+}
+.wb-col-wrapper:before,
+.wb-col-wrapper:after {
+  content: " ";
+  clear: both;
+  display: table;
+}
+.wb-col-wrapper .wb-col {
+  float: left;
+}
+.wb-col-wrapper .wb-col-left {
+  float: left;
+}
+.wb-col-wrapper .wb-col-right {
+  float: right;
+}
+.wb-dp-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  vertical-align: top;
+  border-collapse: collapse;
+}
+.wb-dp-table-caption {
+  display: table-caption;
+}
+.wb-dp-table-row {
+  display: table-row;
+}
+.wb-dp-table-cell {
+  display: table-cell;
+  vertical-align: top;
+}
+.wb-dp-table-cell.align-top {
+  vertical-align: top;
+}
+.wb-dp-table-cell.align-middle {
+  vertical-align: middle;
+}
+.wb-dp-table-cell.align-bottom {
+  vertical-align: bottom;
+}
+.wb-dp-table-cell.no-border {
+  border: 0 none;
+}
+.wb-dp-table.align-top .wb-dp-table-cell {
+  vertical-align: top;
+}
+.wb-dp-table.align-middle .wb-dp-table-cell {
+  vertical-align: middle;
+}
+.wb-dp-table.align-bottom .wb-dp-table-cell {
+  vertical-align: bottom;
+}
+.wb-dp-table.no-border .wb-dp-table-cell {
+  border: 0 none;
+}
+.modal-header:before,
+.modal-body:before,
+.modal-footer:before,
+.modal-header:after,
+.modal-body:after,
+.modal-footer:after {
+  content: " ";
+  clear: both;
+  display: table;
+}
+.wb-pagination {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.wb-pagination:before,
+.wb-pagination:after {
+  content: " ";
+  clear: both;
+  display: table;
+}
+.wb-pagination .pagination {
+  display: inline-block;
+  vertical-align: middle;
+}
+.wb-pagination .pagination > li > a:focus,
+.wb-pagination .pagination > li > span:focus {
+  color: #5b9bd1;
+  background: #fff;
+}
+.wb-pagination .pagination .active > a,
+.wb-pagination .pagination .active > a:hover {
+  color: #fff;
+  background: #26a69a;
+  border-color: #26a69a;
+}
+.wb-container-style-1 {
+  max-width: 888px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.wb-container-style-1:before,
+.wb-container-style-1:after {
+  content: " ";
+  clear: both;
+  display: table;
+}
+.wb-block-style-1:before,
+.wb-block-style-1:after {
+  content: " ";
+  clear: both;
+  display: table;
+}
+.wb-block-style-1 .block-1-thumb {
+  width: 200px;
+}
+.wb-block-style-1 .block-1-thumb-img {
+  display: block;
+  width: 170px;
+  height: 210px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.wb-block-style-1 .block-1-title {
+  margin-top: 0;
+}
+.wb-block-style-1 .block-1-info table td {
+  padding: 3px 15px;
+}
+.wb-block-style-1 .block-1-info .wb-dp-table {
+  width: auto;
+}
+.wb-block-style-1 .block-1-info .col-table table {
+  margin-right: 20px;
+}
+@media screen and (max-width: 1919px) {
+  .test-responsive {
+    color: #fff;
+  }
+}
+@media screen and (max-width: 1365px) {
+  .test-responsive {
+    color: #fff;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .test-responsive {
+    color: #fff;
+  }
+}
+@media screen and (max-width: 991px) {
+  .test-responsive {
+    color: #fff;
+  }
+}
+@media screen and (max-width: 767px) {
+  .test-responsive {
+    color: #fff;
+  }
+}
+@media screen and (max-width: 479px) {
+  .test-responsive {
+    color: #fff;
+  }
+}
+@media screen and (max-width: 319px) {
+  .test-responsive {
+    color: #fff;
+  }
+}
+@media screen and (min-width: 320px) {
+  .test-responsive {
+    color: #fff;
+  }
+}
+@media screen and (min-width: 480px) {
+  .test-responsive {
+    color: #fff;
+  }
+}
+@media screen and (min-width: 768px) {
+  .test-responsive {
+    color: #fff;
+  }
+}
+@media screen and (min-width: 992px) {
+  .test-responsive {
+    color: #fff;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .test-responsive {
+    color: #fff;
+  }
+}
+@media screen and (min-width: 1366px) {
+  .test-responsive {
+    color: #fff;
+  }
+}
+@media screen and (min-width: 1920px) {
+  .test-responsive {
+    color: #fff;
+  }
+}
+/* --------------------------------------------------------------------- */
+/* .login
+/* --------------------------------------------------------------------- */
+.login-page {
+  background: #364150;
+}
+.login {
+  padding-top: 100px;
+}
+.login .logo {
+  text-align: center;
+  margin-bottom: 80px;
+}
+.login .form-login-wrapper {
+  display: block;
+  width: 100%;
+}
+.login .form-login {
+  width: 400px;
+  background: #fff;
+  padding: 30px;
+  margin: 0 auto;
+}
+.login .form-login .form-header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 28px;
+  color: #1690d0;
+  margin-bottom: 20px;
+}
+.login .form-login .inputbox {
+  display: block;
+  width: 100%;
+  height: 46px;
+  color: #5A5A5A;
+  background: #EBF3FF;
+  border: 0 none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: 0;
+  padding: 0 10px;
+}
+.login .form-login .remember-checkbox {
+  font-weight: normal;
+  color: #474747;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+.login .form-login .remember-checkbox input[type="checkbox"] {
+  position: relative;
+  top: 2px;
+  margin-top: 0;
+  margin-right: 10px;
+}
+.login .form-login .btn-login {
+  display: block;
+  width: 100%;
+  height: 46px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #fff;
+  background: #1690d0;
+  border: 0 none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: 0;
+  padding: 12px 10px;
+}
+.login .form-login .btn-login:hover {
+  background: #1170a2;
+}
+.login .error-message {
+  color: #F74949;
+}
+/* --------------------------------------------------------------------- */
+/* .header
+/* --------------------------------------------------------------------- */
+/* --------------------------------------------------------------------- */
+/* .footer
+/* --------------------------------------------------------------------- */
+/* --------------------------------------------------------------------- */
+/* .home
+/* --------------------------------------------------------------------- */
+/* --------------------------------------------------------------------- */
+/* .book-management
+/* --------------------------------------------------------------------- */
+.book-management .btn-filter {
+  min-width: 115px;
+  height: 115px;
+}
+.book-management .btn-search {
+  min-width: 115px;
+}
+/* --------------------------------------------------------------------- */
+/* .book-detail
+/* --------------------------------------------------------------------- */
+.book-detail .btn-book-management-page {
+  min-width: 150px;
+}
+/* --------------------------------------------------------------------- */
+/* .book-edit
+/* --------------------------------------------------------------------- */
+.book-edit .form-group .portlet {
+  margin-bottom: 0;
+}
+/* --------------------------------------------------------------------- */
+/* .post-detail
+/* --------------------------------------------------------------------- */
+.post-detail .content-attach-image ul > li {
+  margin-bottom: 15px;
+}
+.post-detail .content-attach-image ul > li .attach-image-img {
+  display: block;
+  width: 300px;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* --------------------------------------------------------------------- */
+/* .banner-management
+/* --------------------------------------------------------------------- */
+.banner-management .banner-thumb {
+  width: 330px;
+  text-align: left;
+}
+.banner-management .banner-thumb-img {
+  display: block;
+  width: 300px;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -1,0 +1,49 @@
+.wbp-search
+  .container-mobile-full: .wbp-search-tab: .wb-tab2
+    .wb-tab2-item.active 전체
+    .wb-tab2-item: a(href="#").mute 오늘의 연재
+    .wb-tab2-item: a(href="#").mute 베스트리그
+    .wb-tab2-item: a(href="#").mute 챌린지리그
+
+
+  .container-mobile-full
+    .wb-list.wbp-search-list
+      .wb-list-head 
+        .wb-f20 오늘의 연재  #[span.wb-color-complementary 0]건
+      .wb-list-body
+        .wb-list-item
+          .wb-f16.text-center 검색결과가 없습니다.
+
+    .wb-list.wbp-search-list
+      .wb-list-head 
+        span.wb-f20.wb-mr66 베스트 리그 #[span.wb-color-complementary 5]건
+        span.wb-color-gray.wb-mr10 더보기
+        img(src="/dist/assets/img/plus.png" alt="plus")
+      .wb-list-body
+        - for(var i=0; i<3; i++) {
+          .wb-list-item
+            .row
+              .col-xs-2.col-md-2
+                .wb-f16.wb-color-complementary2
+                  b 로맨스
+              .col-xs-8.col-md-9
+                .wb-league-col2
+                  .row
+                    .col-md-6.col-xs-12.wb-league-col2-1
+                      span.wb-f16.wb-mr10
+                        b 사신 로맨스 : 월하의 매듭 
+                      span.wb-f16.wb-color-gray.wb-mr10.hidden-xs.hidden-sm
+                        b |
+                      span.wb-f16.wb-color-gray
+                        b 총234회
+                    .col-md-3.col-xs-6.wb-league-col2-2
+                      span.wb-f16.wb-color-gray
+                        b 에시드
+                    .col-md-3.col-xs-6
+                      span.wb-f16.wb-color-gray
+                        b 2015.10.13
+              .col-xs-2.col-md-1
+                img.wb-mr8(src='/dist/assets/img/heart.png', alt='heart')
+                span.wb-f16.wb-color-gray
+                  b 150
+        - }

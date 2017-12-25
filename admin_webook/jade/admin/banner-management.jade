@@ -1,0 +1,54 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title banner-management - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .banner-management.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 배너 관리
+        // .page-bar
+        
+        ="\n"
+        .banner-management-main.wb-pb-50
+          ul.list-banner.wb-ul
+            - for (var i = 0; i < 2; i++)
+              li.item-banner.portlet.light.bordered
+                .portlet-title
+                  .caption
+                    span.caption-subject.bold.font-grey-gallery.uppercase 배너 #{i+1}
+                .portlet-body
+                  .wb-dp-table.align-bottom
+                    .wb-dp-table-cell.banner-thumb
+                      span.banner-thumb-img(style="background-image: url(../../assets/images/demo_single_1.jpg);")
+                    .wb-dp-table-cell.banner-detail
+                      .file-name.wb-f4 파일 명: 
+                      .size.wb-f4 (사이즈: #[strong 000 x 000])
+                      a.btn-edit.btn.green(href="#") 수정
+              // .item-banner
+              ="\n"
+
+          // .list-banner
+        // .banner-management-main
+      // .page-content
+    // .banner-management
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade
+  
+  //- ="\n"
+  //- include ../includes/popupConfirmDelete.jade

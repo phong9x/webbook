@@ -1,0 +1,163 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title book-management - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .book-management.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 작품관리
+              i.fa.fa-angle-right
+            li
+              span 작품
+        // .page-bar
+        
+        ="\n"
+        .book-management-main.wb-pb-50
+          .form-filter-wrapper.portlet.light.bordered
+            .portlet-body.form
+              form.form-filter.form-horizontal.wb-container-style-1(action='#')
+                .form-body
+                  .row
+                    .col-md-9
+                      .row
+                        .col-md-6
+                          .form-group
+                            label.control-label.col-md-5 연령구분
+                            .col-md-7
+                              select.form-control(name='test38')
+                                option(value='0') 전체
+                                option(value='1') 제너맨
+                                option(value='2') 유니티
+                                option(value='3') 하이틴
+                                option(value='4') 로우틴
+
+                          ="\n"
+                          .form-group
+                            label.control-label.col-md-5 장르
+                            .col-md-7
+                              select.form-control(name='test38')
+                                option(value='0') 전체
+                                option(value='1') 로맨스
+                                option(value='2') 판타지
+                                option(value='3') 무협
+                                option(value='4') 퓨젼
+                                option(value='5') 기타
+
+                        ="\n"
+                        .col-md-6
+                          .form-group
+                            label.control-label.col-md-5 연재관
+                            .col-md-7
+                              select.form-control(name='test38')
+                                option(value='0') 전체
+                                option(value='1') 작가관
+                                option(value='2') 베스트리그
+                                option(value='3') 챌린지리그
+                        
+                      ="\n"
+                      .row
+                        .col-md-6
+                          .col-md-7.col-md-offset-5
+                            .form-group.no-margin
+                              label
+                                input(type='checkbox', value='1', name='test867')
+                                |  완결
+
+                        ="\n"
+                        .col-md-6
+                          .col-md-7.col-md-offset-5
+                            .form-group.no-margin
+                              label
+                                input(type='checkbox', value='1', name='test867')
+                                |  성인
+
+                    ="\n"
+                    .col-md-3.text-center
+                      button.btn.green.btn-filter(type='submit') 필터링
+              // .form-filter
+          // .form-filter-wrapper
+
+          ="\n"
+          .form-search-wrapper
+            form.form-search.form-horizontal.wb-container-style-1(action='#')
+              .form-body
+                .form-group
+                  .col-md-3
+                    select.form-control(name='test38')
+                      option(value='0') 전체
+                      option(value='1') 제너맨
+                      option(value='2') 유니티
+                      option(value='3') 하이틴
+                      option(value='4') 로우틴
+
+                  ="\n"
+                  .col-md-5.col-md-offset-1
+                    input.form-control(name='test349', type='text')
+                  
+                  .col-md-3.text-center
+                    button.btn.green.btn-search(type='submit') 필터링
+            // .form-search
+          // .form-search-wrapper
+
+          ="\n"
+          .table-result-wrapper
+            .table-result-title
+              h4 조회 작품 수: #[strong 13,209]
+            // .table-result-title
+
+            ="\n"
+            .table-responsive
+              table.table.table-striped.table-bordered.table-hover
+                thead
+                  tr
+                    th 번호
+                    th 작품명
+                    th 닉네임
+                    th 연령구분
+                    th 작가등급
+                    th 장르
+                    th 등록일자
+                tbody
+                  tr
+                    td 2
+                    td #[a(href="book-detail.html") 황제의 꿈]
+                    td edfg
+                    td 유니티
+                    td 베스트리그
+                    td 로맨스
+                    td 15.06.28 12:00
+                  tr
+                    td 1
+                    td #[a(href="book-detail.html") 황제의 꿈]
+                    td edfg
+                    td 유니티
+                    td 베스트리그
+                    td 로맨스
+                    td 15.06.28 12:00
+            // .table-responsive
+
+            ="\n"
+            include ../includes/wb-pagination.jade
+          // .table-result-wrapper
+        // .book-management-main
+      // .page-content
+    // .book-management
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade
+  

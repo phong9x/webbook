@@ -1,0 +1,101 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title post-management - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .post-management.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 커뮤니티 관리
+              i.fa.fa-angle-right
+            li
+              span 게시물
+        // .page-bar
+        
+        ="\n"
+        .post-management-main.wb-pb-50
+          .form-search-wrapper
+            form.form-search.form-horizontal.wb-container-style-1(action='#')
+              .form-body
+                .form-group
+                  .col-md-2
+                    label.control-label #[strong 연령구분]
+                  .col-md-4
+                    select.form-control(name='test178')
+                      option(value='0') 자유게시판
+                      option(value='1') 감상평
+                      option(value='2') 강의/자료실
+                      option(value='3') FAQ
+                      option(value='4') 공지사항 
+
+                .form-group
+                  .col-md-3
+                    select.form-control(name='test38')
+                      option(value='0') 닉네임
+                      option(value='1') 작품명
+
+                  ="\n"
+                  .col-md-5.col-md-offset-1
+                    input.form-control(name='test349', type='text')
+                  
+                  .col-md-3.text-center
+                    button.btn.green.btn-search(type='submit') 검색
+            // .form-search
+          // .form-search-wrapper
+
+          ="\n"
+          .table-list-post-wrapper
+            .table-responsive
+              table.table.table-striped.table-bordered.table-hover
+                thead
+                  tr
+                    th 번호
+                    th 게시판
+                    th 닉네임
+                    th 제목
+                    th 작성일
+                    th 관리
+                tbody
+                  - for (var i = 0; i < 2; i++)
+                    tr
+                      td 1
+                      td 자유게시판
+                      td pororo
+                      td
+                        a(href="post-detail.html") 안녕하세요. 처음 가입하게 되엇네요…
+                      td 15.06.30 10:00
+                      td 
+                        a.btn-open-popup.btn.red(href="#", data-toggle='modal', data-target="#popupConfirmDelete") 삭제
+            // .table-responsive
+
+            ="\n"
+            .button-action.text-right
+              a.btn.default(href="post-write.html") 게시물 작성
+            // .button-action
+
+            ="\n"
+            include ../includes/wb-pagination.jade
+          // .table-list-post-wrapper
+        // .post-management-main
+      // .page-content
+    // .post-management
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade
+
+  ="\n"
+  include ../includes/popupConfirmDelete.jade

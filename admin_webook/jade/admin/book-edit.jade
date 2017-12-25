@@ -1,0 +1,175 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title book-edit - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .book-edit.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 작품정보 수정
+        // .page-bar
+        
+        ="\n"
+        .book-edit-main.wb-pb-50
+          .block-form
+            .form-book-edit-wrapper.portlet.light.bordered
+              .portlet-body.form
+                // BEGIN FORM
+                form.form-book-edit.form-horizontal(method="GET")
+                  .form-body
+                    .form-block.wb-container-style-1
+                      .form-group
+                        label.col-md-3.control-label 제목
+                        .col-md-9
+                          input.form-control(type='text', value='유년의 상처')
+
+                    ="\n"
+                    .wb-gap(style="border-top: 1px solid #e1e1e1; padding-bottom: 15px;")
+                    
+                    ="\n"
+                    .form-block.wb-container-style-1
+                      .form-group
+                        label.col-md-3.control-label 장르
+                        .col-md-4
+                          select.form-control(name='test873')
+                            option(value='0') 로맨스
+                            option(value='1') 판타지
+                            option(value='2') 무협
+                            option(value='3') 퓨전/기타
+                        .col-md-5
+                          .wb-btn-radio-wrapper(data-toggle='buttons')
+                            label.btn.btn-default
+                              input.toggle(type='radio') 
+                              | 일반
+                            label.btn.btn-default
+                              input.toggle(type='radio') 
+                              | 성인
+
+                      ="\n"
+                      .form-group
+                        label.col-md-3.control-label 연령대
+                        .col-md-4
+                          select.form-control(name='test193')
+                            option(value='') 연령대
+                            option(value='0') Over 25
+                            option(value='1') Under 25
+                            option(value='2') Under 20
+                            option(value='3') Under 15
+                        .col-md-5
+                          .row
+                            label.col-md-3.control-label.text-left 연재관
+                            .col-md-9
+                              p.form-control-static 베스트 리그
+
+                      ="\n"
+                      .form-group
+                        label.col-md-3.control-label 연재요일 선택
+                        .col-md-9
+                          .wb-btn-checkbox-wrapper.btn-group(data-toggle='buttons')
+                            label.btn.btn-default
+                              input.toggle(type='checkbox')
+                              | 월
+                            label.btn.btn-default
+                              input.toggle(type='checkbox')
+                              | 화
+                            label.btn.btn-default
+                              input.toggle(type='checkbox')
+                              | 수
+                            label.btn.btn-default
+                              input.toggle(type='checkbox')
+                              | 목
+                            label.btn.btn-default
+                              input.toggle(type='checkbox')
+                              | 금
+                            label.btn.btn-default
+                              input.toggle(type='checkbox')
+                              | 토
+                            label.btn.btn-default
+                              input.toggle(type='checkbox')
+                              | 일
+
+                      ="\n"
+                      .form-group
+                        label.col-md-3.control-label 줄거리
+                        .col-md-9
+                          .portlet.light.bordered
+                            .portlet-body
+                              p
+                                | 선영은 어릴 때 당한 교통사고로 한쪽 발을 절단했다. 상처에도 불구하고 긍정적인 삶을 살아가려고 노력한다. 하지만 이상적인 남자친구를 만나고부터는 상처가 되살아 나는데….
+
+                      ="\n"
+                      .form-group
+                        label.col-md-3.control-label 작품 키워드 입력
+                        .col-md-9
+                          .row
+                            .col-md-3
+                              select.form-control(name='test123')
+                                option(value='') Select...
+                                option(value='Option 1') Option 1
+                                option(value='Option 2') Option 2
+                                option(value='Option 3') Option 3
+                            .col-md-3
+                              select.form-control(name='test124')
+                                option(value='') Select...
+                                option(value='Option 1') Option 1
+                                option(value='Option 2') Option 2
+                                option(value='Option 3') Option 3
+                            .col-md-3
+                              select.form-control(name='test125')
+                                option(value='') Select...
+                                option(value='Option 1') Option 1
+                                option(value='Option 2') Option 2
+                                option(value='Option 3') Option 3
+                            .col-md-3
+                              input.form-control(type='text', value='')
+                              
+                    ="\n"
+                    .wb-gap(style="border-top: 1px solid #e1e1e1; padding-bottom: 15px;")
+                    
+                    ="\n"
+                    .form-block.wb-container-style-1
+                      .form-group
+                        label.col-md-3.control-label
+                          strong 표지 이미지
+
+                      ="\n"
+                      .form-group
+                        label.col-md-3.control-label 첨부파일
+                        .col-md-9
+                          p.form-control-static abcd1234.jpg
+
+                      ="\n"
+                      .form-group
+                        label.col-md-3.control-label 기본 이미지
+                        .col-md-4
+                          input(type="file", name='test346')
+                        .col-md-5
+                          button.btn.green.btn-change-image(type='submit') 기본 이미지로 변경
+                        
+                  ="\n"
+                  .form-action.text-center
+                    button.btn.green.btn-save(type='submit') 변경내용 저장
+                    a(href="book-detail.html").btn.btn-default.btn-cancel 취소
+                  //.form-action
+                  
+          // .block-form
+        // .book-edit-main
+      // .page-content
+    // .book-edit
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade

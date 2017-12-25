@@ -1,0 +1,1 @@
+Select sum(c.CHARGE_AMOUNT) From Coupon_Used c where c.user_id=10 and c.is_Delete = 0

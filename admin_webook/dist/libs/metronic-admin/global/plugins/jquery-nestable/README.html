@@ -1,0 +1,87 @@
+<h1 id="nestable">Nestable</h1>
+<h3 id="drag-drop-hierarchical-list-with-mouse-and-touch-compatibility-jquery-zepto-plugin-">Drag &amp; drop hierarchical list with mouse and touch compatibility (jQuery / Zepto plugin)</h3>
+<p><a href="http://dbushell.github.com/Nestable/"><strong>Try Nestable Demo</strong></a></p>
+<h2 id="usage">Usage</h2>
+<p>Write your nested HTML lists like so:</p>
+<pre><code>&lt;div class=&quot;dd&quot;&gt;
+    &lt;ol class=&quot;dd-list&quot;&gt;
+        &lt;li class=&quot;dd-item&quot; data-id=&quot;1&quot;&gt;
+            &lt;div class=&quot;dd-handle&quot;&gt;Item 1&lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;dd-item&quot; data-id=&quot;2&quot;&gt;
+            &lt;div class=&quot;dd-handle&quot;&gt;Item 2&lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;dd-item&quot; data-id=&quot;3&quot;&gt;
+            &lt;div class=&quot;dd-handle&quot;&gt;Item 3&lt;/div&gt;
+            &lt;ol class=&quot;dd-list&quot;&gt;
+                &lt;li class=&quot;dd-item&quot; data-id=&quot;4&quot;&gt;
+                    &lt;div class=&quot;dd-handle&quot;&gt;Item 4&lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;dd-item&quot; data-id=&quot;5&quot;&gt;
+                    &lt;div class=&quot;dd-handle&quot;&gt;Item 5&lt;/div&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/div&gt;
+</code></pre><p>Then activate with jQuery like so:</p>
+<pre><code>$(&#39;.dd&#39;).nestable({ /* config options */ });
+</code></pre><h3 id="events">Events</h3>
+<p>The <code>change</code> event is fired when items are reordered.</p>
+<pre><code>$(&#39;.dd&#39;).on(&#39;change&#39;, function() {
+    /* on change event */
+});
+</code></pre><h3 id="methods">Methods</h3>
+<p>You can get a serialised object with all <code>data-*</code> attributes for each item.</p>
+<pre><code>$(&#39;.dd&#39;).nestable(&#39;serialize&#39;);
+</code></pre><p>The serialised JSON for the example above would be:</p>
+<pre><code>[{&quot;id&quot;:1},{&quot;id&quot;:2},{&quot;id&quot;:3,&quot;children&quot;:[{&quot;id&quot;:4},{&quot;id&quot;:5}]}]
+</code></pre><h3 id="configuration">Configuration</h3>
+<p>You can change the follow options:</p>
+<ul>
+<li><code>maxDepth</code> number of levels an item can be nested (default <code>5</code>)</li>
+<li><code>group</code> group ID to allow dragging between lists (default <code>0</code>)</li>
+</ul>
+<p>These advanced config options are also available:</p>
+<ul>
+<li><code>listNodeName</code> The HTML element to create for lists (default <code>&#39;ol&#39;</code>)</li>
+<li><code>itemNodeName</code> The HTML element to create for list items (default <code>&#39;li&#39;</code>)</li>
+<li><code>rootClass</code> The class of the root element <code>.nestable()</code> was used on (default <code>&#39;dd&#39;</code>)</li>
+<li><code>listClass</code> The class of all list elements (default <code>&#39;dd-list&#39;</code>)</li>
+<li><code>itemClass</code> The class of all list item elements (default <code>&#39;dd-item&#39;</code>)</li>
+<li><code>dragClass</code> The class applied to the list element that is being dragged (default <code>&#39;dd-dragel&#39;</code>)</li>
+<li><code>handleClass</code> The class of the content element inside each list item (default <code>&#39;dd-handle&#39;</code>)</li>
+<li><code>collapsedClass</code> The class applied to lists that have been collapsed (default <code>&#39;dd-collapsed&#39;</code>)</li>
+<li><code>placeClass</code> The class of the placeholder element (default <code>&#39;dd-placeholder&#39;</code>)</li>
+<li><code>emptyClass</code> The class used for empty list placeholder elements (default <code>&#39;dd-empty&#39;</code>)</li>
+<li><code>expandBtnHTML</code> The HTML text used to generate a list item expand button (default <code>&#39;&lt;button data-action=&quot;expand&quot;&gt;Expand&gt;&lt;/button&gt;&#39;</code>)</li>
+<li><code>collapseBtnHTML</code> The HTML text used to generate a list item collapse button (default <code>&#39;&lt;button data-action=&quot;collapse&quot;&gt;Collapse&lt;/button&gt;&#39;</code>)</li>
+<li><code>dropCallback</code> The callback method which is called when an item has been successfully moved. It has 1 argument: object with all details (default <code>null</code>)</li>
+</ul>
+<p><code>dropCallback</code> details object:</p>
+<ul>
+<li><code>sourceId</code> - id of moved element</li>
+<li><code>destId</code> - id of destination parent or null if element was moved directly as root</li>
+<li><code>sourceEl</code> - whole moved element if you want to gather additional info about it</li>
+<li><code>destParent</code> - whole destination parent element (if root, then it returns direct container)</li>
+<li><code>destRoot</code> - contains destination group where element was dropped</li>
+<li><code>sourceRoot</code> - contains source group where element belonged to before user started dragging it</li>
+</ul>
+<p><strong>Inspect the <a href="http://dbushell.github.com/Nestable/">Nestable Demo</a> for guidance.</strong></p>
+<h2 id="change-log">Change Log</h2>
+<h3 id="15th-october-2012">15th October 2012</h3>
+<ul>
+<li>Merge for Zepto.js support</li>
+<li>Merge fix for remove/detach items</li>
+</ul>
+<h3 id="27th-june-2012">27th June 2012</h3>
+<ul>
+<li>Added <code>maxDepth</code> option (default to 5)</li>
+<li>Added empty placeholder</li>
+<li>Updated CSS class structure with options for <code>listClass</code> and <code>itemClass</code>.</li>
+<li>Fixed to allow drag and drop between multiple Nestable instances (off by default).</li>
+<li>Added <code>group</code> option to enabled the above.</li>
+</ul>
+<hr>
+<p>Author: David Bushell <a href="http://dbushell.com/">http://dbushell.com</a> <a href="http://twitter.com/dbushell/">@dbushell</a></p>
+<p>Copyright © 2012 David Bushell | BSD &amp; MIT license</p>

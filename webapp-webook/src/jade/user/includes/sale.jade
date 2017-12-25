@@ -1,0 +1,79 @@
+.wbp-sale
+  .wb-cat-tab: .container-mobile-full
+    .wb-cat-tab-wrapper.clearfix
+      .wb-cat-tab-item: a.mute(href="#") 오늘
+      .wb-cat-tab-item: a.mute(href="#") 로맨스
+      .wb-cat-tab-item: a.mute(href="#") 판타지
+      .wb-cat-tab-item: a.mute(href="#") 무협
+      .wb-cat-tab-item.active 퓨전/기타
+      .wb-cat-tab-item: a.mute(href="#") 성인
+      .wb-cat-tab-item: a.mute(href="#") 완결작
+
+  .container
+    .wb-f24.wb-mt50 #[span.wb-color-complementary 판매/정산] 현황
+    .sep.wb-mt20
+    .wb-f20.wb-color-gray.wb-mt30 < 작품 판매 현황 >
+    .wb-mt28
+      .wb-select.wb-mr8
+        select
+          option 2015
+      span.wb-color-gray.wb-mr8 년
+      .wb-select.wb-mr8
+        select
+          option 10
+      span.wb-color-gray 년
+
+    .table-responsive.wb-mt20: table.table.wb-table-simple2
+      thead
+        tr
+          th 작품명
+          th 회차명
+          th 단가(원)
+          th 판매수
+          th 정산비율
+          th 정산금액(원)
+      tbody
+        - for(var i=10; i>0; i--) {
+          tr
+            td 영원한 사랑
+            td: .text-left 23회. 꿈꾸는 소녀와..
+            td 100
+            td 100
+            td 100 %
+            td 100,000
+        - }
+
+    .text-center.wb-mt10
+      +wb-pagin
+
+    .wb-f20.wb-color-gray.wb-mt80 < 수익금 정산 >
+    .wb-f16.wb-mt20
+      b.wb-mr20 수익금 잔액 현황: 10,200원
+      button.base-btn.wb-btn-com 환급신청
+    .wb-color-gray.wb-mt10 ※ 환급 신청은 수익금 잔액이 100,000원 이상 부터 가능합니다.
+
+
+    .wb-f20.wb-color-gray.wb-mt80 < 환급내역 >
+
+    .table-responsive.wb-mt20: table.table.wb-table-simple2
+      thead
+        tr
+          th 작품명
+          th 회차명
+          th 단가(원)
+          th 판매수
+          th 정산비율
+          th 정산금액(원)
+      tbody
+        - for(var i=10; i>0; i--) {
+          tr
+            td 영원한 사랑
+            td: .text-left 23회. 꿈꾸는 소녀와..
+            td 100
+            td 100
+            td 100 %
+            td 100,000
+        - }
+
+    .text-center.wb-mt10
+      +wb-pagin

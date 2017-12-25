@@ -1,0 +1,218 @@
+<h1 id="easypiechart">easyPieChart</h1>
+<blockquote>
+<p>Lightweight plugin to render simple, animated and retina optimized pie charts</p>
+</blockquote>
+<p><img src="http://img.shields.io/version/2.1.5.png?color=green" alt="Version"> 
+<a href="https://travis-ci.org/rendro/easy-pie-chart"><img src="https://travis-ci.org/rendro/easy-pie-chart.png" alt="Build Status"></a>
+<a href="https://david-dm.org/rendro/easy-pie-chart"><img src="https://david-dm.org/rendro/easy-pie-chart/dev-status.png" alt="Dependencies Status"></a>
+<a href="https://github.com/igrigorik/ga-beacon"><img src="https://ga-beacon.appspot.com/UA-46840672-1/easy-pie-chart/readme" alt="Analytics"></a></p>
+<h2 id="features">Features</h2>
+<p><a href="http://drbl.in/ezuc"><img src="https://github.com/rendro/easy-pie-chart/raw/master/demo/img/easy-pie-chart.png" alt=""></a></p>
+<ul>
+<li>highly customizable</li>
+<li>very easy to implement</li>
+<li>resolution independent (retina optimized)</li>
+<li>uses <code>requestAnimationFrame</code> for smooth animations on modern devices and</li>
+<li>works in all modern browsers, even in IE7+ with <a href="https://code.google.com/p/explorercanvas/wiki/Instructions">excanvas</a></li>
+</ul>
+<h4 id="framework-support">framework support</h4>
+<ul>
+<li>Vanilla JS <em>(no dependencies)</em> (~872 bytes)</li>
+<li>jQuery plugin (~921 bytes)</li>
+<li>Angular Module (~983 bytes)</li>
+</ul>
+<h2 id="get-started">Get started</h2>
+<h4 id="installation">Installation</h4>
+<p>You can also use <a href="http://bower.io">bower</a> to install the component:</p>
+<pre><code>$ bower install jquery.easy-pie-chart
+</code></pre><h4 id="jquery">jQuery</h4>
+<p>To use the easy pie chart plugin you need to load the current version of jQuery (&gt; 1.6.4) and the source of the plugin.</p>
+<pre><code class="lang-html">&lt;div class=&quot;chart&quot; data-percent=&quot;73&quot; data-scale-color=&quot;#ffb400&quot;&gt;73%&lt;/div&gt;
+
+&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/path/to/jquery.easy-pie-chart.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(function() {
+        $(&#39;.chart&#39;).easyPieChart({
+            //your options goes here
+        });
+    });
+&lt;/script&gt;
+</code></pre>
+<h4 id="vanilla-js">Vanilla JS</h4>
+<p>If you don&#39;t want to use jQuery, implement the Vanilla JS version without any dependencies.</p>
+<pre><code class="lang-html">&lt;div class=&quot;chart&quot; data-percent=&quot;73&quot;&gt;73%&lt;/div&gt;
+
+&lt;script src=&quot;/path/to/easy-pie-chart.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    var element = document.querySelector(&#39;.chart&#39;);
+    new EasyPieChart(element, {
+        // your options goes here
+    });
+&lt;/script&gt;
+</code></pre>
+<h4 id="angularjs">AngularJS</h4>
+<pre><code class="lang-html">&lt;div ng-controller=&quot;chartCtrl&quot;&gt;
+    &lt;div easypiechart options=&quot;options&quot; percent=&quot;percent&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../dist/angular.easypiechart.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    var app = angular.module(&#39;app&#39;, [&#39;easypiechart&#39;]);
+    app.controller(&#39;chartCtrl&#39;, [&#39;$scope&#39;, function ($scope) {
+        $scope.percent = 65;
+        $scope.options = {
+            animate:{
+                duration:0,
+                enabled:false
+            },
+            barColor:&#39;#2C3E50&#39;,
+            scaleColor:false,
+            lineWidth:20,
+            lineCap:&#39;circle&#39;
+        };
+    }]);
+&lt;/script&gt;
+</code></pre>
+<h2 id="options">Options</h2>
+<p>You can pass these options to the initialize function to set a custom look and feel for the plugin.</p>
+<table>
+    <tr>
+        <th>Property (Type)</th>
+        <th>Default</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><strong>barColor</strong></td>
+        <td>#ef1e25</td>
+        <td>The color of the curcular bar. You can either pass a valid css color string, or a function that takes the current percentage as a value and returns a valid css color string.</td>
+    </tr>
+    <tr>
+        <td><strong>trackColor</strong></td>
+        <td>#f2f2f2</td>
+        <td>The color of the track, or false to disable rendering.</td>
+    </tr>
+    <tr>
+        <td><strong>scaleColor</strong></td>
+        <td>#dfe0e0</td>
+        <td>The color of the scale lines, false to disable rendering.</td>
+    </tr>
+    <tr>
+        <td><strong>scaleLength</strong></td>
+        <td>5</td>
+        <td>Length of the scale lines (reduces the radius of the chart).</td>
+    </tr>
+    <tr>
+        <td><strong>lineCap</strong></td>
+        <td>round</td>
+        <td>Defines how the ending of the bar line looks like. Possible values are: <code>butt</code>, <code>round</code> and <code>square</code>.</td>
+    </tr>
+    <tr>
+        <td><strong>lineWidth</strong></td>
+        <td>3</td>
+        <td>Width of the chart line in px.</td>
+    </tr>
+    <tr>
+        <td><strong>size</strong></td>
+        <td>110</td>
+        <td>Size of the pie chart in px. It will always be a square.</td>
+    </tr>
+        <tr>
+        <td><strong>rotate</strong></td>
+        <td>0</td>
+        <td>Rotation of the complete chart in degrees.</td>
+    </tr>
+    <tr>
+        <td><strong>animate</strong></td>
+        <td>object</td>
+        <td>Object with time in milliseconds and boolean for an animation of the bar growing (<code>{ duration: 1000, enabled: true }</code>), or false to deactivate animations.</td>
+    </tr>
+    <tr>
+        <td><strong>easing</strong></td>
+        <td>defaultEasing</td>
+        <td>Easing function or string with the name of a <a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank">jQuery easing function</a></td>
+    </tr>
+</table>
+
+
+
+<h2 id="callbacks">Callbacks</h2>
+<p>All callbacks will only be called if <code>animate</code> is not <code>false</code>.</p>
+<table>
+    <tr>
+        <th>Callback(params, ...)</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><strong>onStart(from, to)</strong></td>
+        <td>Is called at the start of any animation.</td>
+    </tr>
+    <tr>
+        <td><strong>onStep(from, to, currentValue)</strong></td>
+        <td>Is called during animations providing the current value (the method is scoped to the context of th eplugin, so you can access the DOM element via <code>this.el</code>).</td>
+    </tr>
+    <tr>
+        <td><strong>onStop(from, to)</strong></td>
+        <td>Is called at the end of any animation.</td>
+    </tr>
+</table>
+
+
+
+<h2 id="plugin-api">Plugin api</h2>
+<h4 id="jquery">jQuery</h4>
+<pre><code class="lang-javascript">$(function() {
+    // instantiate the plugin
+    ...
+    // update
+    $(&#39;.chart&#39;).data(&#39;easyPieChart&#39;).update(40);
+    ...
+    // disable animation
+    $(&#39;.chart&#39;).data(&#39;easyPieChart&#39;).disableAnimation();
+    ...
+    // enable animation
+    $(&#39;.chart&#39;).data(&#39;easyPieChart&#39;).enableAnimation();
+});
+</code></pre>
+<h4 id="vanilla-js">Vanilla JS</h4>
+<pre><code class="lang-javascript">// instantiate the plugin
+var chart = new EasyPieChart(element, options);
+// update
+chart.update(40);
+// disable animation
+chart.disableAnimation();
+// enable animation
+chart.enableAnimation();
+</code></pre>
+<h6 id="using-a-gradient">Using a gradient</h6>
+<pre><code>new EasyPieChart(element, {
+  barColor: function(percent) {
+    var ctx = this.renderer.ctx();
+    var canvas = this.renderer.canvas();
+    var gradient = ctx.createLinearGradient(0,0,canvas.width,0);
+        gradient.addColorStop(0, &quot;#ffe57e&quot;);
+        gradient.addColorStop(1, &quot;#de5900&quot;);
+    return gradient;
+  }
+});
+</code></pre><h4 id="angularjs">AngularJS</h4>
+<p>For a value binding you need to add the <code>percent</code> attribute and bind it to your controller.</p>
+<h4 id="requirejs">RequireJS</h4>
+<p>When using <a href="http://requirejs.org">RequireJS</a> you can define your own name. Examples can be found in the <code>demo/requirejs.html</code>.</p>
+<h2 id="browser-support">Browser Support</h2>
+<p>Native support</p>
+<ul>
+<li>Chrome</li>
+<li>Safari</li>
+<li>FireFox</li>
+<li>Opera</li>
+<li>Internet Explorer 9+</li>
+</ul>
+<p>Support for Internet Explorer 7 and 8 with <a href="https://code.google.com/p/explorercanvas/wiki/Instructions">excanvas</a> polyfill.</p>
+<h2 id="test">Test</h2>
+<p>To run the test just use the karma adapter of grunt: <code>grunt test</code></p>
+<h2 id="credits">Credits</h2>
+<p>Thanks to <a href="http://www.paranoida.com/">Rafal Bromirski</a> for designing <a href="http://drbl.in/ezuc">this dribble shot</a> which inspired me building this plugin.</p>
+<h2 id="copyright">Copyright</h2>
+<p>Copyright (c) 2014 Robert Fleischmann, contributors. Released under the MIT, GPL licenses</p>

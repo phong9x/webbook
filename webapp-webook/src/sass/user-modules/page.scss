@@ -1,0 +1,812 @@
+// ===============================
+// FREE BOARD
+// ===============================
+.wbp-free-board {
+	&-title {
+		margin-top: 49px;
+	}
+
+	&-info-bar {
+		margin-top: 20px;
+		margin-bottom: 30px;
+
+		&-wrapper {
+			border-top: 2px solid #a1a1a1;
+			border-bottom: 1px solid $grayColor;
+			padding: 8px 0 8px 22px;
+		}
+	}
+
+	&-detail {
+		color: $textGrayColor;
+		min-height: 335px;
+	}
+
+	&-action {
+		text-align: right;
+		margin-bottom: 29px;
+	}
+}
+
+// ===============================
+// LEAGUE
+// ===============================
+.wbp-league {
+	margin-top: 50px;
+
+	&-list {
+		margin-top: 15px;
+		border-top: 2px solid #a1a1a1;
+		position: relative;
+		
+		margin-bottom: 50px;
+
+		&:before {
+			position: absolute;
+			content: "";
+			display: block;
+			
+		    top: -5px;
+		    left: 0;
+		    width: 119px;
+
+		    height: 5px;
+		    background-color: #0b8bce;
+		}
+
+		&-item {
+			padding: 50px 0 40px 0;
+			border-bottom: 1px solid $grayColor;
+		}
+	}
+
+	&-pagin {
+		margin-bottom: 293px;
+	}
+}
+
+
+@media (max-width: $md - 1) {
+.wbp-league {
+	margin-top: 0;
+
+	&-list {
+		margin-top: 0;
+		margin-bottom: 112px;
+		border-top: 1px solid $grayColor;
+
+		&:before { display: none }
+	}
+
+	&-filter {
+		padding: 30px 0;
+	}
+}
+}
+
+
+// ===============================
+// REGISTER
+// ===============================
+
+.wbp-register {
+	margin-top: 50px;
+	margin-bottom: 127px;
+
+	&-pl15 {
+		padding-left: 15px;
+	}
+
+	&-form {
+		width: 700px;
+		margin: 0 auto;
+	}
+}
+@media (max-width: $md - 1) {
+.wbp-register {
+	&-form {
+		width: auto;
+	}
+}
+}
+
+
+// ===============================
+// LOGIN
+// ===============================
+.wbp-login {
+	margin-top: 50px;
+	min-height: 500px;
+
+	&-wrapper {
+		width: 454px;
+  	margin: 50px auto;
+
+  	@media screen and (max-width: 767px) {
+  		width: 100%;
+  		max-width: 454px;
+  	}
+	}
+
+	&-left, &-right, &-row {
+		float: left;
+	}
+
+	&-left, &-right {
+		@media screen and (max-width: 767px) {
+			display: block;
+			width: 100%;
+			float: none;
+			margin: 0;
+		}
+	}
+
+	&-left {
+		margin-right: 11px;
+
+		@media screen and (max-width: 767px) {
+			margin-bottom: 22px;
+		}
+	}
+
+	&-right {
+
+	}
+
+	&-row {
+		margin-top: 22px;
+		width: 100%;
+	}
+
+	&-input {
+		&-row {
+			& + & { margin-top: 10px; }
+		}
+
+		&-label, &-text {
+			float: left;
+
+			@media screen and (max-width: 767px) {
+				display: block;
+				width: 100% !important;
+				float: none;
+			}
+		}
+		&-label {
+			padding-top: 7px;
+			width: 83px;
+			label {
+				font-size: 16px;
+			}
+		}
+		&-text {
+			width: 270px;
+			input {
+				width: 100%;
+			}
+		}
+	}
+
+	&-btn {
+		width: 90px;
+		height: 82px;
+		background-color: #1a8fe1;
+
+		border: none;
+		color: white;
+		font-size: 16px;
+
+		@media screen and (max-width: 767px) {
+			width: 100%;
+			height: 36px;
+		}
+	}
+
+	.forgot {
+		a {
+			@media screen and (max-width: 767px) {
+				display: block;
+				margin-right: 0;
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
+
+
+// ===============================
+// FORGOT
+// ===============================
+.wbp-forgot {
+	margin-top: 50px;
+	min-height: 500px;
+
+	&-tabs {
+		margin-top: 47px;
+		border-bottom: 3px solid #818181;
+		// height: 30px;
+
+		li {
+			width: 50%;
+			margin: 0;
+
+			&.active {
+				a, a:focus {
+					border: none;
+					background-color: gray;
+					color: white;
+
+				}
+			}
+
+			a {
+				display: block;
+				height: 37px;
+				border: none;
+
+				border-radius: 0;
+				color: black;
+				text-align: center;
+
+				font-size: 20px;
+				padding: 0;
+				padding-top: 5px;
+
+				margin-right: 0;
+			}
+		}
+	}
+
+	&-pad {
+		padding: 0 44px;
+	}
+
+	.form-group {
+		margin-bottom: 11px;
+	}
+}
+
+@media (max-width: $md - 1) {
+.wbp-forgot {
+	&-pad {
+		padding: 0;
+	}
+}
+}
+
+
+// ===============================
+// BOOK DETAIL
+// ===============================
+.wbp-book-detail {
+	margin-bottom: 150px;
+
+	&-content {
+		margin-top: 50px;
+		margin-bottom: 50px;
+
+		&-col {
+			
+		}
+	}
+
+	&-table {
+		thead {
+			tr {
+				th {
+					height: 50px;
+					vertical-align: middle;
+					font-weight: normal;
+
+					border-bottom: 1px solid $grayColor;
+				}
+			}
+		}
+		tbody {
+			tr {
+				&:hover {
+					background-color: #f6f6f6;
+				}
+
+				td {
+					height: 80px;
+					vertical-align: middle;
+				}
+
+				&:last-child {
+					border-bottom: 1px solid $grayColor;
+				}
+			}
+		}
+	}
+
+	&-tabs {
+		ul.nav {
+			border-bottom: 2px solid #aaaaaa;
+
+			li, li.active {
+				margin: 0;
+				a, a:hover, a:focus {
+					border: none;
+					margin: 0;
+					border-radius: 0;
+				}
+			}
+
+			li {
+				a:hover {
+					background-color: transparent !important;
+				}
+
+				a {
+					color: #888888;
+					font-size: 22px;
+				}
+			}
+
+			li.active {
+				a {
+					color: black;
+				}
+
+				a, a:hover, a:focus {
+					margin-bottom: -2px;
+					border-bottom: 5px solid #1a8fe1;
+				}
+			}
+		}
+	}
+}
+@media (min-width: $md) {
+.wbp-book-detail {
+	&-content {
+
+		&-col {
+			&:nth-child(1) {
+				width: 190px;
+			}
+			&:nth-child(2) {
+				width: 657px;
+			}
+		}
+	}
+}
+
+}
+
+@media (max-width: $md - 1) {
+.wbp-book-detail {
+	&-content {
+
+		&-col {
+			&:nth-child(1) {
+				margin-bottom: 20px;
+				text-align: center;
+			}
+		}
+	}
+
+	&-action {
+		text-align: center;
+	}
+}
+}
+
+
+
+// ===============================
+// EPISODE DETAIL
+// ===============================
+.wbp-ep-detail {
+	margin: 50px 0 192px 0;
+
+	&-r1 {
+		padding: 30px 50px;
+	}
+
+	&-r2 {
+		padding: 82px 182px 50px 182px;
+		position: relative;
+	}
+
+	&-r3 {
+		text-align: center;
+		padding: 40px 0;
+	}
+	&-r4 {
+		padding: 30px 130px;
+	}
+
+	&-bm {
+		text-align: right;
+	}
+
+	&-title {
+		padding-top: 5px;
+	}
+
+	&-control2 {
+		position: absolute;
+		top:50%; left: 0; right: 0;
+		padding: 0 40px;
+
+		&-left {
+			float: left;
+		}
+		&-right {
+			float: right;
+		}
+	}
+
+	&-control3 {
+		position: absolute;
+		top: 60%; left: 100%;
+		
+	}
+
+	&-area {
+		width: 627px;
+		margin-right: 10px;
+	}
+
+	&-btn {
+		width: 100px;
+	}
+}
+
+@media (max-width: $md - 1) {
+.wbp-ep-detail {
+
+	&-r1 {
+		padding: 20px 20px;
+		border-right: none;
+		border-left: none;
+	}
+
+	&-r2 {
+		padding: 60px 0;
+		border-right: none;
+		border-left: none;
+	}
+
+	&-r3 {
+		border-right: none;
+		border-left: none;
+	}
+
+	&-r4 {
+		border-right: none;
+		border-left: none;
+		border-bottom: none;
+
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	&-bm {
+		text-align: center;
+	}
+
+	&-title {
+		padding-top: 5px;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	&-control {
+		margin-bottom: 20px;
+	}
+
+	&-area {
+		width: auto;
+		margin: 0;
+		margin-bottom: 10px;
+	}
+
+	&-btn {
+		width: auto;
+		button {
+			height: 50px !important;
+		}
+	}
+}
+}
+
+
+
+
+
+// ===============================
+// SEARCH
+// ===============================
+.wbp-search {
+	&-tab {
+		margin: 50px 0;
+	}
+
+	&-list {
+		margin-bottom: 100px;
+	}
+}
+
+
+@media (max-width: $md - 1) {
+.wbp-search {
+	&-tab {
+		margin: 0;
+		margin-bottom: 20px;
+
+		.wb-tab2 {
+			border-top: none;
+			border-left: none;
+			border-right: none;
+		}
+	}
+}
+}
+
+
+
+// ===============================
+// FREE BOARD WRITE
+.wbp-fbw {
+	margin-bottom: 100px;
+}
+
+
+
+// ===============================
+// FREE BOARD 2
+.wbp-free-board2 {
+	margin-bottom: 100px;
+
+	&-best {
+		padding: 22px;
+		border: 1px solid $grayColor;
+		margin-top: 24px;
+
+		margin-bottom: 53px;
+		width: 805px;
+
+		&-col {
+			&:nth-child(1) {
+				width: 200px;
+			}
+			&:nth-child(2) {
+				width: 280px;
+			}
+		}
+	}
+
+	&-text {
+		font-size: 13px;
+		color: #474747;
+		line-height: 1.5;
+	}
+}
+
+@media (max-width: $md - 1) {
+.wbp-free-board2 {
+	&-best {
+		width: auto;
+
+		&-col {
+			text-align: center;
+			&:nth-child(1) {
+				width: auto;
+				margin-bottom: 10px;
+			}
+			&:nth-child(2) {
+				width: auto;
+			}
+		}
+	}
+
+	&-text {
+		line-height: 1.7;
+		font-size: 16px;
+	}
+}
+
+}
+
+
+// ===============================
+// PRIVACY
+.wbp-privacy {
+	margin: 50px 0 100px 0;
+
+	&-content {
+		padding: 15px 20px;
+		border: 1px solid $grayColor;
+		height: 620px;
+
+		overflow-y: auto;
+		margin-top: 18px;
+	}
+}
+
+
+// ===============================
+// NOTICE
+.wbp-notice {
+	margin-bottom: 100px;
+	&-bar {
+		border-top: 1px solid #d6d8d9;
+		border-bottom: 2px solid #a1a1a1;
+		padding: 20px 0 20px 25px;
+	}
+}
+
+
+// ===============================
+// FAVOURITE
+.wbp-favo {
+	margin-bottom: 130px;
+}
+
+
+// ===============================
+// CHARGE
+.wbp-charge {
+	&-box {
+		border: 1px solid $grayColor;
+		padding: 0 30px 0 30px;
+
+		&-title {
+			padding: 14px 0;
+			border-bottom: 5px solid #f4f4f4;
+		}
+
+		&-item {
+			padding: 20px 0;
+			& + & {
+				border-top: 1px solid $grayColor;
+			}
+		}
+	}
+}
+
+
+// ===============================
+// SALE
+.wbp-sale {
+	margin-bottom: 150px;
+}
+
+
+// ===============================
+// CHARGE
+.wbp-charge {
+	margin-bottom: 150px;
+}
+
+
+
+// ===============================
+// COUPON
+.wbp-coupon {
+	margin-bottom: 150px;
+
+	&-box {
+		border: 1px solid $grayColor;
+		width: 700px; height: 110px;
+		background: url(../img/b1.png) no-repeat;
+
+		padding: 9px 39px;
+	}
+
+	&-w700 {
+		width: 700px;
+	}
+}
+
+@media (max-width: $md - 1) {
+.wbp-coupon {
+
+	&-w700 {
+		width: auto;
+	}
+}
+
+
+}
+
+
+
+// ===============================
+// MY INFO
+.wbp-myinfo {
+	margin-bottom: 150px;
+}
+
+
+
+// ===============================
+// WITHDRAWAL
+.wbp-withdrawal {
+	margin-bottom: 150px;
+
+	&-box {
+		border: 1px solid $grayColor;
+		background-color: #f7f7f7;
+		padding: 40px;
+	}
+
+	&-form {
+		margin-top: 130px;
+	}
+}
+
+
+
+// ===============================
+// MESSAGE
+.wbp-message {
+	margin-bottom: 150px;
+
+	&-pad {
+		padding: 30px 22px;
+	}
+
+	&-pad2 {
+		padding: 20px 0 0 22px;
+	}
+}
+@media (max-width: $md - 1) {
+.wbp-message {
+
+	&-pad, &-pad2 {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+}
+
+
+
+// ===============================
+// BOOK CREATE
+.wbp-book-create {
+	margin-bottom: 150px;
+
+	&-checks {
+		padding: 10px 13px;
+		border: 1px solid $grayColor;
+	}
+
+	&-col {
+		width: 140px;
+		margin-right: 20px;
+	}
+
+	&-col2 {
+		width: 122px;
+	}
+
+	&-col3 {
+		width: 140px;
+		margin-right: 15px;
+	}
+
+	&-box {
+		border: 1px solid $grayColor;
+		background-color: #f7f7f7;
+		padding: 20px 44px 14px 20px;
+	}
+}
+@media (max-width: $md - 1) {
+.wbp-book-create {
+	&-checks {
+	}
+
+	&-col,
+	&-col2,
+	&-col3 {
+		width: auto;
+		margin-right: 0;
+		margin-bottom: 10px;
+	}
+}
+
+}

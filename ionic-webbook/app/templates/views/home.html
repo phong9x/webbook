@@ -1,0 +1,28 @@
+<ion-view class="wb-home">
+    <div ng-include="'templates/directive/header.html'"></div>
+    <!-- <div ng-include src="'templates/directive/header.html'" include-replace></div> -->
+    <ion-content class="has-main-header wb-home-content">
+        <!-- <ion-refresher
+            pulling-text="Pull to refresh..."
+            on-refresh="fetchRandomText()">
+        </ion-refresher> -->
+        <!-- <div class="loader" ng-if="!myHTML">
+            <ion-spinner></ion-spinner>
+        </div>
+        <div class="content" ng-bind-html="myHTML">
+        </div> -->
+        
+        <div ng-include="'templates/partial/tab.html'"></div>
+
+        
+        <div ng-include="'templates/partial/book-slider.html'"></div>
+        <div ng-include="'templates/partial/event-slider.html'"></div>
+        <div ng-include="'templates/partial/competion.html'"></div>
+        <div ng-include="'templates/partial/notice-box.html'"></div>
+
+        <div ng-include="'templates/partial/footer.html'"></div>
+        
+
+    </ion-content>
+
+</ion-view>

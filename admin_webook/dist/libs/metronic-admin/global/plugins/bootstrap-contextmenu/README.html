@@ -1,0 +1,90 @@
+<h1 id="bootstrap-context-menu">Bootstrap Context Menu</h1>
+<p>A context menu extension of Bootstrap made for everyone&#39;s convenience.</p>
+<p>See a <a href="http://sydcanem.github.io/bootstrap-contextmenu/">demo page</a>.</p>
+<h2 id="installation">Installation</h2>
+<p><code>bower install bootstrap-contextmenu</code></p>
+<p>Note: Requires bootstrap.css</p>
+<h2 id="usage">Usage</h2>
+<h3 id="via-data-attributes">Via data attributes</h3>
+<p>Add <code>data-toggle=&quot;context&quot;</code> to any element that needs a custom context menu and via CSS set <code>position: relative</code> to the element.</p>
+<p>Point <code>data-target</code> attribute to your custom context menu.</p>
+<p><code>&lt;div class=&quot;context&quot; data-toggle=&quot;context&quot; data-target=&quot;#context-menu&quot;&gt;&lt;/div&gt;</code></p>
+<h3 id="via-javascript">Via Javascript</h3>
+<p>Call the context menu via JavaScript:</p>
+<pre><code class="lang-js">$(&#39;.context&#39;).contextmenu({
+  target:&#39;#context-menu&#39;, 
+  before: function(e,context) {
+    // execute code before context menu if shown
+  },
+  onItem: function(context,e) {
+    // execute on menu item selection
+  }
+})
+</code></pre>
+<h3 id="options">Options</h3>
+<p><code>target</code> - is the equivalent of the <code>data-target</code> attribute. It identifies the html of the menu that will be displayed. </p>
+<p><code>before</code> - is a function that is called before the context menu is displayed. If this function returns false, the context menu will not be displayed. It is passed two parameters,</p>
+<ul>
+<li><code>e</code> - the original event. (You can do an <code>e.preventDefault()</code> to cancel the browser event). </li>
+<li><code>context</code> - the DOM element where right click occured.</li>
+</ul>
+<p><code>onItem</code> - is a function that is called when a menu item is clicked. Useful when you want to execute a specific function when an item is clicked. It is passed two parameters,</p>
+<ul>
+<li><code>context</code> - the DOM element where right click occured.</li>
+<li><code>e</code> - the click event of the menu item, $(e.target) is the item element.</li>
+</ul>
+<p><code>scopes</code> - DOM selector for dynamically added context elements. See <a href="https://github.com/sydcanem/bootstrap-contextmenu/issues/56">issue</a>.</p>
+<h3 id="events">Events</h3>
+<p>All events are fired at the context&#39;s menu. Check out <code>dropdown</code> plugin for
+a complete description of events.</p>
+<ul>
+<li><code>show.bs.context</code> - This event fires immediately when the menu is opened. </li>
+<li><code>shown.bs.context</code> - This event is fired when the dropdown has been made visible to the user. </li>
+<li><code>hide.bs.context</code> - This event is fired immediately when the hide instance method has been called. </li>
+<li><code>hidden.bs.context</code> - This event is fired when the dropdown has finished being hidden from the user (will wait for CSS transitions, to complete).</li>
+</ul>
+<p>Sample</p>
+<pre><code class="lang-js">$(&#39;#myMenu&#39;).on(&#39;show.bs.context&#39;,function () {
+  // do something...
+});
+</code></pre>
+<h2 id="example">Example</h2>
+<p>Activate and specify selector for context menu</p>
+<pre><code class="lang-js">$(&#39;#main&#39;).contextmenu({&#39;target&#39;:&#39;#context-menu&#39;});
+</code></pre>
+<p>Activate within a div, but not on spans</p>
+<pre><code class="lang-js">$(&#39;#main&#39;).contextmenu({
+  target: &#39;#context-menu2&#39;,
+  before: function (e, element, target) {
+      e.preventDefault();
+      if (e.target.tagName == &#39;SPAN&#39;) {
+          e.preventDefault();
+          this.closemenu();
+          return false;
+      }
+      return true;
+  }
+});
+</code></pre>
+<p>Modify the menu dynamically</p>
+<pre><code class="lang-js">$(&#39;#main&#39;).contextmenu({
+  target: &quot;#myMenu&quot;,
+  before: function(e) { 
+    this.getMenu().find(&quot;li&quot;).eq(2).find(&#39;a&#39;).html(&quot;This was dynamically changed&quot;);
+  }
+});
+</code></pre>
+<p>Show menu name on selection</p>
+<pre><code class="lang-js">$(&#39;#main&#39;).contextmenu({
+  onItem: function(context, e) {
+    alert($(e.target).text());
+  }
+});
+</code></pre>
+<h3 id="nice-to-have-features-">Nice to have features:</h3>
+<ul>
+<li>Close and open animations</li>
+<li>Keyboard shortcuts for menus</li>
+</ul>
+<h3 id="license">License</h3>
+<p>MIT</p>

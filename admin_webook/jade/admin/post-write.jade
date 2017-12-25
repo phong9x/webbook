@@ -1,0 +1,94 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title post-write - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .post-write.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 게시물 등록
+        // .page-bar
+        
+        ="\n"
+        .post-write-main.wb-pb-50
+          form.form-post-write.form-horizontal(action='#')
+            .form-body
+              .form-main
+                .wb-container-style-1
+                  .form-group
+                    .col-md-2
+                      label.control-label #[strong 게시판 선택]
+                    .col-md-10
+                      select.form-control.input-medium(name='test178')
+                        option(value='0') 자유게시판
+                        option(value='1') 감상평
+                        option(value='2') 강의/자료실
+                        option(value='3') FAQ
+                        option(value='4') 공지사항
+
+                  ="\n"
+                  .form-group
+                    .col-md-2
+                      label.control-label #[strong 제목]
+                    .col-md-10
+                      input.form-control(name='test349', type='text')
+
+                  ="\n"
+                  .wb-gap(style='border-bottom: 1px solid #e1e1e1; padding: 0 0 15px 0; margin: 0 0 30px 0;')
+
+                  ="\n"
+                  .form-group
+                    .col-md-12
+                      textarea.ckeditor.form-control(name='test6e5', rows='6', data-error-container='#post-write-error')
+                      #post-write-error
+
+                  ="\n"
+                  .wb-gap(style='border-bottom: 1px solid #e1e1e1; padding: 0 0 15px 0; margin: 0 0 30px 0;')
+
+                  ="\n"
+                  .form-group
+                    .col-md-2
+                      label.control-label #[strong 파일첨부]
+                    .col-md-10
+                      input.form-control(type="file")
+
+                  ="\n"
+                  .form-group
+                    .col-md-2
+                      label.control-label #[strong 파일첨부]
+                    .col-md-10
+                      input.form-control(type="file")
+              // .form-main
+                
+              ="\n"
+              .wb-gap(style='border-bottom: 1px solid #e1e1e1; padding: 0 0 15px 0; margin: 0 0 30px 0;')
+
+              ="\n"
+              .form-action-button.text-right
+                .wb-container-style-1
+                  a.btn.green(href="post-management.html") 게시물 등록
+                  a.btn.red(href="post-management.html") 취소
+              // .form-action-button
+          // .form-post-write
+
+        // .post-write-main
+      // .page-content
+    // .post-write
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade
+  

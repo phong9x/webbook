@@ -1,0 +1,143 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title book-detail - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .book-detail.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 작품 상세보기
+        // .page-bar
+        
+        ="\n"
+        .book-detail-main.wb-pb-50
+          .book-info.portlet.light.bordered
+            include ../includes/wb-block-style-1.jade
+          // .book-info
+
+          ="\n"
+          .book-intro.portlet.light.bordered
+            .portlet-title
+              .caption
+                span.caption-subject.bold.font-grey-gallery.uppercase 줄거리 
+            .portlet-body
+              p 선영은 어릴 때 당한 교통사고로 한쪽 발을 절단했다. 상처에도 불구하고 긍정적인 삶을 살아가려고 노력한다. 하지만 이상적인 남자친구를 만나고부터는 상처가 되살아 나는데….
+          // .book-intro
+
+          ="\n"
+          .block-tab.portlet.light.bordered
+            .portlet-body
+              .tabbable-custom
+                ul.nav.nav-tabs
+                  li.active
+                    a(href='#tab-episode-list', data-toggle='tab') 연재 목록
+                  li
+                    a(href='#tab-announcement-list', data-toggle='tab') 공지사항
+                  li
+                    a(href='#tab-temporary-save', data-toggle='tab') 임시저장
+                
+                ="\n"
+                .tab-content
+                  #tab-episode-list.tab-episode-list.tab-pane.active
+                    .table-episode-list.table-responsive
+                      table.table.table-striped.table-bordered.table-hover
+                        thead
+                          tr
+                            th 제목
+                            th 업데이트일
+                            th 조회수
+                            th 가격
+                            th 관리
+                        tbody
+                          tr
+                            td 
+                              | [공지] 다음주 휴재합니다. 
+                              span.badge.badge-danger 완결
+                            td 2015.09.23
+                            td 1,027
+                            td 1쿠폰
+                            td
+                              a.btn.green(href="episode-detail.html") 수정
+                              a.btn.red.btn-open-delete-popup(href="#", data-toggle='modal', data-target="#popupConfirmDelete") 삭제
+                    //.table-episode-list
+
+                    ="\n"
+                    include ../includes/wb-pagination.jade
+                  
+                  ="\n"
+                  #tab-announcement-list.tab-announcement-list.tab-pane
+                    .table-announcement-list.table-responsive
+                      table.table.table-striped.table-bordered.table-hover
+                        thead
+                          tr
+                            th 번호
+                            th 제목
+                            th 업데이트일
+                            th 조회수
+                            th 관리
+                        tbody
+                          - for (var i = 0; i < 2; i++)
+                            tr
+                              td 1
+                              td 새로운 작품 시작
+                              td 2015.09.23
+                              td 1,027
+                              td
+                                a.btn.green(href="announcement-detail.html") 수정
+                                a.btn.red.btn-open-delete-popup(href="#", data-toggle='modal', data-target="#popupConfirmDelete") 삭제
+                    //.table-announcement-list
+
+                    ="\n"
+                    include ../includes/wb-pagination.jade
+                  
+                  ="\n"
+                  #tab-temporary-save.tab-temporary-save.tab-pane
+                    .table-temporary-save-list.table-responsive
+                      table.table.table-striped.table-bordered.table-hover
+                        thead
+                          tr
+                            th 번호
+                            th 제목
+                            th 업데이트일
+                            th 관리
+                        tbody
+                          - for (var i = 0; i < 2; i++)
+                            tr
+                              td 1
+                              td 유년의 상처
+                              td 2015.09.23
+                              td
+                                a.btn.green(href="#") 수정
+                                a.btn.red.btn-open-delete-popup(href="#", data-toggle='modal', data-target="#popupConfirmDelete") 삭제
+                    //.table-temporary-save-list
+
+                    ="\n"
+                    include ../includes/wb-pagination.jade
+          // .block-tab
+
+          .block-button-book-management.text-center
+            a.btn.btn-lg.green.btn-book-management-page(href="book-management.html") 목록
+          
+        // .book-detail-main
+      // .page-content
+    // .book-detail
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade
+  
+  ="\n"
+  include ../includes/popupConfirmDelete.jade

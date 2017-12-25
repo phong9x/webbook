@@ -1,0 +1,40 @@
+.wbp-favo
+  .wb-cat-tab: .container-mobile-full
+    .wb-cat-tab-wrapper.clearfix
+      .wb-cat-tab-item.active 관심작품
+      .wb-cat-tab-item: a.mute(href="#") 책갈피
+      .wb-cat-tab-item: a.mute(href="#") 내작품
+      .wb-cat-tab-item: a.mute(href="#") 쿠폰 보유 현황
+      .wb-cat-tab-item: a.mute(href="#") 판매/정산
+      .wb-cat-tab-item: a.mute(href="#") 내정보 관리
+
+  .container
+    .row.wb-mt32
+      .col-md-6
+        span.wb-f24.wb-mr24 #[span.wb-color-complementary3 관심] 작품
+        span #[span.wb-color-complementary3 2]#[span.wb-color-gray 개의 나의 작품이 있습니다.]
+      .col-md-6.text-right.wbp-favo-btn
+        button.base-btn.wb-btn.gray.h40
+          img(src="/dist/assets/img/x2.png" alt="x2")
+          span 전체삭제
+
+    .table-responsive.wb-mt20: table.table.wb-table-simple3
+      thead
+        tr
+          th 장르
+          th: .text-left 제목
+          th 작가
+          th 구분
+          th 업데이트
+          th 삭제
+      tbody
+        - for(var i=10; i>0; i--) {
+          tr
+            td.wb-f16.wb-color-complementary: b 로맨스
+            td: .text-left.wb-f16: b 금혼령, 조선혼인금지령
+            td.wb-f16.wb-color-gray: b 차소희
+            td.wb-f16.wb-color-gray: b 웹소설
+            td.wb-f16.wb-color-gray: b 2015.10.13
+            td.wb-f16.wb-color-gray
+              button.brb.wb-rbtn-bold 삭제
+        - }

@@ -1,0 +1,103 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title post-management-report - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .post-management-report.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 게시물 관리
+              i.fa.fa-angle-right
+            li
+              span 신고접수
+        // .page-bar
+        
+        ="\n"
+        .post-management-report-main.wb-pb-50
+          .block-post-report.portlet
+            .portlet-title
+              .caption
+                span.caption-subject.bold.font-grey-gallery.uppercase 게시물 신고
+            .portlet-body 
+              .tab-send-report-table.table-responsive
+                table.table.table-striped.table-bordered.table-hover.text-center
+                  thead
+                    tr
+                      th.text-center 번호
+                      th.text-center 게시판
+                      th.text-center 닉네임
+                      th.text-center 제목
+                      th.text-center 신고건수
+                      th.text-center 관리
+                  tbody
+                    tr
+                      td 1
+                      td 자유게시판
+                      td pororo
+                      td
+                        a(href="post-detail.html") 안녕하세요. 처음 가입하게 되엇네요…
+                      td 5
+                      td
+                        a.btn-open-popup.btn.green(href="#", data-toggle='modal', data-target="#popupReportHistoryList") 신고내역
+                        a.btn-open-popup.btn.red(href="#", data-toggle='modal', data-target="#popupConfirmDelete") 삭제
+              //.tab-send-report-table
+
+              ="\n"
+              include ../includes/wb-pagination.jade
+          // .block-post-report
+
+          ="\n"
+          .block-comments-report.portlet
+            .portlet-title
+              .caption
+                span.caption-subject.bold.font-grey-gallery.uppercase 댓글 신고
+            .portlet-body 
+              .tab-send-report-table.table-responsive
+                table.table.table-striped.table-bordered.table-hover.text-center
+                  thead
+                    tr
+                      th.text-center 닉네임
+                      th.text-center 내용
+                      th.text-center 신고건수
+                      th.text-center 관리
+                  tbody
+                    tr
+                      td pororo
+                      td
+                        a(href="post-detail.html") 안녕하세요. 처음 가입하게 되엇네요…
+                      td 5
+                      td
+                        a.btn-open-popup.btn.green(href="#", data-toggle='modal', data-target="#popupReportHistoryList") 신고내역
+                        a.btn-open-popup.btn.red(href="#", data-toggle='modal', data-target="#popupConfirmDelete") 삭제
+              //.tab-send-report-table
+
+              ="\n"
+              include ../includes/wb-pagination.jade
+          // .block-comments-report
+
+        // .post-management-report-main
+      // .page-content
+    // .post-management-report
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade
+  
+  ="\n"
+  include ../includes/popupConfirmDelete.jade
+  
+  ="\n"
+  include ../includes/popupReportHistoryList.jade

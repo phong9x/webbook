@@ -1,0 +1,850 @@
+<h1 id="amcharts-export">amCharts Export</h1>
+<p>Version: 1.0.5</p>
+<h2 id="description">Description</h2>
+<p>This plugin adds export capabilities to all amCharts products - charts and maps.</p>
+<p>It allows annotating and exporting chart or related data to various bitmap, 
+vector, document or data formats, such as PNG, JPG, PDF, SVG, JSON, XLSX and 
+many more.</p>
+<h2 id="important-notice">Important notice</h2>
+<p>Please note that due to security measures implemented in modern browsers, some 
+or all export options might not work if the web page is loaded locally (via 
+file:///) or contain images loaded from different host than the web page itself.</p>
+<h2 id="usage">Usage</h2>
+<h3 id="1-include-the-minified-version-of-file-of-this-plugin-as-well-as-the">1) Include the minified version of file of this plugin as well as the</h3>
+<p>bundled CSS file. I.e.:</p>
+<pre><code>&lt;script src=&quot;amcharts/plugins/export/export.min.js&quot;&gt;&lt;/script&gt;
+&lt;link  type=&quot;text/css&quot; href=&quot;../export.css&quot; rel=&quot;stylesheet&quot;&gt;
+</code></pre><p>(this needs to go after all the other amCharts includes)</p>
+<h3 id="2-enable-export-with-default-options-">2) Enable <code>export</code> with default options:</h3>
+<pre><code>AmCharts.makeChart( &quot;chartdiv&quot;, {
+  ...,
+  &quot;export&quot;: {
+    &quot;enabled&quot;: true,
+    &quot;libs&quot;: {
+      &quot;path&quot;: &quot;../libs/&quot;
+    }
+  }
+} );
+</code></pre><h3 id="-or-set-your-own-custom-options-">... OR set your own custom options:</h3>
+<pre><code>AmCharts.makeChart( &quot;chartdiv&quot;, {
+  ...,
+  &quot;export&quot;: {
+    &quot;enabled&quot;: true,
+    &quot;libs&quot;: {
+      &quot;path&quot;: &quot;../libs/&quot;
+    },
+    &quot;menu&quot;: [ {
+      &quot;class&quot;: &quot;export-main&quot;,
+      &quot;menu&quot;: [ {
+        &quot;label&quot;: &quot;Download&quot;,
+        &quot;menu&quot;: [ &quot;PNG&quot;, &quot;JPG&quot;, &quot;CSV&quot; ]
+      }, {
+        &quot;label&quot;: &quot;Annotate&quot;,
+        &quot;action&quot;: &quot;draw&quot;,
+        &quot;menu&quot;: [ {
+          &quot;class&quot;: &quot;export-drawing&quot;,
+          &quot;menu&quot;: [ &quot;PNG&quot;, &quot;JPG&quot; ]
+        } ]
+      } ]
+    } ]
+  }
+} );
+</code></pre><h2 id="loading-external-libraries-needed-for-operation-of-this-plugin">Loading external libraries needed for operation of this plugin</h2>
+<p>The plugin relies on a number of different libraries, to export images, draw 
+annotations or generate download files.</p>
+<p>Those libraries need to be loaded for the plugin to work properly.</p>
+<p>There are two ways to load them. Choose the one that is right:</p>
+<h3 id="1-automatic-preferred-">1) Automatic (preferred)</h3>
+<p>All libraries required for plugin operation are included withing plugins <em>/libs</em> 
+subdirectory.</p>
+<p>If you want the plugin to load them on-demand (when it&#39;s needed for a certain 
+operation), make sure you set the <code>path</code> proprty under <code>libs</code> object to a 
+relative or absolute url.</p>
+<p>If you are using relative url, note that it is relative to the web page you are 
+displaying your chart on, not the export.js library.</p>
+<h3 id="2-manual">2) Manual</h3>
+<p>You can also load all those JavaScript libraries by <code>&lt;script&gt;</code> tags. Since 
+loading of libraries is on by default you will need to turn it off by setting 
+<code>&quot;libs&quot;: { &quot;autoLoad&quot;: false }</code></p>
+<p>Here is a full list of the files that need to be loaded for each operation:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Located in</th>
+<th>Required for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>blob.js</td>
+<td>libs/blob.js/</td>
+<td>Exporting to any image format</td>
+</tr>
+<tr>
+<td>fabric.min.js</td>
+<td>libs/fabric.js/</td>
+<td>Any export operation</td>
+</tr>
+<tr>
+<td>FileSaver.js</td>
+<td>libs/FileSaver.js/</td>
+<td>Used to offer download files</td>
+</tr>
+<tr>
+<td>pdfmake.min.js</td>
+<td>libs/pdfmake/</td>
+<td>Export to PDF format</td>
+</tr>
+<tr>
+<td>vfs_fonts.js</td>
+<td>libs/pdfmake/</td>
+<td>Export to PDF format</td>
+</tr>
+<tr>
+<td>jszip.js</td>
+<td>libs/jszip/</td>
+<td>Export to XLSX format</td>
+</tr>
+<tr>
+<td>xlsx.js</td>
+<td>libs/xlsx/</td>
+<td>Export to XLSX format</td>
+</tr>
+</tbody>
+</table>
+<h2 id="complete-list-of-available-export-settings">Complete list of available export settings</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>backgroundColor</td>
+<td>#FFFFFF</td>
+<td>RGB code of the color for the background of the exported image</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>true</td>
+<td>Enables or disables export functionality</td>
+</tr>
+<tr>
+<td>legend</td>
+<td>{}</td>
+<td>Places the legend in case it is within an external container</td>
+</tr>
+<tr>
+<td>fileName</td>
+<td>amCharts</td>
+<td>A file name to use for generated export files (an extension will be appended to it based on the export format)</td>
+</tr>
+<tr>
+<td>libs</td>
+<td></td>
+<td>3rd party required library settings (see the above section)</td>
+</tr>
+<tr>
+<td>menu</td>
+<td>[]</td>
+<td>A list of menu or submenu items (see the next chapter for details)</td>
+</tr>
+<tr>
+<td>fabric</td>
+<td>{}</td>
+<td>Overwrites the default drawing settings (fabricJS library)</td>
+</tr>
+<tr>
+<td>pdfMake</td>
+<td>{}</td>
+<td>Overwrites the default settings for PDF export (pdfMake library)</td>
+</tr>
+<tr>
+<td>removeImages</td>
+<td>true</td>
+<td>If true export checks for and removes &quot;tainted&quot; images that area lodead from different domains</td>
+</tr>
+<tr>
+<td>divId</td>
+<td></td>
+<td>ID or a reference to div object in case you want the menu in a separate container.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuring-export-menu">Configuring export menu</h2>
+<p>Plugin includes a way to completely control what is displayed on export menu. 
+You can set up menus, sub-menus, down to any level. You can even add custom 
+items there that execute your arbitrary code on click. It&#39;s so configurable 
+it makes us sick with power ;)</p>
+<p>The top-level menu is configured via <code>menu</code> property under <code>export</code>. It should 
+always be an array, even if you have a single item in it.</p>
+<p>The array items could be either objects or format codes. Objects will allow you 
+to specify labels, action, icon, child items and even custom code to be executed
+on click.</p>
+<p>Simple format codes will assume you need an export to that format.</p>
+<h3 id="simple-menu-setup">Simple menu setup</h3>
+<p>Here&#39;s a sample of the simple menu setup that allows export to PNG, JPG and CSV:</p>
+<pre><code>&quot;export&quot;: {
+  &quot;enabled&quot;: true,
+  &quot;libs&quot;: {
+    &quot;path&quot;: &quot;../libs/&quot;
+  },
+  &quot;menu&quot;: [ {
+    &quot;class&quot;: &quot;export-main&quot;,
+    &quot;menu&quot;: [ &quot;PNG&quot;, &quot;JPG&quot;, &quot;CSV&quot; ]
+  } ]
+}
+</code></pre><p>The above will display a menu out of three options when you hover on export 
+icon:</p>
+<ul>
+<li>PNG</li>
+<li>JPG</li>
+<li>CSV</li>
+</ul>
+<p>When clicked the plugin will trigger export to a respective format.</p>
+<p>If that is all you need, you&#39;re all set.</p>
+<p>Please note that we have wrapped out menu into another menu item, so that only 
+the icon is displayed until we roll over the icon. This means that technically
+we have a two-level hierarchical menu.</p>
+<p>If we opmitted that first step, the chart would simply display a format list 
+right there on the chart.</p>
+<h3 id="advanced-menu-setup">Advanced menu setup</h3>
+<p>However, you can do so much more with the menu.</p>
+<p>Let&#39;s add more formats and organize image and data formats into separate 
+submenus.</p>
+<p>To add a submenu to a menu item, simply add a <code>menu</code> array as its own property:</p>
+<pre><code>&quot;export&quot;: {
+  &quot;enabled&quot;: true,
+  &quot;libs&quot;: {
+    &quot;path&quot;: &quot;../libs/&quot;
+  },
+  &quot;menu&quot;: [ {
+    &quot;class&quot;: &quot;export-main&quot;,
+    &quot;menu&quot;: [ {
+      &quot;label&quot;: &quot;Download as image&quot;,
+      &quot;menu&quot;: [ &quot;PNG&quot;, &quot;JPG&quot;, &quot;SVG&quot; ]
+    }, {
+      &quot;label&quot;: &quot;Download data&quot;,
+      &quot;menu&quot;: [ &quot;CSV&quot;, &quot;XLSX&quot; ]
+    } ]
+  } ]
+}
+</code></pre><p>Now we have a hierarchical menu with the following topology:</p>
+<ul>
+<li>Download as image<ul>
+<li>PNG</li>
+<li>JPG</li>
+<li>SVG</li>
+</ul>
+</li>
+<li>Download data<ul>
+<li>CSV</li>
+<li>XLSX</li>
+</ul>
+</li>
+</ul>
+<p>We can mix &quot;string&quot; and &quot;object&quot; formats the way we see fit, i.e.:</p>
+<pre><code>&quot;menu&quot;: [
+  &quot;PNG&quot;, 
+  { &quot;label&quot;: &quot;JPEG&quot;,
+    &quot;format&quot;: &quot;JPG&quot; },
+  &quot;SVG&quot;
+]
+</code></pre><p>The magic does not end here, though.</p>
+<h3 id="adding-custom-click-events-to-menu-items">Adding custom click events to menu items</h3>
+<p>Just like we set <code>label</code> and <code>format</code> properties for menu item, we can set 
+<code>click</code> as well.</p>
+<p>This needs to be a function reference. I.e.:</p>
+<pre><code>&quot;menu&quot;: [
+  &quot;PNG&quot;, 
+  { &quot;label&quot;: &quot;JPEG&quot;,
+    &quot;click&quot;: function () {
+      alert( &quot;Clicked JPEG. Wow cool!&quot; );
+    } },
+  &quot;SVG&quot;
+]
+</code></pre><h3 id="menu-item-reviver">Menu item reviver</h3>
+<p>By passing the <code>menuReviver</code> callback you are to adapt or completely replace the
+generated menu item before it gets appended to the list (<code>ul</code>).
+It retrieves two arguments and it needs to return a valid DOM element.</p>
+<pre><code>&quot;menuReviver&quot;: function(item,li) {
+  li.setAttribute(&quot;class&quot;,&quot;something special&quot;);
+  return li;
+}
+</code></pre><h3 id="menu-walker">Menu walker</h3>
+<p>In case you don&#39;t like our structure, go ahead and write your own recursive function
+to create the menu by the given list configured through <code>menu</code>.</p>
+<pre><code>&quot;menuWalker&quot;: function(list,container) {
+  // some magic to generate the nested lists using the given list
+}
+</code></pre><h3 id="printing-the-chart">Printing the chart</h3>
+<p>Adding menu item to print the chart or map is as easy as adding export ones. You 
+just use &quot;PRINT&quot; as <code>format</code>. I.e.:</p>
+<pre><code>&quot;menu&quot;: [
+  &quot;PNG&quot;, 
+  &quot;SVG&quot;,
+  &quot;PRINT&quot;
+]
+</code></pre><p>Or if you want to change the label:</p>
+<pre><code>&quot;menu&quot;: [
+  &quot;PNG&quot;, 
+  &quot;SVG&quot;,
+  { &quot;format&quot;: &quot;PRINT&quot;,
+    &quot;label&quot;: &quot;Print Chart&quot;
+  }
+]
+</code></pre><h3 id="annotating-the-chart-before-export">Annotating the chart before export</h3>
+<p>OK, this one is so cool, you&#39;ll need a class 700 insulation jacket.</p>
+<p>By default each menu item triggers some kind of export. You can trigger an 
+&quot;annotation&quot; mode instead by including <code>&quot;action&quot;: &quot;draw&quot;</code> instead.</p>
+<pre><code>&quot;menu&quot;: [ {
+  &quot;class&quot;: &quot;export-main&quot;,
+  &quot;menu&quot;: [ {
+    &quot;label&quot;: &quot;Download&quot;,
+    &quot;menu&quot;: [ &quot;PNG&quot;, &quot;JPG&quot;, &quot;CSV&quot;, &quot;XLSX&quot; ]
+  }, {
+    &quot;label&quot;: &quot;Annotate&quot;,
+    &quot;action&quot;: &quot;draw&quot;
+  } ]
+} ]
+</code></pre><p>Now, when you click on the &quot;Annotate&quot; item in the menu, the chart will turn into 
+an image editor which you can actual draw on.</p>
+<p>As cool as it may sound, there&#39;s little we can do if the annotated chart if we 
+can&#39;t save the result image.</p>
+<p>That&#39;s where sub-menus come for the rescue again:</p>
+<pre><code>&quot;menu&quot;: [ {
+  &quot;class&quot;: &quot;export-main&quot;,
+  &quot;menu&quot;: [ {
+    &quot;label&quot;: &quot;Download&quot;,
+    &quot;menu&quot;: [ &quot;PNG&quot;, &quot;JPG&quot;, &quot;CSV&quot;, &quot;XLSX&quot; ]
+  }, {
+    &quot;label&quot;: &quot;Annotate&quot;,
+    &quot;action&quot;: &quot;draw&quot;,
+    &quot;menu&quot;: [ {
+      &quot;class&quot;: &quot;export-drawing&quot;,
+      &quot;menu&quot;: [ &quot;JPG&quot;, &quot;PNG&quot;, &quot;SVG&quot;, PDF&quot; ]
+    } ]
+  } ]
+} ]
+</code></pre><p>Now, when you turn on the annotation mode, a submenu will display, allowing to 
+export the image into either PNG,JPG,SVG or PDF.</p>
+<p>And that&#39;s not even the end of it. You can add menu items to cancel, undo, redo.</p>
+<pre><code>&quot;menu&quot;: [ {
+  &quot;class&quot;: &quot;export-main&quot;,
+  &quot;menu&quot;: [ {
+    &quot;label&quot;: &quot;Download&quot;,
+    &quot;menu&quot;: [ &quot;PNG&quot;, &quot;JPG&quot;, &quot;CSV&quot;, &quot;XLSX&quot; ]
+  }, {
+    &quot;label&quot;: &quot;Annotate&quot;,
+    &quot;action&quot;: &quot;draw&quot;,
+    &quot;menu&quot;: [ {
+      &quot;class&quot;: &quot;export-drawing&quot;,
+      &quot;menu&quot;: [ {
+        &quot;label&quot;: &quot;Edit&quot;,
+        &quot;menu&quot;: [ &quot;UNDO&quot;, &quot;REDO&quot;, &quot;CANCEL&quot; ]
+      }, {
+        &quot;label&quot;: &quot;Save&quot;,
+        &quot;format&quot;: &quot;PNG&quot;
+      } ]
+    } ]
+  } ]
+} ]
+</code></pre><h3 id="a-list-of-menu-item-properties">A list of menu item properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>Set to &quot;draw&quot; if you want the item to trigger annotation mode</td>
+</tr>
+<tr>
+<td>class</td>
+<td>Class name applied to the tag</td>
+</tr>
+<tr>
+<td>click</td>
+<td>Function handler invoked upon click on menu item</td>
+</tr>
+<tr>
+<td>format</td>
+<td>A format to export chart/map to upon click (see below for a list of available formats)</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>Icon file (will use chart&#39;s <code>pathToImages</code> if the URL is not full)</td>
+</tr>
+<tr>
+<td>label</td>
+<td>Text label to be displayed</td>
+</tr>
+<tr>
+<td>menu</td>
+<td>An array of submenu items</td>
+</tr>
+<tr>
+<td>title</td>
+<td>A title attribute of the link</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td>The background color of the canvas</td>
+</tr>
+<tr>
+<td>fileName</td>
+<td>A file name to use for generated export files (an extension will be appended to it based on the export format)</td>
+</tr>
+<tr>
+<td>extension</td>
+<td>File extension for the generated export file (uses format default if not defined)</td>
+</tr>
+<tr>
+<td>mimeType</td>
+<td>Internet media type to generate the export file (usses format default if not defined)</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>a string or { width: number, height: number } (<a href="#exporting-to-pdf">details</a>)</td>
+</tr>
+<tr>
+<td>pageOrientation</td>
+<td>by default we use portrait, you can change it to landscape if you wish (<a href="#exporting-to-pdf">details</a>)</td>
+</tr>
+<tr>
+<td>pageMargins</td>
+<td>[left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins (<a href="#exporting-to-pdf">details</a>)</td>
+</tr>
+<tr>
+<td>content</td>
+<td>array of elements which represents the content (<a href="#exporting-to-pdf">details</a>)</td>
+</tr>
+<tr>
+<td>freeDrawingBrush</td>
+<td>Object which hold the settings of the brush e.G.: { color: &quot;#FF00FF&quot; }</td>
+</tr>
+</tbody>
+</table>
+<p>Available <code>format</code> values:</p>
+<ul>
+<li>JPG</li>
+<li>PNG</li>
+<li>SVG</li>
+<li>CSV</li>
+<li>JSON</li>
+<li>PDF</li>
+<li>XLSX</li>
+<li>PRINT</li>
+</ul>
+<h3 id="exporting-to-pdf">Exporting to PDF</h3>
+<p>When exporting to PDF, you can set and modify the content of the resulting 
+document. I.e. add additional text and/or modify image size, etc.</p>
+<p>To do that, you can use menu item&#39;s <code>content</code> property.</p>
+<p>Each item in <code>content</code> represents either a text line (string) or an exported 
+image.</p>
+<p>To add a text line, simply use a string. It can even be a JavaScript variable or 
+a function that returns a string.</p>
+<p>To include exported image, use <code>image: &quot;reference&quot;</code>.</p>
+<p>Additionally, you can add <code>fit</code> property which is an array of pixel dimensions, 
+you want the image to be scaled to fit into.</p>
+<p>Here&#39;s an example of such export menu item:</p>
+<pre><code>{
+  &quot;format&quot;: &quot;PDF&quot;,
+  &quot;content&quot;: [ &quot;Saved from:&quot;, window.location.href, {
+    &quot;image&quot;: &quot;reference&quot;,
+    &quot;fit&quot;: [ 523.28, 769.89 ] // fit image to A4
+  } ]
+}
+</code></pre><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pageSize</td>
+<td>a string or { width: number, height: number }</td>
+</tr>
+<tr>
+<td>pageOrientation</td>
+<td>by default we use portrait, you can change it to landscape if you wish</td>
+</tr>
+<tr>
+<td>pageMargins</td>
+<td>[left, top, right, bottom] or [horizontal, vertical] or just a number for equal margins</td>
+</tr>
+<tr>
+<td>content</td>
+<td>array of elements which represents the content (<a href="https://github.com/bpampuch/pdfmake/">full description</a>)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Pagesize</th>
+<th>Dimensions in pixel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4A0</td>
+<td>[4767.87, 6740.79]</td>
+</tr>
+<tr>
+<td>2A0</td>
+<td>[3370.39, 4767.87]</td>
+</tr>
+<tr>
+<td>A0</td>
+<td>[2383.94, 3370.39]</td>
+</tr>
+<tr>
+<td>A1</td>
+<td>[1683.78, 2383.94]</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>[1190.55, 1683.78]</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>[841.89, 1190.55]</td>
+</tr>
+<tr>
+<td>A4</td>
+<td>[595.28, 841.89]</td>
+</tr>
+<tr>
+<td>A5</td>
+<td>[419.53, 595.28]</td>
+</tr>
+<tr>
+<td>A6</td>
+<td>[297.64, 419.53]</td>
+</tr>
+<tr>
+<td>A7</td>
+<td>[209.76, 297.64]</td>
+</tr>
+<tr>
+<td>A8</td>
+<td>[147.40, 209.76]</td>
+</tr>
+<tr>
+<td>A9</td>
+<td>[104.88, 147.40]</td>
+</tr>
+<tr>
+<td>A10</td>
+<td>[73.70, 104.88]</td>
+</tr>
+<tr>
+<td>B0</td>
+<td>[2834.65, 4008.19]</td>
+</tr>
+<tr>
+<td>B1</td>
+<td>[2004.09, 2834.65]</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>[1417.32, 2004.09]</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>[1000.63, 1417.32]</td>
+</tr>
+<tr>
+<td>B4</td>
+<td>[708.66, 1000.63]</td>
+</tr>
+<tr>
+<td>B5</td>
+<td>[498.90, 708.66]</td>
+</tr>
+<tr>
+<td>B6</td>
+<td>[354.33, 498.90]</td>
+</tr>
+<tr>
+<td>B7</td>
+<td>[249.45, 354.33]</td>
+</tr>
+<tr>
+<td>B8</td>
+<td>[175.75, 249.45]</td>
+</tr>
+<tr>
+<td>B9</td>
+<td>[124.72, 175.75]</td>
+</tr>
+<tr>
+<td>B10</td>
+<td>[87.87, 124.72]</td>
+</tr>
+<tr>
+<td>C0</td>
+<td>[2599.37, 3676.54]</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>[1836.85, 2599.37]</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>[1298.27, 1836.85]</td>
+</tr>
+<tr>
+<td>C3</td>
+<td>[918.43, 1298.27]</td>
+</tr>
+<tr>
+<td>C4</td>
+<td>[649.13, 918.43]</td>
+</tr>
+<tr>
+<td>C5</td>
+<td>[459.21, 649.13]</td>
+</tr>
+<tr>
+<td>C6</td>
+<td>[323.15, 459.21]</td>
+</tr>
+<tr>
+<td>C7</td>
+<td>[229.61, 323.15]</td>
+</tr>
+<tr>
+<td>C8</td>
+<td>[161.57, 229.61]</td>
+</tr>
+<tr>
+<td>C9</td>
+<td>[113.39, 161.57]</td>
+</tr>
+<tr>
+<td>C10</td>
+<td>[79.37, 113.39]</td>
+</tr>
+<tr>
+<td>RA0</td>
+<td>[2437.80, 3458.27]</td>
+</tr>
+<tr>
+<td>RA1</td>
+<td>[1729.13, 2437.80]</td>
+</tr>
+<tr>
+<td>RA2</td>
+<td>[1218.90, 1729.13]</td>
+</tr>
+<tr>
+<td>RA3</td>
+<td>[864.57, 1218.90]</td>
+</tr>
+<tr>
+<td>RA4</td>
+<td>[609.45, 864.57]</td>
+</tr>
+<tr>
+<td>SRA0</td>
+<td>[2551.18, 3628.35]</td>
+</tr>
+<tr>
+<td>SRA1</td>
+<td>[1814.17, 2551.18]</td>
+</tr>
+<tr>
+<td>SRA2</td>
+<td>[1275.59, 1814.17]</td>
+</tr>
+<tr>
+<td>SRA3</td>
+<td>[907.09, 1275.59]</td>
+</tr>
+<tr>
+<td>SRA4</td>
+<td>[637.80, 907.09]</td>
+</tr>
+<tr>
+<td>EXECUTIVE</td>
+<td>[521.86, 756.00]</td>
+</tr>
+<tr>
+<td>FOLIO</td>
+<td>[612.00, 936.00]</td>
+</tr>
+<tr>
+<td>LEGAL</td>
+<td>[612.00, 1008.00]</td>
+</tr>
+<tr>
+<td>LETTER</td>
+<td>[612.00, 792.00]</td>
+</tr>
+<tr>
+<td>TABLOID</td>
+<td>[792.00, 1224.00]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="styling-the-export-menu">Styling the export menu</h2>
+<p>The plugin comes with a default CSS file <code>export.css</code>. You just need to include 
+it on your page.</p>
+<p>Feel free to override any styles defined in it, create your own version and 
+modify as you see fit.</p>
+<p>If you choose to modify it, we suggest creating a copy so it does not get 
+overwritten when you update amCharts or plugin.</p>
+<h2 id="plugin-api">Plugin API</h2>
+<p>We explained how you can define custom functions to be executed on click on 
+export menu items.</p>
+<p>Those functions can tap into plugin&#39;s methods to augment it with some custom 
+functionality.</p>
+<p>Here&#39;s an example:</p>
+<pre><code>menu: [ {
+  label: &quot;JPG&quot;,
+  click: function() {
+    this.capture({},function() {
+      this.toJPG( {}, function( data ) {
+        this.download( data, &quot;image/jpg&quot;, &quot;amCharts.jpg&quot; );
+      });
+    });
+  }
+} ]
+</code></pre><p>The above will use plugin&#39;s internal <code>capture</code> method to capture it&#39;s current state and <code>toJPG()</code>
+method to export the chart to JPEG format.</p>
+<p>Yes, you&#39;re right, it&#39;s the exact equivalent of just including &quot;JPG&quot; string. The 
+code is here for the explanatory purposes.</p>
+<p>Here&#39;s a full list of API functions available for your consumption:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>toJPG</td>
+<td>(object) options, (function) callback</td>
+<td>Prepares a JPEG representation of the chart and passes the binary data to the callback function</td>
+</tr>
+<tr>
+<td>toPNG</td>
+<td>(object) options, (function) callback</td>
+<td>Prepares a PNG representation of the chart and passes the binary data to the callback function</td>
+</tr>
+<tr>
+<td>toSVG</td>
+<td>(object) options, (function) callback</td>
+<td>Prepares a SVG representation of the chart and passes the binary data to the callback function</td>
+</tr>
+<tr>
+<td>toPDF</td>
+<td>(object) options, (function) callback</td>
+<td>Prepares a PDF representation of the chart and passes the binary data to the callback function</td>
+</tr>
+<tr>
+<td>toJSON</td>
+<td>(object) options, (function) callback</td>
+<td>Prepares a JSON and passes the plain data to the callback function</td>
+</tr>
+<tr>
+<td>toCSV</td>
+<td>(object) options, (function) callback</td>
+<td>Prepares a CSV and passes the plain data to the callback function</td>
+</tr>
+<tr>
+<td>toXLSX</td>
+<td>(object) options, (function) callback</td>
+<td>Prepares a XLSX representation of the chart and passes the binary data to the callback function</td>
+</tr>
+<tr>
+<td>toBlob</td>
+<td>(object) options, (function) callback</td>
+<td>Prepares a BLOB and passes the instance to the callback function</td>
+</tr>
+<tr>
+<td>toCanvas</td>
+<td>(object) options, (function) callback</td>
+<td>Prepares a Canvas and passes the element to the callback function</td>
+</tr>
+<tr>
+<td>toArray</td>
+<td>(object) options, (function) callback</td>
+<td>Prepares an Array and passes the data to the callback function</td>
+</tr>
+</tbody>
+</table>
+<h2 id="requirements">Requirements</h2>
+<p>This plugin requires at least 3.13 version of JavaScript Charts, JavaScript
+Stock Chart or JavaScript Maps.</p>
+<p>The export will also need relatively recent browsers.</p>
+<p>IE10 and up are supported.</p>
+<p>Partial support for IE9 will be implemented in the future versions.</p>
+<p>IE8 and older are not supported I&#39;m afraid. Hey, it&#39;s time to upgrade!</p>
+<h2 id="demos">Demos</h2>
+<p>They&#39;re all in subdirectory /examples.</p>
+<h2 id="extending-this-plugin">Extending this plugin</h2>
+<p>You&#39;re encouraged to modify, extend and make derivative plugins out of this
+plugin.</p>
+<p>You can modify files, included in this archive or, better yet, fork this project
+on GitHub:</p>
+<p><a href="https://github.com/amcharts/export">https://github.com/amcharts/export</a></p>
+<p>We&#39;re curious types. Please let us know (contact@amcharts.com) if you do create
+something new out of this plugin.</p>
+<h2 id="license">License</h2>
+<p>This plugin is licensed under Apache License 2.0.</p>
+<p>This basically means you&#39;re free to use or modify this plugin, even make your
+own versions or completely different products out of it.</p>
+<p>Please see attached file &quot;license.txt&quot; for the complete license or online here:</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<h2 id="contact-us">Contact us</h2>
+<ul>
+<li>Email:contact@amcharts.com</li>
+<li>Web: <a href="http://www.amcharts.com/">http://www.amcharts.com/</a></li>
+<li>Facebook: <a href="https://www.facebook.com/amcharts">https://www.facebook.com/amcharts</a></li>
+<li>Twitter: <a href="https://twitter.com/amcharts">https://twitter.com/amcharts</a></li>
+</ul>
+<h2 id="changelog">Changelog</h2>
+<h3 id="1-0-5">1.0.5</h3>
+<ul>
+<li>Added: divId to be able to place the menu within an external container</li>
+<li>Added: menuWalker to replace the whole menu generation</li>
+<li>Added: menuReviver to adapt menu items before being appended to the list</li>
+<li>Added: libs.async to load dependencies asynchronous (default true)</li>
+</ul>
+<h3 id="1-0-4">1.0.4</h3>
+<ul>
+<li>Considering classNamePrefix (dont&#39;t forget to adapt export.css)</li>
+<li>Added: safety delay on print restore to ensure capturing the canvas</li>
+</ul>
+<h3 id="1-0-3">1.0.3</h3>
+<ul>
+<li>Fix: flagged relative image paths as tainted</li>
+</ul>
+<h3 id="1-0-2">1.0.2</h3>
+<ul>
+<li>Fix: compabitily on array method extension such as PrototypeJS</li>
+</ul>
+<h3 id="1-0-1">1.0.1</h3>
+<ul>
+<li>Added: libs.reload: false, script tag crawling to avoid multiple insertions</li>
+<li>Fix: IE10 bug on print</li>
+<li>Fix: migration bug, replaces menu instead of appending</li>
+</ul>
+<h3 id="1-0">1.0</h3>
+<ul>
+<li>Initial release</li>
+</ul>

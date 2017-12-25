@@ -1,0 +1,254 @@
+<div xmlns:s="http://www.springframework.org/tags" version="2.0"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" 
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	>
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<spring:url value="/theme" var="theme" />
+	<spring:url value="/" var="root" />
+	<div class="wb-feature">
+		<div class="text-center">
+			<div class="wb-feature-title">
+				<div class="wb-f26">
+					<span class="wb-color-primary">금주의 </span><span
+						class="wb-color-complementary">인기작</span>
+				</div>
+			</div>
+		</div>	
+
+		<div class="container">
+			<div class="wb-feature-slide">
+				<div class="wb-feature-slide-control">
+					<div class="wb-feature-slide-control-left">
+						<img src="${theme}/assets/img/left.png" alt="v1" />
+					</div>
+					<div class="wb-feature-slide-control-right">
+						<img src="${theme}/assets/img/right.png" alt="v1" />
+					</div>
+				</div>
+				<div class="wb-feature-slide-wrapper" >
+				<c:forEach items="${listTop}" var="i">
+					<div class="wb-feature-slide-item" style="cursor: pointer;" onclick="location.href='${root}book/detail/${i.id}'">
+						<div class="wb-book-card">
+							<div style="background-image: url(${root}${i.coverImage })"
+								class="wb-book-card-img"><jsp:text/></div>
+							<div class="wb-book-card-text">
+								<div class="wb-color-primary">${i.genreName }</div>	
+								<div class="wb-f18 wb-text-crop">${i.title}</div>
+								<div class="wb-color-gray3">${i.user.nickname}</div>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+				</div>
+				<div class="wb-feature-slide-indicator text-center">
+					<div class="wb-dot-holder clearfix">
+						<div class="wb-dot active"><jsp:text/></div>
+						<div class="wb-dot"><jsp:text/></div>
+						<div class="wb-dot"><jsp:text/></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="wbm-banner visible-xs visible-sm">
+            <div class="container">
+              <div class="wbm-banner-slider" >
+                <div class="wbm-banner-slider-item"><a href="#"><img style="width:100%;height: 100%" src="${root}${b.banner1}" alt="banner" class="center-block img-responsive"/></a></div>
+                <div class="wbm-banner-slider-item"><a href="#"><img style="width:100%;height: 100%" src="${root}${b.banner2}" alt="banner" class="center-block img-responsive"/></a></div>
+                <div class="wbm-banner-slider-item"><a href="#"><img style="width:100%;height: 100%" src="${root}${b.banner3}" alt="banner" class="center-block img-responsive"/></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="wb-banner visible-md visible-lg">
+            <div class="container">
+              <div class="wb-banner-item"><a href="#"><img src="${root}${b.banner1}" style="height:110px;width: 320px" alt="banner"/></a></div>
+              <div class="wb-banner-item"><a href="#"><img src="${root}${b.banner2}" style="height:110px;width: 320px" alt="banner"/></a></div>
+              <div class="wb-banner-item"><a href="#"><img src="${root}${b.banner3}" style="height:110px;width: 320px" alt="banner"/></a></div>
+            </div>
+          </div>
+          <div class="wb-competition">
+            <div class="container">
+              <div class="wb-f18">리그&amp;공모</div>
+              <div class="wb-competition-table-wrapper">
+              <table class="wb-competition-table">
+                <thead>
+                  <tr>
+                    <th> </th>
+                    <th>챌린지리그</th>
+                    <th>베스트리그</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><img src="${theme}/assets/img/age1.png" alt="age"/></td>
+                    <td>
+                   		<c:if test="${league_1_1[0]!=null }">
+                   			<div class="wb-competition-item" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=1&amp;option=24'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_1_1[0].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 제너맨-챌린지리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_1_1[0].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_1_1[0].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+                   		<c:if test="${league_1_1[1]!=null }">
+                   			<div class="wb-competition-item hidden-xs hidden-sm" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=1&amp;option=24'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_1_1[1].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 제너맨-챌린지리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_1_1[1].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_1_1[1].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+                    </td>
+                    <td>
+                      <c:if test="${league_1_2[0]!=null }">
+                   			<div class="wb-competition-item" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=1&amp;option=25'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_1_2[0].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 제너맨-베스트리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_1_2[0].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_1_2[0].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+                   		<c:if test="${league_1_2[1]!=null }">
+                   			<div class="wb-competition-item hidden-xs hidden-sm" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=1&amp;option=25'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_1_2[1].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 제너맨-베스트리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_1_2[1].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_1_2[1].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><img src="${theme}/assets/img/age2.png" alt="age"/></td>
+                    <td>
+                    <c:if test="${league_2_1[0]!=null }">
+                   			<div class="wb-competition-item" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=2&amp;option=24'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_2_1[0].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 유니티-챌린지리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_2_1[0].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_2_1[0].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+                   		<c:if test="${league_2_1[1]!=null }">
+                   			<div class="wb-competition-item hidden-xs hidden-sm" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=2&amp;option=24'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_2_1[1].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 유니티-챌린지리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_2_1[1].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_2_1[1].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+                    </td>
+                    <td>
+                      <c:if test="${league_2_2[0]!=null }">
+                   			<div class="wb-competition-item" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=2&amp;option=25'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_2_2[0].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 유니티-베스트리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_2_2[0].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_2_2[0].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+                   		<c:if test="${league_2_2[1]!=null }">
+                   			<div class="wb-competition-item hidden-xs hidden-sm" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=2&amp;option=25'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_2_2[1].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 유니티-베스트리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_2_2[1].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_2_2[1].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><img src="${theme}/assets/img/age3.png" alt="age"/></td>
+                    <td>
+                      <c:if test="${league_3_1[0]!=null }">
+                   			<div class="wb-competition-item" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=3&amp;option=24'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_3_1[0].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 하이틴-챌린지리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_3_1[0].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_3_1[0].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+                   		<c:if test="${league_3_1[1]!=null }">
+                   			<div class="wb-competition-item hidden-xs hidden-sm" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=3&amp;option=24'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_3_1[1].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 하이틴-챌린지리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_3_1[1].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_3_1[1].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+                    </td>
+                    <td>
+                      <c:if test="${league_3_2[0]!=null }">
+                   			<div class="wb-competition-item" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=3&amp;option=25'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_3_2[0].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 하이틴-베스트리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_3_2[0].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_3_2[0].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+                   		<c:if test="${league_3_2[1]!=null }">
+                   			<div class="wb-competition-item hidden-xs hidden-sm" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=3&amp;option=25'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_3_2[1].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 하이틴-베스트리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_3_2[1].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_3_2[1].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><img src="${theme}/assets/img/age4.png" alt="age"/></td>
+                    <td>
+                      <c:if test="${league_4_1[0]!=null }">
+                   			<div class="wb-competition-item" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=4&amp;option=24'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_4_1[0].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 로우틴-챌린지리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_4_1[0].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_4_1[0].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+                   		<c:if test="${league_4_1[1]!=null }">
+                   			<div class="wb-competition-item hidden-xs hidden-sm" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=4&amp;option=24'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_4_1[1].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 로우틴-챌린지리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_4_1[1].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_4_1[1].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+                    </td>
+                    <td>
+                      <c:if test="${league_4_2[0]!=null }">
+                   			<div class="wb-competition-item" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=4&amp;option=25'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_4_2[0].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 로우틴-베스트리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_4_2[0].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_4_2[0].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+                   		<c:if test="${league_4_2[1]!=null }">
+                   			<div class="wb-competition-item hidden-xs hidden-sm" style="cursor: pointer;" onclick="location.href='${root}league&amp;contest?age=4&amp;option=25'" >
+                        		<div class="wb-competition-item"><img src="${root}${league_4_2[1].coverImage }" class="wb-book-card-img" style="width:90px;height:130px" title="클릭시 로우틴-베스트리그관으로 이동합니다"/>
+                          			<div class="wb-text-crop wb-mt10"><b>${league_4_2[1].title}</b></div>
+                          			<div class="wb-color-gray wb-mt4">${league_4_2[1].user.nickname}</div>
+                        		</div>
+                      		</div>
+                   		</c:if>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+         
+          
+        
+
+
+</div>

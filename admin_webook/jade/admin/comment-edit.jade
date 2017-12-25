@@ -1,0 +1,89 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title comment-edit - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .comment-edit.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 댓글 수정
+        // .page-bar
+        
+        ="\n"
+        .comment-edit-main.wb-pb-50
+          .block-1.wb-container-style-1
+            .portlet.light.bordered
+              .post
+                .post-info.form-horizontal
+                  .form-group
+                    .col-md-4
+                      .row
+                        .col-md-4
+                          label.control-label #[strong 닉네임: ]
+                        .col-md-8
+                          a.form-control-static(href="member-detail.html") bobobo12
+                    .col-md-4
+                      .row
+                        .col-md-4
+                          label.control-label #[strong 일시: ]
+                        .col-md-8
+                          .form-control-static 2015-00-00 00:00
+                    .col-md-4
+                      .row
+                        .col-md-4
+                          label.control-label #[strong 신고건수: ]
+                        .col-md-8
+                          span(style="margin-right: 20px;") 0
+                          a.btn.green(href="#") 신고내역
+                // .post-info
+
+                ="\n"
+                .wb-gap(style='border-bottom: 1px solid #e1e1e1; margin: 0 0 15px 0;')
+                
+                ="\n"
+                .post-content
+                  .wb-container-style-1
+                    .content
+                      | 안녕하세요. 처음 가입하게 되엇네요.
+                      br
+                      | 앞으로 우리 가슴 속 이야기 마음껏 털어놓아 보아요.
+                // .post-content
+              // .post
+          // .block-1
+
+          ="\n"
+          .wb-gap(style='border-bottom: 1px solid #e1e1e1; margin: 0 0 25px 0;')
+
+          ="\n"
+          .block-action-button.text-right
+            .wb-container-style-1
+              a.btn.default(href="post-detail.html") 취소
+              a.btn-open-popup.btn.green(href="#", data-toggle='modal', data-target="#popupConfirmEditComment") 수정
+          // .block-action-button
+
+        // .comment-edit-main
+      // .page-content
+    // .comment-edit
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade
+  
+  ="\n"
+  include ../includes/popupConfirmDelete.jade
+  
+  ="\n"
+  include ../includes/popupConfirmEditComment.jade

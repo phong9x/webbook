@@ -1,0 +1,439 @@
+mixin wb-header
+  .wb-header.visible-md.visible-lg
+    .container: .row
+      .col-md-2.wb-header-logo
+        a(href="#"): img(src="/dist/assets/img/logo.png", alt="logo")
+      .col-md-7.wb-header-nav-col
+        .wb-header-nav
+          .wb-header-nav-item: a.mute(href="#") 회원가입
+          .wb-header-nav-item: a.mute(href="#") 로그인
+      .col-md-3.wb-header-search
+        .wb-search
+          input(type="text")
+          img(src="/dist/assets/img/search.png", alt="search icon")
+
+mixin wb-sub-header
+  .wb-sub-header.visible-md.visible-lg
+    .container: .row
+      .col-md-6
+        .wb-sub-header-nav1
+          .wb-sub-header-nav1-item.active
+            a.mute(href="#") 오늘의 연재
+          .wb-sub-header-nav1-item
+            a.mute(href="#") 리그&공모
+          .wb-sub-header-nav1-item
+            a.mute(href="#") 커뮤니티
+      .col-md-6
+        .wb-sub-header-nav2
+          .wb-sub-header-nav2-item.active
+            a.mute(href="#") My Page
+          .wb-sub-header-nav2-item
+            a.mute(href="#") 작품올리기
+          .wb-sub-header-nav2-item
+            a.mute(href="#") 쿠폰충전
+
+mixin wb-footer
+  .wb-footer
+    .container: .row
+      .wb-footer-logo.col-md-3
+        img(src="/dist/assets/img/logo-gray.png", alt="logo gray")
+      .wb-footer-other.col-md-9
+        .wb-sitemap
+          .wb-sitemap-item
+            a.mute(href="#") K웹소설 소개
+          .wb-sitemap-item
+            a.mute(href="#") 이용안내
+          .wb-sitemap-item
+            a.mute(href="#") FAQ
+          .wb-sitemap-item
+            a.mute(href="#") 공지사항
+          .wb-sitemap-item
+            a.mute(href="#") 사이트맵
+        .wb-contact
+          span.wb-contact-item 서울시 종로구 133-2
+          span.wb-contact-item 삼덕빌딩 9층
+          span.wb-contact-item 대표자: 김철수
+          span.wb-contact-item 사업자등록번호: 139-34-345555
+          span.wb-contact-item 대표번호: (국번없이) 1588-5959
+          span.wb-contact-item Fax: 02-722-5362             
+        .wb-copyright
+          | Copyright © WEELINK COMPANY All Rights Reserved.
+
+
+mixin wb-content
+  .wb-content
+    .container
+      .wb-box-pad_30_50: .row
+        .col-md-3
+          span.wb-f18: b 금혼령, 조선혼인금지령
+        .col-md-6
+          .wb-book-page-nav.clearfix
+            .wb-book-page-nav-left
+            .wb-book-page-nav-title
+              .wb-f28 81화.잡든지,잡히든지
+            .wb-book-page-nav-right
+
+        .col-md-3.text-right
+          img(src="/dist/assets/img/bookmark.png" alt="book mark icon" style="margin-top: -11px").wb-mr12
+          button(type="button").wb-btn-lean 가+
+          button(type="button").wb-btn-lean 가-
+      .wb-box-pad_30_50: .row
+
+mixin wbm-header
+  .wbm-header.clearfix
+    .wbm-header-search
+      img(src="/dist/assets/img/search2.png", alt="search 2" onclick="window.trams.popup.open('#search')")
+    .wbm-header-logo
+      a(href="#")
+        img(src="/dist/assets/img/logo2.png", alt="logo mobile")
+    .wbm-header-menu#off-canvas-trigger
+      img(src="/dist/assets/img/menu.png", alt="menu")
+
+mixin wbm-tab
+  .wbm-tab
+    .wbm-tab-item.active 오늘의 연재
+    .wbm-tab-item: a.mute(href="#") 리그&공모
+    .wbm-tab-item: a.mute(href="#") 커뮤니티
+
+mixin wb-feature-slide
+  .wb-feature-slide
+    .wb-feature-slide-control
+      .wb-feature-slide-control-left
+          img(src="/dist/assets/img/left.png", alt="v1")
+      .wb-feature-slide-control-right
+          img(src="/dist/assets/img/right.png", alt="v1")
+    .wb-feature-slide-wrapper
+      - for(var i=0;i<3;i++) {
+        .wb-feature-slide-item
+          +wb-book-card("/dist/assets/img/v1.jpg")
+        .wb-feature-slide-item
+          +wb-book-card("/dist/assets/img/v2.jpg")
+        .wb-feature-slide-item
+          +wb-book-card("/dist/assets/img/v3.jpg")
+        .wb-feature-slide-item
+          +wb-book-card("/dist/assets/img/v4.jpg")
+        .wb-feature-slide-item
+          +wb-book-card("/dist/assets/img/v5.jpg")
+      - }
+    .wb-feature-slide-indicator.text-center
+      .wb-dot-holder.clearfix
+        .wb-dot.active
+        .wb-dot
+        .wb-dot
+              
+mixin wb-book-card(url)
+  .wb-book-card
+    .wb-book-card-img(style="background-image: url(#{url})")
+    .wb-book-card-text
+      .wb-color-primary 로맨스
+      .wb-f18.wb-text-crop 금혼령, 조선혼인 조선혼인 조선혼인
+      .wb-color-gray3 글 천지혜   삽화 그늦
+
+mixin wb-competition-item(url)
+  .wb-competition-item(class!=attributes.class)
+    img(src="#{url}", alt="item")
+    .wb-text-crop.wb-mt10: b 금혼령, 조선혼인 금지령
+    .wb-color-gray.wb-mt4 글 천지혜   삽화 그늦
+
+
+mixin wb-competition
+  .wb-competition: .container
+    .wb-f18 리그&공모
+    .wb-competition-table-wrapper
+      table.wb-competition-table
+        thead
+          tr
+            th 
+            th 베스트 리그
+            th 챌린지 리그
+        tbody
+          - for(var i=1;i<=4;i++) {
+            tr
+              td
+                img(src="/dist/assets/img/age#{i}.png", alt="age")
+              td
+                .wb-competition-item
+                  +wb-competition-item("/dist/assets/img/book1.png")
+                .wb-competition-item.hidden-xs.hidden-sm
+                  +wb-competition-item("/dist/assets/img/book2.png")
+              td
+                .wb-competition-item
+                  +wb-competition-item("/dist/assets/img/book3.png")
+                .wb-competition-item.hidden-xs.hidden-sm
+                  +wb-competition-item("/dist/assets/img/book4.png")
+          - }
+      
+
+mixin wb-notice
+  .wb-notice
+    .row
+      .col-md-6
+        .wb-f18 공지사항
+      .col-md-6.text-right
+        a(href="#"): img(src="/dist/assets/img/plus.png", alt="plus")
+    a(href="#").mute: .row.wb-mt18
+      .col-md-8
+        .wb-notice-dot.wb-f12.wb-text-crop [이벤트] K웹소설 오픈기념 이벤 오픈기념 이벤 오픈기념 이벤
+      .col-md-4.text-right
+        .wb-f12 2015.10.22
+    a(href="#").mute: .row.wb-mt6
+      .col-md-8
+        .wb-notice-dot.wb-f12.wb-text-crop [당첨안내] 추석 맞이 이벤트
+      .col-md-4.text-right
+        .wb-f12 2015.10.22
+    a(href="#").mute: .row.wb-mt6
+      .col-md-8
+        .wb-notice-dot.wb-f12.wb-text-crop [점검완료] 서버 점검 완료 오픈기념 이벤 오픈기념 이벤
+      .col-md-4.text-right
+        .wb-f12 2015.10.22
+    a(href="#").mute: .row.wb-mt6
+      .col-md-8
+        .wb-notice-dot.wb-f12.wb-text-crop [당첨안내] 추석 맞이 이벤트
+      .col-md-4.text-right
+        .wb-f12 2015.10.22
+    a(href="#").mute: .row.wb-mt6
+      .col-md-8
+        .wb-notice-dot.wb-f12.wb-text-crop [점검완료] 서버 점검 완료 오픈기념 이벤 오픈기념 이벤
+      .col-md-4.text-right
+        .wb-f12 2015.10.22
+
+
+mixin wb-free-board
+  .wb-free-board
+    // Nav tabs
+    ul.nav.nav-tabs.wb-free-board-tab(role='tablist')
+      li.active(role='presentation').wb-f18
+        a.mute(href='#freeboard', aria-controls='home', role='tab', data-toggle='tab') 자유게시판
+      li(role='presentation').wb-f18
+        a.mute(href='#profile', aria-controls='profile', role='tab', data-toggle='tab') 감상평
+    // Tab panes
+    .tab-content
+      #freeboard.tab-pane.active(role='tabpanel')
+        .wb-wanna-fly
+          .wb-wanna-fly-inner
+            a(href="#"): img(src="/dist/assets/img/plus.png", alt="ref")
+
+        a(href="#").mute: .row.wb-mt8
+          .col-md-8
+            .wb-notice-dot.wb-f12.wb-text-crop [이벤트] K웹소설 오픈기념 이벤 오픈기념 이벤 오픈기념 이벤
+          .col-md-4.text-right
+            .wb-f12 2015.10.22
+        a(href="#").mute: .row.wb-mt6
+          .col-md-8
+            .wb-notice-dot.wb-f12.wb-text-crop [점검완료] 서버 점검 완료 오픈기념 이벤 오픈기념 이벤
+          .col-md-4.text-right
+            .wb-f12 2015.10.22
+        a(href="#").mute: .row.wb-mt6
+          .col-md-8
+            .wb-notice-dot.wb-f12.wb-text-crop [점검완료] 서버 점검 완료 오픈기념 이벤 오픈기념 이벤
+          .col-md-4.text-right
+            .wb-f12 2015.10.22
+        a(href="#").mute: .row.wb-mt6
+          .col-md-8
+            .wb-notice-dot.wb-f12.wb-text-crop [점검완료] 서버 점검 완료 오픈기념 이벤 오픈기념 이벤
+          .col-md-4.text-right
+            .wb-f12 2015.10.22
+        a(href="#").mute: .row.wb-mt6
+          .col-md-8
+            .wb-notice-dot.wb-f12.wb-text-crop [점검완료] 서버 점검 완료 오픈기념 이벤 오픈기념 이벤
+          .col-md-4.text-right
+            .wb-f12 2015.10.22
+      #profile.tab-pane(role='tabpanel') ...
+
+mixin wb-banner
+  .wb-banner.visible-md.visible-lg: .container
+    .wb-banner-item: a(href="#")
+      img(src="/dist/assets/img/banner1.png", alt="banner")
+    .wb-banner-item: a(href="#")
+      img(src="/dist/assets/img/banner2.png", alt="banner")
+    .wb-banner-item: a(href="#")
+      img(src="/dist/assets/img/banner3.png", alt="banner")
+
+mixin wbm-banner
+  .wbm-banner.visible-xs.visible-sm:.container
+    .wbm-banner-slider
+      .wbm-banner-slider-item
+        a(href="#")
+          img(src="/dist/assets/img/m-banner1.png", alt="banner").center-block.img-responsive
+      .wbm-banner-slider-item
+        a(href="#")
+          img(src="/dist/assets/img/m-banner2.png", alt="banner").center-block.img-responsive
+      .wbm-banner-slider-item
+        a(href="#")
+          img(src="/dist/assets/img/m-banner3.png", alt="banner").center-block.img-responsive
+
+mixin wbm-other
+  .wbm-other.visible-xs.visible-sm: .container
+    .wbm-other-wrapper: .row
+      .col-xs-8.wb-text-crop
+          a(href="#").mute.wb-pill.wb-f16.wb-mr30 공지
+          a(href="#").mute.wb-f20 [이벤트] K웹소설 오픈기념 이벤
+      .col-xs-4.text-right
+        img(src="/dist/assets/img/top.png", alt="to top").wb-gotop
+    //- .wbm-other-wrapper.clearfix
+    //-   .pull-left
+    //-       a(href="#").mute.wb-pill.wb-f16.wb-mr30 공지
+    //-       a(href="#").mute.wb-f20 [이벤트] K웹소설 오픈기념 이벤
+    //-   .pull-right
+    //-     img(src="/dist/assets/img/top.png", alt="to top")
+
+mixin wb-other
+  .wb-other.hidden-xs.hidden-sm
+    .container: .row
+      .col-md-4.wb-other-col
+        +wb-notice
+      .col-md-4.wb-other-col
+        +wb-free-board
+      .col-md-4.wb-other-col
+        a(href="#"): img(src="/dist/assets/img/ref.png", alt="ref")
+
+mixin wb-cat-tab
+  .wb-cat-tab: .container-mobile-full
+    .wb-cat-tab-wrapper.clearfix
+      .wb-cat-tab-item.active 오늘
+      .wb-cat-tab-item: a.mute(href="#") 로맨스
+      .wb-cat-tab-item: a.mute(href="#") 판타지
+      .wb-cat-tab-item: a.mute(href="#") 무협
+      .wb-cat-tab-item: a.mute(href="#") 퓨전/기타
+      .wb-cat-tab-item: a.mute(href="#") 성인
+      .wb-cat-tab-item: a.mute(href="#") 완결작
+
+//- mixin wb-cat-tab
+  .wb-cat-tab: .container-mobile-full
+    .wb-cat-tab-wrapper.clearfix
+      .wb-cat-tab-item.active 관심작품
+      .wb-cat-tab-item: a.mute(href="#") 책갈피
+      .wb-cat-tab-item: a.mute(href="#") 내작품
+      .wb-cat-tab-item: a.mute(href="#") 쿠폰 보유 현황
+      .wb-cat-tab-item: a.mute(href="#") 판매/정산
+      .wb-cat-tab-item: a.mute(href="#") 내정보 관리
+
+
+mixin wb-check-rad
+  label.wb-check-rad
+    input(type="radio" name="a")
+    span 남
+
+mixin wb-check-raw
+  label.wb-check-raw
+    input(type="radio" name="a")
+    span 월
+
+mixin wb-day-combo
+  .wb-day-combo.hidden-xs.hidden-sm
+    .wb-day-combo-label 요일
+    label.wb-check-square.first
+      input(type="radio" name="a")
+      span 전체
+    label.wb-check-square
+      input(type="radio" name="a")
+      span 월
+    label.wb-check-square
+      input(type="radio" name="a")
+      span 화
+    label.wb-check-square
+      input(type="radio" name="a")
+      span 수
+    label.wb-check-square
+      input(type="radio" name="a")
+      span 목
+    label.wb-check-square
+      input(type="radio" name="a")
+      span 금
+    label.wb-check-square
+      input(type="radio" name="a")
+      span 토
+    label.wb-check-square
+      input(type="radio" name="a")
+      span 일
+
+mixin wb-select
+  .wb-select
+    select
+      option 전체
+      option 234
+      option 234
+
+mixin wb-cat-filter
+  .wb-cat-filter: .container
+    .wb-cat-filter-wrapper: .row
+      .col-xs-4.col-md-7
+        +wb-day-combo
+        .wb-select.hidden-md.hidden-lg
+          select
+            option 전체
+            option 월
+            option 화
+      .col-xs-8.col-md-5.text-right.wb-cat-filter-genre
+        +wb-select
+        .wb-select
+          select
+            option 조회수
+
+mixin wb-book-intro(url)
+  .wb-book-intro
+    .row
+      .col-xs-6.wb-book-intro-img
+        img.img-responsive.wb-shadow(src="#{url}", alt="book intro")
+      .col-xs-6.wb-book-intro-detail
+        .wb-f18: b 금혼령, 조선혼인 금지령
+        .wb-f16.wb-color-gray 글 천지혜
+        .wb-f16.wb-color-gray 2015.11.11
+        .wb-f18.wb-mt10 총 65화, 올 것은 왔다
+        .wb-f16.wb-color-gray.wb-mt10
+          img(src="/dist/assets/img/heart.png", alt="heart").wb-mr12
+          | 추천수 150
+        .wb-f16.wb-color-gray.wb-mt10
+          span.wb-mr2
+          img(src="/dist/assets/img/star.png", alt="heart").wb-mr12
+          | 관심작수 150
+
+mixin wb-book-list
+  .wb-book-list: .container
+    .wb-book-list-wrapper.clearfix
+      - for(var i=0; i<4; i++) {
+        .wb-book-list-item
+          +wb-book-intro("/dist/assets/img/l-book1.png")
+        .wb-book-list-item
+          +wb-book-intro("/dist/assets/img/l-book2.png")
+      - }
+
+mixin wb-league-list-item
+  .wb-league-list-item: .row
+    .col-xs-2.col-md-2
+      .wb-f16.wb-color-complementary2: b 로맨스
+    .col-xs-8.col-md-9
+      +wb-league-col2
+    .col-xs-2.col-md-1
+      img(src="/dist/assets/img/heart.png", alt="heart").wb-mr8
+      span.wb-f16.wb-color-gray: b 150
+
+mixin wb-league-col2
+  .wb-league-col2: .row
+    .col-md-6.col-xs-12.wb-league-col2-1 
+      span.wb-f16.wb-mr10: b 사신 로맨스 : 월하의 매듭 
+      span.wb-f16.wb-color-gray.wb-mr10.hidden-xs.hidden-sm: b |
+      span.wb-f16.wb-color-gray: b 총234회
+    .col-md-3.col-xs-6.wb-league-col2-2
+      span.wb-f16.wb-color-gray: b 에시드
+    .col-md-3.col-xs-6
+      span.wb-f16.wb-color-gray: b 2015.10.13
+
+mixin wb-pagin
+  .wb-pagin
+    a.mute(href="#").wb-pagin-item.left &nbsp;
+    .wb-pagin-item.active 1
+    a.mute(href="#").wb-pagin-item 2
+    a.mute(href="#").wb-pagin-item 3
+    a.mute(href="#").wb-pagin-item.boss 다음페이지
+    a.mute(href="#").wb-pagin-item.right &nbsp;
+
+mixin wb-btn
+  button.wb-btn 수정
+
+mixin wb-tab2
+  .wb-tab2
+    .wb-tab2-item.active 전체
+    .wb-tab2-item: a(href="#").mute 오늘의 연재
+    .wb-tab2-item: a(href="#").mute 베스트리그
+    .wb-tab2-item: a(href="#").mute 챌린지리그

@@ -1,0 +1,55 @@
+extends ../layouts/user.jade
+
+append content
+  +wb-header
+  +wb-sub-header
+  
+  .wb-canvas
+    .wb-canvas-wrapper
+      .wb-canvas-content
+        +wbm-header
+        +wbm-tab
+        
+        .wb-feature
+          .text-center
+            .wb-feature-title
+              .wb-f26 
+                span.wb-color-primary 금주의 
+                span.wb-color-complementary 인기작
+
+          .container
+            +wb-feature-slide
+
+        +wbm-banner
+        +wb-banner
+        +wb-competition
+        
+        +wbm-other
+        +wb-other
+        +wb-footer
+      .wb-canvas-side
+        .row.wb-cell
+          .col-xs-6.wb-cell-item
+            a.mute(href="#"): span.wb-color-primary.wb-f26: b 회원가입
+          .col-xs-6.wb-cell-item
+            a.mute(href="#"): span.wb-color-primary.wb-f26: b 로그인
+        .wb-list-side
+          .wb-list-side-item
+            .row
+              .col-xs-10
+                a.mute(href="#"): span.wb-color-primary.wb-f24: b My Page
+              .col-xs-2.text-right
+                img(src="/dist/assets/img/play.png" alt="play")
+          .wb-list-side-item
+            .row
+              .col-xs-10
+                a.mute(href="#"): span.wb-color-primary.wb-f24: b 작품 올리기
+              .col-xs-2.text-right
+                img(src="/dist/assets/img/play.png" alt="play")
+          .wb-list-side-item
+            .row
+              .col-xs-10
+                a.mute(href="#"): span.wb-color-primary.wb-f24: b 쿠폰충전
+              .col-xs-2.text-right
+                img(src="/dist/assets/img/play.png" alt="play")
+  

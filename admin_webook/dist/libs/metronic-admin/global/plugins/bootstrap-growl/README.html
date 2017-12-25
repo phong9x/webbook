@@ -1,0 +1,39 @@
+<h1 id="bootstrap-growl">bootstrap-growl</h1>
+<p>Pretty simple jQuery plugin that turns standard Bootstrap alerts into hovering &quot;Growl-like&quot; notifications.</p>
+<h2 id="demo">Demo</h2>
+<p>I have a basic demo set up at jsfiddle for the time being which you can view here: <a href="http://jsfiddle.net/ifightcrime/Us6WX/1008/">http://jsfiddle.net/ifightcrime/Us6WX/1008/</a></p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Uses standard <a href="http://twitter.github.com/bootstrap/components.html#alerts">Twitter Bootstrap alerts</a> which provides &#39;info&#39;, &#39;danger&#39;, and &#39;success&#39; styles.</li>
+<li>Multiple growls called consecutively are stacked up one after another in a list.</li>
+<li>Automatically fades growls away after a default of 4 seconds.</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<ol>
+<li>Latest version of jQuery. (tested on 1.11.0)</li>
+<li><a href="http://twitter.github.com/bootstrap/index.html">Twitter Bootstrap</a>. (current rev tested with 3.3.1)</li>
+</ol>
+<h2 id="usage">Usage</h2>
+<p>Include the dependencies and <code>jquery.bootstrap-growl.min.js</code> into your page and call the following:</p>
+<pre><code class="lang-javascript">$.bootstrapGrowl(&quot;My message&quot;);
+</code></pre>
+<h2 id="available-options">Available Options</h2>
+<p>By default, growls use the standard &#39;alert&#39; Bootstrap style, are 250px wide, right aligned, and are positioned 20px from the top right of the page.</p>
+<pre><code class="lang-javascript">$.bootstrapGrowl(&quot;another message, yay!&quot;, {
+  ele: &#39;body&#39;, // which element to append to
+  type: &#39;info&#39;, // (null, &#39;info&#39;, &#39;danger&#39;, &#39;success&#39;)
+  offset: {from: &#39;top&#39;, amount: 20}, // &#39;top&#39;, or &#39;bottom&#39;
+  align: &#39;right&#39;, // (&#39;left&#39;, &#39;right&#39;, or &#39;center&#39;)
+  width: 250, // (integer, or &#39;auto&#39;)
+  delay: 4000, // Time while the message will be displayed. It&#39;s not equivalent to the *demo* timeOut!
+  allow_dismiss: true, // If true then will display a cross to close the popup.
+  stackup_spacing: 10 // spacing between consecutively stacked growls.
+});
+</code></pre>
+<p>Note: Previous <code>top_offset</code> is not broken by this latest change.</p>
+<h2 id="additional-contributors">Additional Contributors</h2>
+<ul>
+<li>Jose Martinez <a href="https://github.com/callado4">https://github.com/callado4</a></li>
+<li>Lloyd Watkin <a href="https://github.com/lloydwatkin">https://github.com/lloydwatkin</a></li>
+<li>TruongSinh Tran-Nguyen <a href="https://github.com/tran-nguyen">https://github.com/tran-nguyen</a></li>
+</ul>

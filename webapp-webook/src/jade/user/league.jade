@@ -1,0 +1,42 @@
+extends ../layouts/user.jade
+
+append content
+  +wb-header
+  +wb-sub-header
+  
+  .wb-canvas
+    .wb-canvas-wrapper
+      .wb-canvas-content
+        +wbm-header
+        +wbm-tab
+        
+        include includes/league.jade
+        
+        +wb-footer
+      .wb-canvas-side
+        .wb-cell2
+          div
+            img.wb-mr14(src="/dist/assets/img/avar.png" alt="avar" style="vertical-align: top")
+            a.mute(href="#"): span.wb-f24: b 타타르님
+          .wb-f18.wb-color-complementary.wb-mt12: b 현재보유 쿠폰: 10,000
+        .wb-list-side
+          .wb-list-side-item
+            .row
+              .col-xs-10
+                a.mute(href="#"): span.wb-color-primary.wb-f24: b My Page
+              .col-xs-2.text-right
+                img(src="/dist/assets/img/play.png" alt="play")
+          .wb-list-side-item
+            .row
+              .col-xs-10
+                a.mute(href="#"): span.wb-color-primary.wb-f24: b 작품 올리기
+              .col-xs-2.text-right
+                img(src="/dist/assets/img/play.png" alt="play")
+          .wb-list-side-item
+            .row
+              .col-xs-10
+                a.mute(href="#"): span.wb-color-primary.wb-f24: b 쿠폰충전
+              .col-xs-2.text-right
+                img(src="/dist/assets/img/play.png" alt="play")
+      
+  

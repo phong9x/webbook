@@ -1,0 +1,48 @@
+.wbp-withdrawal
+  .wb-cat-tab: .container-mobile-full
+    .wb-cat-tab-wrapper.clearfix
+      .wb-cat-tab-item: a.mute(href="#") 관심작품
+      .wb-cat-tab-item: a.mute(href="#") 책갈피
+      .wb-cat-tab-item: a.mute(href="#") 내작품
+      .wb-cat-tab-item: a.mute(href="#") 쿠폰 보유 현황
+      .wb-cat-tab-item: a.mute(href="#") 판매/정산
+      .wb-cat-tab-item.active 내정보 관리
+
+
+  .container.wb-mt50: .wbp-book-detail-tabs
+    ul.nav.nav-tabs
+      li
+        a.mute(href='#') 연재목록
+      li.active
+        a.mute(href='#') #[span.wb-color-complementary3 공지]사항
+
+    .wbp-withdrawal-box.wb-mt40
+      span [탈퇴 시 주의사항]  #[br]
+      | #[br]
+      span 1.회원탈퇴 시 적립하신 내역이 모두 삭제 됩니다. - 쿠폰, 작가 이력  #[br]
+      span 2.회원 정보 및 회원제 서비스 - 적립 내용 삭제 - 작품 일체 삭제 #[br]
+      span 3.공공적 성격의 게시물은 탈퇴 후에도 삭제되지 않습니다. (탈퇴 전 직접 삭제하시기 바랍니다.)  #[br]
+      span - 게시물 : 자유게시판, 감상평에 남긴 게시물 - 기타 : 커뮤니티 및 작품에 남긴 댓글, 의견 등 #[br]
+      span 4.회원 탈퇴 후 동일한 아이디로 재가입은 불가능합니다. - 탈퇴하신 후 모든 정보 복구는 불가능합니다.
+
+      .form-horizontal.wb-form-hoz.wbp-withdrawal-form
+        .form-group
+          label.col-md-1.control-label 회원아이디
+          .col-md-4.wb-form-hoz-col.first
+            input.wb-textbox.form-control(type='text')
+        .form-group
+          label.col-md-1.control-label 비밀번호
+          .col-md-4.wb-form-hoz-col.first
+            input.wb-textbox.form-control(type='text')
+        .form-group
+          label.col-md-1.control-label 탈퇴사유
+          .col-md-4.wb-form-hoz-col.first
+            .wb-select.full.persit
+              select
+                option 전체
+                option 234
+                option 234
+
+    .text-center.wb-mt30
+      button.base-btn.wb-btn-bold.h40 취소
+      button.base-btn.wb-btn-shine 취소

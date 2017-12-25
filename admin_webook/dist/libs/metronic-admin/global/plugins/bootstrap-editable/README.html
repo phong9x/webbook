@@ -1,0 +1,59 @@
+<h1 id="x-editable">X-editable</h1>
+<p>In-place editing with Twitter Bootstrap, jQuery UI or pure jQuery.  </p>
+<h2 id="live-demo">Live demo</h2>
+<p><strong><a href="http://vitalets.github.io/x-editable/demo.html">http://vitalets.github.io/x-editable/demo.html</a></strong></p>
+<h2 id="installation">Installation</h2>
+<h3 id="manual-download">Manual download</h3>
+<p>Use <strong><a href="http://vitalets.github.io/x-editable">http://vitalets.github.io/x-editable</a></strong></p>
+<h3 id="bower">Bower</h3>
+<pre><code>bower install x-editable
+</code></pre><h3 id="cdn">CDN</h3>
+<pre><code class="lang-js">&lt;link href=&quot;//cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.6/bootstrap-editable/css/bootstrap-editable.css&quot; rel=&quot;stylesheet&quot;/&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/x-editable/1.4.6/bootstrap-editable/js/bootstrap-editable.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h2 id="documentation">Documentation</h2>
+<p><strong><a href="http://vitalets.github.io/x-editable">http://vitalets.github.io/x-editable</a></strong></p>
+<h2 id="reporting-issues">Reporting issues</h2>
+<p>When creating issues please provide <a href="http://jsfiddle.net">jsFiddle</a> example. You can easily fork one of following:   </p>
+<ol>
+<li><a href="http://jsfiddle.net/xBB5x/1817">jsFiddle bootstrap template</a>  </li>
+<li><a href="http://jsfiddle.net/xBB5x/196">jsFiddle jqueryui template</a>  </li>
+<li><a href="http://jsfiddle.net/xBB5x/197">jsFiddle jquery template</a><br>Your feedback is very appreciated!</li>
+</ol>
+<h2 id="contribution">Contribution</h2>
+<p>A few steps how to start contributing:  </p>
+<p>1.<a href="https://github.com/vitalets/x-editable/fork">Fork X-editable</a> and pull the latest changes from <code>dev</code> branch</p>
+<p>2.Arrange local directory structure. It should be:<br><strong>x-editable</strong><br> | -- <strong>lib</strong> (repo related to <code>dev</code> and <code>master</code> branches)<br> | -- <strong>gh-pages</strong> (repo related to <code>gh-pages</code> branch for docs &amp; demo)<br> | -- <strong>playground</strong> (simple node-server and html page for testing, <a href="https://github.com/downloads/vitalets/x-editable/playground_1.2.zip">playground_1.2.zip</a>, <strong>updated in 1.2.0!</strong>)      </p>
+<p>To make it easy follow this script ( <em>assuming you have <a href="http://nodejs.org">nodejs</a> installed</em> ).
+Please replace <code>&lt;your-github-name&gt;</code> with your name:</p>
+<pre><code>mkdir x-editable
+cd x-editable
+
+#lib
+git clone https://github.com/&lt;your-github-name&gt;/x-editable.git -b dev lib
+cd lib
+#install gruntjs globally - building tool
+npm install -g grunt 
+#install other dependencies - grunt-contrib
+npm install 
+cd ..
+
+#gh-pages
+git clone https://github.com/&lt;your-github-name&gt;/x-editable.git -b gh-pages gh-pages
+cd gh-pages
+npm install 
+cd ..
+
+#playground 
+#download playground.zip from https://github.com/downloads/vitalets/x-editable/playground_1.2.zip
+unzip playground.zip
+cd playground
+npm install
+</code></pre><p>3.That&#39;s it! You can start editing files in <strong>lib/src</strong> directory or create new editable input/container/whatever.<br>To test the result go to <strong>playground</strong>, start server <code>node server.js</code> and open in your browser <a href="http://localhost:3000/playground">http://localhost:3000/playground</a>.</p>
+<p>4.To run unit tests you can open it directly in browser <strong>lib/test/index.html</strong>.<br>Or use grunt&#39;s <em>qunit</em> task <code>grunt test</code>. For that you also need to <a href="https://github.com/gruntjs/grunt/blob/master/docs/faq.md#why-does-grunt-complain-that-phantomjs-isnt-installed">install PhantomJS</a></p>
+<p>5.To build distributive run <code>grunt build</code> in <strong>lib</strong> directory. Result will appear in <strong>lib/dist</strong>.</p>
+<p>6.To build docs run <code>build data-docs-dist</code> in <strong>gh-pages</strong> directory. Result will appear in <strong>gh-pages/*.html</strong>.<br>Do not edit <strong>index.html</strong> and <strong>docs.html</strong> directly! Instead look at <a href="https://github.com/wycats/handlebars.js">Handlebars</a> templates in <strong>generator/templates</strong>.</p>
+<p>7.Commit changes on <code>dev</code> / <code>gh-pages-dev</code> branch and make pull request as usual. </p>
+<p>Thanks for your support!</p>
+<h2 id="license">License</h2>
+<p>Copyright (c) 2012 Vitaliy Potapov<br>Licensed under the MIT license.</p>

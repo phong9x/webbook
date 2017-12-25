@@ -1,0 +1,130 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title member-management - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .member-management.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 회원 관리
+        // .page-bar
+        
+        ="\n"
+        .member-management-main.wb-pb-50
+          .block-1
+            .form-filter-wrapper
+              form.form-filter.form-horizontal(action='#')
+                .form-body
+                  .portlet.light.bordered
+                    .wb-container-style-1
+                      .form-group
+                        .col-md-5
+                          .row
+                            .col-md-3
+                              label.control-label #[strong 연령구분]
+                            .col-md-7
+                              select.form-control(name='test38')
+                                option(value='0') 전체
+                                option(value='1') 제너맨
+                                option(value='2') 유니티
+                                option(value='3') 하이틴
+                                option(value='4') 로우틴
+                        
+                        ="\n"
+                        .col-md-5
+                          .row
+                            .col-md-3
+                              label.control-label #[strong 작가등급]
+                            .col-md-7
+                              select.form-control(name='test38')
+                                option(value='0') 작가
+                                option(value='1') 베스트리그
+                                option(value='2') 챌린지리그
+                        
+                        ="\n"
+                        .col-md-2.text-center
+                          button.btn.green.btn-filter(type='submit') 필터링
+              // .form-filter
+            // .form-filter-wrapper
+
+            ="\n"
+            .form-search-wrapper
+              form.form-search.form-horizontal(action='#')
+                .form-body
+                  .wb-container-style-1
+                    .form-group
+                      .col-md-3
+                        select.form-control(name='test38')
+                          option(value='0') 아이디
+                          option(value='1') 이름
+                          option(value='2') 닉네임
+
+                      ="\n"
+                      .col-md-5.col-md-offset-1
+                        input.form-control(name='test349', type='search')
+                      
+                      .col-md-3.text-center
+                        button.btn.green.btn-search(type='submit') 검색
+              // .form-search
+            // .form-search-wrapper
+
+            ="\n"
+            .wb-gap(style='border-top: 1px solid #e1e1e1; padding-bottom: 15px;')
+            
+            ="\n"
+            .table-member-management.table-responsive
+              .table-member-management-title
+                h4 조회 회원 수 : #[strong 13,209]
+
+              table.table.table-striped.table-bordered.table-hover.text-center
+                thead
+                  tr
+                    th.text-center 번호
+                    th.text-center 아이디
+                    th.text-center 성명
+                    th.text-center 닉네임
+                    th.text-center 연령구분
+                    th.text-center 작가등급
+                    th.text-center 회원가입 일시
+                    th.text-center 관리
+                tbody
+                  tr
+                    td 1
+                    td
+                      a(href="member-detail.html") Abcd
+                    td 김길동
+                    td edfg
+                    td 제너맨
+                    td 작가
+                    td 15.06.30 10:00
+                    td
+                      a.btn-open-popup.btn.red(href="#", data-toggle='modal', data-target="#popupConfirmDelete") 삭제
+            //.table-member-management
+
+            ="\n"
+            include ../includes/wb-pagination.jade
+          // .block-1
+
+        // .member-management-main
+      // .page-content
+    // .member-management
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade
+  
+  ="\n"
+  include ../includes/popupConfirmDelete.jade

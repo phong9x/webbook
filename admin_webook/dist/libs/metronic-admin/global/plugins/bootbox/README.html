@@ -1,0 +1,68 @@
+<h1 id="bootbox-bootstrap-powered-alert-confirm-and-flexible-dialog-boxes">Bootbox - Bootstrap powered alert, confirm and flexible dialog boxes</h1>
+<p>Please see <a href="http://bootboxjs.com">http://bootboxjs.com</a> for full usage instructions, or head over to <a href="http://paynedigital.com/bootbox">http://paynedigital.com/bootbox</a> for
+the original writeup about the project.</p>
+<h2 id="contact">Contact</h2>
+<p><a href="https://gitter.im/makeusabrew/bootbox?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a></p>
+<p>The easiest thing is to <a href="http://twitter.com/makeusabrew">find me on twitter @makeusabrew</a>.</p>
+<h2 id="contributing">Contributing</h2>
+<p>Please see the <a href="https://github.com/makeusabrew/bootbox/blob/master/CONTRIBUTING.md">CONTRIBUTING</a> file for guidelines.</p>
+<h2 id="running-tests-build-status-https-api-travis-ci-org-makeusabrew-bootbox-svg-http-travis-ci-org-makeusabrew-bootbox-">Running Tests <a href="http://travis-ci.org/makeusabrew/bootbox"><img src="https://api.travis-ci.org/makeusabrew/bootbox.svg" alt="Build Status"></a></h2>
+<p>Tests are run using <a href="http://karma-runner.github.io/0.8/index.html">Karma</a> using the Mocha test adapter.
+To run the tests yourself, simply run <code>npm install</code> within the project followed by <code>npm test</code>.
+Please note that this will require <a href="http://phantomjs.org/">PhantomJS</a> being installed and in your path - if
+it is not, you may run the tests and capture browsers manually by running <code>karma start</code> from the root
+of the project.</p>
+<p>The project is also hosted on <a href="https://travis-ci.org/makeusabrew/bootbox">Travis CI</a> - when submitting
+pull requests <strong>please</strong> ensure your tests pass as failing requests will be rejected. See the
+<a href="https://github.com/makeusabrew/bootbox/blob/master/CONTRIBUTING.md">CONTRIBUTING</a> file for more information.</p>
+<h2 id="building-a-minified-release">Building a minified release</h2>
+<p>The repository no longer contains a minified bootbox.min.js file - this is now only generated
+<a href="https://github.com/makeusabrew/bootbox/releases">for releases</a>. To build your own minified copy
+for use in development simply run <code>npm install</code> if you haven&#39;t already, followed by <code>grunt uglify</code>.
+This will generate a bootbox.min.js file in your working directory.</p>
+<h2 id="a-note-on-bootstrap-dependencies">A note on Bootstrap dependencies</h2>
+<p>Bootbox <strong>4.0.0</strong> is the first release to support Bootstrap 3.0.0.</p>
+<p>Bootbox <strong>3.3.0</strong> is the <em>last</em> release to support Bootstrap 2.2.x.</p>
+<p>Much more dependency information can be found <a href="http://bootboxjs.com/#dependencies">on the Bootbox website</a>.</p>
+<h3 id="roadmap">Roadmap</h3>
+<p>The latest major release of Bootbox - 4.0.0 - involved a total rewrite of the
+internal code and introduced an entirely new public API. It has not re-implemented
+some functionality from the 3.x series as of yet; this will be addressed in the
+the form of new minor releases. Please feel free to add feedback and requests.</p>
+<p>There is no new major (e.g. 5.x) release on the roadmap at present.</p>
+<h3 id="latest-release-4-4-0">Latest Release: 4.4.0</h3>
+<ul>
+<li>Allow <code>backdrop</code> options of <code>true</code> and <code>false</code> to dismiss modals</li>
+<li>Pass dialog as <code>this</code> value in callbacks</li>
+<li>Bootstrap 3.3.2 compatibility</li>
+<li>jQuery 1.11.2 compatibility</li>
+<li>Add support for <code>maxlength</code> prompt input attribute</li>
+<li>Gracefully detect lack of Bootstrap library rather than crashing</li>
+<li>Expose <code>addLocale</code> and <code>removeLocale</code> for custom locale settings</li>
+<li>Expose <code>setLocale</code> helper to select a locale rather than using <code>setDefaults(&quot;locale&quot;, ...)</code></li>
+<li>Add Hungarian locale</li>
+<li>Add Croatian locale</li>
+<li>Add Bulgarian locale</li>
+<li>Add Thai locale</li>
+<li>Add Persian locale</li>
+<li>Add Albanian locale</li>
+</ul>
+<p>For a full list of releases and changes please see <a href="https://github.com/makeusabrew/bootbox/blob/master/CHANGELOG.md">the changelog</a>.</p>
+<h2 id="license">License</h2>
+<p>(The MIT License)</p>
+<p>Copyright (C) 2011-2015 by Nick Payne <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#x6e;&#105;&#99;&#107;&#64;&#x6b;&#x75;&#114;&#97;&#105;&#46;&#x63;&#111;&#46;&#x75;&#107;">&#x6e;&#105;&#99;&#107;&#64;&#x6b;&#x75;&#114;&#97;&#105;&#46;&#x63;&#111;&#46;&#x75;&#107;</a></p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE</p>

@@ -1,0 +1,190 @@
+.cz-badge {
+ position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 200;
+    width: 28px;
+    height: 28px;
+    background-color: white;
+    border: 3px solid red;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: bold;
+    padding-top: 3px; 
+}
+.wb-feature-slide-item {
+ margin: 0 25px; 
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+}
+.wb-book-list-item {
+ margin-bottom: 40px; 
+ height: 240px;
+ padding-top: 30px;
+
+}
+
+.wb-check-square {
+ margin-left: -1px;
+}
+
+.wb-check-square.first {
+    margin-left: -1px;
+}
+
+.wb-book-list {
+ margin-top: 40px; 
+}
+
+.relative {
+ position: relative; 
+}
+
+.badge2 {
+ position: absolute;
+ top: 10px; right: 18px; 
+ line-height: 1;
+ padding: 3px;
+ 
+ border: 2px solid red;
+ font-size: 11px;
+ border-radius: 50%;
+ 
+ font-weight: bold;
+}
+
+.wbp-league {
+ margin-top: 40px; 
+}
+
+.wbp-league-list {
+ margin-top: 23px; 
+}
+
+.wbp-league-list-item {
+    padding: 27px 0 30px 0;
+}
+
+.wb-footer {
+  height: 189px;
+  border-top: 1px solid #ccc;
+  padding-top: 41px;
+  overflow-x: hidden;
+}
+
+.wb-footer-logo {
+  width: 144px;
+}
+
+.wb-footer-social-icon {
+  margin-right: 14px;
+}
+
+@media (min-width: 1060px) {
+  .wb-footer-other {
+    width: 470px;
+  }
+
+  .wb-footer-social {
+    margin-left: 75px;
+  }
+}
+
+@media (max-width: 1059px) {
+  .wb-footer {
+    height: auto;
+  }
+
+  .wb-footer-logo {
+    margin: 30px 0;
+  }
+
+  .wb-footer-social {
+    margin: 30px 0;
+  }
+}
+
+.wb-copyright {
+	margin-top: 10px;
+}
+
+.wb-contact {
+	margin-top: 10px;
+}
+.wb-popup-box {
+    border: 1px solid #cccccc;
+    padding: 24px 14px;
+    height: 489px;
+    overflow-y: auto;
+}
+
+.wb-popup-holder {
+    float: left;
+    margin: 0 10px;
+    margin-bottom: 20px;
+}
+
+.wb-popup-book {
+    width: 120px;
+    height: 170px;
+    border: 1px solid #cccccc;
+    background-position: center;
+    background-size: cover;
+}
+.wbp-ep-detail-box {
+    position: absolute;
+    top: 50px;
+    left: 75px;
+    width: 135px;
+    background-color: #ebebeb;
+    z-index: 999;
+    border: 1px solid #cccccc;
+    padding: 9px;
+    text-align: left;
+}
+
+.wb-feature-slide-item {
+ width: 148px;
+ margin: 0 21.5px;
+}
+
+.wb-book-card {
+ width: auto;
+ position: relative; 
+}
+
+.wb-book-card > .wb-book-card-img {
+ position: absolute; 
+ top: 0; left: 0; right: 0; bottom: 0;
+ height: auto;
+ 
+ z-index: 100;
+}
+
+.wb-book-card-text {
+ position: absolute; 
+ left: 0; right: 0; bottom: 0;
+ z-index: 101;
+ 
+ padding-bottom: 8px;
+ background-color: rgba(255, 255, 255, 0.9);;
+ 
+}
+
+.wp-notice-content{
+	img{width:100%;}
+}
+
+
+.wbp-free-board-detail img{
+	width: 100%;
+}

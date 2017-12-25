@@ -1,0 +1,100 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title keyword-management - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .keyword-management.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 정산 상세정보
+        // .page-bar
+        
+        ="\n"
+        .keyword-management-main.wb-pb-50
+          form.form-horizontal
+            .form-body
+              .form-block-1.wb-container-style-1
+                .row
+                  .col-md-6
+                    .form-group
+                      .col-md-12
+                        label.control-label #[strong 로맨스]
+
+                    - for (var i = 0; i < 6; i++)
+                      ="\n"
+                      .form-group
+                        .col-md-12
+                          input.form-control(name='', type='text')
+                  
+                  ="\n"
+                  .col-md-6
+                    .form-group
+                      .col-md-12
+                        label.control-label #[strong 판타지]
+
+                    - for (var i = 0; i < 6; i++)
+                      ="\n"
+                      .form-group
+                        .col-md-12
+                          input.form-control(name='', type='text')
+              // .form-block-1
+
+              ="\n"
+              .wb-container-style-1
+                .wb-gap(style='padding-bottom: 50px')
+
+              .form-block-2.wb-container-style-1
+                .row
+                  .col-md-6
+                    .form-group
+                      .col-md-12
+                        label.control-label #[strong 무협]
+
+                    - for (var i = 0; i < 6; i++)
+                      ="\n"
+                      .form-group
+                        .col-md-12
+                          input.form-control(name='', type='text')
+                  
+                  ="\n"
+                  .col-md-6
+                    .form-group
+                      .col-md-12
+                        label.control-label #[strong 퓨전/기타]
+
+                    - for (var i = 0; i < 6; i++)
+                      ="\n"
+                      .form-group
+                        .col-md-12
+                          input.form-control(name='', type='text')
+              // .form-block-2
+
+              ="\n"
+              .wb-gap(style='border-bottom: 1px solid #e1e1e1; padding-bottom: 30px; margin-bottom: 40px;')
+
+              ="\n"
+              .form-action.text-center
+                .wb-container-style-1
+                  button.btn.green(type='submit') 변경내용 저장
+              //.form-action
+
+        // .keyword-management-main
+      // .page-content
+    // .keyword-management
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade

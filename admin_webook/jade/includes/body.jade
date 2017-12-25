@@ -1,0 +1,39 @@
+mixin body
+  body(class!=attributes.class)
+    block body-contents
+
+    = "\n"
+    // Vendor jQuery (CORE PLUGINS - METRONIC)
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/jquery.min.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/jquery-migrate.min.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/jquery-ui/jquery-ui.min.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/bootstrap/js/bootstrap.min.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/jquery.blockui.min.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/jquery.cokie.min.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/uniform/jquery.uniform.min.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')
+    
+    ="\n"
+    // Vendor jQuery (PAGE LEVEL PLUGINS - METRONIC)
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/jquery-validation/js/jquery.validate.min.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/jquery-validation/js/additional-methods.min.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/select2/select2.min.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/bootstrap-daterangepicker/daterangepicker.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.kr.min.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/ckeditor/ckeditor.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/global/plugins/ckeditor/lang/ko.js')
+    
+    ="\n"
+    // Vendor jQuery (PAGE LEVEL STYLES - METRONIC)
+    script(type='text/javascript', src='../../libs/metronic-admin/global/scripts/metronic.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/admin/layout/scripts/layout.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/admin/layout/scripts/quick-sidebar.js')
+    script(type='text/javascript', src='../../libs/metronic-admin/admin/layout/scripts/demo.js')
+
+    block js
+      = "\n"
+      // Theme Script
+      script(type="text/javascript", src="../../assets/js/admin.js")

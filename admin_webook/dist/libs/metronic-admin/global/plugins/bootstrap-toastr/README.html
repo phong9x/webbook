@@ -1,0 +1,118 @@
+<h1 id="toastr">toastr</h1>
+<p><strong>toastr</strong> is a Javascript library for non-blocking notifications. jQuery is required. The goal is to create a simple core library that can be customized and extended.</p>
+<p><a href="https://travis-ci.org/CodeSeven/toastr"><img src="https://travis-ci.org/CodeSeven/toastr.svg" alt="Build Status"></a></p>
+<h2 id="current-version">Current Version</h2>
+<p>2.1.0</p>
+<h2 id="demo">Demo</h2>
+<ul>
+<li>Demo can be found at <a href="http://codeseven.github.io/toastr/demo.html">http://codeseven.github.io/toastr/demo.html</a></li>
+<li><a href="http://plnkr.co/edit/6W9URNyyp2ItO4aUWzBB?p=preview">Demo using FontAwesome icons with toastr</a></li>
+</ul>
+<h2 id="cdnjs">CDNjs</h2>
+<p>Toastr is hosted at CDN JS</p>
+<h4 id="debug">Debug</h4>
+<ul>
+<li><a href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js">//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js</a></li>
+<li><a href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css</a></li>
+</ul>
+<h4 id="minified">Minified</h4>
+<ul>
+<li><a href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js">//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js</a> </li>
+<li><a href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css</a></li>
+</ul>
+<h2 id="nuget-gallery">NuGet Gallery</h2>
+<p><a href="http://nuget.org/packages/toastr">http://nuget.org/packages/toastr</a></p>
+<h2 id="-bower-http-bower-io-"><a href="http://bower.io/">Bower</a></h2>
+<pre><code>    bower install toastr
+</code></pre><h2 id="wiki-and-change-log">Wiki and Change Log</h2>
+<p><a href="https://github.com/CodeSeven/toastr/wiki">Wiki including Change Log</a></p>
+<h2 id="breaking-changes">Breaking Changes</h2>
+<h4 id="animation-changes">Animation Changes</h4>
+<p>The following animations options have been deprecated and should be replaced:</p>
+<ul>
+<li>Replace <code>options.fadeIn</code> with <code>options.showDuration</code></li>
+<li>Replace <code>options.onFadeIn</code> with <code>options.onShown</code></li>
+<li>Replace <code>options.fadeOut</code> with <code>options.hideDuration</code></li>
+<li>Replace <code>options.onFadeOut</code> with <code>options.onHidden</code></li>
+</ul>
+<h2 id="quick-start">Quick start</h2>
+<h3 id="3-easy-steps">3 Easy Steps</h3>
+<p>For other API calls, see the <a href="http://codeseven.github.io/toastr/demo.html">demo</a>.</p>
+<ol>
+<li><p>Link to toastr.css <code>&lt;link href=&quot;toastr.css&quot; rel=&quot;stylesheet&quot;/&gt;</code></p>
+</li>
+<li><p>Link to toastr.js <code>&lt;script src=&quot;toastr.js&quot;&gt;&lt;/script&gt;</code></p>
+</li>
+<li><p>use toastr to display a toast for info, success, warning or error</p>
+<pre><code> // Display an info toast with no title
+ toastr.info(&#39;Are you the 6 fingered man?&#39;)
+</code></pre></li>
+</ol>
+<h3 id="other-options">Other Options</h3>
+<pre><code>// Display a warning toast, with no title
+toastr.warning(&#39;My name is Inigo Montoya. You killed my father, prepare to die!&#39;)
+
+// Display a success toast, with a title
+toastr.success(&#39;Have fun storming the castle!&#39;, &#39;Miracle Max Says&#39;)
+
+// Display an error toast, with a title
+toastr.error(&#39;I do not think that word means what you think it means.&#39;, &#39;Inconceivable!&#39;)
+
+// Clears the current list of toasts
+toastr.clear()
+</code></pre><h3 id="close-button">Close Button</h3>
+<p>Optionally enable a close button</p>
+<pre><code>toastr.options.closeButton = true;
+</code></pre><p>Optionally override the close button&#39;s HTML. </p>
+<pre><code>toastr.options.closeHtml = &#39;&lt;button&gt;&lt;i class=&quot;icon-off&quot;&gt;&lt;/i&gt;&lt;/button&gt;&#39;;
+</code></pre><p>You can also override the CSS/LESS for <code>#toast-container .toast-close-button</code></p>
+<h3 id="display-sequence">Display Sequence</h3>
+<p>Show newest toast at bottom (top is default)</p>
+<pre><code>toastr.options.newestOnTop = false;
+</code></pre><h3 id="callbacks">Callbacks</h3>
+<pre><code>// Define a callback for when the toast is shown/hidden
+toastr.options.onShown = function() { console.log(&#39;hello&#39;); }
+toastr.options.onHidden = function() { console.log(&#39;goodbye&#39;); }
+</code></pre><h3 id="animation-options">Animation Options</h3>
+<p>Toastr will supply default animations, so you do not have to provide any of these settings. However you have the option to override the animations if you like.</p>
+<h4 id="easings">Easings</h4>
+<p>Optionally override the animation easing to show or hide the toasts. Default is swing. swing and linear are built into jQuery.</p>
+<pre><code>toastr.options.showEasing = &#39;swing&#39;;
+toastr.options.hideEasing = &#39;linear&#39;;
+</code></pre><p>Using the jQuery Easing plugin (<a href="http://www.gsgd.co.uk/sandbox/jquery/easing/">http://www.gsgd.co.uk/sandbox/jquery/easing/</a>)</p>
+<pre><code>toastr.options.showEasing = &#39;easeOutBounce&#39;;
+toastr.options.hideEasing = &#39;easeInBack&#39;;
+</code></pre><h4 id="animation-method">Animation Method</h4>
+<p>Use the jQuery show/hide method of your choice. These default to fadeIn/fadeOut. The methods fadeIn/fadeOut, slideDown/slideUp, and show/hide are built into jQuery.</p>
+<pre><code>toastr.options.showMethod = &#39;slideDown&#39;; 
+toastr.options.hideMethod = &#39;slideUp&#39;; 
+</code></pre><h3 id="timeouts">Timeouts</h3>
+<p>Control how toastr interacts with users by setting timeouts appropriately.</p>
+<pre><code>toastr.options.timeout = 30; // How long the toast will display without user interaction
+toastr.options.extendedTimeOut = 60; // How long the toast will display after a user hovers over it
+</code></pre><h2 id="building-toastr">Building Toastr</h2>
+<p>To build the minified and css versions of Toastr you will need <a href="http://nodejs.org">node</a> installed.</p>
+<p>Install the <a href="http://gruntjs.com/">Grunt</a> command line. This might require <code>sudo</code>.</p>
+<pre><code class="lang-shell">npm install -g grunt-cli
+</code></pre>
+<p>Then, from the main project folder run this command. This should not require <code>sudo</code>.</p>
+<pre><code class="lang-shell">npm install
+</code></pre>
+<p>At this point the dependencies have been installed and you can build Toastr</p>
+<pre><code class="lang-shell">grunt
+</code></pre>
+<h2 id="authors">Authors</h2>
+<p><strong>Hans Fjällemark</strong></p>
+<ul>
+<li><a href="http://twitter.com/hfjallemark">http://twitter.com/hfjallemark</a></li>
+</ul>
+<p><strong>John Papa</strong></p>
+<ul>
+<li><a href="http://twitter.com/John_Papa">http://twitter.com/John_Papa</a></li>
+</ul>
+<h2 id="credits">Credits</h2>
+<p>Inspired by <a href="https://github.com/Srirangan/notifer.js/">https://github.com/Srirangan/notifer.js/</a>.</p>
+<h2 id="copyright">Copyright</h2>
+<p>Copyright © 2012-2014 <a href="http://twitter.com/hfjallemark">Hans Fjällemark</a> &amp; <a href="http://twitter.com/John_Papa">John Papa</a>.</p>
+<h2 id="license">License</h2>
+<p>toastr is under MIT license - <a href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a></p>

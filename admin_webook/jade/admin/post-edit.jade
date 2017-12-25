@@ -1,0 +1,131 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title post-edit - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .post-edit.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 게시물 수정
+        // .page-bar
+        
+        ="\n"
+        .post-edit-main.wb-pb-50
+          .block-this-post
+            .wb-container-style-1
+              .post
+                .post-info.form-horizontal
+                  .form-group
+                    .col-md-4
+                      .row
+                        .col-md-4
+                          label.control-label #[strong 번호: ]
+                        .col-md-8
+                          .form-control-static 105
+                    .col-md-4
+                      .row
+                        .col-md-4
+                          label.control-label #[strong 게시판: ]
+                        .col-md-8
+                          .form-control-static 자유게시판
+                    .col-md-4
+                      .row
+                        .col-md-4
+                          label.control-label #[strong 일시: ]
+                        .col-md-8
+                          .form-control-static 2015-00-00 00:00
+                  
+                  ="\n"
+                  .form-group
+                    .col-md-4
+                      .row
+                        .col-md-4
+                          label.control-label #[strong 닉네임: ]
+                        .col-md-8
+                          a.form-control-static(href="member-detail.html") bobobo12
+                    .col-md-4.col-md-offset-4
+                      .row
+                        .col-md-4
+                          label.control-label #[strong 신고건수: ]
+                        .col-md-8
+                          span(style="margin-right: 20px;") 0
+                          a.btn.green(href="#") 신고내역
+                // .post-info
+
+                ="\n"
+                .wb-gap(style='border-bottom: 1px solid #e1e1e1; padding: 15px 0 0 0; margin: 0 0 15px 0;')
+
+                ="\n"
+                .post-title.form-horizontal
+                  .form-group
+                    .col-md-2
+                      label.control-label #[strong 제목: ]
+                    .col-md-10
+                      input.form-control(type='text', name='test6874', value='안녕하세요. 처음 가입하게 되엇네요')
+                // .post-title
+                
+                ="\n"
+                .post-image-attached.form-horizontal.portlet.light.bordered
+                  .form-group
+                    .col-md-6
+                      .col-md-3
+                        label.control-label #[strong 이미지1: ]
+                      .col-md-6
+                        input.form-control-static(type="file")
+                      .col-md-3
+                        a.btn-open-popup.btn.red(href="#", data-toggle='modal', data-target="#popupConfirmDelete") 파일삭제
+
+                    ="\n"
+                    .col-md-6
+                      .col-md-3
+                        label.control-label #[strong 이미지1: ]
+                      .col-md-6
+                        input.form-control-static(type="file")
+                      .col-md-3
+                        a.btn-open-popup.btn.red(href="#", data-toggle='modal', data-target="#popupConfirmDelete") 파일삭제
+                // .post-image-attached
+                
+                ="\n"
+                .post-content
+                  .wb-container-style-1
+                    .content
+                      textarea.form-control(name="test987", rows="6") #[| 안녕하세요. 처음 가입하게 되엇네요. 앞으로 우리 가슴 속 이야기 마음껏 털어놓아 보아요.]
+                // .post-content
+              // .post
+          // .block-this-post
+
+          ="\n"
+          .wb-gap(style='border-bottom: 1px solid #e1e1e1; padding: 15px 0 0 0; margin: 0 0 15px 0;')
+
+          .block-back-button.text-right
+            .wb-container-style-1
+              a.btn.default(href="post-detail.html") 취소
+              a.btn-open-popup.btn.green(href="#", data-toggle='modal', data-target="#popupConfirmEditPost") 수정
+          // .block-back-button
+
+        // .post-edit-main
+      // .page-content
+    // .post-edit
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade
+  
+  ="\n"
+  include ../includes/popupConfirmDelete.jade
+  
+  ="\n"
+  include ../includes/popupConfirmEditPost.jade

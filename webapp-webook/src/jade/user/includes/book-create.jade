@@ -1,0 +1,137 @@
+.wbp-book-create
+  .wb-cat-tab: .container-mobile-full
+    .wb-cat-tab-wrapper.clearfix
+      .wb-cat-tab-item: a.mute(href="#") 관심작품
+      .wb-cat-tab-item: a.mute(href="#") 책갈피
+      .wb-cat-tab-item.active 내작품
+      .wb-cat-tab-item: a.mute(href="#") 쿠폰 보유 현황
+      .wb-cat-tab-item: a.mute(href="#") 판매/정산
+      .wb-cat-tab-item: a.mute(href="#") 내정보 관리
+
+
+  .container.wb-mt50
+    .wb-f22 #[span.wb-color-complementary 신규작품] 등록
+    .sep2.wb-mt20
+
+    .wb-f16.wb-mt30 제목
+    .row.wb-mt10: .col-md-10
+      input.wb-textbox.form-control(type="text")
+
+    .wb-f16.wb-mt50 장르
+    .form-horizontal.wb-form-hoz.wb-mt10
+      .form-group
+        .col-md-3.wb-form-hoz-col.first
+          .wb-select.full.persit
+            select
+              option 장르선택
+        .col-md-6.wb-form-hoz-col.last
+          label.wb-check-tie
+            input(type="radio" name="a")
+            span 일반
+          label.wb-check-tie
+            input(type="radio" name="a")
+            span 성인
+
+    .wb-f16 연령대
+    .form-horizontal.wb-form-hoz.wb-mt10
+      .form-group
+        .col-md-3.wb-form-hoz-col.first
+          .wb-select.full.persit
+            select
+              option 선택
+        .col-md-6.wb-form-hoz-col.last
+          label.wb-check-tie
+            input(type="radio" name="a")
+            span 연재관
+          label.wb-check-tie
+            input(type="radio" name="a")
+            span 챌린지 리그
+
+    .wb-f16.wb-mt40 연재요일 선택
+    .row.wb-mt10: .col-md-7: .wbp-book-create-checks
+      .row
+        .col-md-2 요일선택
+        .col-md-10 
+          label.wb-check-rad2
+            input(type="radio" name="a")
+            span 남
+
+          label.wb-check-rad2
+            input(type="radio" name="a")
+            span 화
+
+          label.wb-check-rad2
+            input(type="radio" name="a")
+            span 수
+
+          label.wb-check-rad2
+            input(type="radio" name="a")
+            span 목
+
+          label.wb-check-rad2
+            input(type="radio" name="a")
+            span 금
+
+          label.wb-check-rad2
+            input(type="radio" name="a")
+            span 토
+
+          label.wb-check-rad2
+            input(type="radio" name="a")
+            span 일
+
+    .wb-f16.wb-mt40 줄거리
+    .row.wb-mt10: .col-md-10
+      textarea.wb-area.wb-area-style4
+
+    .wb-f16.wb-mt40 작품 키워드 입력
+    .row.wb-mt10
+      .col-md-2.wbp-book-create-col
+        input.wb-textbox.form-control(type="text")
+      .col-md-2.wbp-book-create-col
+        input.wb-textbox.form-control(type="text")
+      .col-md-2.wbp-book-create-col
+        input.wb-textbox.form-control(type="text")
+      .col-md-2.wbp-book-create-col
+        input.wb-textbox.form-control(type="text")
+
+    .wb-f16.wb-mt40 표지 이미지
+    .row.wb-mt10
+      .col-md-2.wbp-book-create-col2
+        label.wb-check-rad
+          input(type="radio" name="a")
+          span: span.wb-wn 기본 이미지
+      .col-md-2.wbp-book-create-col3
+        .wb-select.full.persit
+          select
+            option 장르선택
+      .col-md-2
+        img(src="/dist/assets/img/img2.png" alt="img2")
+    .row.wb-mt34
+      .col-md-2.wbp-book-create-col2
+        label.wb-check-rad
+          input(type="radio" name="a")
+          span: span.wb-wn 집적 선택
+      .col-md-2.wbp-book-create-col3
+        input.wb-textbox.form-control(type="text")
+      .col-md-2
+        button.base-btn.wb-btn.gray.h36 파일선택
+
+    .wb-mt20.wb-color-gray
+      | ※ 저작권에 침해 되는 이미지 업로드의 법적 책임은 개인에게 있습니다. #[br]
+      | 2MB미만의 JPG, PNG, GIF파일만 등록할 수 있습니다. 이미지사이즈가 8,000px를 넘을 경우 등록이 되지 않습니다. 
+
+    .row.wb-mt40: .col-md-10
+      .wbp-book-create-box
+        div 운영원칙
+        .wb-mt24 저작권등다른사람의권리를침해하거나명예를훼손하는게시물은이용약관및관련법률에의하여제재를받으실수있습니다. 성인물, 폭력물등의
+        div 게시물은통보없이삭제될수있습니다.
+
+        .text-right
+          label.wb-check-rect
+            input(type="checkbox" name="a")
+            span: span.wb-wn 운영원칙 동의
+
+    .row.wb-mt40: .col-md-10: .text-center
+      button.base-btn.wb-btn-bold.h40.wb-f16 취소
+      button.base-btn.wb-btn-shine 저장 후 회차 등록

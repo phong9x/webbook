@@ -1,0 +1,150 @@
+.container.wb-mt50
+  .well
+    button.base-btn.wb-btn(type="button" onclick="window.trams.popup.open('#report')") report
+    button.base-btn.wb-btn(type="button" onclick="window.trams.popup.open('#notice')") notice
+    button.base-btn.wb-btn(type="button" onclick="window.trams.popup.open('#forgot')") forgot
+    button.base-btn.wb-btn(type="button" onclick="window.trams.popup.open('#ask')") ask
+    button.base-btn.wb-btn(type="button" onclick="window.trams.popup.open('#profit-refund')") profit-refund
+
+  #report.wb-overlay.hidden
+    .wb-overlay-inner(onclick="window.trams.popup.close();"): .wb-overlay-wrapper
+      .container: .wb-popup.var1(onclick="event.stopPropagation();")
+        .wb-popup-header.wb-f18 신고하기
+        .wb-popup-body
+          div
+            span.wb-f18.wb-mr12 작성자
+            span.wb-f16 nobio
+
+          .wb-f16.wb-mt20 사유
+          .bw-well-1.wb-mt10
+            div
+              label.wb-check-rad
+                input(type="radio" name="a")
+                span: span.wb-wn 영리 목적 또는 홍보성 게시물
+            div
+              label.wb-check-rad
+                input(type="radio" name="a")
+                span: span.wb-wn 음란성, 선정성이 포함된 게시물
+            div
+              label.wb-check-rad
+                input(type="radio" name="a")
+                span: span.wb-wn 특정인 대상의 비방, 욕설, 인신공격, 개인정보노출
+            div
+              label.wb-check-rad
+                input(type="radio" name="a")
+                span: span.wb-wn 같은 내용의 게시글 반복 등록 (도배)
+            div
+              label.wb-check-rad
+                input(type="radio" name="a")
+                span: span.wb-wn 기타
+
+            
+          .wb-f16.wb-mt20 사유내용
+          .wb-mt10
+            textarea.wb-area.wb-area-style2(disabled='')
+
+  #notice.wb-overlay.hidden
+    .wb-overlay-inner(onclick="window.trams.popup.close();"): .wb-overlay-wrapper
+      .container: .wb-popup.var1(onclick="event.stopPropagation();")
+        .wb-popup-header.clearfix
+          span.wb-f18.pull-left 성인 인증
+          img.pull-right.wb-mt10(src="/dist/assets/img/close.png" alt="close" onclick="window.trams.popup.close();")
+        .wb-popup-body
+          .wb-f16.text-center.wb-mt30 성인 인증이 필요한 콘텐츠입니다. 
+          .text-center.wb-mt44
+            a(href="#"): button.base-btn.wb-btn-shine(type="button") 인증하기
+
+  #forgot.wb-overlay.hidden
+    .wb-overlay-inner(onclick="window.trams.popup.close();"): .wb-overlay-wrapper
+      .container: .wb-popup.var1(onclick="event.stopPropagation();")
+        .wb-popup-header.clearfix
+          span.wb-f18.pull-left 아이디 찾기
+          img.pull-right.wb-mt10(src="/dist/assets/img/close.png" alt="close" onclick="window.trams.popup.close();")
+        .wb-popup-body
+          .wb-f16.text-center.wb-mt18 아이디 찾기 결과 아이디 정보는 아래와 같습니다.
+          .wb-f20.wb-color-primary.text-center.wb-mt40 web****
+          .text-center.wb-mt44.wb-mt38
+            a(href="#"): button.base-btn.wb-btn-shine(type="button") 확인
+          .text-center.wb-color-gray.wb-mt30 * 개인정보보호를 위해 아이디 뒷자리는 ***로 표시 합니다.
+
+  #ask.wb-overlay.hidden
+    .wb-overlay-inner(onclick="window.trams.popup.close();"): .wb-overlay-wrapper
+      .container: .wb-popup.var1(onclick="event.stopPropagation();")
+        .wb-popup-header.clearfix
+          span.wb-f18.pull-left 이어읽기
+          img.pull-right.wb-mt10(src="/dist/assets/img/close.png" alt="close" onclick="window.trams.popup.close();")
+        .wb-popup-body
+          .wb-f16.text-center.wb-mt18 가장 최근에 읽은 작품으로 이동하시겠습니까?
+          .wb-f24.wb-color-primary.text-center.wb-mt30 수라왕
+          .wb-f14.wb-color-primary.text-center.wb-mt10 9화 바닷가에서
+          .text-center.wb-mt44.wb-mt28
+            a(href="#"): button.base-btn.wb-btn-shine(type="button") 이동
+            a(href="#"): button.base-btn.wb-btn-bold.h40.w100(type="button" onclick="window.trams.popup.close();") 취소
+
+  #profit-refund.wb-overlay.hidden
+    .wb-overlay-inner(onclick="window.trams.popup.close();"): .wb-overlay-wrapper
+      .container: .wb-popup.var2(onclick="event.stopPropagation();")
+        .wb-popup-header.clearfix
+          span.wb-f18.pull-left 이어읽기
+          img.pull-right.wb-mt10(src="/dist/assets/img/close.png" alt="close" onclick="window.trams.popup.close();")
+        .wb-popup-body
+          form.form-horizontal.wb-form-hoz.wb-mt24
+            .form-group
+              label.col-md-3.control-label 환급신청 금액
+              .col-md-6.wb-form-hoz-col.first
+                input.wb-textbox.form-control(type='text')
+              .col-md-2.wb-form-hoz-col
+                .wb-f12.wb-color-gray.wb-mt20 /300,100원
+            .form-group
+              label.col-md-3.control-label 본명
+              .col-md-6.wb-form-hoz-col.first
+                input.wb-textbox.form-control(type='text')
+            .form-group
+              label.col-md-3.control-label 주민번호
+              .col-md-6.wb-form-hoz-col.first
+                input.wb-textbox.form-control(type='text')
+              .col-md-2.wb-form-hoz-col.last
+                button.base-btn.wb-btn.h36.form-control 중복확인
+            .form-group
+              label.col-md-3.control-label 휴대폰
+              .col-md-6.wb-form-hoz-col.first
+                input.wb-textbox.form-control(type='text')
+            .form-group
+              label.col-md-3.control-label 이메일
+              .col-md-6.wb-form-hoz-col.first
+                input.wb-textbox.form-control(type='text')
+            .form-group
+              label.col-md-3.control-label 주소
+              .col-md-9.wb-form-hoz-col.first
+                div
+                  input.wb-textbox.form-control(type='text')
+                .wb-mt10
+                  input.wb-textbox.form-control(type='text')
+            .form-group
+              label.col-md-3.control-label 예금주명
+              .col-md-6.wb-form-hoz-col.first
+                input.wb-textbox.form-control(type='text')
+            .form-group
+              label.col-md-3.control-label 예금주와의 관계
+              .col-md-6.wb-form-hoz-col.first
+                .wb-select
+                  select
+                    option 선택해 주세요
+            .form-group
+              label.col-md-3.control-label 예금주와의 관계
+              .col-md-3.wb-form-hoz-col.first
+                .wb-select
+                  select
+                    option 은행
+              .col-md-6.wb-form-hoz-col
+                input.wb-textbox.form-control(type='text')
+            .sep
+            .text-center.wb-mt30
+              button.base-btn.wb-btn-shine(type="button") 이동
+
+
+
+  #search.wb-overlay.hidden
+    .wb-overlay-inner(onclick="window.trams.popup.close();"): .wb-overlay-wrapper
+      .container(onclick="event.stopPropagation();")
+        input.wb-search2(type="text")

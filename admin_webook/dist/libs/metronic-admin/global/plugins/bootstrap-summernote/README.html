@@ -1,0 +1,192 @@
+<h1 id="summernote">Summernote</h1>
+<p>Super Simple WYSIWYG Editor on Bootstrap(3.0 and 2.x).</p>
+<p><a href="http://travis-ci.org/HackerWins/summernote"><img src="https://secure.travis-ci.org/HackerWins/summernote.png" alt="Build Status"></a></p>
+<h3 id="summernote">Summernote</h3>
+<p>Summernote is a javascript program that helps you to create WYSIWYG Editor on web.</p>
+<p>Home Page: <a href="http://hackerwins.github.io/summernote/">http://hackerwins.github.io/summernote/</a></p>
+<h3 id="why-summernote-">Why Summernote?</h3>
+<p>Summernote has something specials no like others.</p>
+<ul>
+<li>Simple UI</li>
+<li>Interative WYSIWYG editing</li>
+<li>Handy integration with server</li>
+</ul>
+<h4 id="inspired-by">Inspired by</h4>
+<ul>
+<li>Gmail WYSIWYG Editor (<a href="http://www.gmail.com">http://www.gmail.com</a>)</li>
+<li>Redactor (<a href="http://imperavi.com/redactor/">http://imperavi.com/redactor/</a>)</li>
+</ul>
+<h3 id="easy-to-install">Easy to install</h3>
+<p>Summernote uses opensouce libraries(jQuery, bootstrap, fontAwesome) </p>
+<h4 id="01-include-js-css">01. include js/css</h4>
+<p>Include Following code into <code>&lt;head&gt;</code> tag of your HTML:</p>
+<pre><code class="lang-html">&lt;!-- include libraries(jQuery, bootstrap, fontawesome) --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;//code.jquery.com/jquery-1.9.1.min.js&quot;&gt;&lt;/script&gt; 
+&lt;link rel=&quot;stylesheet&quot; href=&quot;//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css&quot; /&gt;
+
+&lt;!-- include summernote css/js--&gt;
+&lt;link href=&quot;summernote.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;script src=&quot;summernote.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>If your summernote download is placed in a different folder, don&#39;t forget to change file&#39;s paths.</p>
+<h4 id="02-target-elements">02. target elements</h4>
+<p>And place <code>div</code> tag to somewhere in the <code>body</code> tag. This element will be placed by the visual representation of the summernote.</p>
+<pre><code class="lang-html">&lt;div id=&quot;summernote&quot;&gt;Hello Summernote&lt;/div&gt;
+</code></pre>
+<h4 id="03-summernote">03. summernote</h4>
+<p>Finally, run script after document ready.</p>
+<pre><code class="lang-javascript">$(document).ready(function() {
+  $(&#39;#summernote&#39;).summernote();
+});
+</code></pre>
+<h3 id="api">API</h3>
+<p>Get HTML <code>code</code> if you need.</p>
+<pre><code class="lang-javascript">var sHTML = $(&#39;#summernote&#39;).code();
+</code></pre>
+<p><code>Destroy</code> summernote.</p>
+<pre><code class="lang-javascript">$(&#39;#summernote&#39;).destroy();
+</code></pre>
+<h4 id="dependencies">Dependencies</h4>
+<ul>
+<li>jQuery: <a href="http://jquery.com/">http://jquery.com/</a></li>
+<li>Bootstrap: <a href="http://getbootstrap.com">http://getbootstrap.com</a> (both 2.x and 3.x)</li>
+<li>fontAwesome: <a href="https://github.com/FortAwesome/Font-Awesome">https://github.com/FortAwesome/Font-Awesome</a> (both 3.x and 4.x)</li>
+</ul>
+<h3 id="supported-platform">Supported platform</h3>
+<ul>
+<li>Modern Browser (Safari, Chrome, Firefox, Opera, Internet Explorer 9+)</li>
+<li>OS (Windows, Mac, Linux)</li>
+</ul>
+<h3 id="upcoming-features">Upcoming Features</h3>
+<ul>
+<li>Responsive Toolbar</li>
+<li>Table: Handles(Sizing, Selection) and Popover</li>
+<li>support IE8</li>
+<li>Clipboard</li>
+<li>Media Object Selection</li>
+</ul>
+<h3 id="change-log">Change Log</h3>
+<h4 id="v0-5-9-2014-09-21">v0.5.9 2014-09-21</h4>
+<ul>
+<li>Dom Editing: insert(Un)OrderedList, indent/outdent</li>
+<li>History in a line.</li>
+</ul>
+<h4 id="v0-5-8-2014-08-31">v0.5.8 2014-08-31</h4>
+<ul>
+<li>Remove <code>autoFormatRange</code> option</li>
+<li>Fixed <code>onChange</code> issues</li>
+</ul>
+<h4 id="v0-5-7-v0-5-4-2014-08-29-2014-08-23">v0.5.7 ~ v0.5.4 2014-08-29 ~ 2014-08-23</h4>
+<ul>
+<li>Dom editing: insertPara, insertNode</li>
+</ul>
+<h4 id="v0-5-3-2014-07-25">v0.5.3 2014-07-25</h4>
+<ul>
+<li>Extract codemirror.autoFormatOnStart option</li>
+<li>Bug patch (createLink)</li>
+</ul>
+<h4 id="v0-5-2-2014-07-20">v0.5.2 2014-07-20</h4>
+<ul>
+<li>Air Mode</li>
+<li>And bug patch (scroll, createLink, ...)</li>
+</ul>
+<h4 id="v0-5-1-2014-03-16">v0.5.1 2014-03-16</h4>
+<ul>
+<li>Support 15 Languages(<a href="https://github.com/HackerWins/summernote/tree/master/lang">https://github.com/HackerWins/summernote/tree/master/lang</a>)</li>
+<li>Add local-server for develop summernote.</li>
+<li>Font style: Font-Family</li>
+<li>And Bug patch.</li>
+</ul>
+<h4 id="v0-5-2013-12-29">v0.5 2013-12-29</h4>
+<ul>
+<li>Support both Font-Awesome 3.x and 4.x</li>
+<li>CodeMirror as Codeview</li>
+<li>Insert Video (by cdownie)</li>
+<li>Support 5 Languages(by hendrismit, tschiela, inomies, cverond)</li>
+<li>Restructuring: jQuery build pattern</li>
+</ul>
+<h4 id="v0-4-2013-11-01">v0.4 2013-11-01</h4>
+<ul>
+<li>Support both Bootstrap 3.0 and 2.x</li>
+<li>Fullscreen</li>
+<li>Codeview</li>
+<li>Image Upload callback</li>
+</ul>
+<h4 id="v0-3-2013-09-01">v0.3 2013-09-01</h4>
+<ul>
+<li>Bugs(image upload, fontsize, tab, recent color, ...)</li>
+<li>Help dialog(keyboard shortcut)</li>
+<li>Init options(event callbacks, custom toolbar)</li>
+<li>Resize bar</li>
+<li>Support IE8 Beta(some range bugs, can&#39;t insert Image)</li>
+</ul>
+<h4 id="v0-2-2013-08-01">v0.2, 2013-08-01</h4>
+<ul>
+<li>Undo/Redo</li>
+<li>Image sizing handle and popover</li>
+<li>Support standalone css</li>
+<li>Support Multiple Editor</li>
+<li>Remove jQuery.curstyles dependency</li>
+</ul>
+<h4 id="v0-1-2013-07-01">v0.1, 2013-07-01</h4>
+<ul>
+<li>Font style: size, color, bold, italic, underline, remove font style</li>
+<li>Para style: bullet, align, outdent, indent, line height</li>
+<li>Image: drag &amp; drop, dialog</li>
+<li>Link: popover and dialog</li>
+<li>Table: create table with dimension picker</li>
+</ul>
+<h3 id="for-hacker">for Hacker</h3>
+<h4 id="structure-of-summernote-js">structure of summernote.js</h4>
+<pre><code>summernote.js - Renderer.js (Generate markup) - Locale.js (Locale object)
+              ㄴEventHandler.js - Editor.js  (Abstract editor)
+                                ㄴStyle.js   (Style Getter and Setter)
+                                ㄴHistory.js (Store on jQuery.data)
+                                ㄴToolbar.js (Toolbar module)
+                                ㄴPopover.js (Popover module)
+                                ㄴHandle.js  (Handle module)
+                                ㄴDialog.js  (Dialog module)
+-----------------------------Core Script-----------------------------
+  agent.js  (agent information)
+  async.js  (aysnc utility)
+  key.js    (keycode object)
+  dom.js    (dom functions)
+  list.js   (list functions)
+  range.js  (W3CRange extention)
+---------------------------------------------------------------------
+</code></pre><h4 id="build-summernote">build summernote</h4>
+<pre><code class="lang-bash"># grunt-cli is need by grunt; you might have this installed already
+npm install -g grunt-cli
+npm install
+
+# build full version of summernote: dist/summernote.js
+grunt build
+
+# generate minified copy: dist/summernote.min.js, dist/summernote.css
+grunt dist
+</code></pre>
+<p>At this point, you should now have a <code>build/</code> directory populated with everything you need to use summernote.</p>
+<h4 id="test-summernote">test summernote</h4>
+<p>run tests with PhantomJS</p>
+<pre><code class="lang-bash">grunt test
+</code></pre>
+<h4 id="start-local-server-for-developing-summernote-">start local server for developing summernote.</h4>
+<p>run local server with connect and watch.</p>
+<pre><code class="lang-bash"># this will open a browser on http://localhost:3000.
+grunt server
+# If you change source code, automatically reload your page.
+</code></pre>
+<h4 id="coding-convention">Coding convention</h4>
+<ul>
+<li>JSHint: <a href="http://www.jshint.com/about/">http://www.jshint.com/about/</a></li>
+<li>JSHint rule: <a href="https://github.com/HackerWins/summernote/blob/master/.jshintrc">https://github.com/HackerWins/summernote/blob/master/.jshintrc</a></li>
+</ul>
+<h3 id="contacts">Contacts</h3>
+<ul>
+<li>Email: susukang98@gmail.com</li>
+<li>Twitter: <a href="http://twitter.com/hackerwins">http://twitter.com/hackerwins</a></li>
+</ul>
+<h3 id="license">License</h3>
+<p>summernote may be freely distributed under the MIT license.</p>

@@ -1,0 +1,37 @@
+.wbp-favo
+  .wb-cat-tab: .container-mobile-full
+    .wb-cat-tab-wrapper.clearfix
+      .wb-cat-tab-item: a.mute(href="#") 관심작품
+      .wb-cat-tab-item: a.mute(href="#") 책갈피
+      .wb-cat-tab-item.active 내작품
+      .wb-cat-tab-item: a.mute(href="#") 쿠폰 보유 현황
+      .wb-cat-tab-item: a.mute(href="#") 판매/정산
+      .wb-cat-tab-item: a.mute(href="#") 내정보 관리
+
+  .container
+    .row.wb-mt32
+      .col-md-6
+        span.wb-f24.wb-mr24 #[span.wb-color-complementary3 나의] 작품
+        span #[span.wb-color-complementary3 2]#[span.wb-color-gray 개의 나의 작품이 있습니다.]
+      .col-md-6.text-right.wbp-favo-btn
+        button.base-btn.wb-btn.gray.h40 신규 작품 등록 +
+
+    .table-responsive.wb-mt20: table.table.wb-table-simple3
+      thead
+        tr
+          th 연재관
+          th: .text-left 제목
+          th 총회수
+          th 필명
+          th 등록
+          th 업데이트
+      tbody
+        - for(var i=10; i>0; i--) {
+          tr
+            td.wb-f16.wb-color-complementary: b 제너맨- 챌린지
+            td.wb-f16: b 금혼령, 조선혼인금지령
+            td.wb-f16.wb-color-gray: b 1회
+            td.wb-f16.wb-color-gray: b 토토마남
+            td.wb-f16.wb-color-gray: b 2015.10.13
+            td.wb-f16.wb-color-gray: b 2015.10.13
+        - }

@@ -1,0 +1,427 @@
+
+<html lang="en" xmlns:jsp="http://java.sun.com/JSP/Page" 
+xmlns:c="http://java.sun.com/jsp/jstl/core" 
+xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:tiles="http://tiles.apache.org/tags-tiles" 
+xmlns:form="http://www.springframework.org/tags/form"  
+xmlns:spring="http://www.springframework.org/tags"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt">
+
+<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" />
+<jsp:directive.page contentType="text/html;charset=UTF-8" />
+<jsp:directive.page pageEncoding="UTF-8" />
+<head>
+    <meta charset="utf-8"/>
+<meta name="viewport" content="width=640, user-scalable=no, minimal-ui"/>    <meta name="description" content=""/>
+    
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1"/>
+
+
+	<meta name="Content-Type" content="application/force-download"/>
+	<meta name="Content-Type" content="application/octet-stream"/>
+	<meta name="Content-Type" content="application/download"/>
+	<meta name="Content-Disposition" content="attachment; filename='${root}${post.file1 }'"/>
+
+    <meta name="author" content=""/>
+    <meta name="copyright" content="Copyright (c) 2016 Webbook"/>
+    <meta name="google-site-verification" content="nkeLF5Q-VNSTF--VE7kvIVasqQoc-5ZGTMtbCCuLG1Y" />
+    <link rel="shortcut icon" href="/bootstrap-3.3.1/assets/ico/favicon.png"/>
+    <title>K웹소설</title>
+    <spring:url value="/theme" var="theme" />
+    <link href="${theme}/libs/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link  href="${theme}/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <link  href="${theme}/libs/slick/slick.css" rel="stylesheet"/>
+    <link  href="${theme}/libs/slick/slick-theme.css" rel="stylesheet"/>
+    <link  href="${theme}/assets/css/user.css" rel="stylesheet"/>
+    <link  href="${theme}/assets/css/index.css" rel="stylesheet"/>
+    <link  href="${theme}/assets/css/front-end.css" rel="stylesheet"/>
+    <link href="${theme}/libs/trumbowyg-editor/dist/ui/trumbowyg.min.css" rel="stylesheet"/>
+    <script src="${theme}/libs/html5shiv.min.js"><jsp:text /></script>
+    <script src="${theme}/libs/respond.min.js"><jsp:text /></script>
+	<script type="application/javascript" src="${theme}/libs/jquery/jquery.js"><jsp:text/></script>
+	<script src="${theme}/assets/js/script.js"><jsp:text /></script>
+
+   <script>	
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-72418045-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="https://api.paygate.net/ajax/common/OpenPayAPI.js"><jsp:text/></script> 
+<script>
+function getPGIOresult() {  
+	var replycode = document.PGIOForm.elements['replycode'].value;
+    var replyMsg = document.PGIOForm.elements['replyMsg'].value;
+    
+    //displayStatus(getPGIOElement('ResultScreen')); //required item
+    //alert(replycode + replyMsg);
+    
+    var carrier = document.PGIOForm.elements['carrier'].value;
+    var unitprice = document.PGIOForm.elements['unitprice'].value;
+    var paymethod = document.PGIOForm.elements['paymethod'].value;
+    var tid = document.PGIOForm.elements['tid'].value;
+    
+    var mid = document.PGIOForm.elements['mid'].value;
+    var cardtype = document.PGIOForm.elements['cardtype'].value;
+    var mb_serial_no = document.PGIOForm.elements['mb_serial_no'].value;
+    var hashresult = document.PGIOForm.elements['hashresult'].value;
+
+    displayStatus(getPGIOElement('ResultScreen'));    //required item
+  
+	verifyReceived(getPGIOElement('tid'));
+    if (replycode == "0000") {
+    	$("#tid_success_coupon").val(tid);
+    	$("#form_required_payment").submit();
+    } else {
+        alert(replycode + replyMsg);
+      
+    }
+}
+</script>
+
+
+  </head>
+  	<spring:url value="/" var="root_url" />
+ 	<c:url value="/" var="root"></c:url>
+ 	<c:url value="/api" var="api"></c:url>
+ 	
+ 	<spring:url value="/" var="root_url" />
+ 	<script>
+		var root_url = "${root_url}";
+		var api = "${api}";
+    </script>
+    
+  <body>
+   <div class="wb-header visible-md visible-lg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 wb-header-logo"><a href="${root}index"><img src="${theme}/assets/img/logo.png" alt="logo"/></a></div>
+          <div class="col-md-7 wb-header-nav-col">
+            <div class="wb-header-nav">
+            <c:if test="${sessionScope.login == null}">
+              <div class="wb-header-nav-item"><a href="${root}signup" class="mute">회원가입</a></div>
+              <div class="wb-header-nav-item"><a href="${root}login" class="mute">로그인</a></div>
+            </c:if>
+             <c:if test="${sessionScope.login != null}">
+              <div class="wb-header-nav-item"><a href="${root}logout" class="mute">로그아웃</a></div>
+            </c:if>
+              
+            </div>
+          </div>
+          <div class="col-md-3 wb-header-search">
+            <div class="wb-search">
+             	<form id="frmSearch" action="${root}search" method="get">
+              		<input type="text" id="search_keyword" name="keyword"/><img src="${theme}/assets/img/search.png" alt="search icon" onclick="$('#frmSearch').submit()"/>
+              		<input type="hidden" id="search_category" name="category" value=""/>
+              	</form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wb-sub-header visible-md visible-lg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="wb-sub-header-nav1">
+             <c:if test="${activePage=='official' }">
+              	<div class="wb-sub-header-nav1-item active"><a href="${root}official-author" class="mute">오늘의 연재</a></div>
+              </c:if>
+              <c:if test="${activePage!='official' }">
+              	<div class="wb-sub-header-nav1-item "><a href="${root}official-author" class="mute">오늘의 연재</a></div>
+              </c:if>
+              
+              <c:if test="${activePage=='league' }">
+              	<div class="wb-sub-header-nav1-item active"><a href="${root}league&amp;contest" class="mute">리그  &amp; 공모</a></div>
+              </c:if>
+              <c:if test="${activePage!='league' }">
+              	<div class="wb-sub-header-nav1-item"><a href="${root}league&amp;contest" class="mute">리그  &amp; 공모</a></div>
+              </c:if>
+              
+              <c:if test="${activePage=='community' }">
+              <div class="wb-sub-header-nav1-item active"><a href="${root}community/freeboard" class="mute">커뮤니티</a></div>
+              </c:if>
+               <c:if test="${activePage!='community' }">
+              <div class="wb-sub-header-nav1-item"><a href="${root}community/freeboard" class="mute">커뮤니티</a></div>
+              </c:if>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="wb-sub-header-nav2">
+              <div class="wb-sub-header-nav2-item active"><a href="${root}my_book/interest_book" class="mute">My Page</a></div>
+              	<div class="wb-sub-header-nav2-item"><a href="${root}my_book" class="mute">작품올리기</a></div>
+              <div class="wb-sub-header-nav2-item"><a href="${root}coupon/coupon_charge" class="mute">쿠폰충전</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="wb-canvas">
+      <div class="wb-canvas-wrapper">
+        <div class="wb-canvas-content">
+    <div class="wbm-header clearfix">
+            <div class="wbm-header-search"><a href="${root }search"><img src="${theme}/assets/img/search2.png" alt="search 2"/></a></div>
+            <div class="wbm-header-logo"><a href="${root }index"><img src="${theme}/assets/img/logo2.png" alt="logo mobile"/></a></div>
+            <div id="off-canvas-trigger" class="wbm-header-menu"><img src="${theme}/assets/img/menu.png" alt="menu"/></div>
+          </div>
+          <div class="wbm-tab">
+           <c:if test="${activePage=='official' }">
+              	 <div class="wbm-tab-item active">오늘의 연재</div>
+              </c:if>
+              <c:if test="${activePage!='official' }">
+              	<div class="wbm-tab-item"><a href="${root}official-author" class="mute">오늘의 연재</a></div>
+              </c:if>
+              
+              <c:if test="${activePage=='league' }">
+              	 <div class="wbm-tab-item active">리그&amp;공모</div>
+              </c:if>
+              <c:if test="${activePage!='league' }">
+              	<div class="wbm-tab-item"><a href="${root}league&amp;contest" class="mute">리그  &amp; 공모</a></div>
+              </c:if>
+              
+              <c:if test="${activePage=='community' }">
+               	<div class="wbm-tab-item active">커뮤니티</div>
+              </c:if>
+               <c:if test="${activePage!='community' }">
+             <div class="wbm-tab-item"><a href="${root}community/faq" class="mute">커뮤니티</a></div>
+              </c:if>
+          </div	>
+    	<tiles:insertAttribute name="body" />
+    	
+    	
+    	<c:if test="${activePage=='index' }">
+      <div class="wb-other hidden-xs hidden-sm">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4 wb-other-col">
+                  <div class="wb-notice">
+                    <div class="row" >
+                      <div class="col-md-6" style="margin-bottom: 12px;">
+                        <div class="wb-f18">공지사항</div>
+                      </div>
+                      <div class="col-md-6 text-right"><a href="${root}other/notice"><img src="${theme}/assets/img/plus.png" alt="plus"/></a></div>
+                    </div>
+                    <c:forEach items="${listAnnouncement}" var="i">
+                    <a  class="mute">
+                      <div class="row wb-mt18">
+                        <div class="col-md-8">
+                          <div class="wb-notice-dot wb-f12 wb-text-crop"><a href="${root}other/notice/detail/${i.id}">${i.title }</a></div>
+                        </div>
+                        <div class="col-md-4 text-right">
+                          <div class="wb-f12"><fmt:formatDate value="${i.createDate }" type="both" pattern="yyyy.MM.dd"/></div>
+                        </div>
+                      </div>
+                     </a>
+                    </c:forEach>
+                  </div>
+                </div>
+                
+                
+                <div class="col-md-4 wb-other-col">
+                  <div class="wb-free-board">
+                    <!-- Nav tabs-->
+                    <ul role="tablist" class="nav nav-tabs wb-free-board-tab">
+                      <li role="presentation" class="active wb-f18"><a href="#freeboard" aria-controls="home" role="tab" data-toggle="tab" class="mute">자유게시판</a></li>
+                      <li role="presentation" class="wb-f18"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="mute">감상평</a></li>
+                    </ul>
+                    <!-- Tab panes-->
+                    <div class="tab-content">
+                      <div id="freeboard" role="tabpanel" class="tab-pane active">
+                        <div class="wb-wanna-fly">
+                          <div class="wb-wanna-fly-inner"><a href="${root}community/freeboard"><img src="${theme}/assets/img/plus.png" alt="ref"/></a></div>
+                        </div>
+                         <c:forEach items="${listFreeboard}" var="i">
+                         <a class="mute">
+                          <div class="row wb-mt18">
+                            <div class="col-md-8">
+                              <div class="wb-notice-dot wb-f12 wb-text-crop"><a href="${root}community/freeboard/view/${i.id}">${i.title }</a></div>
+                            </div>
+                            <div class="col-md-4 text-right">
+                              <div class="wb-f12"><fmt:formatDate value="${i.createDate }" type="both" pattern="yyyy.MM.dd"/></div>
+                            </div>
+                          </div>
+                          </a>
+                         </c:forEach>
+                      </div>
+                      <div id="profile" role="tabpanel" class="tab-pane">
+                      <div class="wb-wanna-fly">
+                          <div class="wb-wanna-fly-inner"><a href="${root}community/appreciation"><img src="${theme}/assets/img/plus.png" alt="ref"/></a></div>
+                        </div>
+                         <c:forEach items="${listAppreciation}" var="i">
+                         <a class="mute">
+                          <div class="row wb-mt18">
+                            <div class="col-md-8">
+                              <div class="wb-notice-dot wb-f12 wb-text-crop"><a href="${root}community/appreciation/view/${i.id}">${i.title }</a></div>
+                            </div>
+                            <div class="col-md-4 text-right">
+                              <div class="wb-f12"><fmt:formatDate value="${i.createDate }" type="both" pattern="yyyy.MM.dd"/></div>
+                            </div>
+                          </div>
+                          </a>
+                         </c:forEach>
+                      
+					 </div>
+					 
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 wb-other-col"><a href="${root}coupon/coupon_charge"><img src="${theme}/assets/img/ref.png" alt="ref"/></a></div>
+              </div>
+            </div>
+          </div>
+    </c:if>
+    <c:if test="${activePage=='index' }">
+    <div class="wbm-other visible-xs visible-sm">
+            <div class="container">
+              <div class="wbm-other-wrapper">
+                <div class="row">
+                 <div class="col-xs-8 wb-text-crop"><a href="${root}other/notice" class="mute wb-pill wb-f16 wb-mr30">공지사항</a>
+                
+                     <a href="${root}other/notice/detail/${listAnnouncement[0].id}" class="mute wb-f20">${listAnnouncement[0].title }</a>
+                 </div>
+                 <div class="col-xs-4 text-right"><img src="${theme}/assets/img/top.png" alt="to top" class="wb-gotop" />&#160;</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+           
+          
+          
+          
+          
+          <div class="wbm-other visible-xs visible-sm">
+            <div class="container">
+                <div class="row">
+                  <a href="${root}coupon/coupon_charge"><img src="${theme}/assets/img/ref.png" height="50%" width="100%" alt="ref"/></a>
+              </div>
+            </div>
+          </div>
+    </c:if>
+     
+          
+    
+    
+		<div class="wb-footer">
+            <div class="container">
+              <div class="row">
+                <div class="wb-footer-logo col-md-3"><img src="${theme}/assets/img/logo-gray.png" alt="logo gray"/></div>
+                <div class="wb-footer-other col-md-6">
+                  <div class="wb-sitemap">
+                    <div class="wb-sitemap-item"><a href="${root}term_of_use" class="mute">이용약관</a></div>
+                    <div class="wb-sitemap-item"><a href="${root}privacy_policy" class="mute">개인정보 취급방침</a></div>
+                    <div class="wb-sitemap-item"><a href="${root}other/faq" class="mute">고객 센터</a></div>
+                    <div class="wb-sitemap-item"><a href="${root}other/notice" class="mute">공지사항</a></div>                    
+                  </div>
+                  <div class="wb-contact"><span class="wb-contact-item">(주)케이웹소설</span><span class="wb-contact-item">사업자등록번호: 621-86-15717</span>
+                  <br/><span class="wb-contact-item">통신판매업신고: 2016-서울서대문-0095</span>
+                  <br/><span class="wb-contact-item">대표: 오청림</span><span class="wb-contact-item">개인정보책
+임자: 오청림</span>
+</div>
+<div class="wb-contact">
+<span class="wb-contact-item">주소: 서울특별시 서대문구 홍지문 2길 51, 303호(홍은동, 위즈하우스빌딩) </span>
+<br/>
+<span class="wb-contact-item">연락처: 070 -8728 -5288</span>
+<span class="wb-contact-item"> 이메일: <a href="mailto:help@kwebsosul.com">help@kwebsosul.com</a></span>
+				</div>
+                  <div class="wb-copyright">Copyright © KWEBSOSUL COMPANY All Rights Reserved.</div>
+                </div>
+                
+                <div class="wb-footer-social col-md-3">
+				    <a href="http://www.facebook.com/kwebsosul" class="wb-footer-social-icon" title="Kwebsosul link" target="_blank"><img src="${root}images/icon/social (3).png"   alt=""/></a>
+				    <a href="http://www.kakaostory.com/kwebsosul" class="wb-footer-social-icon" title="Kwebsosul link" target="_blank"><img src="${root}images/icon/social (4).png" alt=""/></a>
+				    <a href="http://blog.naver.com/kwebsosul" class="wb-footer-social-icon" title="Kwebsosul link" target="_blank"><img src="${root}images/icon/social (1).png" alt=""/></a>
+				    <a href="http://cafe.naver.com/kwebsosul" class="wb-footer-social-icon" title="Kwebsosul link" target="_blank"><img src="${root}images/icon/social (2).png" alt=""/></a>
+				</div>
+              </div>
+            </div>
+          </div>
+          
+          
+		</div>
+
+      <div class="wb-canvas-side"><jsp:text/></div>
+      <div class="wb-canvas-side">
+          <div class="row wb-cell">
+          
+          	<c:if test="${sessionScope.login == null }">
+               <div class="col-xs-6 wb-cell-item"><a href="${root}signup" class="mute"><span class="wb-color-primary wb-f26"><b>회원가입</b></span></a></div>
+            <div class="col-xs-6 wb-cell-item"><a href="${root}login" class="mute"><span class="wb-color-primary wb-f26"><b>로그인</b></span></a></div>
+            </c:if>
+             <c:if test="${sessionScope.login != null }">
+             <div class="wb-cell2">
+            		<div>		
+            		<img src="${theme }/assets/img/avar.png" alt="avar" style="vertical-align: top" class="wb-mr14"/><a href="#" class="mute"><span class="wb-f24"><b>${sessionScope.login.nickname } &#160; 님</b></span></a></div>
+            		<div class="wb-f18 wb-color-complementary wb-mt12"><b>현재보유 쿠폰: <fmt:formatNumber type="number" maxFractionDigits="3" value="${ sessionScope.login.totalCoupon}" /></b></div>
+            		<div style="text-align: right"><a href="${root}logout" class="mute"><span class="wb-color-primary wb-f26"><b>로그아웃</b></span></a></div>
+          		</div>
+            </c:if>
+            
+          </div>
+          <div class="wb-list-side">
+            <div class="wb-list-side-item">
+              <div class="row">
+                <div class="col-xs-10"><a href="${root}my_book/interest_book" class="mute"><span class="wb-color-primary wb-f24"><b>My Page</b></span></a></div>
+                <div class="col-xs-2 text-right"><img src="${theme }/assets/img/play.png" alt="play"/></div>
+              </div>
+            </div>
+            <div class="wb-list-side-item">
+              <div class="row">
+                <div class="col-xs-10"><a href="${root}my_book" class="mute"><span class="wb-color-primary wb-f24"><b>작품 올리기</b></span></a></div>
+                <div class="col-xs-2 text-right"><img src="${theme }/assets/img/play.png" alt="play"/></div>
+              </div>
+            </div>
+            <div class="wb-list-side-item">
+              <div class="row">
+                <div class="col-xs-10"><a href="${root}coupon/coupon_charge" class="mute"><span class="wb-color-primary wb-f24"><b>쿠폰충전</b></span></a></div>
+                <div class="col-xs-2 text-right"><img src="${theme }/assets/img/play.png" alt="play"/></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+     </div>
+
+	<div id="popup_required_login" class="wb-overlay hidden">
+              <div onclick="window.trams.popup.close();" class="wb-overlay-inner">
+                <div class="wb-overlay-wrapper">
+                  <div class="container">
+                    <div onclick="event.stopPropagation();" class="wb-popup var1">
+                      <div class="wb-popup-header clearfix"><span class="wb-f18 pull-left">&#160;</span>
+                      <img src="${root }images/close.png" onclick="window.trams.popup.close();"	 aria-hidden="true" alt="close" class="pull-right wb-mt10"></img>
+                      </div>
+                      <div class="wb-popup-body">
+                        <div class="wb-f16 text-center wb-mt18">로그인이 필요한 서비스 입니다.</div>
+                        <div class="text-center wb-mt44 wb-mt28">
+                            <button onclick="location.href='${root}login'"  type="button" class="base-btn wb-btn-shine">로그인</button>
+                            <button type="button" onclick="window.trams.popup.close();" class="base-btn wb-btn-bold h40 w100">취소</button>
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+	
+    <script src="${theme}/libs/jquery/jquery-2.1.4.min.js"><jsp:text /></script>
+    <script src="${root}js/common.js"><jsp:text /></script>
+    <script src="${theme}/libs/bootstrap/js/bootstrap.min.js"><jsp:text /></script>
+    <script src="${theme}/libs/trams-frontend/js/utils.js"><jsp:text /></script>
+    <script src="${theme}/libs/slick/slick.min.js"><jsp:text /></script>
+    <script src="${theme}/assets/js/user.dist.js"><jsp:text /></script>
+    <script src="${theme}/libs/jquery.dateSelectBoxes.js"><jsp:text /></script>
+   
+    <script src="${theme}/libs/trumbowyg-editor/dist/trumbowyg.min.js"><jsp:text /></script>
+    <script src="${theme}/libs/trumbowyg-editor/dist/plugins/upload/trumbowyg.upload.min.js"><jsp:text /></script>
+    <script src="${theme}/libs/trumbowyg-editor/dist/plugins/base64/trumbowyg.base64.min.js"><jsp:text /></script>
+    <script src="${theme}/libs/trumbowyg-editor/dist/langs/ko.min.js"><jsp:text /></script>
+     <script src="${root}theme/assets/js/custom.js"><jsp:text /></script>
+  </body>
+  
+  
+  
+  
+</html>

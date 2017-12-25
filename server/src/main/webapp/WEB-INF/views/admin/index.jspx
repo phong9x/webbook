@@ -1,0 +1,95 @@
+<div xmlns:s="http://www.springframework.org/tags"  version="2.0"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:tiles="http://tiles.apache.org/tags-tiles"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<c:url value="/" var="root"></c:url>
+<spring:url value="/theme" var="theme" />
+  <script src="${theme}/libs/embed-api/analytics.js"><jsp:text/></script>
+        <div class="home page-content-wrapper">
+        <div class="page-content">
+          <div class="page-bar">
+            <ul class="page-breadcrumb">
+              <li><span>홈</span><jsp:text/></li>
+            </ul>
+          </div>
+          <!-- .page-bar-->
+
+          <div class="home-main">
+            <div class="portlet light bordered">
+              <div class="portlet-title">
+                <div class="caption"><span class="caption-subject bold font-grey-gallery uppercase">회원 </span><jsp:text/></div>
+              </div>
+              <div class="portlet-body">
+              
+              
+                <p>전체 회원 수  <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member}" /> / 신규 가입자 수  <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_newly_joined_member}" /><br/>월 방문자 수  <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_visitor_number}" /> / 오늘 방문자 수  <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.today_visitor_number}" /></p>
+                <p>남자 회원 수   <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_male}" /> / 여자 회원 수   <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_female}" />
+                <br/>15세 미만 회원 수  <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_age_1}" /> (남: <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_male_age_1}" /> / 여: <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_female_age_1}" />)
+                <br/>15~19세 회원 수  <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_age_2}" /> (남: <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_male_age_2}" /> / 여: <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_female_age_2}" />)
+                <br/>20~24세 회원 수 <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_age_3}" /> (남: <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_male_age_3}" /> / 여: <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_female_age_3}" />)
+                <br/>25세 이상 회원 수 <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_age_4}" /> (남: <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_male_age_4}" /> / 여: <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_female_age_4}" />)
+                <br/>작품 등록자 수 <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_register_book}" /> / 신규 등록자 수 <fmt:formatNumber type="number" maxFractionDigits="3" value="${m.total_member_new_register_book}" /></p>
+                <p>전체 쿠폰 충전 수  <fmt:formatNumber type="number" maxFractionDigits="3" value="${c.totalCouponChargingNumber}" /> / 최근 쿠폰 충전 수 <fmt:formatNumber type="number" maxFractionDigits="3" value="${c.totalRecentCouponChargingNumber}" />
+                <br/>쿠폰 충전 금액 합계 <fmt:formatNumber type="number" maxFractionDigits="3" value="${c.totalCouponChargingAmount}" /> / 최근 쿠폰 충전 금액 <fmt:formatNumber type="number" maxFractionDigits="3" value="${c.totalRecentCouponChargingAmount}" /></p>
+              </div>
+            </div>
+
+            <div class="portlet light bordered">
+              <div class="portlet-title">
+                <div class="caption"><span class="caption-subject bold font-grey-gallery uppercase">작품</span><jsp:text/></div>
+              </div>
+              <div class="portlet-body">
+                <p>전체 작품 수  <fmt:formatNumber type="number" maxFractionDigits="3" value="${b.totalBook}" /> / 신규 작품 수  <fmt:formatNumber type="number" maxFractionDigits="3" value="${b.totalNewBook}" />
+                <br/>전체 연재 수 <fmt:formatNumber type="number" maxFractionDigits="3" value="${e.totalEpisode}" /> / 신규 연재 수 <fmt:formatNumber type="number" maxFractionDigits="3" value="${e.totalNewEpisode}" />
+                <br/>전체 조회 수 <fmt:formatNumber type="number" maxFractionDigits="3" value="${e.totalSumHitNumber}" /></p>
+              </div>
+            </div>
+
+            <div class="portlet light bordered">
+              <div class="portlet-title">
+                <div class="caption"><span class="caption-subject bold font-grey-gallery uppercase">유료 구매 </span><jsp:text/></div>
+              </div>
+              <div class="portlet-body">
+                <p>전체 유료 회차 수  <fmt:formatNumber type="number" maxFractionDigits="3" value="${e.totalEpisodeCharge}" />
+                <br/>전체 유료 회차 구매 수  <fmt:formatNumber type="number" maxFractionDigits="3" value="${e.totalEpisodePurchase}" />
+                <br/>최근 7일 유료 회차 구매 수 <fmt:formatNumber type="number" maxFractionDigits="3" value="${e.totalNewEpisodePurchase}" /></p>
+              </div>
+            </div>
+            <!--Graph -->
+             <tiles:insertTemplate template="/WEB-INF/views/admin/graph/monthly_member.jspx" />
+<!--              <tiles:insertTemplate template="/WEB-INF/views/common/monthly_member_withdraw.jspx" /> -->
+<!--              <tiles:insertTemplate template="/WEB-INF/views/common/active_user.jspx" /> -->
+<!--              <tiles:insertTemplate template="/WEB-INF/views/common/monthly_conversion.jspx" /> -->
+<!--              <tiles:insertTemplate template="/WEB-INF/views/common/monthly_charge.jspx" /> -->
+<!--              <tiles:insertTemplate template="/WEB-INF/views/common/monthly_coupon_charging.jspx" /> -->
+
+          <div id="embed-api-auth-container"><jsp:text/></div>
+          <div id="view-selector-container"><jsp:text/></div>
+          <div id="active-users-container"><jsp:text/></div>
+          <div id="chart-1-container"><jsp:text/></div>
+          <div id="legend-1-container"><jsp:text/></div>
+          <div id="chart-2-container"><jsp:text/></div>
+          <div id="legend-2-container"><jsp:text/></div>
+          <div id="chart-3-container"><jsp:text/></div>
+          <div id="legend-3-container"><jsp:text/></div>
+          <div id="chart-4-container"><jsp:text/></div>
+          <div id="legend-4-container"><jsp:text/></div>
+           <div id="gotoAnalytics"><a target="_blank" href="https://www.google.com/analytics/web/?etauthuser=0#report/defaultid/a72418045w110093072p114808482/">Go to Detail</a> <p>User : webboo.webbook@gmail.com</p> <p>password: WebBooks</p></div>
+         
+
+	           	<!-- end graph -->
+          </div>
+          <!-- .home-main-->
+        </div>
+        <!-- .page-content-->
+      </div>
+      <!-- .page-content-wrapper-->
+    
+
+
+</div>

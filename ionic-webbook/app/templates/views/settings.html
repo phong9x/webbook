@@ -1,0 +1,45 @@
+<ion-view>
+    <div ng-include="'templates/directive/header.html'"></div>
+    <ion-content class="has-main-header">
+        <div ng-include="'templates/partial/tab.html'"></div>
+        
+        <ion-list class="ion-list-nopad">
+            <ion-item ng-repeat="n in range(20) track by $index">
+                <div class="container">
+                    
+                    <div class="wb-list-item1">
+                        <div class="color-impress f24 b wb-list-item1-col">팬픽</div>
+
+                        <div class="wb-list-item1-col">
+                            <div class="f24 b text-truncate">
+                                <span class="mr28">사신 로맨스 : 월하의 매듭</span>
+                                <span class="color-normal4">총234회</span>
+                            </div>
+
+                            <div class="mt12">
+                                <span class="f16 color-normal4 b mr22">
+                                    에시드
+                                </span>
+                                <span class="f16 color-normal4 b mr22">|</span>
+                                <span class="f16 color-normal4 b">
+                                    2015.10.13
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="wb-list-item1-col">
+                            <img src="images/heart.png" alt="" class="mr10">
+                            <span class="f24 color-normal4 b">
+                                150
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <div ng-include="'templates/partial/footer.html'"></div>
+    </ion-content>
+
+</ion-view>

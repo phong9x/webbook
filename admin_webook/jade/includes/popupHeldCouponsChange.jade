@@ -1,0 +1,23 @@
+#popupHeldCouponsChange.modal.fade(tabindex='-1', aria-hidden='true', data-backdrop='static' data-keyboard='false')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-hidden='true')
+        h4.modal-title
+          strong 보유 쿠폰 변경
+      .modal-body
+        form.form-held-coupons-change.form-horizontal
+          .form-group
+            .col-md-5
+              select.form-control(name='')
+                option(value='0') 추가
+                option(value='1') 차감
+            .col-md-7
+              input.form-control(name='', type='text', placeholder='금액 입력', data-wb-placeholder='금액 입력')
+          
+          ="\n"
+          .form-group.text-center
+            .col-md-12
+              button.btn.green(type='submit') 저장
+        // .form-held-coupons-change
+// .popupHeldCouponsChange

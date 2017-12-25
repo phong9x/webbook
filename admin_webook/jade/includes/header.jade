@@ -1,0 +1,30 @@
+.page-header.navbar.navbar-fixed-top
+  .page-header-inner
+    // BEGIN LOGO
+    .page-logo
+      a(href='home.html')
+        img.logo-default(src='../../assets/images/logo/logo_2.png', alt='logo')
+    // .page-logo
+
+    ="\n"
+    a.menu-toggler.responsive-toggler(href='javascript:;', data-toggle='collapse', data-target='.navbar-collapse')
+    // .responsive-toggler
+    
+    ="\n"
+    .top-menu
+      ul.nav.navbar-nav.pull-right
+        li.dropdown.dropdown-user
+          a.dropdown-toggle(href='javascript:;', data-toggle='dropdown', data-hover='dropdown', data-close-others='true')
+            span.username.username-hide-on-mobile
+              | 명의
+            i.fa.fa-angle-down
+          ul.dropdown-menu.dropdown-menu-default
+            li
+              a(href='login.html')
+                i.icon-key
+                |  로그아웃
+        // .dropdown-user
+    // .top-menu
+// .page-header
+
+.clearfix

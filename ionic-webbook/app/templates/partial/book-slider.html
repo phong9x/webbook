@@ -1,0 +1,28 @@
+<div class="well-1">
+    <div class="text-center">
+        <div class="deco-title-1">
+            <div class="f24">
+                <span class="color-primary">금주의 </span>
+                <span class="color-complementary">인기작</span>
+            </div>
+        </div>
+    </div>
+    
+
+    <ion-scroll direction="x" class="mt22">
+        <div class="wb-book-slider">
+            <div ng-repeat="n in range(100) track by $index" class="wb-book-card">
+                <div 
+                    class="wb-book-card-img"
+                    style="background-image:url(images/book-thumb.png)">
+                    </div>
+                <div class="wb-book-card-text">
+                    <div class="f14 color-primary">로맨스</div>
+                    <div class="f18 mt8 text-truncate">금혼령, 조선혼인 조선혼인</div>
+                    <div class="f14 mt8 color-normal2">글 천지혜   삽화 그늦</div>
+                </div>
+            </div>
+        </div>
+    </ion-scroll>
+
+</div>

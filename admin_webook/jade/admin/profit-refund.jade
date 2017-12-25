@@ -1,0 +1,100 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title profit-refund - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .profit-refund.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 정산관리
+              i.fa.fa-angle-right
+            li
+              span 환급신청내역
+        // .page-bar
+        
+        ="\n"
+        .profit-refund-main.wb-pb-50
+          .form-search-wrapper
+            form.form-search.form-horizontal.wb-container-style-1(action='#')
+              .form-body
+                .form-group
+                  .col-md-7
+                    select.form-control.input-inline.input-small
+                      option 2015
+                      option Option 2
+                      option Option 3
+                    span.help-inline(style="margin-right: 15px;") 년
+                    
+                    select.form-control.input-inline.input-small
+                      option 8
+                      option Option 2
+                      option Option 3
+                    span.help-inline 월
+
+                ="\n"  
+                .form-group
+                  .col-md-3
+                    select.form-control(name='test38')
+                      option(value='0') 아이디
+                      option(value='1') 성명
+
+                  ="\n"
+                  .col-md-5.col-md-offset-1
+                    input.form-control(name='test349', type='search')
+                  
+                  .col-md-3.text-center
+                    button.btn.green.btn-search(type='submit') 검색
+            // .form-search
+          // .form-search-wrapper
+
+          ="\n"
+          .wb-gap(style='border-top: 1px solid #e1e1e1; padding-bottom: 15px;')
+          
+          ="\n"
+          .table-profit-refund.table-responsive
+            table.table.table-striped.table-bordered.table-hover
+              thead
+                tr
+                  th NO
+                  th 아이디
+                  th 성명
+                  th 신청일자
+                  th 입금일자
+                  th 입금액
+                  th 입금은행
+                  th 예금주
+              tbody
+                tr
+                  td 1
+                  td Abcd
+                  td 홍길동
+                  td 2015.09.21
+                  td 2015.09.25
+                  td 300,000
+                  td 하나
+                  td 홍길동
+          //.table-profit-refund
+
+          ="\n"
+          include ../includes/wb-pagination.jade          
+
+        // .profit-refund-main
+      // .page-content
+    // .profit-refund
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade

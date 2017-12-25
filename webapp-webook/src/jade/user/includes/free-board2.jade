@@ -1,0 +1,80 @@
+.wbp-free-board2
+  .wb-cat-tab: .container-mobile-full
+    .wb-cat-tab-wrapper.clearfix
+      .wb-cat-tab-item: a.mute(href="#") 오늘
+      .wb-cat-tab-item.active 로맨스
+      .wb-cat-tab-item: a.mute(href="#") 판타지
+      .wb-cat-tab-item: a.mute(href="#") 무협
+      .wb-cat-tab-item: a.mute(href="#") 퓨전/기타
+      .wb-cat-tab-item: a.mute(href="#") 성인
+      .wb-cat-tab-item: a.mute(href="#") 완결작
+
+  .container.wb-mt50: .wb-f22 #[span.wb-color-complementary 자유]게시판
+
+  .container
+    .wbp-free-board2-best: .row
+      .col-md-4.wbp-free-board2-best-col
+        img(src="/dist/assets/img/best.png" alt="best")
+      .col-md-4.wbp-free-board2-best-col
+        .wbp-free-board2-text
+          | 1. 출간 제의 오는거 주의 하세요...#[span.wb-color-complementary 오레오] #[br]
+          | 2. 출간 제의 오는거 주의 하세요...#[span.wb-color-complementary 오레오] #[br]
+          | 3. 출간 제의 오는거 주의 하세요...#[span.wb-color-complementary 오레오] #[br]
+          | 4. 출간 제의 오는거 주의 하세요...#[span.wb-color-complementary 오레오] #[br]
+          | 5. 출간 제의 오는거 주의 하세요...#[span.wb-color-complementary 오레오]
+
+      .col-md-4.wbp-free-board2-best-col
+        .wbp-free-board2-text
+          | 1. 출간 제의 오는거 주의 하세요...#[span.wb-color-complementary 오레오] #[br]
+          | 2. 출간 제의 오는거 주의 하세요...#[span.wb-color-complementary 오레오] #[br]
+          | 3. 출간 제의 오는거 주의 하세요...#[span.wb-color-complementary 오레오] #[br]
+          | 4. 출간 제의 오는거 주의 하세요...#[span.wb-color-complementary 오레오] #[br]
+          | 5. 출간 제의 오는거 주의 하세요...#[span.wb-color-complementary 오레오]
+
+  .container: .table-responsive
+    table.wb-table-simple.table
+      thead
+        tr
+          th 번호
+          th 제목
+          th 결제수단
+          th 작성자
+          th 작성일
+          th 조회수
+      tbody
+        - for(var i=0; i<3; i++) {
+          tr
+            td 000000
+            td 
+              span 궁금해요 
+              img(src="/dist/assets/img/n.png" alt="n")
+            td 
+            td 김둥글레
+            td 2015-02-15
+            td 000000
+          tr
+            td 000000
+            td 
+              span 궁금해요 
+              img.wb-mr4(src="/dist/assets/img/clip.png" alt="n")
+              img(src="/dist/assets/img/img.png" alt="n")
+            td 
+            td 김둥글레
+            td 2015-02-15
+            td 000000
+          tr
+            td 000000
+            td 
+              span 궁금해요 
+              img(src="/dist/assets/img/img.png" alt="n")
+            td 
+            td 김둥글레
+            td 2015-02-15
+            td 000000
+        - }
+
+  .container
+    .text-right
+      button.base-btn.wb-btn-bold 글쓰기
+    .text-center
+      +wb-pagin

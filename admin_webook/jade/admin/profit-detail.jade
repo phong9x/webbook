@@ -1,0 +1,133 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title profit-detail - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .profit-detail.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 정산 상세정보
+        // .page-bar
+        
+        ="\n"
+        .profit-detail-main.wb-pb-50
+          .block-1
+            form.form-block-1.form-horizontal.wb-container-style-1(action='#')
+              .form-body
+                .form-group
+                  .col-md-2.control-label #[strong 아이디: ]
+                  .col-md-10
+                    .form-control-static aaaaa
+
+                ="\n"
+                .form-group
+                  .col-md-2.control-label #[strong 성명: ]
+                  .col-md-10
+                    .form-control-static 홍길동
+
+                ="\n"
+                .form-group
+                  .col-md-5
+                    input.form-control(name='test349', type='text', placeholder='작품 판매 현황', data-wb-placeholder='작품 판매 현황')
+
+                  ="\n"
+                  .col-md-7
+                    select.form-control.input-inline.input-small
+                      option 2015
+                      option Option 2
+                      option Option 3
+                    span.help-inline(style="margin-right: 15px;") 년
+                    
+                    select.form-control.input-inline.input-small
+                      option 10
+                      option Option 2
+                      option Option 3
+                    span.help-inline 월
+            // .form-block-1
+
+            .table-responsive
+              table.table.table-striped.table-bordered.table-hover
+                thead
+                  tr
+                    th 작품명
+                    th 회차명
+                    th 단가(원)
+                    th 판매수
+                    th 정산 비율
+                    th 정산금액(원)
+                tbody
+                  tr
+                    td 영원한 사랑
+                    td 23회 꿈꾸는 소녀와…
+                    td 100
+                    td 1,800
+                    td 50%
+                    td 90,000
+
+            ="\n"
+            include ../includes/wb-pagination.jade
+          // .block-1
+
+          ="\n"
+          .wb-gap(style='border-bottom: 1px solid #e1e1e1; padding-bottom: 50px; margin-bottom: 50px;')
+
+          ="\n"
+          .block-2
+            form.form-block-2.form-horizontal.wb-container-style-1(action='#')
+              .form-body
+                .form-group
+                  .col-md-5
+                    input.form-control(name='test349', type='text', placeholder='수익금 정산', data-wb-placeholder='수익금 정산')
+                  
+                ="\n"
+                .form-group
+                  .col-md-2.control-label #[strong 수익금 잔액 현황: ]
+                  .col-md-10
+                    .form-control-static 10,200원
+
+                ="\n"
+                .form-group
+                  .col-md-5
+                    input.form-control(name='test349', type='text', placeholder='환급 내역', data-wb-placeholder='환급 내역')
+            // .form-block-2
+
+            .table-responsive
+              table.table.table-striped.table-bordered.table-hover
+                thead
+                  tr
+                    th 신청일자
+                    th 입금일자
+                    th 입금액
+                    th 입금은행
+                    th 예금주
+                tbody
+                  tr
+                    td 2015.09.21
+                    td 2015.09.25
+                    td 300,000
+                    td 하나
+                    td 홍길동
+            ="\n"
+            include ../includes/wb-pagination.jade
+          // .block-2
+
+        // .profit-detail-main
+      // .page-content
+    // .profit-detail
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade

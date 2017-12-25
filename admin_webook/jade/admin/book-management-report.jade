@@ -1,0 +1,71 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title book-management-report - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .book-management-report.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 작품관리
+              i.fa.fa-angle-right
+            li
+              span 신고접수
+        // .page-bar
+        
+        ="\n"
+        .book-management-report-main.wb-pb-50
+          .table-report-wrapper
+            .table-report-title
+              h4
+                strong 댓글 신고
+            // .table-report-title
+
+            ="\n"
+            .table-responsive
+              table.table.table-striped.table-bordered.table-hover
+                thead
+                  tr
+                    th 닉네임
+                    th 내용
+                    th 신고건수
+                    th 관리
+                tbody
+                  - for (var i = 0; i < 2; i++)
+                    tr
+                      td pororo
+                      td 안녕하세요. 처음 가입하게 되엇네요…
+                      td 5
+                      td
+                        a.btn-open-popup.btn.green(href="#", data-toggle='modal', data-target="#popupReportHistoryList") 신고내역
+                        a.btn-open-popup.btn.red(href="#", data-toggle='modal', data-target="#popupConfirmDelete") 삭제
+            // .table-responsive
+
+            ="\n"
+            include ../includes/wb-pagination.jade
+          // .table-result-wrapper
+        // .book-management-report-main
+      // .page-content
+    // .book-management-report
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade
+
+  ="\n"
+  include ../includes/popupConfirmDelete.jade
+
+  ="\n"
+  include ../includes/popupReportHistoryList.jade

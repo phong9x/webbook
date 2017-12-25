@@ -1,0 +1,212 @@
+<h1 id="morris-js-pretty-time-series-line-graphs">Morris.js - pretty time-series line graphs</h1>
+<p><a href="http://travis-ci.org/morrisjs/morris.js"><img src="https://secure.travis-ci.org/morrisjs/morris.js.png?branch=master" alt="Build Status"></a></p>
+<p>Morris.js is the library that powers the graphs on <a href="http://howmanyleft.co.uk/">http://howmanyleft.co.uk/</a>.
+It&#39;s a very simple API for drawing line, bar, area and donut charts.</p>
+<p>Cheers!</p>
+<p>- Olly (olly@oesmith.co.uk)</p>
+<h2 id="contributors-wanted">Contributors wanted</h2>
+<p>I&#39;m unfortunately not able to actively support Morris.js any more. I keep an eye
+on the issues, but I rarely have the time to fix bugs or review pull requests.</p>
+<p>If you&#39;re interested in actively contributing to Morris.js, please contact me on
+the email address above.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li><a href="http://jquery.com/">jQuery</a> (&gt;= 1.7 recommended, but it&#39;ll probably work with
+older versions)</li>
+<li><a href="http://raphaeljs.com/">Raphael.js</a> (&gt;= 2.0)</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>See <a href="http://morrisjs.github.com/morris.js/">the website</a>.</p>
+<h2 id="development">Development</h2>
+<p>Very daring.</p>
+<p>Fork, hack, possibly even add some tests, then send a pull request :)</p>
+<p>Remember that Morris.js is a coffeescript project. Please make your changes in
+the <code>.coffee</code> files, not in the compiled javascript files in the root directory
+of the project.</p>
+<h3 id="developer-quick-start">Developer quick-start</h3>
+<p>You&#39;ll need <a href="https://nodejs.org">node.js</a>.  I recommend using
+<a href="https://github.com/creationix/nvm">nvm</a> for installing node in
+development environments.</p>
+<p>With node installed, install <a href="https://github.com/cowboy/grunt">grunt</a> using
+<code>npm install -g grunt-cli</code>, and then the rest of the test/build dependencies
+with <code>npm install</code> in the morris.js project folder.</p>
+<p>Once you&#39;re all set up, you can compile, minify and run the tests using <code>grunt</code>.</p>
+<p>Note: I&#39;m experimenting with using perceptual diffs to catch rendering
+regressions. Due to font rendering differences between platforms, the pdiff
+tests currently <em>only</em> pass on OS X.</p>
+<h2 id="changelog">Changelog</h2>
+<h3 id="0-5-1-15th-june-2014">0.5.1 - 15th June 2014</h3>
+<ul>
+<li>Fix touch event handling.</li>
+<li>Fix stacked=false in bar chart <a href="https://github.com/morrisjs/morris.js/issues/275">#275</a></li>
+<li>Configurable vertical segments <a href="https://github.com/morrisjs/morris.js/issues/297">#297</a></li>
+<li>Deprecate continuousLine option.</li>
+</ul>
+<h3 id="0-5-0-19th-march-2014">0.5.0 - 19th March 2014</h3>
+<ul>
+<li>Update grunt dependency <a href="https://github.com/morrisjs/morris.js/issues/228">#288</a></li>
+<li>Donut segment color config in data objects <a href="https://github.com/morrisjs/morris.js/issues/281">#281</a></li>
+<li>Customisable line widths and point drawing <a href="https://github.com/morrisjs/morris.js/issues/272">#272</a></li>
+<li>Bugfix for @options.smooth <a href="https://github.com/morrisjs/morris.js/issues/266">#266</a></li>
+<li>Option to disable axes individually <a href="https://github.com/morrisjs/morris.js/issues/253">#253</a></li>
+<li>Range selection <a href="https://github.com/morrisjs/morris.js/issues/252">#252</a></li>
+<li>Week format for x-labels <a href="https://github.com/morrisjs/morris.js/issues/250">#250</a></li>
+<li>Update developer quickstart instructions <a href="https://github.com/morrisjs/morris.js/issues/243">#243</a></li>
+<li>Experimenting with perceptual diffs.</li>
+<li>Add original data row to hover callback <a href="https://github.com/morrisjs/morris.js/issues/264">#264</a></li>
+<li>setData method for donut charts <a href="https://github.com/morrisjs/morris.js/issues/211">#211</a></li>
+<li>Automatic resizing <a href="https://github.com/morrisjs/morris.js/issues/111">#111</a></li>
+<li>Fix travis builds <a href="https://github.com/morrisjs/morris.js/issues/298">#298</a></li>
+<li>Option for rounded corners on bar charts <a href="https://github.com/morrisjs/morris.js/issues/305">#305</a></li>
+<li>Option to set padding for X axis labels <a href="https://github.com/morrisjs/morris.js/issues/306">#306</a></li>
+<li>Use local javascript for examples.</li>
+<li>Events on non-time series <a href="https://github.com/morrisjs/morris.js/issues/314">#314</a></li>
+</ul>
+<h3 id="0-4-3-12th-may-2013">0.4.3 - 12th May 2013</h3>
+<ul>
+<li>Fix flickering hover box <a href="https://github.com/morrisjs/morris.js/issues/186">#186</a></li>
+<li>xLabelAngle option (diagonal labels!!) <a href="https://github.com/morrisjs/morris.js/issues/239">#239</a></li>
+<li>Fix area chart fill bug <a href="https://github.com/morrisjs/morris.js/issues/190">#190</a></li>
+<li>Make event handlers chainable</li>
+<li>gridTextFamily and gridTextWeight options</li>
+<li>Fix hovers with setData <a href="https://github.com/morrisjs/morris.js/issues/213">#213</a></li>
+<li>Fix hideHover behaviour <a href="https://github.com/morrisjs/morris.js/issues/236">#236</a></li>
+</ul>
+<h3 id="0-4-2-14th-april-2013">0.4.2 - 14th April 2013</h3>
+<ul>
+<li>Fix DST handling <a href="https://github.com/morrisjs/morris.js/issues/191">#191</a></li>
+<li>Parse data values from strings in Morris.Donut <a href="https://github.com/morrisjs/morris.js/issues/189">#189</a></li>
+<li>Non-cumulative area charts <a href="https://github.com/morrisjs/morris.js/issues/199">#199</a></li>
+<li>Round Y-axis labels to significant numbers <a href="https://github.com/morrisjs/morris.js/162">#162</a></li>
+<li>Customising default hover content <a href="https://github.com/morrisjs/morris.js/179">#179</a></li>
+</ul>
+<h3 id="0-4-1-8th-february-2013">0.4.1 - 8th February 2013</h3>
+<ul>
+<li>Fix goal and event rendering. <a href="https://github.com/morrisjs/morris.js/issues/181">#181</a></li>
+<li>Don&#39;t break when empty data is passed to setData <a href="https://github.com/morrisjs/morris.js/issues/142">#142</a></li>
+<li>labelColor option for donuts <a href="https://github.com/morrisjs/morris.js/issues/159">#159</a></li>
+</ul>
+<h3 id="0-4-0-26th-january-2013">0.4.0 - 26th January 2013</h3>
+<ul>
+<li>Goals and events <a href="https://github.com/morrisjs/morris.js/issues/103">#103</a>.</li>
+<li>Bower package manager metadata.</li>
+<li>More flexible formatters <a href="https://github.com/morrisjs/morris.js/issues/107">#107</a>.</li>
+<li>Color callbacks.</li>
+<li>Decade intervals for time-axis labels.</li>
+<li>Non-continous line tweaks <a href="https://github.com/morrisjs/morris.js/issues/116">#116</a>.</li>
+<li>Stacked bars <a href="https://github.com/morrisjs/morris.js/issues/120">#120</a>.</li>
+<li>HTML hover <a href="https://github.com/morrisjs/morris.js/issues/134">#134</a>.</li>
+<li>yLabelFormat <a href="https://github.com/morrisjs/morris.js/issues/139">#139</a>.</li>
+<li>Disable axes <a href="https://github.com/morrisjs/morris.js/issues/114">#114</a>.</li>
+</ul>
+<h3 id="0-3-3-1st-november-2012">0.3.3 - 1st November 2012</h3>
+<ul>
+<li><strong>Bar charts!</strong> <a href="https://github.com/morrisjs/morris.js/issues/101">#101</a>.</li>
+</ul>
+<h3 id="0-3-2-28th-october-2012">0.3.2 - 28th October 2012</h3>
+<ul>
+<li><strong>Area charts!</strong> <a href="https://github.com/morrisjs/morris.js/issues/47">#47</a>.</li>
+<li>Some major refactoring and test suite improvements.</li>
+<li>Set smooth parameter per series <a href="https://github.com/morrisjs/morris.js/issues/91">#91</a>.</li>
+<li>Custom dateFormat for string x-values <a href="https://github.com/morrisjs/morris.js/issues/90">#90</a>.</li>
+</ul>
+<h3 id="0-3-1-13th-october-2012">0.3.1 - 13th October 2012</h3>
+<ul>
+<li>Add <code>formatter</code> option for customising value labels in donuts <a href="https://github.com/morrisjs/morris.js/issues/75">#75</a>.</li>
+<li>Cycle <code>lineColors</code> on line charts to avoid running out of colours <a href="https://github.com/morrisjs/morris.js/issues/78">#78</a>.</li>
+<li>Add method to select donut segments. <a href="https://github.com/morrisjs/morris.js/issues/79">#79</a>.</li>
+<li>Don&#39;t go negative on yMin when all y values are zero. <a href="https://github.com/morrisjs/morris.js/issues/80">#80</a>.</li>
+<li>Don&#39;t sort data when parseTime is false <a href="https://github.com/morrisjs/morris.js/issues/83">#83</a>.</li>
+<li>Customise styling for points. <a href="https://github.com/morrisjs/morris.js/issues/87">#87</a>.</li>
+</ul>
+<h3 id="0-3-0-15th-september-2012">0.3.0 - 15th September 2012</h3>
+<ul>
+<li>Donut charts!</li>
+<li>Bugfix: ymin/ymax bug <a href="https://github.com/morrisjs/morris.js/issues/71">#71</a>.</li>
+<li>Bugfix: infinite loop when data indicates horizontal line <a href="https://github.com/morrisjs/morris.js/issues/66">#66</a>.</li>
+</ul>
+<h3 id="0-2-10-26th-june-2012">0.2.10 - 26th June 2012</h3>
+<ul>
+<li>Support for decimal labels on y-axis <a href="https://github.com/morrisjs/morris.js/issues/58">#58</a>.</li>
+<li>Better axis label clipping <a href="https://github.com/morrisjs/morris.js/issues/63">#63</a>.</li>
+<li>Redraw graphs with updated data using <code>setData</code> method <a href="https://github.com/morrisjs/morris.js/issues/64">#64</a>.</li>
+<li>Bugfix: series with zero or one non-null values <a href="https://github.com/morrisjs/morris.js/issues/65">#65</a>.</li>
+</ul>
+<h3 id="0-2-9-15th-may-2012">0.2.9 - 15th May 2012</h3>
+<ul>
+<li>Bugfix: Fix zero-value regression</li>
+<li>Bugfix: Don&#39;t modify user-supplied data</li>
+</ul>
+<h3 id="0-2-8-10th-may-2012">0.2.8 - 10th May 2012</h3>
+<ul>
+<li>Customising x-axis labels with <code>xLabelFormat</code> option</li>
+<li>Only use timezones when timezone info is specified</li>
+<li>Fix old IE bugs (mostly in examples!)</li>
+<li>Added <code>preunits</code> and <code>postunits</code> options</li>
+<li>Better non-continuous series data support</li>
+</ul>
+<h3 id="0-2-7-2nd-april-2012">0.2.7 - 2nd April 2012</h3>
+<ul>
+<li>Added <code>xLabels</code> option</li>
+<li>Refactored x-axis labelling</li>
+<li>Better ISO date support</li>
+<li>Fix bug with single value in non time-series graphs</li>
+</ul>
+<h3 id="0-2-6-18th-march-2012">0.2.6 - 18th March 2012</h3>
+<ul>
+<li>Partial series support (see <code>null</code> y-values in <code>examples/quarters.html</code>)</li>
+<li><code>parseTime</code> option bugfix for non-time-series data</li>
+</ul>
+<h3 id="0-2-5-15th-march-2012">0.2.5 - 15th March 2012</h3>
+<ul>
+<li>Raw millisecond timestamp support (with <code>dateFormat</code> option)</li>
+<li>YYYY-MM-DD HH:MM[:SS[.SSS]] date support</li>
+<li>Decimal number labels</li>
+</ul>
+<h3 id="0-2-4-8th-march-2012">0.2.4 - 8th March 2012</h3>
+<ul>
+<li>Negative y-values support</li>
+<li><code>ymin</code> option</li>
+<li><code>units</code> options</li>
+</ul>
+<h3 id="0-2-3-6th-mar-2012">0.2.3 - 6th Mar 2012</h3>
+<ul>
+<li>jQuery no-conflict compatibility</li>
+<li>Support ISO week-number dates</li>
+<li>Optionally hide hover on mouseout (<code>hideHover</code>)</li>
+<li>Optionally skip parsing dates, treating X values as an equally-spaced series (<code>parseTime</code>)</li>
+</ul>
+<h3 id="0-2-2-29th-feb-2012">0.2.2 - 29th Feb 2012</h3>
+<ul>
+<li>Bugfix: mouseover error when options.data.length == 2</li>
+<li>Automatically sort options.data</li>
+</ul>
+<h3 id="0-2-1-28th-feb-2012">0.2.1 - 28th Feb 2012</h3>
+<ul>
+<li>Accept a DOM element <em>or</em> an ID in <code>options.element</code></li>
+<li>Add <code>smooth</code> option</li>
+<li>Bugfix: clone <code>@default</code></li>
+<li>Add <code>ymax</code> option</li>
+</ul>
+<h2 id="license">License</h2>
+<p>Copyright (c) 2012-2014, Olly Smith
+All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+<ol>
+<li>Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>

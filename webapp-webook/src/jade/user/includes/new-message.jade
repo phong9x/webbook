@@ -1,0 +1,53 @@
+.wbp-message
+  .wb-cat-tab: .container-mobile-full
+    .wb-cat-tab-wrapper.clearfix
+      .wb-cat-tab-item: a.mute(href="#") 관심작품
+      .wb-cat-tab-item: a.mute(href="#") 책갈피
+      .wb-cat-tab-item: a.mute(href="#") 내작품
+      .wb-cat-tab-item.active 쿠폰 보유 현황
+      .wb-cat-tab-item: a.mute(href="#") 판매/정산
+      .wb-cat-tab-item: a.mute(href="#") 내정보 관리
+
+
+  .container.wb-mt50
+    .wb-f24 #[span.wb-color-complementary3 새글] 쓰기
+    .sep.wb-mt20
+    .wbp-message-pad
+      div
+        span.wb-f16.wb-mr22: b 유년의 상처
+        span.wb-color-gray.wb-mr16 |
+        span.wb-f16.wb-mr22: b 3회
+      .wb-mt18
+        span.wb-f16.wb-mr38 가격설정
+        .wb-select.wb-mr18
+          select
+            option 전체
+            option 234
+            option 234
+        .wb-ib.wb-color-gray(style="vertical-align: bottom;")
+          span.wb-f12 ▪ 6회차까지는 의무적으로 무료입니다. #[br]
+          span.wb-f12 ▪ 챌린지리그 작품은 유료 판매가 불가능합니다.
+      .wb-mt18
+        span.wb-f16.wb-mr66 완결
+        label.wb-check-rect
+          input(type="checkbox" name="a")
+          span: span.wb-wn • 체크하면 작품에 완결 표시 됩니다
+
+    .row: .col-md-9
+      .sep
+      .wbp-message-pad2
+        .wb-f16 제목
+        .wb-mt12: input.wb-textbox.form-control(type="text")
+        textarea.wb-area.wb-area-style3.wb-mt20
+        .text-right.wb-color-gray.wb-mt10 입력 글자 수 2000 / 3000자
+
+        .wb-f16.wb-mt50 제목
+        textarea.wb-area.wb-area-style2.wb-mt20
+
+        .sep.wb-mt30
+
+        .text-center.wb-mt30
+          button.base-btn.wb-btn-bold.h40 임시 저장
+          button.base-btn.wb-btn-bold.h40 취소
+          button.base-btn.wb-btn-shine 등록 완료
+

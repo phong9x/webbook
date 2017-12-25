@@ -1,0 +1,348 @@
+<h1 id="jquery-password-strength-meter-for-twitter-bootstrap">jQuery Password Strength Meter for Twitter Bootstrap</h1>
+<p><a href="https://travis-ci.org/ablanco/jquery.pwstrength.bootstrap"><img src="https://travis-ci.org/ablanco/jquery.pwstrength.bootstrap.png?branch=master" alt="Build Status"></a>
+<a href="https://codeclimate.com/github/ablanco/jquery.pwstrength.bootstrap"><img src="https://codeclimate.com/github/ablanco/jquery.pwstrength.bootstrap.png" alt="Code Climate"></a>
+<a href="https://david-dm.org/ablanco/jquery.pwstrength.bootstrap#info=devDependencies"><img src="https://david-dm.org/ablanco/jquery.pwstrength.bootstrap/dev-status.png" alt="devDependency Status"></a></p>
+<p>The jQuery Password Strength Meter is a plugin for Twitter Bootstrap that
+provides rulesets for visualy displaying the quality of a users typed in
+password.</p>
+<p>Dual licensed under the MIT and GPL licenses.</p>
+<p><a href="http://plugins.jquery.com/pwstrength-bootstrap/">jQuery plugins registry entry</a></p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>jQuery 1.7 or higher</li>
+<li>Bootstrap 2 or 3</li>
+</ul>
+<h2 id="how-to-use-it">How to use it</h2>
+<p>Just invoke the plugin on the password fields you want to attach a strength
+meter to. For example, to use it on all the password fields with the default
+examples:</p>
+<pre><code class="lang-javascript">    $(&#39;:password&#39;).pwstrength();
+</code></pre>
+<p>To apply it only to one input and change the options:</p>
+<pre><code class="lang-javascript">    $(&#39;#passwd1&#39;).pwstrength({
+        ui: { showVerdictsInsideProgressBar: true }
+    });
+</code></pre>
+<h2 id="options">Options</h2>
+<p>The plugin expect the options to follow this structure:</p>
+<pre><code class="lang-javascript">options = {
+    common: {},
+    rules: {},
+    ui: {}
+};
+</code></pre>
+<p>Let&#39;s see the options of each section.</p>
+<h3 id="common">Common</h3>
+<ul>
+<li><p><strong>minChar</strong>:</p>
+<p>Default: <code>6</code> (Integer)</p>
+<p>Sets the minimum required of characters for a password to not be considered
+too weak.</p>
+</li>
+<li><p><strong>usernameField</strong>:</p>
+<p>Default: <code>&quot;#username&quot;</code> (String)</p>
+<p>The username field to match a password to, to ensure the user does not use
+the same value for their password.</p>
+</li>
+<li><p><strong>userInputs</strong>:</p>
+<p>Default: <code>[]</code> (Array)</p>
+<p>Array of CSS selectors for input fields with user input. The content of these
+fields will be retrieved and passed to the zxcvbn library.</p>
+<p>This option only takes effect when the zxcvbn library is being used. Check
+the <code>zxcvbn</code> option.</p>
+</li>
+<li><p><strong>onLoad</strong>:</p>
+<p>Default: <code>undefined</code> (Function)</p>
+<p>A callback function, fired on load of the widget. No arguments will be
+passed.</p>
+</li>
+<li><p><strong>onKeyUp</strong>:</p>
+<p>Default: <code>undefined</code> (Function)</p>
+<p>A callback function, fired on key up when the user is typing. The <code>keyup</code>
+event will be passed as first argument, and an object as second with the
+score and the verdict text and level.</p>
+<p>This handler will also be called when the <code>change</code> or the <code>onpaste</code> events
+happen.</p>
+</li>
+<li><p><strong>zxcvbn</strong>:</p>
+<p>Default: <code>false</code> (Boolean)</p>
+<p>Use the zxcvbn to calculate the password entropy and use it as the score. For
+more information about zxcvbn plase check this
+<a href="https://tech.dropbox.com/2012/04/zxcvbn-realistic-password-strength-estimation/">post</a>.</p>
+<p>If you activate this setting, then all the rules won&#39;t be applied, and all
+the options under the <em>Rules</em> section will be ignored as well. zxcvbn will be
+used instead of the default rules engine.</p>
+<p>To use this option you must load the zxcvbn library file on your site. You&#39;ll
+find it at their <a href="https://github.com/lowe/zxcvbn">repository</a>.</p>
+</li>
+<li><p><strong>debug</strong>:</p>
+<p>Default: <code>false</code> (Boolean)</p>
+<p>If true, it prints the password strength in the javascript console, so you
+can test and tune your rules settings.</p>
+</li>
+</ul>
+<h3 id="rules">Rules</h3>
+<ul>
+<li><p><strong>extra</strong>:</p>
+<p>Default: <code>{}</code> (Object)</p>
+<p>Empty object where custom rules functions will be stored.</p>
+</li>
+<li><p><strong>scores</strong>:</p>
+<p>Default: (Object)</p>
+<pre><code>{
+  wordNotEmail: -100,
+  wordLength: -50,
+  wordSimilarToUsername: -100,
+  wordSequences: -50,
+  wordTwoCharacterClasses: 2,
+  wordRepetitions: -25,
+  wordLowercase: 1,
+  wordUppercase: 3,
+  wordOneNumber: 3,
+  wordThreeNumbers: 5,
+  wordOneSpecialChar: 3,
+  wordTwoSpecialChar: 5,
+  wordUpperLowerCombo: 2,
+  wordLetterNumberCombo: 2,
+  wordLetterNumberCharCombo: 2
+}
+</code></pre><p>Scores returned by the rules when they match. Negative values are for
+penalizations.</p>
+</li>
+<li><p><strong>activated</strong>:</p>
+<p>Default: (Object)</p>
+<pre><code>{
+  wordNotEmail: true,
+  wordLength: true,
+  wordSimilarToUsername: true,
+  wordSequences: true,
+  wordTwoCharacterClasses: false,
+  wordRepetitions: false,
+  wordLowercase: true,
+  wordUppercase: true,
+  wordOneNumber: true,
+  wordThreeNumbers: true,
+  wordOneSpecialChar: true,
+  wordTwoSpecialChar: true,
+  wordUpperLowerCombo: true,
+  wordLetterNumberCombo: true,
+  wordLetterNumberCharCombo: true
+}
+</code></pre><p>An object that sets wich validation rules are activated. By changing this
+object is possible to deactivate some validations, or to activate them for
+extra security.</p>
+</li>
+<li><p><strong>raisePower</strong>:</p>
+<p>Default: <code>1.4</code> (Double)</p>
+<p>The value used to modify the final score, based on the password length,
+allows you to tailor your results.</p>
+</li>
+</ul>
+<h3 id="user-interface">User Interface</h3>
+<ul>
+<li><p><strong>bootstrap2</strong>:</p>
+<p>Default: <code>false</code> (Boolean)</p>
+<p>Sets if it supports legacy Bootstrap 2 (true) or the current Bootstrap 3
+(false), the progress bar html is different.</p>
+</li>
+<li><p><strong>showProgressBar</strong>:</p>
+<p>Default: <code>true</code> (Boolean)</p>
+<p>Displays the password strength in a progress bar.</p>
+</li>
+<li><p><strong>showPopover</strong>:</p>
+<p>Default: <code>false</code> (Boolean)</p>
+<p>Displays the error messages and the verdicts in a Bootstrap popover, instead
+of below the input field. Bootstrap tooltip.js and popover.js must to be
+included.</p>
+<p>If the <code>showVerdictsInsideProgressBar</code> option is active, then the verdicts
+won&#39;t appear on the popover.</p>
+</li>
+<li><p><strong>showStatus</strong>:</p>
+<p>Default: <code>false</code> (Boolean)</p>
+<p>Displays the password strength as a validation status in the password field,
+for this to work, the Bootstrap form structure must be followed.</p>
+</li>
+<li><p><strong>spanError</strong>:</p>
+<p>Default: (Function)</p>
+<pre><code class="lang-javascript">function (options, key) {
+  var text = options.ui.errorMessages[key];
+  return &#39;&lt;span style=&quot;color: #d52929&quot;&gt;&#39; + text + &#39;&lt;/span&gt;&#39;;
+};
+</code></pre>
+<p>Function to generate a span with the style property set to red font color,
+used in the errors messages. Overwrite for custom styling.</p>
+</li>
+<li><p><strong>errorMessages</strong>:</p>
+<p>Default: (Object)</p>
+<pre><code>{
+  wordLength: &quot;Your password is too short&quot;,
+  wordNotEmail: &quot;Do not use your email as your password&quot;,
+  wordSimilarToUsername: &quot;Your password cannot contain your username&quot;,
+  wordTwoCharacterClasses: &quot;Use different character classes&quot;,
+  wordRepetitions: &quot;Too many repetitions&quot;,
+  wordSequences: &quot;Your password contains sequences&quot;
+}
+</code></pre><p>An object containing error messages. These can be overwritten for language
+purposes, and extra messages can also be added for other rules, existing or
+custom. Use the name of the rule as key.</p>
+</li>
+<li><p><strong>verdicts</strong>:</p>
+<p>Default: <code>[&quot;Weak&quot;, &quot;Normal&quot;, &quot;Medium&quot;, &quot;Strong&quot;, &quot;Very Strong&quot;]</code> (Array)</p>
+<p>The display names for the verdicts related to the progressClass. It has to
+have 5 elements, and they would be the 5 possible strength categories.</p>
+</li>
+<li><p><strong>showVerdicts</strong>:</p>
+<p>Default: <code>true</code> (Boolean)</p>
+<p>Determines if the verdicts are displayed or not.</p>
+</li>
+<li><p><strong>showVerdictsInsideProgressBar</strong>:</p>
+<p>Default: <code>false</code> (Boolean)</p>
+<p>Determines if the verdicts are displayed inside the progress bar or not. When
+this setting is active, the verdict viewport is ignored and they won&#39;t appear
+on the popover if it is being showed. Also this option overrides the value of
+the <em>showVerdicts</em> one.</p>
+</li>
+<li><p><strong>showErrors</strong>:</p>
+<p>Default: <code>false</code> (Boolean)</p>
+<p>Determines if the error list is displayed with the progress bar or not.</p>
+</li>
+<li><p><strong>container</strong>:</p>
+<p>Default: <code>undefined</code> (CSS selector, or DOM node)</p>
+<p>If defined, it will be used to locate the viewports, if undefined, the parent
+of the input password will be used instead. The viewports must be children of
+this node.</p>
+</li>
+<li><p><strong>viewports</strong>:</p>
+<p>Default: (Object)</p>
+<pre><code>{
+  progress: undefined,
+  verdict: undefined,
+  errors: undefined
+}
+</code></pre><p>An object containing the viewports to use to show the elements of the
+strength meter. Each one can be a CSS selector (<code>&quot;#progressbar&quot;</code>) or a DOM
+node reference.</p>
+</li>
+<li><p><strong>scores</strong>:</p>
+<p>Default: <code>[17, 26, 40, 50]</code> (Array)</p>
+<p>The scores used to determine what progressClass and verdicts to display. It
+has to have 4 elements, which creates 5 categories of strength (the 5
+possible verdicts).</p>
+</li>
+</ul>
+<h4 id="example-of-an-options-object">Example of an options object</h4>
+<pre><code class="lang-javascript">var options = {};
+options.common = {
+    minChar: 8;
+};
+options.rules = {
+    activated: {
+        wordTwoCharacterClasses: true,
+        wordRepetitions: true
+    }
+};
+options.ui = {
+    showErrors: true
+};
+</code></pre>
+<h2 id="methods">Methods</h2>
+<p>Once the plugin has been initialized, it is possible to interact with it
+through the methods.</p>
+<h3 id="force-an-update">Force an update</h3>
+<p>It is possible to force an update on a password strength meter. It will force
+a new score calculation and an update of the UI elements, the <code>onKeyUp</code>
+callback will be called.</p>
+<pre><code class="lang-javascript">$(&quot;#passwdfield&quot;).pwstrength(&quot;forceUpdate&quot;);
+</code></pre>
+<h3 id="remove-the-strength-meter">Remove the strength meter</h3>
+<p>This will remove the data associated to the meter, and the UI elements.</p>
+<pre><code class="lang-javascript">$(&quot;#passwdfield&quot;).pwstrength(&quot;destroy&quot;);
+</code></pre>
+<h3 id="adding-custom-rules">Adding Custom Rules</h3>
+<p>The plugin comes with the functionality to easily define your own custom rules.
+The format is as follows:</p>
+<pre><code class="lang-javascript">$(&quot;#passwdfield&quot;).pwstrength(&quot;addRule&quot;, &quot;ruleName&quot;, function (options, word, score) {}, rule_score, rule_enabled);
+</code></pre>
+<p>Example:</p>
+<pre><code class="lang-javascript">$(&quot;#passwdfield&quot;).pwstrength(&quot;addRule&quot;, &quot;testRule&quot;, function (options, word, score) {
+    return word.match(/[a-z].[0-9]/) &amp;&amp; score;
+}, 10, true);
+</code></pre>
+<h3 id="change-the-score-associated-to-a-rule">Change the score associated to a rule</h3>
+<p>It is possible to change the score given by a rule. It works like this:</p>
+<pre><code class="lang-javascript">$(&quot;#passwdfield&quot;).pwstrength(&quot;changeScore&quot;, &quot;wordSequences&quot;, -100);
+</code></pre>
+<p>That would penalize even more the presence of sequences in the password.</p>
+<h3 id="activate-and-deactivate-rules">Activate and deactivate rules</h3>
+<p>It is also possible to activate or deactivate rules. It as simple as:</p>
+<pre><code class="lang-javascript">$(&quot;#passwdfield&quot;).pwstrength(&quot;ruleActive&quot;, &quot;wordSequences&quot;, false);
+</code></pre>
+<p>That would avoid looking for sequences in the password being tested.</p>
+<h2 id="callback-functions">Callback Functions</h2>
+<p>The plugin provides two callback functions, onLoad and onKeyUp.  You can use
+them like this:</p>
+<pre><code class="lang-javascript">$(document).ready(function () {
+    var options = {};
+    options.common = {
+        onLoad: function () {
+            $(&#39;#messages&#39;).text(&#39;Start typing password&#39;);
+        },
+        onKeyUp: function (evt, data) {
+            $(&quot;#length-help-text&quot;).text(&quot;Current length: &quot; + $(evt.target).val().length + &quot; and score: &quot; + data.score);
+        }
+    };
+    $(&#39;:password&#39;).pwstrength(options);
+});
+</code></pre>
+<h2 id="extra-security">Extra security</h2>
+<p>The plugin comes with two validation rules deactivated by default. One checks
+for too many character repetitions, and the other checks the number of
+character classes used. An easy way to increase the security of the passwords
+is to activate this two rules:</p>
+<pre><code class="lang-javascript">$(document).ready(function () {
+    var options = {};
+    options.rules = {
+        activated: {
+            wordTwoCharacterClasses: true,
+            wordRepetitions: true
+        }
+    };
+    $(&#39;:password&#39;).pwstrength(options);
+});
+</code></pre>
+<h2 id="examples">Examples</h2>
+<p>There are some examples in the <code>examples</code> directory. Just serve them with any
+webserver and check them in your browser. Make sure you serve the <code>examples</code>
+directory as the site root. For example:</p>
+<pre><code class="lang-bash">cd examples
+python -m SimpleHTTPServer
+</code></pre>
+<p>And go to <a href="http://localhost:8000">localhost:8000</a>.</p>
+<h2 id="build-and-test">Build and Test</h2>
+<p>The build and testing processes rely on <a href="http://gruntjs.com/">Grunt</a>. To use
+them you need to have <a href="http://nodejs.org/">node.js</a> and grunt-cli installed on
+your system. Assuming you have node.js in your Linux system, you&#39;ll need to do
+something like this:</p>
+<pre><code class="lang-bash">sudo npm install -g grunt-cli
+</code></pre>
+<p>Now you have the grunt command line utility installed globally.</p>
+<h3 id="bundle-and-minified">Bundle and minified</h3>
+<p>To generate the bundle and the minified file you only need to execute this in
+the project directory:</p>
+<pre><code class="lang-bash">npm install -d
+grunt
+</code></pre>
+<p>It will check the source files, and build a minified version with its
+corresponding source map. The generated files will be available in the <code>dist</code>
+directory.</p>
+<h3 id="testing">Testing</h3>
+<p>To run the tests the only thing you need to do is execute this in the project
+directory:</p>
+<pre><code class="lang-bash">npm install -d
+grunt test
+</code></pre>
+<p>It will check all the source files with <a href="http://jslint.com">JSLint</a> and run the
+tests, which are written with <a href="http://jasmine.github.io/">Jasmine</a>. You&#39;ll find
+the tests source code in the <code>spec</code> directory.</p>
+<p><a href="https://travis-ci.org/ablanco/jquery.pwstrength.bootstrap">Travis</a> is being
+used for continuos integration. You can check there if the tests are passing.</p>

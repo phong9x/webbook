@@ -1,0 +1,66 @@
+.wbp-ep-detail: .container
+  .wb-bbox.wbp-ep-detail-r1: .row
+    .col-md-3.wbp-ep-detail-title.wb-f18: b 금혼령, 조선혼인금지령
+    .col-md-6.wbp-ep-detail-control
+      .wb-3col.style1
+        .wb-3col-col: a(href="#"): img(src="/dist/assets/img/prev.png" alt="prev")
+        .wb-3col-col: .wb-f28.text-center 81화.잡든지,잡히든지
+        .wb-3col-col: a(href="#"): img(src="/dist/assets/img/next.png" alt="next")
+    .col-md-3.wbp-ep-detail-bm
+      img.wb-mr20(src="/dist/assets/img/bookmark.png" alt="bookmark" style="vertical-align: text-bottom;")
+      | <button class="wb-g-btn wb-f16 wb-f20 wb-color-gray">가+</button><button class="wb-g-btn wb-f16 wb-f20 wb-color-gray">가-</button>
+  .wb-bbox.wbp-ep-detail-r2
+    .wbp-ep-detail-control3.hidden-xs.hidden-sm
+      button.wb-btn-vert: .wb-sym.up
+      button.wb-btn-vert: .wb-sym.down
+    .wbp-ep-detail-control2.hidden-xs.hidden-sm
+      .wbp-ep-detail-control2-left
+        a(href="#"): img.wb-mr6(src="/dist/assets/img/left.png" alt="left")
+      .wbp-ep-detail-control2-right
+        a(href="#"): img.wb-mr6(src="/dist/assets/img/right.png" alt="right")
+    .wb-f16
+      include ep-content.jade
+    .text-center.wb-mt50
+      button.wb-btn-ex1.orange 
+        img.wb-mr6(src="/dist/assets/img/w-heart.png" alt="white heart")
+        span 추천
+      button.wb-btn-ex1.gray
+        img.wb-mr6(src="/dist/assets/img/w-star.png" alt="white star")
+        span 관심작 등록
+  .wb-bbox.wbp-ep-detail-r3
+    button.base-btn.wb-btn.h40 이전화
+    button.base-btn.wb-btn.h40 다음화
+    button.base-btn.wb-btn.h40 목록
+  .wb-bbox.wbp-ep-detail-r4
+
+    .wb-f16: b 리뷰
+    
+    .row.wb-mt10
+      .col-md-10.wbp-ep-detail-area
+        textarea.wb-area.wb-area-style1
+      .col-md-2.wbp-ep-detail-btn
+        button.base-btn.wb-btn-big2 댓글달기
+
+    .wb-comment.wb-mt60
+      .wb-comment-item
+        .row
+          .col-xs-8
+            div
+              span.wb-f16.wb-mr18 해피투게더
+              span.wb-color-gray 2015.10.13  07:56
+            .wb-f16.wb-mr18.wb-mt6.wb-color-gray 잘읽고갑니다~~~ 점점 재미있어지는데요 ^^
+          .col-xs-4.wb-comment-side
+            button.brb.wb-rbtn 신고
+      .wb-comment-item
+        .row
+          .col-xs-8
+            div
+              span.wb-f16.wb-mr18 해피투게더
+              span.wb-color-gray 2015.10.13  07:56
+            .wb-f16.wb-mr18.wb-mt6.wb-color-gray 잘읽고갑니다~~~ 점점 재미있어지는데요 ^^
+          .col-xs-4.wb-comment-side
+            button.brb.wb-rbtn 수정
+            button.brb.wb-rbtn-bold 삭제
+    .wb-mt50.text-center
+      button.base-btn.wb-btn.h40 리뷰 더 보기
+

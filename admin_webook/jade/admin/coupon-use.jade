@@ -1,0 +1,126 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title coupon-use - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .coupon-use.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 쿠폰관리
+              i.fa.fa-angle-right
+            li
+              span 쿠폰 사용내역
+        // .page-bar
+        
+        ="\n"
+        .coupon-use-main.wb-pb-50
+          .block-charge-history
+            .wb-container-style-1
+              .portlet.light.bordered
+                .portlet-title
+                  .caption
+                    span.caption-subject.bold.font-grey-gallery.uppercase 사용 내역 
+                .portlet-body
+                  .form-charge-history-wrapper
+                    form.form-charge-history.form-horizontal(action='#')
+                      .form-body
+                        .wb-container-style-1
+                          .form-group
+                            .col-md-10
+                              .row
+                                .col-md-2.control-label #[strong 기간]
+                                .col-md-10
+                                  .input-group.input-large.date-picker.input-daterange(data-date-format='yyyy/mm/dd')
+                                    input.form-control.input-medium(type='text', name='from')
+                                    span.input-group-addon ~
+                                    input.form-control.input-medium(type='text', name='to')
+                            
+                            ="\n"
+                            .col-md-2.text-left
+                              button.btn.green(type='submit') 조회
+                          
+                          ="\n"
+                          .form-group
+                            .col-md-3.control-label #[strong 총 사용 내역 : ]
+                            .col-md-9
+                              .form-control-static 124,151 건
+
+                          ="\n"
+                          .form-group
+                            .col-md-3.control-label #[strong 쿠폰 사용자 수: ]
+                            .col-md-9
+                              .form-control-static 135,159명
+                    // .form-charge-history
+                  // .form-charge-history-wrapper
+          // .block-charge-history
+
+          ="\n"
+          .form-search-wrapper
+            form.form-search.form-horizontal(action='#')
+              .form-body
+                .wb-container-style-1
+                  .form-group
+                    .col-md-3
+                      select.form-control(name='test38')
+                        option(value='0') 아이디
+                        option(value='1') 성명
+
+                    ="\n"
+                    .col-md-5.col-md-offset-1
+                      input.form-control(name='test349', type='search')
+                    
+                    .col-md-3.text-center
+                      button.btn.green.btn-search(type='submit') 검색
+            // .form-search
+          // .form-search-wrapper
+
+          ="\n"
+          .wb-gap(style='border-top: 1px solid #e1e1e1; padding-bottom: 15px;')
+          
+          ="\n"
+          .table-coupon-use.table-responsive
+            table.table.table-striped.table-bordered.table-hover
+              thead
+                tr
+                  th 번호
+                  th 아이디
+                  th 성명
+                  th 사용 금액
+                  th 작품명
+                  th 회차명
+                  th 사용 일시
+              tbody
+                tr
+                  td 1
+                  td
+                    a(href="coupon-use-detail.html") Abcd
+                  td 김길동
+                  td 1쿠폰
+                  td 어둠의 기사 
+                  td 12화. 바다가 부르는 소리
+                  td 15.06.30 10:00
+          //.table-coupon-use
+
+          ="\n"
+          include ../includes/wb-pagination.jade
+
+        // .coupon-use-main
+      // .page-content
+    // .coupon-use
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade

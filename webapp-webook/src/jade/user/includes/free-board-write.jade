@@ -1,0 +1,40 @@
+.wbp-fbw
+  .wb-cat-tab: .container-mobile-full
+    .wb-cat-tab-wrapper.clearfix
+      .wb-cat-tab-item.active 오늘
+      .wb-cat-tab-item: a.mute(href="#") 로맨스
+      .wb-cat-tab-item: a.mute(href="#") 판타지
+      .wb-cat-tab-item: a.mute(href="#") 무협
+      .wb-cat-tab-item: a.mute(href="#") 퓨전/기타
+      .wb-cat-tab-item: a.mute(href="#") 성인
+      .wb-cat-tab-item: a.mute(href="#") 완결작
+
+  .container
+    .wb-f22.wb-mt48 #[span.wb-color-complementary 자유]게시판
+    .row.wb-mt24
+      .col-md-1 
+        .wb-f16.wb-mt4: b 제목
+      .col-md-8
+        input.wb-textbox.form-control(type="text")
+    
+    .row.wb-mt30: .col-md-10
+      textarea.editor
+
+    .wb-mt18
+      img.wb-mr8(src="/dist/assets/img/clip2.png" alt="clip2")
+      span.wb-f16.wb-mr18 파일첨부
+      button#file1.base-btn.wb-btn.wb-mr24 파일선택
+      span#file1display.wb-f16.wb-color-gray abce1234.jpg
+      input.hidden(type="file" tr-file='{"trigger": "#file1", "display": "#file1display"}')
+
+    .wb-mt10
+      img.wb-mr8(src="/dist/assets/img/clip2.png" alt="clip2")
+      span.wb-f16.wb-mr18 파일첨부
+      button#file2.base-btn.wb-btn.wb-mr24 파일선택
+      span#file2display.wb-f16.wb-color-gray abce1234.jpg 
+      input.hidden(type="file" tr-file='{"trigger": "#file2", "display": "#file2display"}')
+
+    .sep.wb-mt20
+
+    .row.wb-mt30: .col-md-10.text-right
+      button.base-btn.wb-btn-bold 글쓰기

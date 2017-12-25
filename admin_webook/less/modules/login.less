@@ -1,0 +1,84 @@
+/* --------------------------------------------------------------------- */
+/* .login
+/* --------------------------------------------------------------------- */
+.login-page {
+  background: #364150;
+}
+
+.login {
+  padding-top: 100px;
+
+  .logo {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .form-login-wrapper {
+    display: block;
+    width: 100%;
+  }
+
+  .form-login {
+    width: 400px;
+    background: #fff;
+    padding: 30px;
+    margin: 0 auto;
+
+    .form-header {
+      text-align: center;
+      font-weight: bold;
+      font-size: 28px;
+      color: @color-primary;
+      margin-bottom: 20px;
+    }
+
+    .inputbox {
+      display: block;
+      width: 100%;
+      height: 46px;
+      color: #5A5A5A;
+      background: #EBF3FF;
+      border: 0 none;
+      box-shadow: none;
+      outline: 0;
+      padding: 0 10px;
+    }
+
+    .remember-checkbox {
+      font-weight: normal;
+      color: #474747;
+      cursor: pointer;
+      margin-bottom: 0;
+
+      input[type="checkbox"] {
+        position: relative;
+        top: 2px;
+        margin-top: 0;
+        margin-right: 10px;
+      }
+    }
+
+    .btn-login {
+      display: block;
+      width: 100%;
+      height: 46px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #fff;
+      background: @color-primary;
+      border: 0 none;
+      box-shadow: none;
+      outline: 0;
+      padding: 12px 10px;
+
+      &:hover {
+        background: darken(@color-primary, 10%);
+      }
+    }
+  }
+
+  .error-message {
+    color: #F74949;
+  }
+}
+

@@ -1,0 +1,78 @@
+extends ../layouts/admin.jade
+
+append content
+  .wb-header
+    .container: .row
+      .col-md-2.wb-header-logo
+        a(href="#"): img(src="/dist/assets/img/logo.png", alt="logo")
+      .col-md-7.wb-header-nav-col
+        .wb-header-nav
+          .wb-header-nav-item: a.mute(href="#") 회원가입
+          .wb-header-nav-item: a.mute(href="#") 로그인
+      .col-md-3.wb-header-search
+        .wb-search
+          input(type="text")
+          img(src="/dist/assets/img/search.png", alt="search icon")
+
+  .wb-sub-header
+    .container: .row
+      .col-md-6
+        .wb-sub-header-nav1
+          .wb-sub-header-nav1-item.active
+            a.mute(href="#") 오늘의 연재
+          .wb-sub-header-nav1-item
+            a.mute(href="#") 리그&공모
+          .wb-sub-header-nav1-item
+            a.mute(href="#") 커뮤니티
+      .col-md-6
+        .wb-sub-header-nav2
+          .wb-sub-header-nav2-item.active
+            a.mute(href="#") My Page
+          .wb-sub-header-nav2-item
+            a.mute(href="#") 작품올리기
+          .wb-sub-header-nav2-item
+            a.mute(href="#") 쿠폰충전
+  
+  .wb-content
+    .container
+      .wb-box-pad_30_50: .row
+        .col-md-3
+          span.wb-f18: b 금혼령, 조선혼인금지령
+        .col-md-6
+          .wb-book-page-nav.clearfix
+            .wb-book-page-nav-left
+            .wb-book-page-nav-title
+              .wb-f28 81화.잡든지,잡히든지
+            .wb-book-page-nav-right
+
+        .col-md-3.text-right
+          img(src="/dist/assets/img/bookmark.png" alt="book mark icon" style="margin-top: -11px").wb-mr12
+          button(type="button").wb-btn-lean 가+
+          button(type="button").wb-btn-lean 가-
+      .wb-box-pad_30_50: .row
+
+  .wb-footer
+    .container: .row
+      .wb-footer-logo.col-md-3
+        img(src="/dist/assets/img/logo-gray.png", alt="logo gray")
+      .wb-footer-other.col-md-9
+        .wb-sitemap
+          .wb-sitemap-item
+            a.mute(href="#") K웹소설 소개
+          .wb-sitemap-item
+            a.mute(href="#") 이용안내
+          .wb-sitemap-item
+            a.mute(href="#") FAQ
+          .wb-sitemap-item
+            a.mute(href="#") 공지사항
+          .wb-sitemap-item
+            a.mute(href="#") 사이트맵
+        .wb-contact
+          span.wb-contact-item 서울시 종로구 133-2
+          span.wb-contact-item 삼덕빌딩 9층
+          span.wb-contact-item 대표자: 김철수
+          span.wb-contact-item 사업자등록번호: 139-34-345555
+          span.wb-contact-item 대표번호: (국번없이) 1588-5959
+          span.wb-contact-item Fax: 02-722-5362             
+        .wb-copyright
+          | Copyright © WEELINK COMPANY All Rights Reserved.

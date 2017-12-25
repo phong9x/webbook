@@ -1,0 +1,106 @@
+<h1 id="jquery-notific8">jquery-notific8</h1>
+<p>Notific8 is a notification plug-in inspired by the notifications introduced in Windows 8 with some web ready restyling and customizations. Notific8 has built in themes and is easy to create new themes for. The plug-in was born from a want for a simply designed yet modern and stylish notification system. The plug-in is also designed to scale based on the page&#39;s font-size setting (it was designed for the default of 100%/16px as the default).</p>
+<h2 id="demo-page">Demo page</h2>
+<p>An interactive demo page can be found here <a href="http://willsteinmetz.net/jquery/notific8">http://willsteinmetz.net/jquery/notific8</a></p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Notifications slide in and out from the upper right corner of the page</li>
+<li>Configurable life span of the notification</li>
+<li>Option to display a heading</li>
+<li>Theme options (see CSS for built in themes)</li>
+<li>Ability to make the notification sticky</li>
+<li>Ability to set up custom settings for reuse without having to type them over and over</li>
+<li>Ability to set which corner the notifications are shown in</li>
+<li>Ability to set the z-index<ul>
+<li>Can be set via config/configure or the zindex function</li>
+</ul>
+</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<pre><code>// basic
+$.notific8(&#39;My notification message goes here.&#39;);
+// with a life set
+$.notific8(&#39;My notification message has a life span.&#39;, {life: 5000});
+// with a heading
+$.notific8(&#39;My notification has a heading line.&#39;, {heading: &#39;Notification Heading&#39;});
+// with a theme
+$.notific8(&#39;My notification has a theme.&#39;, {theme: &#39;amethyst&#39;});
+// make the notification sticky
+$.notific8(&#39;My notification is sticky.&#39;, {sticky: true});
+// change whether to notification is at the top or bottom
+$.notific8(&#39;My notification is at the bottom.&#39;, {horizontalEdge: &#39;bottom&#39;});
+// change whether to notification is on the left or right
+$.notific8(&#39;My notification is on the left.&#39;, {verticalEdge: &#39;left&#39;});
+// set the z-index
+$.notific8(&#39;My notification has a z-index of 1500.&#39;, {zindex: 1500});
+// all options set
+$.notific8(&#39;My notification with all options.&#39;, {
+  life: 5000,
+  heading: &#39;Notification Heading&#39;,
+  theme: &#39;amethyst&#39;,
+  sticky: true,
+  horizontalEdge: &#39;bottom&#39;,
+  verticalEdge: &#39;left&#39;,
+  zindex: 1500
+});
+
+// set up your own default settings to save time and typing later
+// NOTE this is not required
+$.notific8(&#39;configure&#39;, {
+  life: 5000,
+  theme: &#39;ruby&#39;,
+  sticky: true,
+  horizontalEdge: &#39;bottom&#39;,
+  verticalEdge: &#39;left&#39;,
+  zindex: 1500
+});
+
+// set the zindex
+$.notific8(&#39;zindex&#39;, 1500);
+</code></pre><h2 id="options">Options</h2>
+<ul>
+<li>life: number of milliseconds that the notification will be visible (default: 10000)</li>
+<li>heading: short heading for the notification</li>
+<li>theme: string for the theme (default: &#39;teal&#39;)<ul>
+<li>Custom themes should be named .jquery-notific8-notification.[theme name] in your stylesheet - see note below about custom themes</li>
+</ul>
+</li>
+<li>sticky: boolean for whether or not the notification should stick<ul>
+<li>If sticky is set to true, life will be ignored if it is also set</li>
+</ul>
+</li>
+<li>horizontalEdge: string value for top or bottom of the page (default: &#39;top&#39;)<ul>
+<li>only accepts values &#39;top&#39; and &#39;bottom&#39;</li>
+</ul>
+</li>
+<li>verticalEdge: string value for left or right of the page (default: &#39;right&#39;)<ul>
+<li>only accepts values &#39;left&#39; and &#39;right&#39;</li>
+</ul>
+</li>
+<li>zindex: integer value for the z-index (default: 1100)<ul>
+<li>this must be set before calling notific8 to create a notification via either config/configure or zindex</li>
+</ul>
+</li>
+</ul>
+<p>All of these settings are available to be configured. The configure function is used if you have specific settings such as theme and life that you want every notification to share. By configuring these settings, they become the new defaults and you don&#39;t have to type them for every notification. The configure function can be called multiple times.</p>
+<h2 id="custom-themes">Custom themes</h2>
+<p>As of notific8 version 0.9.0, the plug-in&#39;s CSS is coded in SASS (SCSS format) and Compass. To create a custom theme, open the jquery.notific8.scss file, copy and paste the template line, uncomment your pasted line, and replace the variables with your own values. Be sure to recompile your SASS file to CSS to use the new theme. The goal is to only make updates to the _notific8.scss file so that updates will not wipe out your custom themes.</p>
+<p>If you are using SASS for the rest of your project, you can include the _notific8.scss file in your project&#39;s main SCSS file to create your custom themes in there.</p>
+<h2 id="browser-support">Browser support</h2>
+<p>Currently supported and testing:</p>
+<ul>
+<li>Chrome</li>
+<li>Firefox</li>
+<li>Safari (Mac only)</li>
+<li>IE 9+</li>
+</ul>
+<p>Future support and testing</p>
+<ul>
+<li>Opera (will start after their transition to webkit)</li>
+</ul>
+<h3 id="browser-version-support">Browser version support</h3>
+<p>As a rule of thumb, only the most recent plus one version older of a browser is supported unless marked otherwise. While it may work in IE8, notific8 will not be tested or officially supported in legacy browsers such as versions of IE older than 9.</p>
+<h2 id="future-plans">Future plans</h2>
+<ul>
+<li>Ability to set an icon for the notification</li>
+</ul>

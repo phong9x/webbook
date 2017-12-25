@@ -1,0 +1,99 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title coupon-use-detail - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .coupon-use-detail.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 구매 상세정보
+        // .page-bar
+        
+        ="\n"
+        .coupon-use-detail-main.wb-pb-50
+          .coupon-use-detail-sub-title
+            .wb-container-style-1
+              h4 #[strong 구매상세정보]
+          // .coupon-use-detail-sub-title
+
+          .block-1
+            .wb-container-style-1
+              .portlet.light.bordered
+                .portlet-body
+                  .block-1-form.form-horizontal(action='#')
+                    .form-body
+                      .wb-container-style-1
+                        ="\n"
+                        .form-group
+                          .col-md-3.control-label #[strong 아이디: ]
+                          .col-md-9
+                            .form-control-static aaaaa
+
+                        ="\n"
+                        .form-group
+                          .col-md-3.control-label #[strong 성명: ]
+                          .col-md-9
+                            .form-control-static 홍길동
+
+                        ="\n"
+                        .form-group
+                          .col-md-3.control-label #[strong 사용일시: ]
+                          .col-md-9
+                            .form-control-static 2015.08.13 16:00
+
+                        ="\n"
+                        .form-group
+                          .col-md-3.control-label #[strong 사용료 : ]
+                          .col-md-9
+                            .form-control-static 1쿠폰
+
+                        ="\n"
+                        .form-group
+                          .col-md-3.control-label #[strong 작품명: ]
+                          .col-md-9
+                            .form-control-static 어둠의 기사
+
+                        ="\n"
+                        .form-group
+                          .col-md-3.control-label #[strong 회차명: ]
+                          .col-md-9
+                            .form-control-static 12화. 바다가 부르는 소리
+
+                        ="\n"
+                        .form-group.text-center
+                          .col-md-12
+                            a.btn-open-popup.btn.green(href="#", data-toggle='modal', data-target="#popupCancelPurchaseHistory") 구매취소
+                  // .block-1-form
+          // .block-1
+
+          ="\n"
+          .wb-gap(style='border-bottom: 1px solid #e1e1e1; padding: 0 0 15px 0; margin: 0 0 30px 0;')
+
+          ="\n"
+          .back-button.text-center
+            .wb-container-style-1
+              a.btn.default(href="coupon-use.html") 목록
+          // .back-button
+        // .coupon-use-detail-main
+      // .page-content
+    // .coupon-use-detail
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade
+  
+  ="\n"
+  include ../includes/popupCancelPurchaseHistory.jade

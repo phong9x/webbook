@@ -1,0 +1,88 @@
+.wbp-register: .container
+  .wbp-register-form
+    .wb-f24 회원가입
+    .sep.wb-mt20
+    form.form-horizontal.wb-form-hoz.wb-mt40
+      .form-group
+        label.col-md-2.control-label 아이디
+        .col-md-5.wb-form-hoz-col.first
+          input.wb-textbox.form-control(type='text')
+          .wb-f12.wb-color-gray.wb-mt6 ( 6~12자의 영문 소문자 또는 숫자 조합으로 입력가능 합니다.)
+        .col-md-2.wb-form-hoz-col.last
+          button.base-btn.wb-btn.h36.form-control 중복확인
+
+      .form-group
+        label.col-md-2.control-label 이름
+        .col-md-5.wb-form-hoz-col.first
+          input.wb-textbox.form-control(type='text')
+
+      .form-group
+        label.col-md-2.control-label 닉네임
+        .col-md-5.wb-form-hoz-col.first
+          input.wb-textbox.form-control(type='text')
+        .col-md-2.wb-form-hoz-col.last
+          button.base-btn.wb-btn.h36.form-control 중복확인
+
+      .form-group
+        label.col-md-2.control-label 비밀번호
+        .col-md-5.wb-form-hoz-col.first
+          input.wb-textbox.form-control(type='text')
+
+      .form-group
+        label.col-md-2.control-label 비밀번호 확인
+        .col-md-5.wb-form-hoz-col.first
+          input.wb-textbox.form-control(type='text')
+
+      .form-group
+        label.col-md-2.control-label 이메일
+        .col-md-5.wb-form-hoz-col.first
+          input.wb-textbox.form-control(type='text')
+
+      .form-group
+        label.col-md-2.control-label 휴디폰번호
+        .col-md-5.wb-form-hoz-col.first
+          input.wb-textbox.form-control(type='text')
+
+      .form-group
+        label.col-md-2.control-label 휴디폰번호
+        .col-md-10.wb-form-hoz-col.first
+          .wb-select
+            select
+              option 4
+              option 5
+          .wb-select
+            select
+              option 4
+              option 5
+          .wb-select
+            select
+              option 4
+              option 5
+
+          .wb-color-gray.wb-mt18 ※ 생년월일 정보에 따라 작품을 등록할 수 있는 리그가 달라집니다.
+          .wbp-register-pl15
+            .wb-color-gray •  만 25세 이상 : 제너맨 
+            .wb-color-gray •  만 20세 이상 : 유니티, 제너맨
+            .wb-color-gray •  만 15세 이상 : 하이틴, 유니티, 제너맨
+            .wb-color-gray •  만 15세 미만 : 로우틴, 하이틴, 유니티, 제너맨
+
+      .form-group
+        label.col-md-2.control-label 성별
+        .col-md-6.wb-form-hoz-col.first
+          label.wb-check-rad
+            input(type="radio" name="a")
+            span 남
+          label.wb-check-rad
+            input(type="radio" name="a")
+            span 
+          label.wb-check-rad
+            input(type="radio" name="a")
+            span 여
+          
+      .text-center
+        label.wb-check-rect
+          input(type="checkbox" name="ad")
+          span 이용 약관 및 개인정보취급방침에 동의합니다.(필수)
+    .sep.wb-mt20
+    .text-center.wb-mt30
+      button.base-btn.wb-btn-bold 회원가입

@@ -1,0 +1,48 @@
+<h1 id="jstree">jstree</h1>
+<p><a href="http://www.jstree.com/">jsTree</a> is a tree view for jQuery (depends on 1.9.1 or later). 
+It is absolutely free (MIT licence) and supports all modern browsers and IE from version 8 up. 
+jsTree can display trees by parsing HTML or JSON and supports AJAX, it is themeable and easy to configure and customize. Events are fired when the user interacts with the tree. Other notable features are inline editing, drag&#39;n&#39;drop support, fuzzy searching (with optional server side calls), tri-state checkbox support, configurable node types, AMD compatibility, easily extendable via plugins.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>Download or checkout the latest copy and include the scripts and styles in your web page. Then create an instance (in this case using the inline HTML).</p>
+<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;dist/themes/default/style.min.css&quot; /&gt;
+&lt;script src=&quot;dist/libs/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;dist/jstree.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function() {
+  $(&#39;#container&#39;).jstree(/* optional config object here */);
+});
+&lt;/script&gt;
+&lt;div id=&quot;container&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Root node
+      &lt;ul&gt;
+        &lt;li id=&quot;child_node&quot;&gt;Child node&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Listen for changes on the tree using events:</p>
+<pre><code class="lang-html">&lt;script&gt;
+$(function () {
+  $(&#39;#container&#39;).on(&#39;changed.jstree&#39;, function (e, data) {
+    console.log(data.selected);
+  });
+});
+&lt;/script&gt;
+</code></pre>
+<p>And interact with the tree:</p>
+<pre><code class="lang-html">&lt;script&gt;
+$(function () {
+    $(&#39;#container&#39;).jstree(true).select_node(&#39;child_node&#39;);
+});
+&lt;/script&gt;
+</code></pre>
+<p>For a complete list of configuration options, events and available functions refer to the <a href="http://jstree.com/docs">documentation</a> and <a href="http://jstree.com/demo">demos</a>.</p>
+<h2 id="contributing">Contributing</h2>
+<p>In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using <a href="https://github.com/gruntjs/grunt">grunt</a>.</p>
+<p><em>Please do NOT edit files in the &quot;dist&quot; subdirectory as they are generated via grunt. You&#39;ll find source code in the &quot;src&quot; subdirectory!</em></p>
+<p>If you want to you can always <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=paypal@vakata.com&amp;currency_code=USD&amp;amount=&amp;return=http://jstree.com/donation&amp;item_name=Buy+me+a+coffee+for+jsTree">donate a small amount</a> to help the development of jstree.</p>
+<h2 id="license">License</h2>
+<p>Copyright (c) 2014 Ivan Bozhanov (<a href="http://vakata.com">http://vakata.com</a>) </p>
+<p>Licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>.</p>

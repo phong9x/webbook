@@ -1,0 +1,12 @@
+#popupConfirmDelete.modal.fade(tabindex='-1', aria-hidden='true', data-backdrop='static' data-keyboard='false')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-hidden='true')
+      .modal-body
+        strong 삭제하시겠습니까?
+        // Are you sure you want to delete?
+      .modal-footer
+        a.btn.green.btn-delete(href="#") 확인
+        button.btn.default(type='button', data-dismiss='modal') 취소
+// .popupConfirmDelete

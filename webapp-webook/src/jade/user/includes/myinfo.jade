@@ -1,0 +1,88 @@
+.wbp-myinfo
+  .wb-cat-tab: .container-mobile-full
+    .wb-cat-tab-wrapper.clearfix
+      .wb-cat-tab-item: a.mute(href="#") 관심작품
+      .wb-cat-tab-item: a.mute(href="#") 책갈피
+      .wb-cat-tab-item: a.mute(href="#") 내작품
+      .wb-cat-tab-item: a.mute(href="#") 쿠폰 보유 현황
+      .wb-cat-tab-item: a.mute(href="#") 판매/정산
+      .wb-cat-tab-item.active 내정보 관리
+
+
+  .container.wb-mt50: .wbp-book-detail-tabs
+    ul.nav.nav-tabs
+      li.active
+        a.mute(href='#') 연재목록
+      li
+        a.mute(href='#') 공지사항
+
+    form.form-horizontal.wb-form-hoz.wb-mt40
+      .form-group
+        label.col-md-2.control-label 아이디
+        .col-md-4.wb-form-hoz-col.first
+          .wb-f16 abcd1234
+
+      .form-group
+        label.col-md-2.control-label 이름
+        .col-md-4.wb-form-hoz-col.first
+          input.wb-textbox.form-control(type='text')
+
+      .form-group
+        label.col-md-2.control-label 닉네임
+        .col-md-4.wb-form-hoz-col.first
+          input.wb-textbox.form-control(type='text')
+        .col-md-2.wb-form-hoz-col.last
+          button.base-btn.wb-btn.h36.form-control 중복확인
+
+      .form-group
+        label.col-md-2.control-label 비밀번호
+        .col-md-4.wb-form-hoz-col.first
+          input.wb-textbox.form-control(type='text')
+
+      .form-group
+        label.col-md-2.control-label 비밀번호 확인
+        .col-md-4.wb-form-hoz-col.first
+          input.wb-textbox.form-control(type='text')
+
+      .form-group
+        label.col-md-2.control-label 이메일
+        .col-md-4.wb-form-hoz-col.first
+          input.wb-textbox.form-control(type='text')
+
+      .form-group
+        label.col-md-2.control-label 휴디폰번호
+        .col-md-10.wb-form-hoz-col.first
+          .wb-select
+            select
+              option 4
+              option 5
+          .wb-select
+            select
+              option 4
+              option 5
+          .wb-select
+            select
+              option 4
+              option 5
+
+      .form-group
+        label.col-md-2.control-label 성별
+        .col-md-6.wb-form-hoz-col.first
+          label.wb-check-rad
+            input(type="radio" name="a")
+            span 남
+          label.wb-check-rad
+            input(type="radio" name="a")
+            span 여
+
+      .form-group
+        label.col-md-2.control-label 이메일
+        .col-md-4.wb-form-hoz-col.first
+          span.wb-f16.wb-mr20 인증완료
+          button.base-btn.wb-btn 인증 하기
+          
+      .sep.wb-mt20
+      
+      .row: .col-md-8
+        .text-center.wb-mt30
+          button.base-btn.wb-btn-shine 변경내용 저장

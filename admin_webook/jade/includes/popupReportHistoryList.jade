@@ -1,0 +1,22 @@
+#popupReportHistoryList.modal.fade(tabindex='-1', aria-hidden='true', data-backdrop='static' data-keyboard='false')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-hidden='true')
+        h4.modal-title #[strong 신고내역]
+      .modal-body
+        .table-report-history-list.table-responsive
+          table.table.table-striped.table-bordered.table-hover
+            thead
+              tr
+                th 신고자
+                th 사유
+                th 신고 일자
+            tbody
+              - for (var i = 0; i < 2; i++)
+                tr
+                  td pororo
+                  td 음란성, 선정성이 포함된 게시물
+                  td 2015-06-06
+        // .table-report-history-list
+// .popupReportHistoryList

@@ -1,0 +1,52 @@
+.wbp-forgot: .container
+  .wbp-register-form
+    .wb-f24 아이디 / 비밀번호 찾기
+    .sep.wb-mt20
+
+    // Nav tabs
+    .wbp-forgot-pad: ul.nav.nav-tabs.wbp-forgot-tabs(role='tablist')
+      li.active(role='presentation')
+        a.mute(href='#home', aria-controls='home', role='tab', data-toggle='tab') 아이디 찾기
+      li(role='presentation')
+        a.mute(href='#profile', aria-controls='profile', role='tab', data-toggle='tab') 비밀번호 찾기
+    // Tab panes
+    .tab-content
+      #home.tab-pane.active(role='tabpanel')
+        form.form-horizontal.wb-form-hoz.wb-mt40
+          .form-group
+            label.col-md-1.col-md-offset-3.control-label 이름
+            .col-md-5.wb-form-hoz-col.first
+              input.wb-textbox.form-control(type='text')
+          .form-group
+            label.col-md-1.col-md-offset-3.control-label 이메일
+            .col-md-5.wb-form-hoz-col.first
+              input.wb-textbox.form-control(type='text')
+              .wb-f12.wb-color-gray.wb-mt10 회원가입 시 등록된 이메일만 가능합니다.
+          .sep.wb-mt30
+          .text-center.wb-mt30
+            button.base-btn.wb-btn-bold.primary.h40 아이디 찾기
+          .text-center.wb-mt18
+            span.wb-color-gray.wb-f12 회원가입 시에 입력한 이메일 주소가 기억나지 않으실 경우 고객센터로 문의 주시기 바랍니다. xxx@xxx..xxx 
+        
+      #profile.tab-pane(role='tabpanel')
+        form.form-horizontal.wb-form-hoz.wb-mt40
+          .form-group
+            label.col-md-1.col-md-offset-3.control-label 아이디
+            .col-md-5.wb-form-hoz-col.first
+              input.wb-textbox.form-control(type='text')
+          .form-group
+            label.col-md-1.col-md-offset-3.control-label 이름
+            .col-md-5.wb-form-hoz-col.first
+              input.wb-textbox.form-control(type='text')
+          .form-group
+            label.col-md-1.col-md-offset-3.control-label 이메일
+            .col-md-5.wb-form-hoz-col.first
+              input.wb-textbox.form-control(type='text')
+              .wb-f12.wb-color-gray.wb-mt10 회원가입 시 등록된 이메일만 가능합니다.
+          .sep.wb-mt30
+          .text-center.wb-mt30
+            button.base-btn.wb-btn-bold.primary.h40 임시 비밀번호 전송
+          .text-center.wb-mt18
+            span.wb-color-gray.wb-f12 회원가입 시에 입력한 이메일 주소가 기억나지 않으실 경우 고객센터로 문의 주시기 바랍니다. xxx@xxx..xxx 
+
+

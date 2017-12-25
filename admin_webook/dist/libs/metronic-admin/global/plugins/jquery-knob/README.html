@@ -1,0 +1,114 @@
+<h1 id="jquery-knob">jQuery Knob</h1>
+<ul>
+<li>canvas based ; no png or jpg sprites.</li>
+<li>touch, mouse and mousewheel, keyboard events implemented.</li>
+<li>downward compatible ; overloads an input element.</li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code>&lt;input type=&quot;text&quot; value=&quot;75&quot; class=&quot;dial&quot;&gt;
+
+&lt;script&gt;
+$(function() {
+    $(&quot;.dial&quot;).knob();
+});
+&lt;/script&gt;
+</code></pre><h2 id="options">Options</h2>
+<p>Options are provided as attributes &#39;data-option&#39;:</p>
+<pre><code>&lt;input type=&quot;text&quot; class=&quot;dial&quot; data-min=&quot;-50&quot; data-max=&quot;50&quot;&gt;
+</code></pre><p>... or in the &quot;knob()&quot; call :</p>
+<pre><code>$(&quot;.dial&quot;).knob({
+                &#39;min&#39;:-50
+                ,&#39;max&#39;:50
+                });
+</code></pre><p>The following options are supported :</p>
+<p>Behaviors :</p>
+<ul>
+<li>min : min value | default=0.</li>
+<li>max : max value | default=100.</li>
+<li>step : step size | default=1.</li>
+<li>angleOffset : starting angle in degrees | default=0.</li>
+<li>angleArc : arc size in degrees | default=360.</li>
+<li>stopper : stop at min &amp; max on keydown/mousewheel | default=true.</li>
+<li>readOnly : disable input and events | default=false.</li>
+<li>rotation : direction of progression | default=clockwise.</li>
+</ul>
+<p>UI :</p>
+<ul>
+<li>cursor : display mode &quot;cursor&quot;, cursor size could be changed passing a numeric value to the option, default width is used when passing boolean value &quot;true&quot; | default=gauge.</li>
+<li>thickness : gauge thickness.</li>
+<li>lineCap : gauge stroke endings. | default=butt, round=rounded line endings</li>
+<li>width : dial width.</li>
+<li>displayInput : default=true | false=hide input.</li>
+<li>displayPrevious : default=false | true=displays the previous value with transparency.</li>
+<li>fgColor : foreground color.</li>
+<li>inputColor : input value (number) color.</li>
+<li>font : font family.</li>
+<li>fontWeight : font weight.</li>
+<li>bgColor : background color.</li>
+</ul>
+<h2 id="hooks">Hooks</h2>
+<pre><code>&lt;script&gt;
+$(&quot;.dial&quot;).knob({
+                    &#39;release&#39; : function (v) { /*make something*/ }
+                });
+&lt;/script&gt;
+</code></pre><ul>
+<li><p>&#39;release&#39; : executed on release</p>
+<p>  Parameters :</p>
+<ul>
+<li>value : int, current value</li>
+</ul>
+</li>
+<li><p>&#39;change&#39; : executed at each change of the value</p>
+<p>  Parameters :</p>
+<ul>
+<li>value : int, current value</li>
+</ul>
+</li>
+<li><p>&#39;draw&#39; : when drawing the canvas</p>
+<p>  Context :</p>
+<ul>
+<li>this.g : canvas context 2D (see Canvas documentation)</li>
+<li>this.$ : jQuery wrapped element</li>
+<li>this.o : options</li>
+<li>this.i : input</li>
+<li>... console.log(this);</li>
+</ul>
+</li>
+<li><p>&#39;cancel&#39; : triggered on [esc] keydown</p>
+</li>
+<li><p>&#39;format&#39; : allows to format output (add unit %, ms ...)</p>
+</li>
+</ul>
+<p>The scope (this) of each hook function is the current Knob instance (refer to the demo code).</p>
+<h2 id="example">Example</h2>
+<pre><code>&lt;input type=&quot;text&quot; value=&quot;75&quot; class=&quot;dial&quot;&gt;
+
+&lt;script&gt;
+$(&quot;.dial&quot;).knob({
+                 &#39;change&#39; : function (v) { console.log(v); }
+                });
+&lt;/script&gt;
+</code></pre><h2 id="dynamically-configure">Dynamically configure</h2>
+<pre><code>&lt;script&gt;
+$(&#39;.dial&#39;)
+    .trigger(
+        &#39;configure&#39;,
+        {
+        &quot;min&quot;:10,
+        &quot;max&quot;:40,
+        &quot;fgColor&quot;:&quot;#FF0000&quot;,
+        &quot;skin&quot;:&quot;tron&quot;,
+        &quot;cursor&quot;:true
+        }
+    );
+&lt;/script&gt;
+</code></pre><h2 id="set-the-value">Set the value</h2>
+<pre><code>&lt;script&gt;
+$(&#39;.dial&#39;)
+    .val(27)
+    .trigger(&#39;change&#39;);
+&lt;/script&gt;
+</code></pre><h2 id="supported-browser">Supported browser</h2>
+<p>Tested on Chrome, Safari, Firefox, IE&gt;=8.0 (IE8.0 with excanvas).</p>
+<p><img src="https://raw.github.com/aterrien/jQuery-Knob/master/secretplan.jpg" alt="secretplan"></p>

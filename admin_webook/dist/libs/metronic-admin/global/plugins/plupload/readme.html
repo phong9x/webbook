@@ -1,0 +1,122 @@
+<h1 id="plupload">Plupload</h1>
+<p>Plupload is a cross-browser multi-runtime file uploading API. Basically, a set of tools that will help you to 
+build a reliable and visually appealing file uploader in minutes.</p>
+<p>Historically, Plupload comes from a dark and hostile age of no HTML5, hence all the alternative fallbacks, 
+like Flash, Silverlight and Java (still in development). It is meant to provide an API, that 
+will work anywhere and in any case, in one way or another. While having very solid fallbacks, Plupload 
+is built with the future of HTML5 in mind.</p>
+<h3 id="table-of-contents">Table of Contents</h3>
+<ul>
+<li><a href="https://github.com/moxiecode/plupload/blob/master/readme.md#backstory">Backstory</a></li>
+<li><a href="https://github.com/moxiecode/plupload/blob/master/readme.md#structure">Structure</a><ul>
+<li><a href="https://github.com/moxiecode/moxie/blob/master/README.md">File API and XHR L2 pollyfills</a></li>
+<li><a href="https://github.com/moxiecode/plupload/wiki/API">Plupload API</a></li>
+<li><a href="https://github.com/moxiecode/plupload/wiki/UI.Plupload">UI Widget</a></li>
+<li><a href="https://github.com/moxiecode/plupload/wiki/pluploadQueue">Queue Widget</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/jayarjo/plupload-demos/blob/master/README.md">Demos</a></li>
+<li><a href="https://github.com/moxiecode/plupload/blob/master/readme.md#build">Building Instructions</a></li>
+<li><a href="https://github.com/moxiecode/plupload/wiki/Getting-Started">Getting Started</a><ul>
+<li><a href="https://github.com/moxiecode/plupload/wiki/Options">Options</a></li>
+<li><a href="https://github.com/moxiecode/plupload/wiki/Uploader#wiki-events">Events</a></li>
+<li><a href="https://github.com/moxiecode/plupload/wiki/Uploader#wiki-methods">Methods</a></li>
+<li><a href="https://github.com/moxiecode/plupload/wiki/Plupload-in-Your-Language">Plupload in Your Language</a></li>
+<li><a href="https://github.com/moxiecode/plupload/wiki/File-Filters">File Filters</a> </li>
+<li><a href="https://github.com/moxiecode/plupload/wiki/Image-Resizing-on-Client-Side">Image Resizing on Client-Side</a> </li>
+<li><a href="https://github.com/moxiecode/plupload/wiki/Chunking">Chunking</a> </li>
+<li><a href="https://github.com/moxiecode/plupload/wiki/Upload-to-Amazon-S3">Upload to Amazon S3</a> </li>
+</ul>
+</li>
+<li><a href="https://github.com/moxiecode/plupload/wiki/Frequently-Asked-Questions">FAQ</a></li>
+<li><a href="https://github.com/moxiecode/plupload/blob/master/readme.md##support">Support</a><ul>
+<li><a href="https://github.com/moxiecode/plupload/wiki/Create-a-Fiddle">Create a Fiddle</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/moxiecode/plupload/blob/master/readme.md#contribute">Contributing</a></li>
+<li><a href="https://github.com/moxiecode/plupload/blob/master/readme.md#license">License</a></li>
+<li><a href="http://www.moxiecode.com/contact.php">Contact Us</a></li>
+</ul>
+<p><a name="backstory" /></p>
+<h3 id="backstory">Backstory</h3>
+<p>Plupload started in a time when uploading a file in a responsive and customizable manner was a real pain. 
+Internally, browsers only had the <code>input[type=&quot;file&quot;]</code> element. It was ugly and clunky at the same time. 
+One couldn&#39;t even change it&#39;s visuals, without hiding it and coding another one on top of it from scratch. 
+And then there was no progress indication for the upload process... Sounds pretty crazy today.</p>
+<p>It was very logical for developers to look for alternatives and writing their own implementations, using 
+Flash and Java, in order to somehow extend limited browser capabilities. And so did we, in our search for 
+a reliable and flexible file uploader for 
+our <a href="http://www.tinymce.com/index.php">TinyMCE</a>&#39;s
+<a href="http://www.tinymce.com/enterprise/mcimagemanager.php">MCImageManager</a>. </p>
+<p>Quickly enough though, Plupload grew big.  It easily split into a standalone project. 
+With major <em>version 2.0</em> it underwent another huge reconstruction, basically 
+<a href="http://blog.moxiecode.com/2012/11/28/first-public-beta-plupload-2/">from the ground up</a>, 
+as all the low-level runtime logic has been extracted into separate <a href="http://www.w3.org/TR/FileAPI/">File API</a> 
+and <a href="http://www.w3.org/TR/XMLHttpRequest/">XHR L2</a> pollyfills (currently known under combined name of <a href="https://github.com/moxiecode/moxie">mOxie</a>), 
+giving Plupload a chance to evolve further.</p>
+<p><a name="structure" /></p>
+<h3 id="structure">Structure</h3>
+<p>Currently, Plupload may be considered as consisting of three parts: low-level pollyfills, 
+Plupload API and Widgets (UI and Queue). Initially, Widgets were meant only to serve as examples 
+of the API, but quickly formed into fully-functional API implementations that now come bundled with 
+the Plupload API. This has been a source for multiple misconceptions about the API as Widgets were 
+easily mistaken for the Plupload itself. They are only implementations, such as any of you can 
+build by yourself out of the API.</p>
+<ul>
+<li><a href="https://github.com/moxiecode/moxie">Low-level pollyfills (mOxie)</a> - have their own <a href="https://github.com/moxiecode/moxie">code base</a> and <a href="https://github.com/moxiecode/moxie/wiki">documentation</a> on GitHub.</li>
+<li><a href="https://github.com/moxiecode/plupload/wiki/API">Plupload API</a></li>
+<li><a href="https://github.com/moxiecode/plupload/wiki/UI.Plupload">UI Widget</a></li>
+<li><a href="https://github.com/moxiecode/plupload/wiki/pluploadQueue">Queue Widget</a></li>
+</ul>
+<p><a name="build" /></p>
+<h3 id="building-instructions">Building instructions</h3>
+<p>Plupload depends on File API and XHR2 L2 pollyfills that currently have their 
+<a href="https://github.com/moxiecode/moxie">own repository</a> on GitHub. However, in most cases you shouldn&#39;t 
+care as we bundle the latest build of mOxie, including full and minified JavaScript source and 
+pre-compiled <code>SWF</code> and <code>XAP</code> components, with <a href="https://github.com/moxiecode/plupload/releases">every release</a>. You can find everything you may need under <code>js/</code> folder.</p>
+<p>There are cases where you might need a custom build, for example free of unnecessary runtimes, half the 
+original size, etc. The difficult part of this task comes from mOxie and its set of additional runtimes 
+that require special tools on your workstation in order to compile. 
+Consider <a href="https://github.com/moxiecode/moxie#build-instructions">build instructions for mOxie</a> - 
+everything applies to Plupload as well.</p>
+<p>First of all, if you want to build custom Plupload packages you will require <a href="http://nodejs.org/">Node.js</a>, 
+as this is our build environment of choice. Node.js binaries (as well as Source)
+<a href="http://nodejs.org/download/">are available</a> for all major operating systems.</p>
+<p>Plupload includes <em>mOxie</em> as a submodule, it also depends on some other repositories for building up it&#39;s dev
+environment - to avoid necessity of downloading them one by one, we recommended you to simply clone Plupload 
+with <a href="http://git-scm.com/">git</a> recursively (you will require git installed on your system for this operation 
+to succeed):</p>
+<pre><code>git clone --recursive https://github.com/moxiecode/plupload.git
+</code></pre><p>And finalize the preparation stage with: <code>npm install</code> - this will install all additional modules, including those
+required by dev and test environments. In case you would rather keep it minimal, add a <code>--production</code> flag.</p>
+<p><em>Note:</em> Currently, for an unknown reason, locally installed Node.js modules on Windows, may not be automatically 
+added to the system PATH. So, if <code>jake</code> commands below are not recognized you will need to add them manually:</p>
+<pre><code>set PATH=%PATH%;%CD%\node_modules\.bin\
+</code></pre><p><a name="support" /></p>
+<h3 id="support">Support</h3>
+<p>We are actively standing behind the Plupload and now that we are done with major rewrites and refactoring,
+the only real goal that we have ahead is making it as reliable and bulletproof as possible. We are open to 
+all the suggestions and feature requests. We ask you to file bug reports if you encounter any. We may not 
+react to them instantly, but we constantly bear them in my mind as we extend the code base.</p>
+<p>In addition to dedicated support for those who dare to buy our OEM licenses, we got 
+<a href="http://www.plupload.com/punbb/index.php">discussion boards</a>, which is like an enormous FAQ, 
+covering every possible application case. Of course, you are welcome to file a bug report or feature request, 
+here on <a href="https://github.com/moxiecode/plupload/issues">GitHub</a>.</p>
+<p>Sometimes it is easier to notice the problem when bug report is accompained by the actual code. Consider providing 
+<a href="https://github.com/moxiecode/plupload/wiki/Create-a-Fiddle">a Plupload fiddle</a> for the troublesome code.</p>
+<p><a name="contribute" /></p>
+<h3 id="contributing">Contributing</h3>
+<p>We are open to suggestions and code revisions, however there are some rules and limitations that you might 
+want to consider first.</p>
+<ul>
+<li>Code that you contribute will automatically be licensed under the LGPL, but will not be limited to LGPL.</li>
+<li>Although all contributors will get the credit for their work, copyright notices will be changed to <a href="http://www.moxiecode.com/">Moxiecode Systems AB</a>.</li>
+<li>Third party code will be reviewed, tested and possibly modified before being released.</li>
+</ul>
+<p>These basic rules help us earn a living and ensure that code remains Open Source and compatible with LGPL license. All contributions will be added to the changelog and appear in every release and on the site. </p>
+<p>An easy place to start is to <a href="https://github.com/moxiecode/plupload/wiki/Plupload-in-Your-Language#contribute">translate Plupload to your language</a>.</p>
+<p>You can read more about how to contribute at: <a href="http://www.plupload.com/contributing">http://www.plupload.com/contributing</a></p>
+<p><a name="license" /></p>
+<h3 id="license">License</h3>
+<p>Copyright 2013, <a href="http://www.moxiecode.com/">Moxiecode Systems AB</a><br>Released under <a href="https://github.com/moxiecode/plupload/blob/master/license.txt">GPLv2 License</a>.</p>
+<p>We also provide <a href="http://www.plupload.com/commercial.php">commercial license</a>.</p>

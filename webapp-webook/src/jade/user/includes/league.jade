@@ -1,0 +1,30 @@
+.wbp-league
+  .container: .row.wbp-league-filter
+    .col-md-6
+      .wb-select
+        select
+          option 제너맨
+          option 유니티
+          option 하이틴
+          option 로우틴
+      .wb-select
+        select
+          option 베스트 리그
+          option 챌린지 리그
+    .col-md-6.text-right.hidden-xs.hidden-sm
+      label.wb-check-raw
+        input(type="radio" name="a")
+        span 업데이트순
+      label.wb-check-raw
+        input(type="radio" name="a")
+        span 조회순
+
+
+  .container-mobile-full: .wbp-league-list
+    - for(var i=0; i<10; i++) {
+      .wbp-league-list-item: .container
+        +wb-league-list-item
+    - }
+
+  .wbp-league-pagin.hidden-xs.hidden-sm: .container.text-center
+    +wb-pagin

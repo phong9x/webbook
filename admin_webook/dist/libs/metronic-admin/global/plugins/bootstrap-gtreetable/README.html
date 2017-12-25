@@ -1,0 +1,344 @@
+<h1 id="gtreetable-2">GTreeTable 2</h1>
+<p>GTreeTable is extension of <a href="http://getbootstrap.com">Tweeter Bootstrap 3</a> framework, which allows to use tree structure inside HTML table.</p>
+<p>Thanks to the script it`s possible to create and manage tree with unlimited nesting.</p>
+<p>Version 2 of code was completly rewrite and now it&#39;s possible to use such functions as: advanced cache, moving nodes by Drag &amp; Drop method, or sorting directly from JavaScript level.</p>
+<p>Test available on <a href="http://gtreetable2.gilek.net">demo project</a>.</p>
+<p><img src="http://gilek.net/images/gtt2-demo.png" alt=""></p>
+<h2 id="enviroment">Enviroment</h2>
+<p>Till now aplication was test on following browsers:</p>
+<ul>
+<li>Mozilla Firefox 30,</li>
+<li>Chrome 37,</li>
+<li>Internet Explorer 11.</li>
+</ul>
+<h2 id="minimal-installation">Minimal installation</h2>
+<ol>
+<li><p>Firstly add required files:</p>
+<pre><code class="lang-html"> &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;gtreetable.min.css&quot; /&gt;
+ &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-2.1.1.min.js&quot;&gt;&lt;/script&gt;
+ &lt;script type=&quot;text/javascript&quot; src=&quot;bootstrap-gtreetable.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</li>
+<li><p>Next create empty HTML table:</p>
+<pre><code class="lang-html"> &lt;table class=&quot;table gtreetable&quot; id=&quot;gtreetable&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Category&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;/table&gt;
+</code></pre>
+</li>
+<li><p>Inside of method <code>jQuery.ready</code> define basic configuration:</p>
+<pre><code class="lang-javascript"> jQuery(&#39;#gtreetable&#39;).gtreetable({
+   &#39;source&#39;: function (id) {
+       return {
+         type: &#39;GET&#39;,
+         url: &#39;nodeChildren&#39;,
+         data: { &#39;id&#39;: id },        
+         dataType: &#39;json&#39;,
+         error: function(XMLHttpRequest) {
+           alert(XMLHttpRequest.status+&#39;: &#39;+XMLHttpRequest.responseText);
+         }
+       }
+     }
+ });
+</code></pre>
+</li>
+</ol>
+<p>More about <code>source</code> parameter and returned data format find in <a href="#configuration">configuration</a> section.</p>
+<h2 id="functionality">Functionality</h2>
+<h3 id="actions">Actions</h3>
+<p>Actions defined in <code>defaultAction</code> and <code>actions</code> parameters are available after indicate or choosing the node.
+<code>defualtActions</code> includes defualt actions, needed to CUD operations. It may be disabled by set null value.
+<code>actions</code> defined the actions which may be add after last defined position in <code>defaultActions</code>. </p>
+<p>More about action format find in <a href="#configuration">configuration</a> section.</p>
+<h3 id="cud">CUD</h3>
+<p>Moment of saving and deleting node can goes together witch server communication by AJAX. Responsible actions: <code>onSave</code> and <code>onDelete</code>. It&#39;s should be functions that return <a href="http://api.jquery.com/jquery.ajax/">jQuery.ajax</a> settings.</p>
+<p>Example configuration:</p>
+<pre><code class="lang-javascript">jQuery(&#39;#gtreetable&#39;).gtreetable({
+  &#39;source&#39;: function (id) {
+    return {
+      type: &#39;GET&#39;,
+      url: &#39;nodeChildren&#39;,
+      data: { &#39;id&#39;: id },        
+      dataType: &#39;json&#39;,
+      error: function(XMLHttpRequest) {
+        alert(XMLHttpRequest.status+&#39;: &#39;+XMLHttpRequest.responseText);
+      }
+    }
+  },
+  &#39;onSave&#39;:function (oNode) {
+    return {
+      type: &#39;POST&#39;,
+      url: !oNode.isSaved() ? &#39;nodeCreate&#39; : &#39;nodeUpdate?id=&#39; + oNode.getId(),
+      data: {
+        parent: oNode.getParent(),
+        name: oNode.getName(),
+        position: oNode.getInsertPosition(),
+        related: oNode.getRelatedNodeId()
+      },
+      dataType: &#39;json&#39;,
+      error: function(XMLHttpRequest) {
+        alert(XMLHttpRequest.status+&#39;: &#39;+XMLHttpRequest.responseText);
+      }
+      };
+  },
+  &#39;onDelete&#39;:function (oNode) {
+    return {
+      type: &#39;POST&#39;,
+      url: &#39;nodeDelete?id=&#39; + oNode.getId(),
+      dataType: &#39;json&#39;,
+      error: function(XMLHttpRequest) {
+        alert(XMLHttpRequest.status+&#39;: &#39;+XMLHttpRequest.responseText);
+      }
+    };
+  }
+});
+</code></pre>
+<p>The new node may be added in various locations:</p>
+<ul>
+<li>before chosen node (<code>before</code>),</li>
+<li>after chosen node (<code>after</code>),</li>
+<li>as a first child (<code>firstChild</code>),</li>
+<li>as a last child (<code>lastChild</code>).</li>
+</ul>
+<h3 id="moving">Moving</h3>
+<p>Moving nodes may be realized by using Drag and Drop method.
+By default mechanism is disabled, to activate it <code>draggable</code> parameter need to be set on true value. Also you need to define <code>onMove</code> event. </p>
+<p>At the moment of node dragging, its new locations is marked by pointer with may be located:</p>
+<ul>
+<li>before the node (<code>before</code>),</li>
+<li>as a last child (<code>lastChild</code>), </li>
+<li>after the node (<code>after</code>).</li>
+</ul>
+<p><img src="http://gilek.net/images/gtt2-pointer.png" alt=""></p>
+<p>In this case, application is using additional libraries such as: <a href="http://jqueryui.com/">jQueryUI</a> and <a href="https://github.com/gabceb/jquery-browser-plugin">jQuery Browser Plugin</a> so it&#39;s necessary to include required files in the code:</p>
+<pre><code class="lang-html">&lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/ui/1.11.1/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.browser.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Example configuration:</p>
+<pre><code class="lang-javascript">jQuery(&#39;#gtreetable&#39;).gtreetable({
+  &#39;source&#39;: function (id) {
+    return {
+      type: &#39;GET&#39;,
+      url: &#39;nodeChildren&#39;,
+      data: { &#39;id&#39;: id },        
+      dataType: &#39;json&#39;,
+      error: function(XMLHttpRequest) {
+        alert(XMLHttpRequest.status+&#39;: &#39;+XMLHttpRequest.responseText);
+      }
+    }
+  },
+  &#39;draggable&#39;: true,
+  &#39;onMove&#39;: function (oSource, oDestination, position) {
+    return {
+      type: &#39;POST&#39;,
+      url: &#39;nodeMove?id=&#39; + oNode.getId(),
+      data: {
+        related: oDestination.getId(),
+        position: position
+      },
+      dataType: &#39;json&#39;,
+      error: function(XMLHttpRequest) {
+        alert(XMLHttpRequest.status+&#39;: &#39;+XMLHttpRequest.responseText);
+      }
+    }; 
+  }    
+});
+</code></pre>
+<h3 id="choosing">Choosing</h3>
+<p>To choose the node it&#39;s needed to click on its name. Depending on <code>selectLimit</code> parameter it&#39;s possible to indicate one or more nodes.</p>
+<p>In this case it&#39;s worth to pay attention on a few events triggered in the moment of:</p>
+<ul>
+<li>selecting node (<code>onSelect</code>),</li>
+<li>unselecting node (<code>onUnselect</code>),</li>
+<li>when limit of selection is overflowed (<code>onSelectOverflow</code>).</li>
+</ul>
+<p>More information about <a href="#configuration">configuration</a>:</p>
+<h3 id="sorting">Sorting</h3>
+<p>Node sorting function inside of tree may be realized directly from JavaScript level. Only needed to define sorting method as <code>sort</code> parameter function.</p>
+<p>Sorting operation is triggered during: expanding tree branches, adding new node and existing node name edition.</p>
+<p>Working of sorting function is the same as in case of <a href="https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array/sort">table sorting</a>, so example of configuration may look as follow:</p>
+<pre><code class="lang-javascript">jQuery(&#39;#gtreetable&#39;).gtreetable({
+  &#39;source&#39;: function (id) {
+    return {
+      type: &#39;GET&#39;,
+      url: &#39;nodeChildren&#39;,
+      data: { &#39;id&#39;: id },        
+      dataType: &#39;json&#39;,
+      error: function(XMLHttpRequest) {
+        alert(XMLHttpRequest.status+&#39;: &#39;+XMLHttpRequest.responseText);
+      }
+    }
+  },
+  &#39;sort&#39;: function (a, b) {          
+    var aName = a.name.toLowerCase();
+    var bName = b.name.toLowerCase(); 
+    return ((aName &lt; bName) ? -1 : ((aName &gt; bName) ? 1 : 0));                            
+  }  
+});
+</code></pre>
+<h3 id="nodes-types">Nodes types</h3>
+<p>Depending on node type is possible to display additional icon next to its name. Nodes type definition is based on <code>types</code> parameter.</p>
+<p>Example configuration:</p>
+<pre><code class="lang-javascript">jQuery(&#39;#gtreetable&#39;).gtreetable({
+  &#39;source&#39;: function (id) {
+    return {
+      type: &#39;GET&#39;,
+      url: &#39;nodeChildren&#39;,
+      data: { &#39;id&#39;: id },        
+      dataType: &#39;json&#39;,
+      error: function(XMLHttpRequest) {
+        alert(XMLHttpRequest.status+&#39;: &#39;+XMLHttpRequest.responseText);
+      }
+    }
+  },
+  &#39;types&#39;: { default: &#39;glyphicon glyphicon-folder-open&#39;}
+});
+</code></pre>
+<p>Adding various node type is realized by <code>GTreeTableNode.add(String position, String type)</code> method.</p>
+<p><img src="http://gilek.net/images/gtt2-type.png" alt=""> </p>
+<h3 id="translations">Translations</h3>
+<p>User interface elements by default are displayed in English. There is a possibility to change language by change <code>language</code> parameter and attaching appropriate files:</p>
+<p>Example configuration:</p>
+<pre><code class="lang-html">&lt;script type=&quot;text/javascript&quot; src=&quot;languages/bootstrap-gtreetable.pl.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<pre><code class="lang-javascript">jQuery(&#39;#gtreetable&#39;).gtreetable({
+  &#39;source&#39;: function (id) {
+    return {
+      type: &#39;GET&#39;,
+      url: &#39;nodeChildren&#39;,
+      data: { &#39;id&#39;: id },        
+      dataType: &#39;json&#39;,
+      error: function(XMLHttpRequest) {
+        alert(XMLHttpRequest.status+&#39;: &#39;+XMLHttpRequest.responseText);
+      }
+    }
+  },
+  &#39;language&#39;: &#39;pl&#39;
+});
+</code></pre>
+<p>In the moment when some position from translations can&#39;t be found then its values stays unchanged. </p>
+<h3 id="cache">Cache</h3>
+<p>In relation to 1.x version, cache mechanism was improved. It&#39;s possible to work in 3 levels:</p>
+<ul>
+<li>0 - mechanism off,</li>
+<li>1 - information about child nodes are stored in memory. After moving or CUD operation, redownload information from data base is required,</li>
+<li>2 - as in 1 level with the difference that all operation on nodes are mapping in cache.</li>
+</ul>
+<p>There is possibility to force refesh data by pushing <kbd>Alt</kbd> in the moment of node expanding.</p>
+<h2 id="-a-name-configuration-a-configuration"><a name="configuration"></a>Configuration</h2>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li><p><code>actions</code> (Array) - set of actions, which should be added after the last position defined in <code>defaultActions</code> parameter. More info about required data format is located in description of  <code>defaultActions</code> parameter.</p>
+</li>
+<li><p><code>cache (Integer)</code> - define whether actual node state should be stored in cache. It&#39;s possible to work in 3 levels:</p>
+<ul>
+<li>0 - mechanism off,</li>
+<li>1 - partial mapping. In the moment of moving or CUD operation the state of depending nodes is resetting, </li>
+<li>2 - fully mapping.</li>
+</ul>
+</li>
+<li><p><code>classes</code> (Object) - parameter consists set of CSS class using to build user interface.</p>
+</li>
+<li><p><code>defaultActions</code> (Array) - set of default CUD actions. Parameter needs to be table consists of objects in following format:</p>
+<pre><code class="lang-javascript">  {
+    name: &#39;Action label&#39;,
+    event: function (oNode, oManager) { } // code to execute 
+  }
+</code></pre>
+<p>  Separator (horizontal line) defined by following construction (object):</p>
+<pre><code class="lang-javascript">  { divider: true }
+</code></pre>
+<p>  When action label is surrounded by bracket and preceded by $ i.e. <code>${actionEdit}</code> then its value is translated on <code>language</code> parameter language. </p>
+</li>
+<li><p><code>dragCanExpand</code> (boolean) - define whether during node moving is possible to expand other nodes after choosing appropriate icon.     </p>
+</li>
+<li><p><code>draggable</code> (boolean) - define whether nodes can be moved. Parameter value changing on true is related with necessity of adding required <a href="http://jqueryui.com/">jQueryUI</a> library:</p>
+<ul>
+<li>core,</li>
+<li>widget,</li>
+<li>position,</li>
+<li>mouse,</li>
+<li>draggable,</li>
+<li>droppable.</li>
+</ul>
+</li>
+<li><p><code>inputWidth</code> (String) - width of field of adding / edition  node name.</p>
+</li>
+<li><p><code>language</code> (String) - user interface language. Default English, change of language is related with necessity of adding translation file. In the moment when some translated position won&#39;t be found, then its value stays in English.</p>
+</li>
+<li><p><code>manyroots</code> (boolean) - define whether it&#39;s possible to create multiple nodes roots.</p>
+</li>
+<li><p><code>selectLimit</code> (Integer) - define nodes selection behavours:</p>
+<ul>
+<li><blockquote>
+<p>1 - indicate exactly the same number of nodes,</p>
+</blockquote>
+</li>
+<li>0 - selection disabled,</li>
+<li>-1 - unlimited selection.    </li>
+</ul>
+</li>
+<li><p><code>nodeIndent</code> (Integer) - Distance between node and its container. The value is multiplied, depending on node level.</p>
+</li>
+<li><p><code>nodeLevel</code> (Integer)</p>
+</li>
+<li><p><code>nodesWrapper</code> (String) - define nodes wrapper property. Default <code>nodes</code>. <a href="https://github.com/gilek/bootstrap-gtreetable/issues/9">More info</a>.</p>
+</li>
+<li><p><code>readonly</code> (boolean) - determines whether executing action on node is possible or not.</p>
+</li>
+<li><p><code>showExpandIconOnEmpty</code> (boolean) - parameter set on true value means that expanding node icon stays visible all the time, even if there is no node child. </p>
+</li>
+<li><p><code>sort</code> (callback (GTreeTableNode oNodeA, GTreeTableNode oNodeB)) - sorting function triggered in the moment of: displaying nodes, adding new one or its changing. Working of sorting function is the same as in case of <a href="https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Obiekty/Array/sort">table sorting</a>.</p>
+<pre><code>Example of sorting by node name in the ascending order. 
+</code></pre><pre><code class="lang-javascript">  function (a, b) {          
+    var aName = a.name.toLowerCase();
+    var bName = b.name.toLowerCase(); 
+    return ((aName &lt; bName) ? -1 : ((aName &gt; bName) ? 1 : 0));                            
+  }
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><p><code>source</code> (callback (Integer id))<a name="source"></a> - function must return <code>jQuery.ajax</code> settings, responsible for getting nodes from data base.</p>
+<p>  If ID = 0, then tree roots should be returned.</p>
+<pre><code>Information about nodes should be included in the object table in JSON format:
+</code></pre><pre><code class="lang-JSON">  {
+    &quot;id&quot;: &quot;node ID&quot;,
+    &quot;name&quot;: &quot;node name&quot;,
+    &quot;level&quot;: &quot;node level&quot;, 
+    &quot;type&quot;: &quot;node type&quot; 
+  }
+</code></pre>
+</li>
+<li><p><code>template</code> (String)</p>
+</li>
+<li><p><code>templateParts</code> (Object) </p>
+</li>
+<li><p><code>types</code> (Object) - object consists relations between node types and its icon class i.e.</p>
+<pre><code class="lang-javascript">  { default: &quot;glyphicon glyphicon-folder-open&quot; }
+</code></pre>
+</li>
+</ul>
+<h3 id="events">Events</h3>
+<ul>
+<li><p><code>onDelete(GTreeTableNode node)</code> - event triggering at the node deleting moment, must return <code>jQuery.ajax</code> settings.</p>
+</li>
+<li><p><code>onMove(GTreeTableNode node, GTreeTableNode destination, string position)</code> - event triggering at the node moving moment, must return <code>jQuery.ajax</code> settings.</p>
+</li>
+<li><p><code>onSave(GTreeTableNode node)</code> - event triggering at the node adding / edition moment. It must return <code>jQuery.ajax</code> settings.</p>
+</li>
+<li><p><code>onSelect(GTreeTableNode node)</code> - event triggering at the node selecting moment.</p>
+</li>
+<li><p><code>onSelectOverflow(GTreeTableNode node)</code> - event triggering when <code>selectLimit</code> parameter is positive number and selecting another node would be related with overflow of defined quantity.</p>
+</li>
+<li><p><code>onUnselect(GTreeTableNode node)</code> - event triggering at the moment when node is unselected.</p>
+</li>
+</ul>
+<h3 id="methods-chosen-">Methods (chosen)</h3>
+<ul>
+<li><p><code>GTreeTableManager.getSelectedNodes()</code> - returns table of selected nodes.</p>
+</li>
+<li><p><code>GTreeTableNode.getPath(GTreeTableNode oNode)</code> -  returns table consists the node path i.e.:</p>
+<pre><code class="lang-javascript">  [&quot;Node name&quot;, &quot;Parent node&quot;, &quot;Main node&quot;]
+</code></pre>
+</li>
+</ul>
+<h2 id="server-side">Server side</h2>
+<p>GTreeTable offer supports only in JavaScript level. Special extensions of Yii framework <a href="https://github.com/gilek/yii2-gtreetable">yii2-gtreetable</a> or <a href="https://github.com/gilek/yii-gtreetable">yii-gtreetable</a> can be use as server side application. Even if you don&#39;t use this software every day, don&#39;t worry in the near future will be prepared special library (written in native PHP), designed to realize this task.</p>

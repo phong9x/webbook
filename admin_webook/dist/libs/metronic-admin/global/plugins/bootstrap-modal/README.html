@@ -1,0 +1,117 @@
+<h1 id="bootstrap-modal-v2-2-5">Bootstrap Modal v2.2.5</h1>
+<p>See live demo <a href="http://jschr.github.com/bootstrap-modal/">here</a>.</p>
+<p>Extends Bootstrap&#39;s native modals to provide additional functionality. Introduces a <strong>ModalManager</strong> class that operates behind the scenes to handle multiple modals by listening on their events. </p>
+<p>A single ModalManager is created by default on body and can be accessed through the jQuery plugin interface.</p>
+<pre><code>$(&#39;body&#39;).modalmanager(&#39;loading&#39;);
+</code></pre><p>Bootstrap-Modal can be used as a replacement for Bootstrap&#39;s Modal class or as a patch to the library.</p>
+<h2 id="bootstrap-3">Bootstrap 3</h2>
+<p>If you&#39;re using BS3, I&#39;ve provided a compatible css patch. Include <code>bootstrap-modal-bs3patch.css</code> <strong>before</strong> the main <code>bootstrap-modal.css</code> file to use this plugin with Bootstrap 3.</p>
+<p>If you&#39;re using the loading spinner functionality you may also need to change the default template to be compatible in js:</p>
+<pre><code>$.fn.modal.defaults.spinner = $.fn.modalmanager.defaults.spinner = 
+    &#39;&lt;div class=&quot;loading-spinner&quot; style=&quot;width: 200px; margin-left: -100px;&quot;&gt;&#39; +
+        &#39;&lt;div class=&quot;progress progress-striped active&quot;&gt;&#39; +
+            &#39;&lt;div class=&quot;progress-bar&quot; style=&quot;width: 100%;&quot;&gt;&lt;/div&gt;&#39; +
+        &#39;&lt;/div&gt;&#39; +
+    &#39;&lt;/div&gt;&#39;;
+</code></pre><p><strong>Note</strong>: Since this plugin was created to solve a lot of the issues with BS2, it still uses the BS2 markup syntax. Currently I believe the default BS3 modal addresses some of the bigger issues and is not worth maintaining two versions of this plugin.</p>
+<h2 id="overview">Overview</h2>
+<ul>
+<li>Backwards compatible</li>
+<li>Responsive</li>
+<li>Stackable</li>
+<li>Full width</li>
+<li>Load content via AJAX</li>
+<li>Disable background scrolling</li>
+</ul>
+<h2 id="installation-">Installation </h2>
+<ul>
+<li>Include <code>css/bootstrap-modal.css</code> after the main bootstrap css files.</li>
+<li><p>Include <code>js/bootstrap-modalmanager.js</code> and <code>js/bootstrap-modal.js</code> after the main bootstrap js files.</p>
+<p>  <link href="css/bootstrap.css" rel="stylesheet" />
+  <link href="css/bootstrap-responsive.css" rel="stylesheet" /></p>
+   <link href="css/bootstrap-modal.css" rel="stylesheet" />
+
+   <script src="js/bootstrap.js"></script>
+   <script src="js/bootstrap-modalmanager.js"></script>
+   <script src="js/bootstrap-modal.js"></script>
+
+</li>
+</ul>
+<h2 id="options">Options</h2>
+<p>In addition to the standard bootstrap options, you now have access to the following options</p>
+<p><strong>Modal</strong></p>
+<ul>
+<li><p><strong>width</strong>
+Set the inital width of the modal.</p>
+</li>
+<li><p><strong>height</strong>
+Set the inital height of the modal.</p>
+</li>
+<li><p><strong>maxHeight</strong>
+Set the max-height of the modal-body.</p>
+</li>
+<li><p><strong>loading</strong>
+Toggle the loading state.</p>
+</li>
+<li><p><strong>spinner</strong>
+Provide a custom image or animation for the loading spinner.</p>
+</li>
+<li><p><strong>backdropTemplate</strong>
+Provide a custom modal backdrop.</p>
+</li>
+<li><p><strong>consumeTab</strong>
+Used to enable tabindexing for modals with <code>data-tabindex</code>. This is set to true by default.</p>
+</li>
+<li><p><strong>focusOn</strong>
+The element or selector to set the focus to once the modal is shown.</p>
+</li>
+<li><p><strong>replace</strong>
+If set to true, the modal will replace the topmost modal when opened.</p>
+</li>
+<li><p><strong>attentionAnimation</strong>
+Set the animation used by the <code>attention</code> method. Any animation in <a href="http://daneden.me/animate/">animate.css</a> is supported but only the <em>shake</em> animation is included by default.</p>
+</li>
+<li><p><strong>modalOverflow</strong>
+Set this property to true for modals with highly dynamic content. This will force the modal to behave as if it is larger than the viewport.</p>
+</li>
+<li><p><strong>manager</strong>
+Set the modal&#39;s manager. By default this is set to the <code>GlobalModalManager</code> and will most likely not need to be overridden.</p>
+</li>
+</ul>
+<p><strong>ModalManager</strong></p>
+<ul>
+<li><p><strong>loading</strong>
+Toggle the loading state.</p>
+</li>
+<li><p><strong>backdropLimit</strong>
+Limit the amount of backdrops that will appear on the page at the same time.</p>
+</li>
+<li><p><strong>spinner</strong>
+Provide a custom image or animation for the loading spinner.</p>
+</li>
+<li><p><strong>backdropTemplate</strong>
+Provide a custom modalmanager backdrop. This backdrop is used when <code>$element.modalmanager(&#39;loading&#39;)</code> is called.</p>
+</li>
+</ul>
+<h2 id="disable-background-scrolling">Disable Background Scrolling</h2>
+<p>If you want to prevent the background page from scrolling (see <a href="http://jschr.github.com/bootstrap-modal/">demo</a> for example) you must wrap the page contents in a <code>&lt;div class=&quot;page-container&quot;&gt;</code>. For example:</p>
+<pre><code>&lt;body&gt;
+    &lt;div class=&quot;page-container&quot;&gt;
+        &lt;div class=&quot;navbar navbar-fixed-top&quot;&gt;...&lt;/div&gt;
+        &lt;div class=&quot;container&quot;&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre><p>The reason for doing this instead of just simply setting <code>overflow: hidden</code> when a modal is open is to avoid having the page shift as a result of the scrollbar appearing/disappearing. This also allows the document to be scrollable when there is a tall modal but only to the height of the modal, not the entire page.</p>
+<h2 id="constrain-modal-to-window-size">Constrain Modal to Window Size</h2>
+<p>You can bind the the height of the modal body to the window with something like this:</p>
+<pre><code>$.fn.modal.defaults.maxHeight = function(){
+    // subtract the height of the modal header and footer
+    return $(window).height() - 165; 
+}
+</code></pre><p><strong>Note:</strong> This will be overwritten by the responsiveness and is only set when the modal is displayed, not when the window is resized.</p>
+<h2 id="tab-index-for-modal-forms">Tab Index for Modal Forms</h2>
+<p>You can use <code>data-tabindex</code> instead of the default <code>tabindex</code> to specify the tabindex within a modal.</p>
+<pre><code>&lt;input type=&quot;text&quot; data-tabindex=&quot;1&quot; /&gt;
+&lt;input type=&quot;text&quot; data-tabindex=&quot;2&quot; /&gt;
+</code></pre><p>See the stackable example on the <a href="http://jschr.github.com/bootstrap-modal/">demo</a> page for an example.</p>
+<p><a href="https://bitdeli.com/free" title="Bitdeli Badge"><img src="https://d2weczhvl823v0.cloudfront.net/jschr/bootstrap-modal/trend.png" alt="Bitdeli Badge"></a></p>

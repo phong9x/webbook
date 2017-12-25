@@ -1,0 +1,20 @@
+.hover-cursor-pointer:hover{
+	cursor: pointer;
+}
+
+.wb-check-square-2 input:checked+span {
+    color: white;
+}
+.b-attact-img {
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.b-attact-img-delete {
+	display: none
+}
+.edit .b-attact-img-delete {
+	display: block;
+}
+.edit-comment,.edit_tool{
+	display: none;
+}

@@ -1,0 +1,101 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Using API Sample Code</title>
+<script type="text/javascript" src="https://api.paygate.net/ajax/common/OpenPayAPI.js"></script> <!-- 1.Call API -->
+<script>
+function getPGIOresult() { <!-- 5. Call the "getPGIOresult ()" function when processing the API inside pages of an open API is complete -->
+var replycode = document.PGIOForm.elements['replycode'].value;
+var replyMsg = document.PGIOForm.elements['replyMsg'].value;
+displayStatus(getPGIOElement('ResultScreen')); //required item
+alert(replycode + replyMsg);
+if(replycode == "0000")
+{//0000 means success payment document.PGIOForm.action = 'http://test.com/success.html'; //success page document.PGIOForm.submit(); }
+else
+{ //fail payment }
+}
+</script>
+</head>
+<body>
+<div id="PGIOscreen"> <!-- 4.When call doTransaction(), pop up payment window at PGIOscreen-->
+<input type=button value="OpenPay API" onclick="javascript:doTransaction(document.PGIOForm);"> <!-- 3.start payment by calling doTransaction()-->
+</div> 
+<form name="PGIOForm" > <!-- 2.PGIOForm for data i/o --> 
+<input type=hidden name=mid value="paygateus"> //test mid
+<input type=hidden name=langcode value="US"> 
+<input type=hidden name=paymethod value="104"> 
+<input type=hidden name=unitprice value="1"> 
+<input type=hidden name=goodcurrency value="USD"> 
+<input type=hidden name=goodname value="good name"> 
+<input type=hidden name=receipttoname value="customer name"> 
+<input type=hidden name=receipttoemail value="dev@paygate.net"> 
+<input type=hidden name=receipttotel value=""> 
+<input type=hidden name=receipttosocialnumber value=""> 
+<input type=hidden name=socialnumber value=""> 
+<input type=hidden name=carrier value=""> 
+<input type=hidden name=cardauthcode value=""> 
+<input type=hidden name=cardtype value=""> 
+<input type=hidden name=cardnumber value=""> 
+<input type=hidden name=cardsecretnumber size=3 value=""> 
+<input type=hidden name=cardexpiremonth size=2 value=""> 
+<input type=hidden name=cardexpireyear size=4 value=""> 
+<input type=hidden name=cardownernumber size=13 value=""> 
+<input type=hidden name=bankcode value=""> 
+<input type=hidden name=bankexpyear value=""> 
+<input type=hidden name=bankexpmonth value=""> 
+<input type=hidden name=bankexpday value=""> 
+<input type=hidden name=bankaccount value=""> 
+<input type=hidden name=mb_serial_no value=""> 
+<input type=hidden name=profile_no value=""> 
+<input type=hidden name=hashresult value=""> 
+<input type=hidden name=tid value=""> 
+<input type=hidden name=replycode value=""> 
+<input type=hidden name=replyMsg value=""> 
+<input type=hidden name=riskscore value="">
+</form>
+</body>
+</html>
+POST Sample[edit]
+<html>
+<head>
+<title> POST결제 테스트 </title>
+</head>
+<body>
+<form name="PGIOForm" action="https://service.paygate.net/openAPI.jsp" method="POST">
+<input type=submit value="OpenPay POST">
+<input type=text name=mid value="paygatekr"> //국내카드결제용 테스트mid
+<input type=text name="charset" value="UTF-8">
+<input type=text name=langcode value="US">
+<input type=text name=paymethod value="card">
+<input type=text name=unitprice value="1">
+<input type=text name=goodcurrency value="USD">
+<input type=text name=goodname value="상품명">
+<input type=text name=receipttoname value="이름">
+<input type=text name=receipttoemail value="dev@paygate.net">
+<input type=text name=receipttotel value="">
+<input type=text name=receipttosocialnumber value="">
+<input type=text name=socialnumber value="">
+<input type=text name=carrier value="">
+<input type=text name=cardauthcode value="">
+<input type=text name=cardtype value="">
+<input type=text name=cardnumber value="">
+<input type=text name=cardsecretnumber size=3 value="">
+<input type=text name=cardexpiremonth size=2 value="">
+<input type=text name=cardexpireyear size=4 value="">
+<input type=text name=cardownernumber size=13 value="">
+<input type=text name=bankcode value="">
+<input type=text name=bankexpyear value="">
+<input type=text name=bankexpmonth value="">
+<input type=text name=bankexpday value="">
+<input type=text name=bankaccount value="">
+<input type=text name=mb_serial_no value="">
+<input type=text name=profile_no value="">
+<input type=text name=hashresult value="">
+<input type=text name=tid value="">
+<input type=text name=replycode value="">
+<input type=text name=replyMsg value="">
+<input type=text name=riskscore value="">
+<input type=text name=redirecturl value="">
+</form>
+</body>
+</html>

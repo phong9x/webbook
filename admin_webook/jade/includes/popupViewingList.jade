@@ -1,0 +1,21 @@
+#popupViewingList.modal.fade(tabindex='-1', aria-hidden='true', data-backdrop='static' data-keyboard='false')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-hidden='true')
+        h4.modal-title #[strong 감상 리스트]
+      .modal-body
+        .table-responsive
+          table.table.table-striped.table-bordered.table-hover
+            thead
+              tr
+                th 작품 명
+                th 회차명
+                th 감상일자
+            tbody
+              - for (var i = 0; i < 2; i++)
+                tr
+                  td 마케팅어벤저스
+                  td 12화 마케팅이다
+                  td 2015-06-06
+// .popupViewingList

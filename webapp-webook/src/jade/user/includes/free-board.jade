@@ -1,0 +1,68 @@
+.wbp-free-board
+  .wb-cat-tab: .container-mobile-full
+    .wb-cat-tab-wrapper.clearfix
+      .wb-cat-tab-item.active 자유게시판
+      .wb-cat-tab-item: a.mute(href="#") 감상평
+      .wb-cat-tab-item: a.mute(href="#") 강의/자료실
+      .wb-cat-tab-item: a.mute(href="#") FAQ
+
+  .wbp-free-board-title: .container
+    .wb-f22 #[span.wb-color-complementary 자유]게시판
+
+  .wbp-free-board-info-bar: .container
+    .wbp-free-board-info-bar-wrapper
+      .row
+        .col-md-2
+          .wb-f16: b 제목
+        .col-md-2
+          .wb-f16 기억될 리멤버
+        .col-md-2.col-md-offset-4
+          .wb-f14.text-right 작성자: 김둥글레
+        .col-md-2
+          .wb-f14.text-right 작성일: 2015-10-30
+
+  .wbp-free-board-detail.container
+    | 어듬에다크에서 죽음의 데스를 느끼며 서쪽에서 불어오는 바람의윈드를 맞았다. 그것은 운명의데스티니. #[br]
+    |그는 인생의 라이프를 끝내기 위해 디엔드. 모든것을 옭아매는 #[br]
+    |폭풍같은 스톰에서 벗아니기 위해 결국 자신 스스로를 죽음의데스로 몰아갔다. #[br]
+    |후에 전설의 레전드로서 기억에 메모리 – 기적에 미라클 길이길이 가슴 속의 하트에 기억될 리멤버
+
+
+  .wbp-free-board-action: .container
+    button.base-btn.wb-btn 수정
+    button.base-btn.wb-btn-bold 수정
+    button.base-btn.wb-btn 
+      img(src="/dist/assets/img/paper.png", alt="paper")
+      span 목록
+    button.base-btn.wb-btn 
+      img(src="/dist/assets/img/alarm.png", alt="alarm")
+      span 신고
+
+  .container: .wb-comment
+    .wb-comment-item: .row
+      .col-xs-8
+        div
+          span.wb-f16.wb-mr18 해피투게더
+          span.wb-color-gray 2015.10.13  07:56
+        .wb-f16.wb-mr18.wb-mt6.wb-color-gray
+          | 잘읽고갑니다~~~ 점점 재미있어지는데요 ^^
+      .col-xs-4.wb-comment-side
+          button.brb.wb-rbtn 신고
+    .wb-comment-item: .row
+      .col-xs-8
+        div
+          span.wb-f16.wb-mr18 해피투게더
+          span.wb-color-gray 2015.10.13  07:56
+        .wb-f16.wb-mr18.wb-mt6.wb-color-gray
+          | 잘읽고갑니다~~~ 점점 재미있어지는데요 ^^
+      .col-xs-4.wb-comment-side
+          button.brb.wb-rbtn 수정
+          button.brb.wb-rbtn-bold 삭제
+
+  .wb-write-comment: .container
+    .wb-f16 댓글쓰기
+    .wb-write-comment-wrapper: .row
+      .col-md-10.wb-write-comment-col
+        textarea.wb-area.wb-area-style1
+      .col-md-2.wb-write-comment-col
+        button.base-btn.wb-btn-big 댓글달기

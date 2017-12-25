@@ -1,0 +1,58 @@
+<ion-side-menus>
+    <!-- Center content -->
+    <ion-side-menu-content>
+
+        <ion-nav-view name="viewContent">
+
+        </ion-nav-view>
+    </ion-side-menu-content>
+
+    <!-- Right menu -->
+    <ion-side-menu 
+        side="right" 
+        class="side-menu"
+        width="{{0.8 * devWidth}}">
+
+
+        <ion-content class="wb-sidebar-content">
+            
+            <div class="wb-sidebar-action row nopad">
+                <div class="col wb-sidebar-action-item">
+                    <div class="f40 color-primary">회원가입</div>
+                </div>
+                <div class="col wb-sidebar-action-item">
+                    <div class="f40 color-primary">로그인</div>
+                </div>
+            </div>
+
+            <div class="list wb-sidebar-menu-list">
+
+                <a menu-close class="item item-icon-left" ui-sref-active="active" ui-sref="app.home">
+                    <div class="row wb-item-row">
+                        <div class="col col-75 padding-top color-primary">My Page</div>
+                        <div class="col text-right">
+                            <img src="images/icon-go.png" alt="icon">
+                        </div>
+                    </div>
+                </a>
+                <a menu-close class="item item-icon-left" ui-sref-active="active" ui-sref="app.settings">
+                    <div class="row wb-item-row">
+                        <div class="col col-75 padding-top color-primary">작품 올리기</div>
+                        <div class="col text-right">
+                            <img src="images/icon-go.png" alt="icon">
+                        </div>
+                    </div>
+                </a>
+                <a menu-close class="item item-icon-left" ui-sref-active="active" ui-sref="app.test">
+                    <div class="row wb-item-row">
+                        <div class="col col-75 padding-top color-primary">쿠폰충전</div>
+                        <div class="col text-right">
+                            <img src="images/icon-go.png" alt="icon">
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

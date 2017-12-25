@@ -1,0 +1,87 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title Home - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .home.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 홈
+        // .page-bar
+        
+        ="\n"
+        .home-main
+          .portlet.light.bordered
+            .portlet-title
+              .caption
+                span.caption-subject.bold.font-grey-gallery.uppercase 회원 
+            .portlet-body
+              p
+                | 전체 회원 수  452,354 / 신규 가입자 수 4,315
+                br
+                | 월 방문자 수 16,431,634 / 오늘 방문자 수 1,634
+
+              p
+                | 남자 회원 수 452,354 / 여자 회원 수 452,354
+                br
+                | 15세 미만 회원 수 14,567 (남: 12,345 / 여: 14,503)
+                br
+                | 15~19세 회원 수 14,567 (남: 12,345 / 여: 14,503)
+                br
+                | 20~24세 회원 수 14,567 (남: 12,345 / 여: 14,503)
+                br
+                | 25세 이상 회원 수 14,567 (남: 12,345 / 여: 14,503)
+                br
+                | 작품 등록자 수 435 / 신규 등록자 수 34
+                
+              p
+                | 전체 쿠폰 충전 수 1,334 / 최근 쿠폰 충전 수 413
+                br
+                | 쿠폰 충전 금액 합계 157,435,257 / 최근 쿠폰 충전 금액 13,462
+          
+          ="\n"
+          .portlet.light.bordered
+            .portlet-title
+              .caption
+                span.caption-subject.bold.font-grey-gallery.uppercase 회원 
+            .portlet-body
+              p
+                | 전체 작품 수 2,354 / 신규 작품 수 1,354
+                br
+                | 전체 연재 수 12,345 / 신규 연재 수 1,235,132
+                br
+                | 전체 조회 수 13,451,634
+          
+          ="\n"
+          .portlet.light.bordered
+            .portlet-title
+              .caption
+                span.caption-subject.bold.font-grey-gallery.uppercase 유료 구매 
+            .portlet-body
+              p
+                | 전체 유료 회차 수 1,543,789
+                br
+                | 전체 유료 회차 구매 수 1,543,789
+                br
+                | 최근 7일 유료 회차 구매 수 139,874
+        // .home-main
+      // .page-content
+    // .home
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade
+  

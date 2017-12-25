@@ -1,0 +1,252 @@
+<html lang="en" xmlns:jsp="http://java.sun.com/JSP/Page" 
+xmlns:c="http://java.sun.com/jsp/jstl/core" 
+xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:tiles="http://tiles.apache.org/tags-tiles" 
+xmlns:form="http://www.springframework.org/tags/form"  
+xmlns:spring="http://www.springframework.org/tags">
+<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" />
+<jsp:directive.page contentType="text/html;charset=UTF-8" />
+<jsp:directive.page pageEncoding="UTF-8" />
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <meta name="copyright" content="Copyright (c) 2015 ArtPhil"/>
+    <link rel="shortcut icon" href="/bootstrap-3.3.1/assets/ico/favicon.png"/>
+    <title>Webbook</title>
+    <spring:url value="/theme" var="theme" />
+     	<c:url value="/" var="root"><jsp:text/></c:url>
+     	<script>
+		var root_url = "${root}";
+    </script>
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="${theme}/assets/images/icon/favicon.ico" type="image/x-icon"/>
+
+    <!-- Vendor CSS (GLOBAL MANDATORY STYLES)-->
+    <link rel="stylesheet" type="text/css" href="${theme}/libs/metronic-admin/global/plugins/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="${theme}/libs/metronic-admin/global/plugins/simple-line-icons/simple-line-icons.min.css"/>
+    <link rel="stylesheet" type="text/css" href="${theme}/libs/metronic-admin/global/plugins/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="${theme}/libs/metronic-admin/global/plugins/uniform/css/uniform.default.css"/>
+    <link rel="stylesheet" type="text/css" href="${theme}/libs/metronic-admin/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+	
+    <!-- Vendor CSS (GLOBAL PAGE LEVEL STYLES)-->
+    <link rel="stylesheet" type="text/css" href="${theme}/libs/metronic-admin/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="${theme}/libs/metronic-admin/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
+
+    <!-- Vendor CSS (THEME STYLES)-->
+    <link rel="stylesheet" type="text/css" href="${theme}/libs/metronic-admin/global/css/components.css"/>
+    <link rel="stylesheet" type="text/css" href="${theme}/libs/metronic-admin/global/css/plugins.css"/>
+    <link rel="stylesheet" type="text/css" href="${theme}/libs/metronic-admin/admin/layout/css/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="${theme}/libs/metronic-admin/admin/layout/css/themes/darkblue.css"/>
+
+    <!-- Theme CSS-->
+    <link rel="stylesheet" href="${theme}/assets/css/admin.css"/>
+    <link href="${theme}/libs/trumbowyg-editor/dist/ui/trumbowyg.min.css" rel="stylesheet"/>
+        <script>
+      (function(w,d,s,g,js,fs){
+        g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+        js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+        js.src='https://apis.google.com/js/platform.js';
+        fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+      }(window,document,'script'));
+    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"><jsp:text/></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"><jsp:text/></script>
+<script src="${theme}/libs/embed-api/components/ga-api-utils.js"><jsp:text/></script>
+<script src="${theme}/libs/embed-api/components/view-selector2.js"><jsp:text/></script>
+<script src="${theme}/libs/embed-api/components/date-range-selector.js"><jsp:text/></script>
+<script src="${theme}/libs/embed-api/components/active-users.js"><jsp:text/></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
+    <!--if lt IE 9
+    script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+    script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+    -->
+  </head>
+  
+
+  <body class="page-header-fixed page-quick-sidebar-over-content">
+<div class="page-header navbar navbar-fixed-top">
+      <div class="page-header-inner">
+        <!-- BEGIN LOGO-->
+        <div class="page-logo"><a href="${root}admin"><img src="${root}images/logo/logo_2.png" alt="logo" class="logo-default"/><jsp:text/></a><jsp:text/></div>
+        <!-- .page-logo-->
+	<a href="javascript:;" data-toggle="collapse" data-target=".navbar-collapse" class="menu-toggler responsive-toggler"><jsp:text/></a>
+        <!-- .responsive-toggler-->
+        <div class="top-menu">
+          <ul class="nav navbar-nav pull-right">
+            <li class="dropdown dropdown-user"><a href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" class="dropdown-toggle"><span class="username username-hide-on-mobile">명의</span><i class="fa fa-angle-down"><jsp:text/></i><jsp:text/></a>
+              <ul class="dropdown-menu dropdown-menu-default">
+                <li><a href="${root}admin/login"><i class="icon-key"><jsp:text/></i> 로그아웃</a><jsp:text/></li>
+              </ul>
+            </li>
+            <!-- .dropdown-user-->
+          </ul>
+        </div>
+        <!-- .top-menu-->
+      </div>
+    </div>
+    <!-- .page-header-->
+<div class="clearfix"><jsp:text/></div>
+    <div class="page-container">
+    <div class="page-sidebar-wrapper">
+        <div class="page-sidebar navbar-collapse collapse">
+          <ul data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" class="page-sidebar-menu">
+          <c:if test="${activePage=='home'}">
+          	<li class="active"><a href="${root}admin"><i class="icon-home"><jsp:text/></i><span class="title">홈</span><jsp:text/></a><jsp:text/></li>
+          </c:if>
+          <c:if test="${activePage!='home'}">
+          	<li><a href="${root}admin"><i class="icon-home"><jsp:text/></i><span class="title">홈</span><jsp:text/></a><jsp:text/></li>
+          </c:if>
+          <c:if test="${activePage=='book'}">
+          	 <li class="active"><a href="javascript:;"><span class="title">작품 관리</span><span class="arrow"><jsp:text/></span><jsp:text/></a>
+              <ul class="sub-menu">
+                <li><a href="${root}admin/book/list"> 작품</a><jsp:text/></li>
+                <li><a href="${root}admin/book/report"> 신고접수</a><jsp:text/></li>
+              </ul>
+            </li>
+          </c:if>
+          <c:if test="${activePage!='book'}">
+          	 <li class=""><a href="javascript:;"><span class="title">작품 관리</span><span class="arrow"><jsp:text/></span><jsp:text/></a>
+              <ul class="sub-menu">
+                <li><a href="${root}admin/book/list"> 작품</a><jsp:text/></li>
+                <li><a href="${root}admin/book/report"> 신고접수</a><jsp:text/></li>
+              </ul>
+            </li>
+          </c:if>
+          <c:if test="${activePage=='post'}">
+          	<li class="active"><a href="javascript:;"><span class="title">커뮤니티 관리</span><span class="arrow"><jsp:text/></span><jsp:text/></a>
+              <ul class="sub-menu">
+                <li><a href="${root}admin/post/list"> 게시물</a><jsp:text/></li>
+                <li><a href="${root}admin/post/report"> 신고접수</a><jsp:text/></li>
+              </ul>
+            </li>
+          </c:if>  
+          <c:if test="${activePage!='post'}">
+          	<li><a href="javascript:;"><span class="title">커뮤니티 관리</span><span class="arrow"><jsp:text/></span><jsp:text/></a>
+              <ul class="sub-menu">
+                <li><a href="${root}admin/post/list"> 게시물</a><jsp:text/></li>
+                <li><a href="${root}admin/post/report"> 신고접수</a><jsp:text/></li>
+              </ul>
+            </li>
+          </c:if>  
+           <c:if test="${activePage=='user'}">
+           	 <li class="active"><a href="${root}admin/user/list"><span class="title">회원 관리</span><jsp:text/></a><jsp:text/></li>
+           </c:if>
+           <c:if test="${activePage!='user'}">
+           	 <li><a href="${root}admin/user/list"><span class="title">회원 관리</span><jsp:text/></a><jsp:text/></li>
+           </c:if>
+		   <c:if test="${activePage=='banner'}">
+		   	 <li class="active"><a href="${root}admin/banner"><span class="title">배너 관리</span><jsp:text/></a><jsp:text/></li>
+		   </c:if>
+		    <c:if test="${activePage!='banner'}">
+		   	 <li><a href="${root}admin/banner"><span class="title">배너 관리</span><jsp:text/></a><jsp:text/></li>
+		   </c:if>
+           <c:if test="${activePage=='coupon'}">
+		   	 <li class="active"><a href="javascript:;"><span class="title">쿠폰 관리</span><span class="arrow"><jsp:text/></span><jsp:text/></a>
+              <ul class="sub-menu">
+                <li><a href="${root}admin/coupon"> 쿠폰 관리</a><jsp:text/></li>
+                <li><a href="${root}admin/coupon_use"> 충전내역</a><jsp:text/></li>
+              </ul>
+            </li>
+		   </c:if>
+		   <c:if test="${activePage!='coupon'}">
+		   	 <li><a href="javascript:;"><span class="title">쿠폰 관리</span><span class="arrow"><jsp:text/></span><jsp:text/></a>
+              <ul class="sub-menu">
+                <li><a href="${root}admin/coupon"> 쿠폰 관리</a><jsp:text/></li>
+                <li><a href="${root}admin/coupon_use"> 충전내역</a><jsp:text/></li>
+              </ul>
+            </li>
+		   </c:if>
+		   
+		   <c:if test="${activePage=='sales'}">
+		   	<li class="active"><a href="javascript:;"><span class="title">정산 관리</span><span class="arrow"><jsp:text/></span><jsp:text/></a>
+              <ul class="sub-menu">
+                <li><a href="${root}admin/sales/list"> 판매현황</a><jsp:text/></li>
+                <li><a href="${root}admin/sales/profitRefund"> 환급내역</a><jsp:text/></li>
+              </ul>
+            </li>
+		   </c:if>
+           <c:if test="${activePage !='sales'}">
+		   	<li><a href="javascript:;"><span class="title">정산 관리</span><span class="arrow"><jsp:text/></span><jsp:text/></a>
+              <ul class="sub-menu">
+                <li><a href="${root}admin/sales/list"> 판매현황</a><jsp:text/></li>
+                <li><a href="${root}admin/sales/profitRefund"> 환급내역</a><jsp:text/></li>
+              </ul>
+            </li>
+		   </c:if> 
+		   <c:if test="${activePage =='keyword'}">
+		   		<li class="active"><a href="${root}admin/keyword"><span class="title">키워드 관리</span><jsp:text/></a><jsp:text/></li>
+		   </c:if>
+		   <c:if test="${activePage !='keyword'}">
+		   		<li><a href="${root}admin/keyword"><span class="title">키워드 관리</span></a></li>
+		   </c:if>
+		   
+		   <c:if test="${activePage =='contact'}">
+		   		<li class="active"><a href="${root}admin/contactUs/list"><span class="title">1:1문의</span><jsp:text/></a><jsp:text/></li>
+		   </c:if>
+		   <c:if test="${activePage !='contact'}">
+		   		<li><a href="${root}admin/contactUs/list"><span class="title">1:1문의</span></a></li>
+		   </c:if>
+		   
+            <li><a href="${root}admin/logout"><span class="title">로그아웃</span></a></li>
+
+            
+          </ul>
+        </div>
+      </div>
+      <!-- .page-sidebar-wrapper-->
+       <tiles:insertAttribute name="body" />
+    </div>
+    <!--.page-container-->
+    
+    
+    
+  
+    
+ <div class="page-footer">
+      <div class="page-footer-inner"><a href="http://webbook.co.kr/" title="http://webbook.co.kr/" target="_blank">WebBook.co.kr</a><jsp:text/></div>
+      <div class="scroll-to-top"><i class="icon-arrow-up"><jsp:text/></i><jsp:text/></div>
+    </div>
+    <!-- Vendor jQuery (CORE PLUGINS - METRONIC)-->
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/global/plugins/jquery.min.js"><jsp:text/></script>
+    <script src="${theme}/libs/jquery/jquery-2.1.4.min.js"><jsp:text /></script>
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/global/plugins/jquery-migrate.min.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/global/plugins/jquery-ui/jquery-ui.min.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/global/plugins/bootstrap/js/bootstrap.min.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/global/plugins/jquery.blockui.min.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/global/plugins/jquery.cokie.min.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/global/plugins/uniform/jquery.uniform.min.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"><jsp:text/></script>
+
+    <!-- Vendor jQuery (PAGE LEVEL PLUGINS - METRONIC)-->
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/global/plugins/jquery-validation/js/jquery.validate.min.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/global/plugins/jquery-validation/js/additional-methods.min.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/global/plugins/select2/select2.min.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"><jsp:text/></script>
+
+    <!-- Vendor jQuery (PAGE LEVEL STYLES - METRONIC)-->
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/global/scripts/metronic.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/admin/layout/scripts/layout.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/admin/layout/scripts/quick-sidebar.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/libs/metronic-admin/admin/layout/scripts/demo.js"><jsp:text/></script>'
+     
+    <script src="http://code.highcharts.com/stock/highstock.js"><jsp:text/></script>
+	<script src="${theme}/assets/js/trams-frontend/js/utils.js"><jsp:text /></script>
+
+	<script src="${theme}/libs/trumbowyg-editor/dist/trumbowyg.min.js"><jsp:text /></script>
+    <script src="${theme}/libs/trumbowyg-editor/dist/plugins/upload/trumbowyg.upload.min.js"><jsp:text /></script>
+    <script src="${theme}/libs/trumbowyg-editor/dist/plugins/base64/trumbowyg.base64.min.js"><jsp:text /></script>
+    <script src="${theme}/libs/trumbowyg-editor/dist/langs/ko.min.js"><jsp:text /></script>
+     <script src="${root}theme/assets/js/custom.js"><jsp:text /></script>
+    <!-- Theme Script-->
+    <script type="text/javascript" src="${theme}/assets/js/admin.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/assets/js/graph.js"><jsp:text/></script>
+    <script type="text/javascript" src="${theme}/assets/js/admin_api.js"><jsp:text/></script>
+    
+  </body>
+</html>

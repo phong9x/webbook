@@ -1,0 +1,49 @@
+<h1 id="bootstrap-selectsplitter">bootstrap-selectsplitter</h1>
+<h2 id="presentation">Presentation</h2>
+<p>Transforms SELECT containing one or more OPTGROUP in two chained SELECT.</p>
+<p>This:</p>
+<p><img src="http://img4.hostingpics.net/pics/927121bootstrapselectsplitterimage1.png" alt="image1"></p>
+<p>Becomes this:</p>
+<p><img src="http://img4.hostingpics.net/pics/997752bootstrapselectsplitterimage2.png" alt="image2"></p>
+<h2 id="demo">Demo</h2>
+<p>See the <a href="http://jsfiddle.net/ae7fxdyy/">online demo</a>.</p>
+<h2 id="how-to-use">How to use</h2>
+<p>Create a SELECT tag containing one or more OPTGROUP:</p>
+<pre><code class="lang-HTML">&lt;select data-selectsplitter-selector&gt;
+  &lt;optgroup label=&quot;Category 1&quot;&gt;
+    &lt;option value=&quot;1&quot;&gt;Choice 1&lt;/option&gt;
+    &lt;option value=&quot;2&quot;&gt;Choice 2&lt;/option&gt;
+    &lt;option value=&quot;3&quot;&gt;Choice 3&lt;/option&gt;
+    &lt;option value=&quot;4&quot;&gt;Choice 4&lt;/option&gt;
+  &lt;/optgroup&gt;
+  &lt;optgroup label=&quot;Category 2&quot;&gt;
+    &lt;option value=&quot;5&quot;&gt;Choice 5&lt;/option&gt;
+    &lt;option value=&quot;6&quot;&gt;Choice 6&lt;/option&gt;
+    &lt;option value=&quot;7&quot;&gt;Choice 7&lt;/option&gt;
+    &lt;option value=&quot;8&quot;&gt;Choice 8&lt;/option&gt;
+  &lt;/optgroup&gt;
+  &lt;optgroup label=&quot;Category 3&quot;&gt;
+    &lt;option value=&quot;5&quot;&gt;Choice 9&lt;/option&gt;
+    &lt;option value=&quot;6&quot;&gt;Choice 10&lt;/option&gt;
+    &lt;option value=&quot;7&quot;&gt;Choice 11&lt;/option&gt;
+    &lt;option value=&quot;8&quot;&gt;Choice 12&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;/select&gt;
+</code></pre>
+<p>Add the dependency files (jQuery and Bootstrap 3 CSS):</p>
+<pre><code class="lang-HTML">&lt;link rel=&quot;stylesheet&quot; href=&quot;//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css&quot;&gt;
+&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script src=&quot;bootstrap-selectsplitter.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Call the plugin:</p>
+<pre><code class="lang-JavaScript">$(&#39;select[data-selectsplitter-selector]&#39;).selectsplitter();
+</code></pre>
+<h2 id="bower">Bower</h2>
+<p>bower install bootstrap-selectsplitter</p>
+<h2 id="cdn">CDN</h2>
+<pre><code class="lang-HTML">&lt;script src=&quot;//cdn.jsdelivr.net/bootstrap.selectsplitter/0.1.0/bootstrap-selectsplitter.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h2 id="copyright-and-license">Copyright and license</h2>
+<p>Copyright (C) 2015 Xavier Faucon</p>
+<p>Licensed under the MIT license. </p>

@@ -1,0 +1,143 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title refund-application - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .refund-application.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 환급 신청서 상세정보
+        // .page-bar
+        
+        ="\n"
+        .refund-application-main.wb-pb-50
+          form.form-refund-application-1.form-horizontal.portlet.light.bordered(action='#')
+            .form-body
+              .form-title.wb-container-style-1.text-center
+                h3
+                  strong 환급 신청서
+
+                ="\n"
+                .wb-gap(style="border-bottom: 1px solid #e1e1e1; padding-bottom: 15px; margin-bottom: 30px;")
+              
+              ="\n"
+              .form-main.wb-container-style-1
+                .form-group
+                  label.control-label.col-md-3 환급신청 금액
+                  .col-md-7
+                    input.form-control.input-inline.input-medium(name='', type='text')
+                    span.help-inline / 300,100 원 )
+
+                ="\n"
+                .wb-gap(style="border-bottom: 1px solid #e1e1e1; padding-bottom: 15px; margin-bottom: 30px;")
+
+                ="\n"
+                .form-group
+                  label.control-label.col-md-3 본명
+                  .col-md-7
+                    input.form-control.input-medium(name='', type='text')
+
+                ="\n"
+                .form-group
+                  label.control-label.col-md-3 주민번호
+                  .col-md-7
+                    input.form-control.input-medium(name='', type='text')
+                 
+                ="\n"
+                .form-group
+                  label.control-label.col-md-3 휴대폰
+                  .col-md-7
+                    input.form-control.input-medium(name='', type='text')
+                 
+                ="\n"
+                .form-group
+                  label.control-label.col-md-3 이메일
+                  .col-md-7
+                    input.form-control.input-medium(name='', type='text')
+                 
+                ="\n"
+                .form-group
+                  label.control-label.col-md-3 주소
+                  .col-md-7
+                    input.form-control(name='', type='text')
+
+                ="\n"
+                .wb-gap(style="border-bottom: 1px solid #e1e1e1; padding-bottom: 15px; margin-bottom: 30px;")
+                 
+                ="\n"
+                .form-group
+                  label.control-label.col-md-3 예금주명
+                  .col-md-7
+                    input.form-control(name='', type='text')
+                                  
+                ="\n"
+                .form-group
+                  label.control-label.col-md-3 예금주와의 관계
+                  .col-md-7
+                    select.form-control.input-medium(name='')
+                      option(value='0') 본인
+                      option(value='1') 대리인
+                                  
+                ="\n"
+                .form-group
+                  label.control-label.col-md-3 계좌번호
+                  .col-md-7
+                    select.form-control.input-inline.input-medium(name='')
+                      option(value='0') 우리은행
+                      option(value='1') 국민은행
+                      option(value='2') SC제일은행
+                      option(value='3') 하나은행
+                      option(value='4') 대구은행
+                      option(value='5') 부산은행
+                      option(value='6') 기업은행
+                      option(value='7') 한국시티은행
+                      option(value='8') 경남은행
+                      option(value='9') 외환은행
+                      option(value='10') 신한은행
+                      option(value='11') 광주은행
+                      option(value='12') 새마을금고
+                      option(value='13') 농협
+                      option(value='14') 우체국
+                      option(value='15') 산업은행
+                      option(value='16') 수협
+                      option(value='17') 신협
+                      option(value='18') 전북은행
+                      option(value='19') 제주은행
+                    input.form-control.input-inline.input-medium(name='', type='text')
+              // .form-main
+
+              ="\n"
+              .wb-gap(style="border-bottom: 1px solid #e1e1e1; padding-bottom: 15px; margin-bottom: 15px;")
+
+              ="\n"
+              .form-action.text-center
+                .wb-container-style-1
+                  a.btn.green(href="profit-refund.html") 정산 처리
+                  a.btn-open-popup.btn.red(href="#", data-toggle='modal', data-target="#popupConfirmDelete") 삭제
+                  a.btn.default(href="profit-refund.html") 취소
+              //.form-action
+          // .form-refund-application-1
+
+        // .refund-application-main
+      // .page-content
+    // .refund-application
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade
+
+  ="\n"
+  include ../includes/popupConfirmDelete.jade

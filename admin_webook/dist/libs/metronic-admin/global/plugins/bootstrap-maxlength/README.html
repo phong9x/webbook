@@ -1,0 +1,120 @@
+<h1 id="-bootstrap-maxlength-http-mimo84-github-com-bootstrap-maxlength-build-status-https-travis-ci-org-mimo84-bootstrap-maxlength-png-branch-master-https-travis-ci-org-mimo84-bootstrap-maxlength-total-views-https-sourcegraph-com-api-repos-github-com-mimo84-bootstrap-maxlength-counters-views-png-https-sourcegraph-com-github-com-mimo84-bootstrap-maxlength-"><a href="http://mimo84.github.com/bootstrap-maxlength/">Bootstrap MaxLength</a> <a href="https://travis-ci.org/mimo84/bootstrap-maxlength"><img src="https://travis-ci.org/mimo84/bootstrap-maxlength.png?branch=master" alt="Build Status"></a> <a href="https://sourcegraph.com/github.com/mimo84/bootstrap-maxlength"><img src="https://sourcegraph.com/api/repos/github.com/mimo84/bootstrap-maxlength/counters/views.png" alt="Total views"></a></h1>
+<p>This plugin integrates by default with Twitter bootstrap using badges to display the maximum length of the field where the user is inserting text.
+This plugin uses the HTML5 attribute &quot;maxlength&quot; to work.</p>
+<p>The indicator badge show up on focusing on the element, and disappear when the focus is lost.</p>
+<h2 id="configurable-options">Configurable options</h2>
+<ul>
+<li><strong>alwaysShow</strong>: if true the threshold will be ignored and the remaining length indication will be always showing up while typing or on focus on the input. Default: false.</li>
+<li><strong>threshold</strong>: this is a number indicating how many chars are left to start displaying the indications. Default: 10.</li>
+<li><strong>warningClass</strong>: it&#39;s the class of the element with the indicator. By default is the bootstrap &quot;label label-success&quot; but can be changed to anything you&#39;d like.</li>
+<li><strong>limitReachedClass</strong>: it&#39;s the class the element gets when the limit is reached. Default is &quot;label label-important label-danger&quot; (to support Bootstrap 2 and 3).</li>
+<li><strong>separator</strong>: represents the separator between the number of typed chars and total number of available chars. Default is &quot;/&quot;.</li>
+<li><strong>preText</strong>: is a string of text that can be outputted in front of the indicator. preText is empty by default.</li>
+<li><strong>postText</strong>: is a string outputted after the indicator. postText is empty by default.</li>
+<li><strong>showMaxLength</strong>: if false, will display just the number of typed characters, e.g. will not display the max length. Default: true.</li>
+<li><strong>showCharsTyped</strong>: if false, will display just the remaining length, e.g. will display remaining lenght instead of number of typed characters. Default: true.</li>
+<li><strong>placement</strong>: is a string, define where to output the counter. Possible values are: <strong>bottom</strong> ( <em>default option</em> ), <strong>left</strong>, <strong>top</strong>, <strong>right</strong>, <strong>bottom-right</strong>, <strong>top-right</strong>, <strong>top-left</strong>, <strong>bottom-left</strong> and <strong>centered-right</strong>.</li>
+<li><strong>message</strong>: an alternative way to provide the message text, i.e. &#39;You have typed %charsTyped% chars, %charsRemaining% of %charsTotal% remaining&#39;. %charsTyped%, %charsRemaining% and %charsTotal% will be replaced by the actual values. This overrides the options separator, preText, postText and showMaxLength.</li>
+<li><strong>utf8</strong>: if true the input will count using utf8 bytesize/encoding.  For example: the &#39;£&#39; character is counted as two characters.</li>
+<li><strong>twoCharLinebreak</strong>: count linebreak as 2 characters to match IE/Chrome textarea validation.</li>
+<li><strong>customMaxAttribute</strong>: allows a custom maxlength attribute to allow exceeding maxlength.  &#39;overmax&#39; class gets added when exceeded to allow user to implement form validation.</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<p>Basic implementation:</p>
+<pre><code>$(&#39;input[maxlength]&#39;).maxlength();
+</code></pre><p>Change the threshold value:</p>
+<pre><code>$(&#39;input.className&#39;).maxlength({
+    threshold: 20
+});
+</code></pre><p>An example with some of the configurable options:</p>
+<pre><code>$(&#39;input.className&#39;).maxlength({
+    alwaysShow: true,
+    threshold: 10,
+    warningClass: &quot;label label-info&quot;,
+    limitReachedClass: &quot;label label-warning&quot;,
+    placement: &#39;top&#39;,
+    preText: &#39;used &#39;,
+    separator: &#39; of &#39;,
+    postText: &#39; chars.&#39;
+});
+</code></pre><p>The same example using the message option:</p>
+<pre><code>$(&#39;input.className&#39;).maxlength({
+    alwaysShow: true,
+    threshold: 10,
+    warningClass: &quot;label label-info&quot;,
+    limitReachedClass: &quot;label label-warning&quot;,
+    placement: &#39;top&#39;,
+    message: &#39;used %charsTyped% of %charsTotal% chars.&#39;
+});
+</code></pre><p>An example allowing user to enter over max characters.
+    Sample HTML element:</p>
+<pre><code class="lang-html">        &lt;textarea class=&quot;form-control&quot; id=&quot;xyz&quot; name=&quot;xyz&quot; maxlength=&quot;10&quot;&gt;&lt;/textarea&gt;
+</code></pre>
+<pre><code>// Setup maxlength
+$(&#39;.form-control&#39;).maxlength({
+    alwaysShow: true,
+    validate: false,
+    allowOverMax: true
+});
+
+// validate form before submit
+$(&#39;form&#39;).on(&#39;submit&#39;, function (e) {
+    $(&#39;.form-control&#39;).each(
+        function () {
+            if ($(this).hasClass(&#39;overmax&#39;)) {
+                alert(&#39;prevent submit here&#39;);
+                e.preventDefault();
+                return false;
+            }
+        }
+    );
+});
+</code></pre><h2 id="changelog">Changelog</h2>
+<h3 id="1-5-7">1.5.7</h3>
+<ul>
+<li>Fixed issue with bower</li>
+</ul>
+<h3 id="1-5-6">1.5.6</h3>
+<ul>
+<li>Added over maxlength functionality with customMaxAttribute</li>
+<li>Added twoCharLinebreak option</li>
+</ul>
+<h3 id="1-5-5">1.5.5</h3>
+<ul>
+<li>Implemented input event rather than keydown to improve usability</li>
+<li>Fixed jshint, jscs errors</li>
+</ul>
+<h3 id="1-5-4">1.5.4</h3>
+<ul>
+<li>When an input with associated maxlength element is removed, maxlength is also removed.</li>
+</ul>
+<h3 id="1-5-3">1.5.3</h3>
+<ul>
+<li>Fixed #40, error on resize event.</li>
+</ul>
+<h3 id="1-5-2">1.5.2</h3>
+<ul>
+<li>Fixed #44 (pasted text in can cause it to go over the max length)</li>
+</ul>
+<h3 id="1-5-1">1.5.1</h3>
+<ul>
+<li>Added self protection of multiple focus events</li>
+<li>Added back detection of window resizing</li>
+</ul>
+<h3 id="1-5-0">1.5.0</h3>
+<ul>
+<li>Removed window.resize event</li>
+<li>Maxlength is created and destroyed each time</li>
+<li>Fixed Doesn&#39;t update the limit after input&#39;s maxlength attribute was changed <a href="https://github.com/mimo84/bootstrap-maxlength/issues/31">#31</a></li>
+<li>Added Gruntfile</li>
+<li>Added qunit unit tests</li>
+</ul>
+<h3 id="1-4-2">1.4.2</h3>
+<ul>
+<li>Fixed issue with counting when the user moves with shift+tab keyboard shortcut.</li>
+<li>Replaced the warningClass limitReachedClass options to use labels rather than badges for Bootstrap 3.0 better compatibility.</li>
+</ul>
+<h3 id="1-4-1">1.4.1</h3>
+<ul>
+<li>Added support for TAB key when the maxlength is reached.</li>
+</ul>

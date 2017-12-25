@@ -1,0 +1,122 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title payment-detail - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .payment-detail.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 결제 상세정보
+        // .page-bar
+        
+        ="\n"
+        .payment-detail-main.wb-pb-50
+          .payment-detail-sub-title
+            .wb-container-style-1
+              h4 #[strong 결제 상세정보]
+          // .payment-detail-sub-title
+
+          .block-1
+            .wb-container-style-1
+              .portlet.light.bordered
+                .portlet-body
+                  .block-1-form.form-horizontal(action='#')
+                    .form-body
+                      .wb-container-style-1
+                        ="\n"
+                        .form-group
+                          .col-md-3.control-label #[strong 아이디: ]
+                          .col-md-9
+                            .form-control-static aaaaa
+
+                        ="\n"
+                        .form-group
+                          .col-md-3.control-label #[strong 성명: ]
+                          .col-md-9
+                            .form-control-static bbbbb
+
+                        ="\n"
+                        .form-group
+                          .col-md-3.control-label #[strong 결제일시: ]
+                          .col-md-9
+                            .form-control-static 2015.08.13 16:00
+
+                        ="\n"
+                        .form-group
+                          .col-md-3.control-label #[strong 결제금액: ]
+                          .col-md-9
+                            .form-control-static 50,000 원
+
+                        ="\n"
+                        .form-group
+                          .col-md-3.control-label #[strong 결제수단: ]
+                          .col-md-9
+                            .form-control-static 신용카드
+                  // .block-1-form
+          // .block-1
+
+          ="\n"
+          .wb-gap(style="padding-bottom: 30px;")
+
+          .block-2
+            .wb-container-style-1
+              .portlet.light.bordered
+                .portlet-title
+                  .caption
+                    span.caption-subject.bold.font-grey-gallery.uppercase 결제 취소
+
+                .portlet-body
+                  form.block-2-form.form-horizontal(action='#')
+                    .form-body
+                      .wb-container-style-1
+                        ="\n"
+                        .form-group
+                          .col-md-3.control-label #[strong 취소사유: ]
+                          .col-md-9
+                            .row
+                              .col-md-7
+                                input.form-control(type="text")
+
+                        ="\n"
+                        .form-group
+                          .col-md-3.control-label #[strong 취소코드: ]
+                          .col-md-9
+                            .row
+                              .col-md-5
+                                select.form-control(name='test687')
+                                  option(value='0') 거래취소
+                                  option(value='1') 오류
+                                  option(value='2') 기타사항
+                              .col-md-7
+                                button.btn.green(type='submit') 결제취소
+                  // .block-2-form
+          // .block-2
+
+          ="\n"
+          .wb-gap(style='border-bottom: 1px solid #e1e1e1; padding: 0 0 15px 0; margin: 0 0 30px 0;')
+
+          ="\n"
+          .back-button.text-center
+            .wb-container-style-1
+              a.btn.default(href="coupon-management.html") 목록
+          // .back-button
+        // .payment-detail-main
+      // .page-content
+    // .payment-detail
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade

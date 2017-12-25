@@ -1,0 +1,22 @@
+/* --------------------------------------------------------------------- */
+/* Common Styling
+/* --------------------------------------------------------------------- */
+/*FONT*/
+@font-face {
+  font-family: 'NanumBarunGothic';
+  src: url("../fonts/nanum/NanumBarunGothic.eot");
+  src: url("../fonts/nanum/NanumBarunGothic.woff") format("woff"), url("../fonts/nanum/NanumBarunGothic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'NanumGothic';
+  src: url("../fonts/nanum/NanumGothic.eot");
+  src: url("../fonts/nanum/NanumGothic.woff") format("woff"), url("../fonts/nanum/NanumGothic.ttf") format("truetype");
+}
+
+body {
+  font-family: 'NanumGothic';
+  color: red;
+}
+
+/*# sourceMappingURL=common.css.map */

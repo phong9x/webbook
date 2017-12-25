@@ -1,0 +1,999 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title Common Element - WebBook
+
+append body
+  +body(class="")
+
+append css
+  style.
+    body {
+      background: #E8E8E8;
+    }
+    #example-wrapper {
+      padding-top: 40px;
+      margin: auto;
+    }
+    #example-wrapper .well {
+      background: #fff;
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    #example-wrapper .well:before,
+    #example-wrapper .well:after {
+      content: " ";
+      clear: both;
+      display: table;
+    }
+    #example-wrapper .t1 {
+      font-size: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-top: 80px;
+      margin-bottom: 10px;
+    }
+    #example-wrapper .t2 {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    #example-wrapper .wb-inputbox-wrapper {
+      max-width: 300px;
+    }
+    #example-wrapper .bg1 {
+      background-color: #ff7831 !important;
+    }
+    #example-wrapper .bg2 {
+      background-color: #f5f5f5 !important;
+    }
+
+append body-contents
+  #example-wrapper
+    .container
+      .t1 Typo
+      
+      .t2 .wb-f{x}
+      .well
+        - for(var i=1; i<=25; i++) {
+          div(class="wb-f#{i}") I'm .wb-f#{i} (#{12 + 2 * (i-1)}px)
+        - }
+
+    //----------------------------------------------------------------------
+
+    .container
+      .t1 TEXT OVERFLOW ELLIPSIS
+      
+      .t2 .wb-overflow-ellipsis
+      .well
+        .div(style='width: 300px;')
+          .wb-overflow-ellipsis 두 번 누르기 간격은 두 번 누를 때 " 두 번 누른 것으로 " 인식하기 위한 최대 클릭 간 간격입니다. 만약 두 번째 클릭이 첫 번째 클릭 후 이 시간 안에 발생한다면, 이것은 두 번 누른 것으로 인식됩니다
+
+    //----------------------------------------------------------------------
+
+    .container
+      .t1 FORM
+
+      .portlet.light.bordered
+        .portlet-body.form
+          // BEGIN FORM
+          form.form_sample_3.form-horizontal(action='#')
+            .form-body
+              .alert.alert-danger.display-hide
+                button.close(data-close='alert')
+                |                     You have some form errors. Please check below.
+              .alert.alert-success.display-hide
+                button.close(data-close='alert')
+                |                     Your form validation is successful!
+
+              .form-group
+                label.control-label.col-md-3
+                  | Name 
+                  span.required *
+                .col-md-4
+                  input.form-control(type='text', name='nameABC', data-required='1')
+              .form-group
+                label.col-md-3.control-label
+                  | Email Address 
+                  span.required *
+                .col-md-4
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-envelope
+                    input.form-control(type='email', name='email', placeholder='Email Address')
+              .form-group
+                label.control-label.col-md-3 Occupation  
+                .col-md-4
+                  input.form-control(name='occupation', type='text')
+              .form-group
+                label.control-label.col-md-3
+                  | Select2 Dropdown 
+                  span.required *
+                .col-md-4
+                  select.form-control.select2me(name='options2')
+                    option(value='') Select...
+                    option(value='Option 1') Option 1
+                    option(value='Option 2') Option 2
+                    option(value='Option 3') Option 3
+                    option(value='Option 4') Option 4
+              .form-group
+                label.control-label.col-md-3
+                  | Select2 Tags 
+                  span.required *
+                .col-md-4
+                  input#select2_tags.form-control(type='hidden', value='', name='select2tags')
+                  span.help-block
+                    | select tags
+              .form-group
+                label.control-label.col-md-3 Datepicker
+                .col-md-4
+                  input.form-control.date-picker(type='text', data-date-format='yyyy-mm-dd', name='datepicker')
+                  span.help-block
+                    | select a date
+              .form-group
+                label.control-label.col-md-3
+                  | Membership 
+                  span.required *
+                .col-md-4
+                  .radio-list(data-error-container='#form_2_membership_error')
+                    label
+                      input(type='radio', name='membership', value='1')
+                      |                         Fee
+                    label
+                      input(type='radio', name='membership', value='2')
+                      |                         Professional
+                  #form_2_membership_error
+              .form-group
+                label.control-label.col-md-3
+                  | Services 
+                  span.required *
+                .col-md-4
+                  .checkbox-list(data-error-container='#form_2_services_error')
+                    label
+                      input(type='checkbox', value='1', name='service')
+                      |  Service 1
+                    label
+                      input(type='checkbox', value='2', name='service')
+                      |  Service 2
+                    label
+                      input(type='checkbox', value='3', name='service')
+                      |  Service 3
+                  span.help-block
+                    | (select at least two)
+                  #form_2_services_error
+              .form-group.last
+                label.control-label.col-md-3
+                  | CKEditor 
+                  span.required *
+                .col-md-9
+                  textarea.ckeditor.form-control(name='editor2', rows='6', data-error-container='#editor2_error')
+                  #editor2_error
+            .form-actions
+              .row
+                .col-md-offset-3.col-md-9
+                  button.btn.green(type='submit') Submit
+                  button.btn.default(type='button') Cancel
+          // END FORM
+        // END VALIDATION STATES
+
+    //----------------------------------------------------------------------
+
+    .container
+      .t1 FORM
+
+      .well
+        .pagination-wrapper
+          ul.pagination
+            li.first
+              a(href='#')
+                i.fa.fa-angle-double-left
+            li
+              a(href='#')
+                i.fa.fa-angle-left
+            li
+              a(href='#') 1
+            li
+              a(href='#') 2
+            li.active
+              a 3
+            li
+              a(href='#') 4
+            li
+              a(href='#') 5
+            li
+              a(href='#')
+                i.fa.fa-angle-right
+            li.last
+              a(href='#')
+                i.fa.fa-angle-double-right
+    
+    //----------------------------------------------------------------------
+
+    //- .container
+    //-   .t1 BUTTON
+
+    //-   .t2 wb-btn-style-1
+    //-   .well
+    //-     button.wb-btn.wb-btn-style-1(type="button")
+    //-       img(src="../../assets/images/icon/icon_arrow_left_1.png", alt="icon_arrow_left_1")
+
+    //-   .t2 wb-btn-style-2
+    //-   .well
+    //-     button.wb-btn.wb-btn-style-2(type="button")
+    //-       .btn-inner
+    //-         .text 시작하기
+    //-         .icon
+    //-           img(src="../../assets/images/icon/icon_arrow_right_1.png", alt="icon_arrow_right_1")
+
+    //-   .t2 wb-btn-style-3
+    //-   .well
+    //-     button.wb-btn.wb-btn-style-3(type="button") 로그인하기
+
+    //-   .t2 wb-btn-style-4
+    //-   .well
+    //-     button.wb-btn.wb-btn-style-4(type="button") 전체보기
+
+    //-   .t2 wb-btn-style-5
+    //-   .well
+    //-     button.wb-btn.wb-btn-style-5(type="button") 문의하기
+
+    //-   .t2 wb-btn-style-6
+    //-   .well
+    //-     button.wb-btn.wb-btn-style-6(type="button") 회원가입
+
+    //-   .t2 wb-btn-style-7
+    //-   .well
+    //-     .wb-btn.wb-btn-style-7
+    //-       .wb-list-inline-style-3
+    //-         ul.wb-ul.list-inline
+    //-           li
+    //-             a.link(href="#") 아이디
+    //-           li 
+    //-             a.link(href="#") 비밀번호 찾기
+
+    //-   .t2 wb-btn-style-8.btn-facebook
+    //-   .well
+    //-     a.link.wb-btn.wb-btn-style-8.btn-facebook(href="#")
+    //-       span.wb-dp-table.align-middle
+    //-         span.wb-dp-table-cell.icon
+    //-           img(src="../../assets/images/icon/icon_facebook_1.png", alt="icon_facebook")
+    //-         span.wb-dp-table-cell.text 페이스북 로그인
+
+    //-   .t2 wb-btn-style-8.btn-kakao-talk
+    //-   .well
+    //-     a.link.wb-btn.wb-btn-style-8.btn-kakao-talk(href="#")
+    //-       span.wb-dp-table.align-middle
+    //-         span.wb-dp-table-cell.icon
+    //-           img(src="../../assets/images/icon/icon_comment_1.png", alt="icon_comment")
+    //-         span.wb-dp-table-cell.text 카카오톡 로그인
+
+    //-   .t2 wb-btn-style-8.btn-facebook.has-devider
+    //-   .well
+    //-     a.link.wb-btn.wb-btn-style-8.btn-facebook.has-devider(href="#")
+    //-       span.wb-dp-table.align-middle
+    //-         span.wb-dp-table-cell.icon
+    //-           img(src="../../assets/images/icon/icon_facebook_1.png", alt="icon_facebook")
+    //-         span.wb-dp-table-cell.text 페이스북 로그인
+
+    //-   .t2 wb-btn-style-8.btn-kakao-talk.has-devider
+    //-   .well
+    //-     a.link.wb-btn.wb-btn-style-8.btn-kakao-talk.has-devider(href="#")
+    //-       span.wb-dp-table.align-middle
+    //-         span.wb-dp-table-cell.icon
+    //-           img(src="../../assets/images/icon/icon_comment_1.png", alt="icon_comment")
+    //-         span.wb-dp-table-cell.text 카카오톡 로그인
+
+    //-   .t2 wb-btn-style-9
+    //-   .well
+    //-     button.wb-btn.wb-btn-style-9(type="button") 알람 설정
+
+    //-   .t2 wb-btn-style-10
+    //-   .well
+    //-     button.wb-btn.wb-btn-style-10(typr="button")
+    //-       span.wb-dp-table.align-middle
+    //-         span.wb-dp-table-cell.text 10
+    //-         span.wb-dp-table-cell.icon
+    //-           img(src="../../assets/images/icon/icon_montana_1.png", alt="icon_montana_1")
+
+    //-   .t2 wb-btn-style-11
+    //-   .well
+    //-     a.link.wb-btn.wb-btn-style-11(href="#")
+    //-       span.wb-dp-table.align-middle
+    //-         span.wb-dp-table-cell.icon
+    //-           img(src="../../assets/images/icon/icon_global_1.png", alt="icon_global_1")
+    //-         span.wb-dp-table-cell.text 웹 바로가기
+
+    //-   .t2 wb-btn-style-12
+    //-   .well
+    //-     a.link.wb-btn.wb-btn-style-12(href="#")
+    //-       span.wb-dp-table.align-middle
+    //-         span.wb-dp-table-cell.icon
+    //-           img(src="../../assets/images/icon/icon_montana_4.png", alt="icon_montana_4")
+    //-         span.wb-dp-table-cell.text 충전하기
+
+    //-   .t2 wb-btn-style-13
+    //-   .well
+    //-     button.wb-btn.wb-btn-style-13(type="button") 2몽
+
+    //-   .t2 wb-btn-style-14 
+    //-   .well
+    //-     button.wb-btn.wb-btn-style-14(type="button") 취소
+
+    //-   .t2 wb-btn-style-15 
+    //-   .well
+    //-     button.wb-btn.wb-btn-style-15(type="button") 저장한 음원
+
+    //-   //- .t2 wb-btn-style-16 
+    //-   //- .well
+    //-   //-   button.wb-btn.wb-btn-style-16(type="button") 광희동
+
+      
+
+
+    //-   .t2 wb-btn-block
+    //-   .well
+    //-     button.wb-btn.wb-btn-style-4.wb-btn-block(type="button") 문화시설
+
+    //-   .t2 wb-btn-group
+    //-   .well
+    //-     .wb-btn-group-wrapper
+    //-       .wb-btn-group
+    //-         a.wb-btn.wb-btn-style-4(href='#') 문화시설
+    //-         button.wb-btn.wb-btn-style-4(type='button') 문화시설
+    //-         input.wb-btn.wb-btn-style-4(type='submit', value='문화시설')
+  
+    //- //----------------------------------------------------------------------
+
+    //- .container
+    //-   .t1 TITLE
+
+    //-   .t2 wb-title-style-1
+    //-   .well
+    //-     .wb-title-style-1.wb-col-wrapper
+    //-       .wb-col-left.main
+    //-         span.wb-color-primary 화제의
+    //-         |  팟캐스트
+    //-       .wb-col-right.sub
+    //-         button.wb-btn.wb-btn-style-4(type="button") 전체보기
+
+    //-   .t2 wb-title-style-2
+    //-   .well
+    //-     a(href="#").link.wb-title-style-2
+    //-       span.text.wb-overflow-ellipsis ZZUM :: 쯤 ZZUM :: 쯤 ZZUM :: 쯤 ZZUM :: 쯤 ZZUM :: 쯤 ZZUM :: 쯤
+    //-         img.icon(src="../../assets/images/icon/icon_new_1.png", alt="icon_new")
+
+    //-   .t2 wb-title-style-3
+    //-   .well
+    //-     a(href="#").wb-title-style-3.link 진중권의 문화다방 진중권의 문화다방
+
+    //-   .t2 wb-title-style-4
+    //-   .well
+    //-     .wb-title-style-4 이메일 주소
+
+    //-   .t2 wb-title-style-5
+    //-   .well
+    //-     .wb-title-style-5 콕 채널 푸시 알림
+
+
+    //- //----------------------------------------------------------------------
+    
+    //- .container
+    //-   .t1 ICON TOP TEXT
+      
+    //-   .t2 wb-icon-top-text-style-1
+    //-   .well
+    //-     a.wb-icon-top-text-style-1.link(href="#")
+    //-       img.icon(src="../../assets/images/icon/icon_mortar_board_1.png", alt="icon_mortar_board")
+    //-       span.text 교육
+
+    //-   .t2 wb-icon-top-text-style-2
+    //-   .well
+    //-     .wb-icon-top-text-style-2
+    //-       img.icon(src="../../assets/images/icon/icon_search_3.png", alt="icon_search_3")
+    //-       span.text 선호하는 방송, 팟캐스터, 주제를 #[br]검색해보세요.
+
+    //-   .t2 wb-icon-top-text-style-3
+    //-   .well
+    //-     .wb-icon-top-text-style-3
+    //-       img.icon(src="../../assets/images/icon/icon_pin_1.png", alt="icon_pin_1")
+    //-       span.text 2374
+
+
+
+    //- //----------------------------------------------------------------------
+    
+    //- .container
+    //-   .t1 ICON LEFT TEXT
+      
+    //-   .t2 wb-icon-left-text-style-1
+    //-   .well
+    //-     .wb-icon-left-text-style-1
+    //-       .wb-dp-table.align-middle
+    //-         .wb-dp-table-cell.icon
+    //-           img(src="../../assets/images/icon/icon_headphones_1.png", alt="icon_headphones_1")
+    //-         .wb-dp-table-cell.text 13457
+
+    //-   .t2 wb-icon-left-text-style-2
+    //-   .well.bg1
+    //-     .wb-icon-left-text-style-2
+    //-       a.link(href="#")
+    //-         span.wb-dp-table.align-middle
+    //-           span.wb-dp-table-cell.icon
+    //-             img(src="../../assets/images/icon/icon_signifying_recharge_1.png", alt="icon_signifying_recharge_1")
+    //-           span.wb-dp-table-cell.text 충전하기
+
+    //-   .t2 wb-icon-left-text-style-3
+    //-   .well
+    //-     a.link.wb-icon-left-text-style-3(href="#")
+    //-       span.wb-dp-table.align-middle
+    //-         span.wb-dp-table-cell.icon
+    //-           img(src="../../assets/images/icon/icon_home_2.png", alt="icon_home_2")
+    //-         span.wb-dp-table-cell.text 몽팟 홈
+
+    //-   .t2 wb-icon-left-text-style-4
+    //-   .well.bg1
+    //-     .wb-icon-left-text-style-4
+    //-       span.wb-dp-table.align-middle
+    //-         span.wb-dp-table-cell.icon
+    //-           img(src="../../assets/images/icon/icon_operator_3.png", alt="icon_operator_3")
+    //-         span.wb-dp-table-cell.text 홍길동
+
+    //-   .t2 wb-icon-left-text-style-5
+    //-   .well
+    //-     .wb-icon-left-text-style-5
+    //-       span.wb-dp-table.align-middle
+    //-         span.wb-dp-table-cell.icon
+    //-           span.wb-label-style-1 Q1
+    //-         span.wb-dp-table-cell.text 핸드폰에 저장하는 파일 위치를 변경하고 싶어요.
+
+    //-   .t2 wb-icon-left-text-style-6
+    //-   .well
+    //-     .wb-icon-left-text-style-6 iOS에서 충전한 몽돈은 몽팟  iOS 앱에서만 사용하실 수 있 습니다.
+
+    //- //----------------------------------------------------------------------
+    
+    //- .container
+    //-   .t1 ICON RIGHT TEXT
+
+    //-   .t2 wb-icon-right-text-style-1
+    //-   .well
+    //-     .wb-icon-right-text-style-1
+    //-       a.link(href="#")
+    //-         span.wb-dp-table.align-middle
+    //-           span.wb-dp-table-cell.text 홍길동
+    //-           span.wb-dp-table-cell.icon
+    //-             img(src="../../assets/images/icon/icon_angle_left_1.png", alt="icon_angle_left")
+
+    //-   .t2 wb-icon-right-text-style-2
+    //-   .well
+    //-     .wb-icon-right-text-style-2
+    //-       span.wb-dp-table.align-middle
+    //-         span.wb-dp-table-cell.text 1,000
+    //-         span.wb-dp-table-cell.icon
+    //-           img(src="../../assets/images/icon/icon_montana_1.png", alt="icon_montana_1")
+
+    //-   .t2 wb-icon-right-text-style-3
+    //-   .well
+    //-     .wb-icon-right-text-style-3
+    //-       span.wb-dp-table.align-bottom
+    //-         span.wb-dp-table-cell.text 1,000
+    //-         span.wb-dp-table-cell.icon
+    //-           img(src="../../assets/images/icon/icon_montana_1.png", alt="icon_montana_1")
+
+    //-   .t2 wb-icon-right-text-style-4
+    //-   .well.bg1
+    //-     .wb-icon-right-text-style-4
+    //-       span.wb-dp-table.align-bottom
+    //-         span.wb-dp-table-cell.text 1,000
+    //-         span.wb-dp-table-cell.icon
+    //-           img(src="../../assets/images/icon/icon_montana_2.png", alt="icon_montana_2")
+
+    //- //----------------------------------------------------------------------
+    
+    //- .container
+    //-   .t1 LINE MIDDLE TEXT
+
+    //-   .t2 wb-line-middle-text-style-1
+    //-   .well.wb-text-center
+    //-     .wb-line-middle-text-style-1 또는
+
+    //- //----------------------------------------------------------------------
+                  
+    //- .container
+    //-   .t1 LABEL
+
+    //-   .t2 wb-label-style-1
+    //-   .well
+    //-     .wb-label-style-1 Q1
+
+    //-   .t2 wb-label-style-1.bg-coffee
+    //-   .well
+    //-     .wb-label-style-1.bg-coffee Q1
+
+    //- //----------------------------------------------------------------------
+    
+    //- .container
+    //-   .t1 CHECKBOX
+
+    //-   .t2 wb-checkbox-style-1
+    //-   .well
+    //-     label.wb-checkbox.wb-checkbox-style-1
+    //-       .text 특정인 대상의 비방, 욕설, 인신공격, 개인정보노출
+    //-       input(type='checkbox', name='test157')
+    //-       span.visual-box
+    //-         span.visual-checked
+          
+    //-   .t2 wb-checkbox-style-2
+    //-   .well
+    //-     label.wb-checkbox.wb-checkbox-style-2
+    //-       .text 영리 목적 또는 홍보성 게시물
+    //-       input(type='checkbox', name='test171')
+    //-       span.visual-box
+    //-         span.visual-checked
+                                  
+    //-   .t2 wb-checkbox-style-3
+    //-   .well
+    //-     label.wb-checkbox.wb-checkbox-style-3
+    //-       .text 이용 약관 및 개인정보 수집 및 이용에 동의합니다. (필수)
+    //-       input(type='checkbox', name='test927')
+    //-       span.visual-box
+    //-         span.visual-checked
+    //-           img.visual-checked-icon(src="../../assets/images/icon/icon_check_1.png", alt="icon_check_1")
+                   
+    //-   .t2 wb-checkbox-style-3.has-link
+    //-   .well
+    //-     label.wb-checkbox.wb-checkbox-style-3.has-link
+    //-       .text 
+    //-         a(href="#") 이용 약관
+    //-         |  및 
+    //-         a(href="#")  개인정보 수집 및 이용
+    //-         | 에 동의합니다. 
+    //-         span.wb-color-primary  (필수)
+    //-       input(type='checkbox', name='test927')
+    //-       span.visual-box
+    //-         span.visual-checked
+    //-           img.visual-checked-icon(src="../../assets/images/icon/icon_check_1.png", alt="icon_check_1")
+
+    //-   .t2 wb-checkbox-style-4
+    //-   .well
+    //-     label.wb-checkbox.wb-checkbox-style-4
+    //-       input(type='checkbox', name='test318')
+    //-       span.visual-box-wrapper
+    //-         span.text.on 알림
+    //-         span.text.off 해제
+    //-         span.visual-box
+    //-           span.visual-checked
+              
+    //-   .t2 wb-checkbox-style-5
+    //-   .well
+    //-     label.wb-checkbox.wb-checkbox-style-5
+    //-       input(type='checkbox', name='test168')
+    //-       span.visual-box(style="background-image: url(../../assets/images/demo_single_1.jpg);")
+    //-         span.visual-box-overlay
+    //-           span.visual-checked
+    //-             img.visual-checked-icon.icon-default(src="../../assets/images/icon/icon_coffee_1.png", alt="icon_coffee_1")
+    //-             img.visual-checked-icon.icon-checked(src="../../assets/images/icon/icon_check_2.png", alt="icon_check_2")
+    //-           .text 문화
+                                     
+    //-   .t2 wb-checkbox-style-5.checked-coffee-color
+    //-   .well
+    //-     label.wb-checkbox.wb-checkbox-style-5.checked-coffee-color
+    //-       input(type='checkbox', name='test168')
+    //-       span.visual-box(style="background-image: url(../../assets/images/demo_single_1.jpg);")
+    //-         span.visual-box-overlay
+    //-           span.visual-checked
+    //-             img.visual-checked-icon.icon-default(src="../../assets/images/icon/icon_coffee_1.png", alt="icon_coffee_1")
+    //-             img.visual-checked-icon.icon-checked(src="../../assets/images/icon/icon_check_2.png", alt="icon_check_2")
+    //-           .text 문화
+        
+    //- //----------------------------------------------------------------------
+    
+    //- .container
+    //-   .t1 RADIO
+
+    //-   .t2 wb-radio-style-1
+    //-   .well
+    //-     label.wb-radio.wb-radio-style-1
+    //-       span.text 끔
+    //-       input(type='radio', name='test159')
+    //-       span.visual-box
+    //-         span.visual-checked
+
+    //-     br
+
+    //-     label.wb-radio.wb-radio-style-1
+    //-       span.text 5분 후 
+    //-       input(type='radio', name='test159')
+    //-       span.visual-box
+    //-         span.visual-checked
+          
+    //-   .t2 wb-radio-style-2
+    //-   .well
+    //-     label.wb-radio.wb-radio-style-2
+    //-       span.text 끔
+    //-       input(type='radio', name='test689')
+    //-       span.visual-box
+    //-         span.visual-checked
+
+    //-     br
+
+    //-     label.wb-radio.wb-radio-style-2
+    //-       span.text 5분 후 
+    //-       input(type='radio', name='test689')
+    //-       span.visual-box
+    //-         span.visual-checked
+              
+    //- //----------------------------------------------------------------------
+    
+    //- .container
+    //-   .t1 INPUTBOX
+
+    //-   .t2 wb-inputbox-style-1
+    //-   .well
+    //-     input.wb-inputbox.wb-inputbox-style-1(type='text', name='test715', data-wb-placeholder='홍길동', placeholder='홍길동')
+
+    //-   .t2 wb-inputbox-style-2
+    //-   .well
+    //-     input.wb-inputbox.wb-inputbox-style-2(type='text', name='test774', data-wb-placeholder='검색어를 입력하세요.', placeholder='검색어를 입력하세요.')
+
+    //-   .t2 wb-inputbox-style-3
+    //-   .well.bg2
+    //-     textarea.wb-inputbox.wb-inputbox-style-3(name='test144', data-wb-placeholder='기타 항목을 선택 후 입력해주세요.', placeholder='기타 항목을 선택 후 입력해주세요.')
+
+    //-   .t2 wb-inputbox-style-4
+    //-   .well
+    //-     input.wb-inputbox.wb-inputbox-style-4(type='text', name='test915', data-wb-placeholder='홍길동', placeholder='홍길동')
+
+    //-   .t2 wb-inputbox-style-5
+    //-   .well
+    //-     input.wb-inputbox.wb-inputbox-style-5(type='text', name='test774', data-wb-placeholder='내용을 입력해주세요.', placeholder='내용을 입력해주세요.')
+
+    //-   .t2 .wb-autogrow-textarea
+    //-   .well.bg2
+    //-     textarea.wb-inputbox.wb-inputbox-style-5.wb-autogrow-textarea(name='test144', data-wb-placeholder='기타 항목을 선택 후 입력해주세요.', placeholder='기타 항목을 선택 후 입력해주세요.')
+
+    //-   .t2 wb-inputbox.wb-inputbox-block
+    //-   .well
+    //-     input.wb-inputbox.wb-inputbox-block.wb-inputbox-style-1(type='text', name='test893', data-wb-placeholder='비밀번호', placeholder='비밀번호')
+
+    //-   .t2 wb-picker-time
+    //-   .well
+    //-     .wb-picker-time-wrapper
+    //-       input.wb-inputbox.wb-inputbox-style-5.wb-inputbox-block.wb-picker-time(type='text', name='test924', placeholder='홍길동')
+    //-       .wb-picker-time-container
+
+    //-     .wb-picker-time-wrapper
+    //-       input.wb-inputbox.wb-inputbox-style-5.wb-inputbox-block.wb-picker-time(type='text', name='test925', placeholder='홍길동')
+    //-       .wb-picker-time-container
+
+    //- //----------------------------------------------------------------------
+
+    //- .container
+    //-   .t1 SELECT
+
+    //-   .t2 wb-select-style-1
+    //-   .well
+    //-     .wb-select.wb-select-style-1
+    //-       select
+    //-         option 비밀번호
+    //-         option 비
+    //-         option 비밀
+    //-         option 비밀번
+    //-         option 비밀번호 비밀번호
+
+    //-   .t2 wb-select-style-2
+    //-   .well
+    //-     .wb-select.wb-select-style-2
+    //-       select
+    //-         option 비밀번호
+    //-         option 비
+    //-         option 비밀
+    //-         option 비밀번
+    //-         option 비밀번호 비밀번호
+
+    //-   .t2 wb-select-style-1.wb-select-block
+    //-   .well
+    //-     .wb-select.wb-select-style-1.wb-select-block
+    //-       select
+    //-         option 비밀번호
+    //-         option 비
+    //-         option 비밀
+    //-         option 비밀번
+    //-         option 비밀번호 비밀번호
+
+    //- //----------------------------------------------------------------------
+
+    //- .container
+    //-   .t1 CHOOSE DAY MONTH YEAR
+
+    //-   .t2 wb-choose-year-month-day
+    //-   .well
+    //-     .wb-choose-year-month-day-wrapper
+    //-       input.wb-choose-year-month-day(type='hidden', name='birthday')
+
+    //- //----------------------------------------------------------------------
+
+    //- .container
+    //-   .t1 LIST INLINE
+
+    //-   .t2 wb-list-inline-style-1
+    //-   .well
+    //-     .wb-list-inline-style-1
+    //-       ul.wb-ul.list-inline
+    //-         li 미디어자몽
+    //-         li 음악
+
+    //-   .t2 wb-list-inline-style-2
+    //-   .well
+    //-     .wb-list-inline-style-2
+    //-       ul.wb-ul.list-inline
+    //-         li.wb-icon-left-text-style-1
+    //-           .wb-dp-table.align-middle
+    //-             .wb-dp-table-cell.icon
+    //-               img(src="../../assets/images/icon/icon_headphones_1.png", alt="icon_headphones")
+    //-             .wb-dp-table-cell.text 13457
+    //-         li.wb-icon-left-text-style-1
+    //-           .wb-dp-table.align-middle
+    //-             .wb-dp-table-cell.icon
+    //-               img(src="../../assets/images/icon/icon_pin_1.png", alt="icon_pin")
+    //-             .wb-dp-table-cell.text 2374
+
+    //-   .t2 wb-list-inline-style-3
+    //-   .well
+    //-     .wb-list-inline-style-3
+    //-       ul.wb-ul.list-inline
+    //-         li
+    //-           a(href="#") 아이디
+    //-         li 
+    //-           a(href="#") 비밀번호 찾기
+
+    //- //- //----------------------------------------------------------------------
+
+    //- //- .container
+    //- //-   .t1 LIST CHECKBOX
+
+    //- //-   .t2 wb-list-checkbox-style-1-join-interest
+    //- //-   .well
+    //- //-     include ../includes/wb-list-checkbox-style-1-join-interest.jade
+
+    //- //-   .t2 wb-list-checkbox-style-1-category
+    //- //-   .well
+    //- //-     include ../includes/wb-list-checkbox-style-1-category.jade
+
+    //- //- //----------------------------------------------------------------------
+
+    //- //- .container
+    //- //-   .t1 LIST RADIO
+
+    //- //-   .t2 wb-list-radio-style-1-time-setting
+    //- //-   .well
+    //- //-     include ../includes/wb-list-radio-style-1-time-setting.jade
+
+    //- //----------------------------------------------------------------------
+
+    //- .container
+    //-   .t1 TAB
+      
+    //-   .t2 wb-tab-style-1
+    //-   .well
+    //-     .wb-tab-style-1
+    //-       .buttons-row-wrapper
+    //-         .buttons-row
+    //-           a.tab-link.active(href='#tab11') 뉴스
+    //-           a.tab-link(href='#tab12') 정치
+    //-           a.tab-link(href='#tab13') 경제
+    //-         // Buttons row
+
+    //-       .tabs-animated-wrap
+    //-         .tabs
+    //-           #tab11.tab.active
+    //-             p This is tab 1 content
+    //-           #tab12.tab
+    //-             p This is tab 2 content
+    //-           #tab13.tab
+    //-             p This is tab 3 content
+    //-       // Tabs, tabs wrapper
+    //-     // .wb-tab-style-1
+
+    //-   .t2 wb-tab-style-1 (swiper tab)
+    //-   .well
+    //-     .wb-tab-style-1.two-tab
+    //-       .buttons-row-wrapper
+    //-         .buttons-row
+    //-           a.tab-link.active(href='#tab1b1') 뉴스
+    //-           a.tab-link(href='#tab1b2') 정치
+    //-         // Buttons row
+
+    //-       ="\n"
+    //-       .tabs-swipeable-wrap.swiper-container
+    //-         .tabs.swiper-wrapper
+    //-           #tab1b1.tab.swiper-slide.active
+    //-             p This is tab 1 content.
+              
+    //-           ="\n"
+    //-           #tab1b2.tab.swiper-slide
+    //-             p This is tab 2 content.
+    //-       // Tabs, tabs wrapper
+    //-     // .wb-tab-style-1
+
+    //-   .t2 wb-tab-style-1.six-tab
+    //-   .well
+    //-     .wb-tab-style-1.five-tab
+    //-       .buttons-row-wrapper
+    //-         .buttons-row
+    //-           a.tab-link.active(href='#tab1c1') 뉴스
+    //-           a.tab-link(href='#tab1c2') 정치
+    //-           a.tab-link(href='#tab1c3') 경제
+    //-           a.tab-link(href='#tab1c4') 비즈니스
+    //-           a.tab-link(href='#tab1c5') 문화
+    //-         // Buttons row
+
+    //-       .tabs-animated-wrap
+    //-         .tabs
+    //-           #tab1c1.tab.active
+    //-             p This is tab 1 content
+    //-           #tab1c2.tab
+    //-             p This is tab 2 content
+    //-           #tab1c3.tab
+    //-             p This is tab 3 content
+    //-           #tab1c4.tab
+    //-             p This is tab 4 content
+    //-           #tab1c5.tab
+    //-             p This is tab 5 content
+    //-       // Tabs, tabs wrapper
+    //-     // .wb-tab-style-1
+
+    //-   .t2 wb-tab-style-2
+    //-   .well
+    //-     .wb-tab-style-2
+    //-       .buttons-row-wrapper
+    //-         .buttons-row
+    //-           a.tab-link.active(href='#tab21') 뉴스
+    //-           a.tab-link(href='#tab22') 정치
+    //-           a.tab-link(href='#tab23') 경제
+    //-         // Buttons row
+
+    //-       .tabs-animated-wrap
+    //-         .tabs
+    //-           #tab21.tab.active
+    //-             p This is tab 1 content
+    //-           #tab22.tab
+    //-             p This is tab 2 content
+    //-           #tab23.tab
+    //-             p This is tab 3 content
+    //-       // Tabs, tabs wrapper
+    //-     // .wb-tab-style-1
+
+    //- //----------------------------------------------------------------------
+
+    //- //- .container
+    //- //-   .t1 ACCORDION
+
+    //- //-   .t2 wb-accordion-style-1
+    //- //-   .well
+    //- //-     include ../includes/wb-accordion-style-1.jade
+
+    //- //-   .t2 wb-accordion-style-1-no-icon-toggle
+    //- //-   .well
+    //- //-     include ../includes/wb-accordion-style-1-no-icon-toggle.jade
+
+    //- //----------------------------------------------------------------------
+
+    //- .container
+    //-   .t1 TABLE
+
+    //-   .t2 wb-table-style-1
+    //-   .well
+    //-     table.wb-table-style-1
+    //-       tr.tr-header-space-top
+    //-         td(colspan="3")
+    //-       tr.tr-header
+    //-         td 충전 날짜
+    //-         td 충전 금액
+    //-         td 충전 결제수단
+    //-       tr.tr-header-space-bottom
+    //-         td(colspan="3")
+    //-       - for (var i = 1; i < 5; i++)
+    //-         tr
+    //-           td 2014/12/12
+    //-           td 200몽
+    //-           td 신용카드
+    //-     // .wb-table-style-1
+
+    //- //----------------------------------------------------------------------
+
+    //- .container
+    //-   .t1 SIDE MENUBAR
+      
+    //-   .t2 wb-side-menubar
+    //-     //- include ../includes/wb-side-menubar.jade
+
+    //- //----------------------------------------------------------------------
+
+    //- .container
+    //-   .t1 COMMENT
+      
+    //-   .t2 wb-comment-block-style-1
+    //-     //- include ../includes/wb-comment-block-style-1.jade
+
+    //- //----------------------------------------------------------------------
+
+    //- .container
+    //-   .t1 BLOCK
+      
+    //-   //- .t2 wb-block-style-1
+    //-   //- .well
+    //-   //-   include ../includes/wb-block-style-1.jade
+
+    //-   //- .t2 wb-block-style-2
+    //-   //- .well
+    //-   //-   include ../includes/wb-block-style-2.jade
+   
+    //-   //- .t2 wb-block-style-2-listen-pin
+    //-   //- .well
+    //-   //-   include ../includes/wb-block-style-2-listen-pin.jade
+
+    //-   //- .t2 wb-block-style-3
+    //-   //- .well
+    //-   //-   include ../includes/wb-block-style-3.jade
+              
+    //-   //- .t2 wb-block-style-3-block2-channel-top
+    //-   //- .well
+    //-   //-   include ../includes/wb-block-style-3-block2-channel-top.jade
+                             
+    //-   //- .t2 wb-block-style-3-block2-pin-column
+    //-   //- .well
+    //-   //-   include ../includes/wb-block-style-3-block2-pin-column.jade
+     
+    //-   //- .t2 wb-block-style-3-block6
+    //-   //- .well
+    //-   //-   include ../includes/wb-block-style-3-block6.jade
+           
+    //-   //- .t2 wb-block-style-3-block8
+    //-   //- .well
+    //-   //-   include ../includes/wb-block-style-3-block8.jade
+
+    //-   //- .t2 wb-block-style-4
+    //-   //- .well
+    //-   //-   include ../includes/wb-block-style-4.jade
+
+    //-   //- .t2 wb-block-style-5
+    //-   //- .well
+    //-   //-   include ../includes/wb-block-style-5.jade
+
+    //-   //- .t2 wb-block-style-6
+    //-   //- .well
+    //-   //-   include ../includes/wb-block-style-6.jade
+
+    //-   //- .t2 wb-block-style-7
+    //-   //- .well
+    //-   //-   include ../includes/wb-block-style-7.jade
+  
+    //-   //- .t2 wb-block-style-8
+    //-   //- .well
+    //-   //-   include ../includes/wb-block-style-8.jade
+    
+    //-   //- .t2 wb-block-style-9
+    //-   //- .well
+    //-   //-   include ../includes/wb-block-style-9.jade
+
+    //- br
+    //- br
+    //- br
+    //- br
+    //- br
+    //- br
+    //- br
+    //- br
+    //- br
+    //- br
+    //- br
+    //- br
+    //- br
+    //- br
+    //- br
+    //- br
+    //- br
+    //- br
+    //- br

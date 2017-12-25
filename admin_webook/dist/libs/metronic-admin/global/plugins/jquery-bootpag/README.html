@@ -1,0 +1,21 @@
+<h1 id="bootpag-dynamic-pagination-">bootpag - dynamic pagination </h1>
+<p>This jQuery plugin helps you create dynamic pagination with <a href="http://getbootstrap.com/">Bootstrap</a> or in any other html pages.</p>
+<h1 id="example">Example</h1>
+<p>Snippet that dynamic loads number of pages.
+More examples can be found on <a href="http://botmonster.com/jquery-bootpag/">project homepage</a></p>
+<pre><code class="lang-html">&lt;p id=&quot;content&quot;&gt;Dynamic page content&lt;/p&gt;
+&lt;p id=&quot;pagination-here&quot;&gt;&lt;/p&gt;
+</code></pre>
+<pre><code class="lang-javascript">$(&#39;#pagination-here&#39;).bootpag({
+    total: 7,          // total pages
+    page: 1,            // default page
+    maxVisible: 5,     // visible pagination
+    leaps: true         // next/prev leaps through maxVisible
+}).on(&quot;page&quot;, function(event, num){
+    $(&quot;#content&quot;).html(&quot;Page &quot; + num); // or some ajax content loading...
+    // ... after content load -&gt; change total to 10
+    $(this).bootpag({total: 10, maxVisible: 10});
+});
+</code></pre>
+<h1 id="license">License</h1>
+<p>Plugin available under MIT license (see LICENSE.txt)</p>

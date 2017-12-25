@@ -1,0 +1,69 @@
+.wbp-charge: .container
+  .wb-f22.wb-mt50 #[span.wb-color-complementary3 충전]하기
+  .sep2.wb-mt20
+  .row.wb-mt50: .col-md-8
+    .wbp-charge-box
+      .wbp-charge-box-title
+        img.wb-mr32(src="/dist/assets/img/bag.png" alt="bag")
+        span.wb-f18 충전 금액 선택
+      div
+        .wbp-charge-box-item: .row
+          .col-xs-6.col-md-4
+            label.wb-check-rad
+              input(type="radio" name="a")
+              span: span.wb-wn 30쿠폰
+          .col-xs-6.col-md-8
+            .wb-f20.wb-color-red 3,000원
+        .wbp-charge-box-item: .row
+          .col-xs-6.col-md-4
+            label.wb-check-rad
+              input(type="radio" name="a")
+              span: span.wb-wn 50 쿠폰
+          .col-xs-6.col-md-8
+            .wb-f20.wb-color-red 5,000원
+        .wbp-charge-box-item: .row
+          .col-xs-6.col-md-4
+            label.wb-check-rad
+              input(type="radio" name="a")
+              span: span.wb-wn 100 + 7쿠폰
+          .col-xs-6.col-md-8
+            .wb-f20.wb-color-red 10,000원
+        .wbp-charge-box-item: .row
+          .col-xs-6.col-md-4
+            label.wb-check-rad
+              input(type="radio" name="a")
+              span: span.wb-wn 300 + 20쿠폰
+          .col-xs-6.col-md-8
+            .wb-f20.wb-color-red 30,000원
+        .wbp-charge-box-item: .row
+          .col-xs-6.col-md-4
+            label.wb-check-rad
+              input(type="radio" name="a")
+              span: span.wb-wn 500 + 50쿠폰
+          .col-xs-6.col-md-8
+            .wb-f20.wb-color-red 50,000원
+
+
+
+  .row.wb-mt50: .col-md-8
+    .wbp-charge-box
+      .wbp-charge-box-title
+        img.wb-mr32(src="/dist/assets/img/wallet.png" alt="wallet")
+        span.wb-f18 결제수단 선택
+      div
+        .wbp-charge-box-item
+          label.wb-check-rad
+            input(type="radio" name="a")
+            span: span.wb-wn 신용카드
+        .wbp-charge-box-item
+          label.wb-check-rad
+            input(type="radio" name="a")
+            span: span.wb-wn 휴대폰결제
+        .wbp-charge-box-item
+          label.wb-check-rad
+            input(type="radio" name="a")
+            span: span.wb-wn 계좌 이체
+
+
+  .row.wb-mt30: .col-md-8.text-center
+    button.base-btn.wb-btn-shine.w100 결제 요청

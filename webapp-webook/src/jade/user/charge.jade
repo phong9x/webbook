@@ -1,0 +1,18 @@
+extends ../layouts/user.jade
+
+append content
+  +wb-header
+  +wb-sub-header
+  
+  .wb-canvas
+    .wb-canvas-wrapper
+      .wb-canvas-content
+        +wbm-header
+        +wbm-tab
+        
+        include includes/charge.jade
+        
+        +wb-footer
+      .wb-canvas-side
+      
+  

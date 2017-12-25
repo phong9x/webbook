@@ -1,0 +1,13 @@
+include ../user/includes/mixin.jade
+extends master.jade
+
+append css
+  link(href='/dist/libs/slick/slick.css' rel='stylesheet')
+  link(href='/dist/libs/slick/slick-theme.css' rel='stylesheet')
+  link(href='/dist/assets/css/user.css' rel='stylesheet')
+
+append js
+  script(src='/dist/libs/slick/slick.min.js')
+  script(src='//cdn.ckeditor.com/4.5.6/standard/ckeditor.js')
+  script(src='//cdn.ckeditor.com/4.5.6/standard/adapters/jquery.js')
+  script(src='/dist/assets/js/user.dist.js')

@@ -1,0 +1,84 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title announcement-detail - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .announcement-detail.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 공지사항 상세보기
+        // .page-bar
+        
+        ="\n"
+        .announcement-detail-main.wb-pb-50
+          form.form-horizontal
+            .form-body
+              .block-1.wb-container-style-1
+                .form-group
+                  .col-md-4
+                    .row
+                      .col-md-4
+                        label.control-label #[strong NO: ]
+                      .col-md-8
+                        .form-control-static 34
+                  .col-md-4
+                    .row
+                      .col-md-4
+                        label.control-label #[strong 닉네임: ]
+                      .col-md-8
+                        .form-control-static bobobo12
+                  .col-md-4
+                    .row
+                      .col-md-4
+                        label.control-label #[strong 일시: ]
+                      .col-md-8
+                        .form-control-static 2015-00-00 00:00
+                
+                ="\n"
+                .form-group
+                  .col-md-2
+                    label.control-label #[strong 제목: ]
+                  .col-md-10
+                    input.form-control(type='text', name='test6874', value='안녕하세요. 처음 가입하게 되엇네요')
+              
+                ="\n"
+                .form-group
+                  .col-md-12
+                    textarea.form-control(name="test3452", rows="10") #[| 안녕하세요. 처음 가입하게 되엇네요. 앞으로 재미있는 이야기 마음껏 털어놓아 보아요.]
+              // .block-1
+
+              ="\n"
+              .wb-gap(style="border-bottom: 1px solid #e1e1e1; padding-bottom: 30px; margin-bottom: 30px;")
+
+              ="\n"
+              .block-2.wb-container-style-1
+                .wb-col-wrapper
+                  .wb-col-left
+                    a.btn.default(href="book-detail.html") 목록
+                  .wb-col-right
+                    a.btn.green(href="announcement-edit.html") 수정
+                    a.btn-open-popup.btn.red(href="#", data-toggle='modal', data-target="#popupConfirmDelete") 삭제
+              // .block-2
+        // .announcement-detail-main
+      // .page-content
+    // .announcement-detail
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade
+
+  ="\n"
+  include ../includes/popupConfirmDelete.jade

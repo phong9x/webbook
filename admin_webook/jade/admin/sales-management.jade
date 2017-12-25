@@ -1,0 +1,105 @@
+extends ../layouts/master.jade
+
+append titlePage
+  title sales-management - WebBook
+
+append body
+  +body(class="page-header-fixed page-quick-sidebar-over-content")
+
+append body-contents
+  include ../includes/header.jade
+  
+  ="\n"
+  .page-container
+    include ../includes/page-sidebar.jade
+
+    ="\n"
+    .sales-management.page-content-wrapper
+      .page-content
+        .page-bar
+          ul.page-breadcrumb
+            li
+              span 정산관리
+              i.fa.fa-angle-right
+            li
+              span 판매현황
+        // .page-bar
+        
+        ="\n"
+        .sales-management-main.wb-pb-50
+          .form-search-wrapper
+            form.form-search.form-horizontal.wb-container-style-1(action='#')
+              .form-body
+                .form-group
+                  .col-md-7
+                    select.form-control.input-inline.input-small
+                      option 2015
+                      option Option 2
+                      option Option 3
+                    span.help-inline(style="margin-right: 15px;") 년
+                    
+                    select.form-control.input-inline.input-small
+                      option 8
+                      option Option 2
+                      option Option 3
+                    span.help-inline 월
+
+                  ="\n"
+                  .col-md-5
+                    span 월 누적 판매금액 : #[strong 156,486,000원]
+
+                ="\n"  
+                .form-group
+                  .col-md-3
+                    select.form-control(name='test38')
+                      option(value='0') 아이디 
+                      option(value='1') 성명
+                      option(value='2') 작품명
+                      option(value='3') 회차명
+
+                  ="\n"
+                  .col-md-5.col-md-offset-1
+                    input.form-control(name='test349', type='search')
+                  
+                  .col-md-3.text-center
+                    button.btn.green.btn-search(type='submit') 검색
+            // .form-search
+          // .form-search-wrapper
+
+          ="\n"
+          .wb-gap(style='border-top: 1px solid #e1e1e1; padding-bottom: 15px;')
+          
+          ="\n"
+          .table-sales-management.table-responsive
+            table.table.table-striped.table-bordered.table-hover
+              thead
+                tr
+                  th 번호
+                  th 아이디
+                  th 성명
+                  th 작품명
+                  th 회차명
+                  th 단가(원)
+                  th 판매수
+              tbody
+                tr
+                  td 1
+                  td
+                    a(href="profit-detail.html") Abcd
+                  td 홍길동
+                  td 영원한 사랑
+                  td 23회 꿈꾸는 소녀와…
+                  td 100
+                  td 1,800
+          //.table-sales-management
+
+          ="\n"
+          include ../includes/wb-pagination.jade          
+
+        // .sales-management-main
+      // .page-content
+    // .sales-management
+  //.page-container
+  
+  ="\n"
+  include ../includes/footer.jade
